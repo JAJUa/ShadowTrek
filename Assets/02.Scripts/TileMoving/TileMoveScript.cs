@@ -122,10 +122,12 @@ public class TileMoveScript : MonoBehaviour
 
     public IEnumerator MoveAlongPath(GameObject character,Animator animator,PathFind pathFind, float moveSpeed,CurCharacter characterRole,List<PointInTime> pointsInTime)
     {
+       
         List<Nodee> FinalNodeList = pathFind.FinalNodeList;
         animator.SetBool("isWalk", true);
         for (int passtile = 0; passtile < FinalNodeList.Count - 1; passtile++)
         {
+            
             // RePlay 리플레이 모드면 실행
             if (RePlay.Inst.isReplayMode)
                 RePlay.Inst.ReMove();
@@ -142,13 +144,17 @@ public class TileMoveScript : MonoBehaviour
                 else
                     yield return StartCoroutine(MoveToPosition(character,new Vector3(FinalNodeList[passtile + 1].x, character.transform.position.y, FinalNodeList[passtile + 1].z),moveSpeed,pathFind,passtile,characterRole,pointsInTime));
             }         
-            else             
-                yield return StartCoroutine(MoveToPosition(character,new Vector3(FinalNodeList[passtile + 1].x, character.transform.position.y, FinalNodeList[passtile + 1].z),moveSpeed, pathFind,passtile,characterRole,pointsInTime));
+            else
+            {
+                yield return StartCoroutine(MoveToPosition(character, new Vector3(FinalNodeList[passtile + 1].x, character.transform.position.y, FinalNodeList[passtile + 1].z), moveSpeed, pathFind, passtile, characterRole, pointsInTime));
+                
+            }
+               
 
         }
 
-   
 
+      
         animator.SetBool("isWalk", false);
 
         InGameManager.Inst.moveBlock = false;
@@ -160,7 +166,7 @@ public class TileMoveScript : MonoBehaviour
 
     private IEnumerator MoveToPosition(GameObject character, Vector3 targetPosition, float moveSpeed, PathFind pathFind, int passtile,CurCharacter characterRole,List<PointInTime> pointsInTime)
     {
-        
+       
         // Position
         Vector3 startPosition = character.transform.position;
         float distance = Vector3.Distance(startPosition, targetPosition);
@@ -189,7 +195,7 @@ public class TileMoveScript : MonoBehaviour
         {
             pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
 
-            if (InGameManager.Inst.inRelpayMode)
+            if (InGameManager.Inst.inRelpayMode||InGameManager.Inst.noPapaButDetect)
             {
 
                 DetectLight();

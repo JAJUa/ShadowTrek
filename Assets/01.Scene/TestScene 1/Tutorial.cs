@@ -109,13 +109,20 @@ public class Tutorial : MonoBehaviour
         {
             if (tutorialType == TutorialType.MoveTutorial && triggerObj != null)
             {
+                Debug.Log(Vector3.Distance(player.position, triggerObj.position));
                 if (Vector3.Distance(player.position, triggerObj.position) < 1.4f)
                 {
-                    Debug.Log(moveTutoCutScene);
-                    Debug.Log(gameObject.name);
                   
                     tutoFnish = true;
-                    if(moveTutoCutScene) cutSceneManager.StartCutScene();
+                    if (moveTutoCutScene)
+                    {
+                        InGameManager.Inst.StopMoving();
+                        Debug.Log("sada");
+
+                        
+                        cutSceneManager.StartCutScene();
+                        
+                    }
                     TutorialManager.Inst.FinshTutorial();
                 }
             }

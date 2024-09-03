@@ -22,14 +22,15 @@ public class InGameManager : MonoBehaviour
     public bool moveBlock = false;
     public bool isInteractionDetect;
     public bool inRelpayMode;
+    public bool noPapaButDetect;
     public CurCharacter curCharacter;
-    public bool changeRoom;
     public int curStageNum;
     [SerializeField]Player player;
     [SerializeField]ShadowModePapa papa;
+    [SerializeField] bool onlyPlayer;
+    public bool changeRoom;
     public CameraMove cam;
-    public Vector3 camPos;
-    public Vector3 camRot;
+    private Vector3 camPos, camRot;
     [ShowIf("changeRoom")]
     [Space(10)] [Header("-- Room --")]
     public bool[] isKey;
@@ -45,8 +46,12 @@ public class InGameManager : MonoBehaviour
 
         GameObject pl = GameObject.FindGameObjectWithTag("PlayerControl");
         player = pl.GetComponent<Player>();
-        GameObject pa = GameObject.FindGameObjectWithTag("Papa");
-        papa = pa.GetComponent<ShadowModePapa>();
+        if (!onlyPlayer)
+        {
+            GameObject pa = GameObject.FindGameObjectWithTag("Papa");
+            papa = pa.GetComponent<ShadowModePapa>();
+        }
+      
 
         curCharacter = CurCharacter.Player;      
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMove>();
@@ -59,7 +64,8 @@ public class InGameManager : MonoBehaviour
             return;
         }
 
-        papa.gameObject.SetActive(false);
+        if(!onlyPlayer)
+             papa.gameObject.SetActive(false);
 
     }
 
@@ -81,6 +87,23 @@ public class InGameManager : MonoBehaviour
         papa.ResetPos();
         player.playerInLight();
         DOVirtual.DelayedCall(1.5f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; }) ;
+        
+    }
+
+    public void StopMoving()
+    {
+        player.lineRenderer.positionCount = 0;
+        moveBlock = true;
+      
+        //player.lineRenderer.enabled = false;
+        player.animator.SetBool("isWalk", false);
+        Debug.Log(player.lineRenderer.positionCount);
+
+        StopCoroutine(player.moveCoroutine);
+    }
+
+    private void Update()
+    {
         
     }
 

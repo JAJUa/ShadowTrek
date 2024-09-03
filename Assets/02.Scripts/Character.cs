@@ -7,17 +7,19 @@ public class Character : MonoBehaviour
 {
     [HideInInspector] public PathFind pathFind;
     public List<PointInTime> pointInTime;
-    [HideInInspector] public Animator animator;
+    public Animator animator;
     [HideInInspector] public TileMoveScript tileMove;
     public float moveSpeed;
     public CurCharacter curCharacter;
     public bool isLight = false;
     public Coroutine moveCoroutine;
     public Vector3 startPos;
+    public LineRenderer lineRenderer;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
+        lineRenderer = GetComponent<LineRenderer>();   
         tileMove = TileMoveScript.Inst;
         pathFind = new PathFind(TileMoveScript.Inst.bottomLeft, TileMoveScript.Inst.topRight, 15, true, true, LayerMask.GetMask("Ground"));
         pathFind.FindPath(Vector3Int.FloorToInt(Vector3Int.RoundToInt(transform.position)), TileMoveScript.Inst.topRight);
@@ -39,7 +41,7 @@ public class Character : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("MoveTile") && !Physics.Raycast(hit.transform.position, Vector3.up, 3f))  //MoveTile 감지 및 위에 플레이어나 펫이 있는지 감지
                     {
-
+                        Debug.Log("ClickTile");
                         InGameManager.Inst.moveBlock = true;
 
                         Vector3 tilePosition = hit.collider.transform.position;
@@ -82,7 +84,9 @@ public class Character : MonoBehaviour
 
     public virtual void CharacterDead()
     {
-        InGameManager.Inst.PapaRestart();
+        if (InGameManager.Inst.noPapaButDetect)
+            InGameManager.Inst.GameReStart();
+        else InGameManager.Inst.PapaRestart();
     }
 
 

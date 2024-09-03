@@ -45,7 +45,7 @@ public class Player : Character
                EnterReplayMode();
             }
         }
-        else if (InGameManager.Inst.inRelpayMode)
+        else if (InGameManager.Inst.inRelpayMode || !isReplay)
         {
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {

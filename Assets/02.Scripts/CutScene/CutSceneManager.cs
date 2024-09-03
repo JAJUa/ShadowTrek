@@ -9,6 +9,7 @@ using TMPro;
 using System.Text;
 using System;
 using VInspector;
+using Febucci.UI;
 
 public class CutSceneManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] CutSceneType cutSceneType;
     [SerializeField] bool typingEffect;
     [SerializeField] RectTransform up, down;
+    [SerializeField] GameObject[] character;
+    [SerializeField] bool isDialogue;
 
     [Foldout("Center")]
     [Header("Center Text")]
@@ -29,9 +32,11 @@ public class CutSceneManager : MonoBehaviour
     [Foldout("Dialogue")]
     [Header("Dialogue Text")]
     [TextArea][SerializeField] string[] dialogueDetail;
-    [SerializeField] Image dialogueImage;
-    [SerializeField] TextMeshProUGUI dialogueText;
+    [SerializeField] int dialogueIndex = 0;
+    [SerializeField] Image[] dialogueImage;
+    [SerializeField] TypewriterByCharacter[] dialogueText;
     [SerializeField] float dialogueTextCloseCool;
+    [SerializeField] Tween[] dialogueTextTween = new Tween[2];
 
     [Foldout("Bottom")]
     [Header ("Bottom Text")]
@@ -44,11 +49,9 @@ public class CutSceneManager : MonoBehaviour
 
     Coroutine textCloseCor;
 
-    Tween bottomTextTween;
+    
 
-    [Header("test")]
-    public GameObject player;
-    [SerializeField] bool isDialogue;
+   
 
     private void Awake()
     {
@@ -72,7 +75,7 @@ public class CutSceneManager : MonoBehaviour
         }
         else
         {
-            bottomTextTween.Kill();
+           // dialogueTextTween.Kill();
             bottomTextBackground.DOFade(0, 0f);
             cutSceneBottomText.DOFade(0, 0f);
             bottomTextBackground.gameObject.SetActive(true);
@@ -82,26 +85,32 @@ public class CutSceneManager : MonoBehaviour
             if(index<ttsAudio.Length)
                 AudioManager.Inst.DialogueAudio(ttsAudio[index]);
             textCloseCor = StartCoroutine(TextClose(bottomTextCloseCool,cutSceneBottomText));
-            bottomTextTween =  DOVirtual.DelayedCall(bottomTextCloseCool + 0.2f, () => bottomTextBackground.gameObject.SetActive(false));
+         //   dialogueTextTween =  DOVirtual.DelayedCall(bottomTextCloseCool + 0.2f, () => bottomTextBackground.gameObject.SetActive(false));
 
         }
        
 
     }
 
-    public void DialogueText(int index)
+    public void DialogueImage(int dialogueIndex)
     {
-        dialogueImage.gameObject.SetActive(true);
+        if (dialogueTextTween != null)
+        {
+            dialogueTextTween[dialogueIndex].Kill();
+        }
+        dialogueImage[dialogueIndex].gameObject.SetActive(true);
         
-        dialogueImage.DOFade(1, 0.5f);
-        dialogueText.DOFade(1, 0.5f);
-        
-        dialogueText.text = dialogueDetail[index];
-        StartCoroutine(TextClose(dialogueTextCloseCool, dialogueText));
-        DOVirtual.DelayedCall(dialogueTextCloseCool, () => {
-            dialogueImage.DOFade(0, 0.5f).OnComplete(()=>dialogueImage.gameObject.SetActive(false)) ;      
+        dialogueImage[dialogueIndex].DOFade(1, 0.5f);
+        dialogueText[dialogueIndex].ShowText(dialogueDetail[this.dialogueIndex]);
+
+        DOVirtual.DelayedCall(dialogueTextCloseCool + 0.2f, () => dialogueText[dialogueIndex].StartDisappearingText());
+        dialogueTextTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool + 1f, () => {
+            dialogueImage[dialogueIndex].DOFade(0, 0.5f).OnComplete(()=>dialogueImage[dialogueIndex].gameObject.SetActive(false)) ;      
             });
+        this.dialogueIndex++;
     }
+
+
 
     public void CenterText(int index)
     {
@@ -137,8 +146,12 @@ public class CutSceneManager : MonoBehaviour
     {
         if (isDialogue)
         {
-            dialogueImage.transform.position = player.transform.position + new Vector3(0, 15, 0);
-            dialogueImage.transform.rotation = Camera.main.transform.rotation;
+            for(int i = 0; i<character.Length; i++)
+            {
+                dialogueImage[i].transform.position = character[i].transform.position + new Vector3(0, 15, 0);
+                dialogueImage[i].transform.rotation = Camera.main.transform.rotation;
+            }
+         
         }
 
     }
@@ -150,14 +163,15 @@ public class CutSceneManager : MonoBehaviour
 
     public void CutSceneIn(bool cutSceneIn)
     {
-        Debug.Log("sss");
         if(cutSceneIn)
         {
+            InGameManager.Inst.moveBlock = true;
             up.DOAnchorPosY(-50, 0.7f);
             down.DOAnchorPosY(50, 0.7f);
         }
         else
         {
+            InGameManager.Inst.moveBlock = false;
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);
         }

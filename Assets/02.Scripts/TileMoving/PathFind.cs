@@ -43,7 +43,7 @@ public class PathFind : MonoBehaviour
             for (int j = 0; j < sizeZ; j++)
             {
                 bool isWall = false;
-                Collider[] mTile = Physics.OverlapSphere(new Vector3(((i * 15) + bottomLeft.x), 3, ((j * 15) + bottomLeft.z)), 0.4f, LayerMask.GetMask("MoveTile"));
+                Collider[] mTile = Physics.OverlapSphere(new Vector3(((i * 15) + bottomLeft.x), bottomLeft.y, ((j * 15) + bottomLeft.z)), 0.4f, LayerMask.GetMask("MoveTile"));
                 if (mTile.Length == 0) isWall = true;
 
                // if (!Physics.Raycast(new Vector3(((i * 15) + bottomLeft.x), 3, ((j*15) + bottomLeft.z)), Vector3.down, 6f, groundLayer)) isWall = true;
