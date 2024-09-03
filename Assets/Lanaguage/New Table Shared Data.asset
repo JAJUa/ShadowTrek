@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: New Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: New Table
+  m_TableCollectionNameGuidString: 1455de9d918f0224ba34b2da175b3628
+  m_Entries:
+  - m_Id: 76155236352
+    m_Key: "\uC74C\uC545"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 433941332144128
+    m_Key: "\uC5B8\uC5B4 \uC120\uD0DD"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5121883040428032
+    m_Key: "\uAC8C\uC784 \uB9AC\uC14B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5122555051814912
+    m_Key: "\uC815\uB9D0 \uB9AC\uC14B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8403151979065344
+    m_Key: "\uC124\uC815"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8403154000719872
+    m_Key: "\uD6A8\uACFC\uC74C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9138376510058496
+    m_Key: "\uAC70\uC6B8 \uC0C1\uD638\uC791\uC6A9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32658347499851776
+    m_Key: "\uC5B8\uC5B4 \uC774\uB984"
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6882108675523084312
+  references:
+    version: 2
+    RefIds:
+    - rid: 6882108675523084312
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1716018321757

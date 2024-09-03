@@ -1,0 +1,54 @@
+using DG.Tweening;
+using DissolveExample;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class ShadowModePapa : Character
+{
+
+    public DissolveChilds dissolve;
+
+    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        startPos = transform.position;
+    }
+
+    public override void Start()
+    {
+        base.Start();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        CharacterMove();
+   
+    }
+
+   public void ResetPos()
+    {
+        
+        isLight= false;
+        transform.position = startPos;
+        Debug.Log("papaReset");
+        DOVirtual.DelayedCall(1f, () => dissolve.DIssolvessad(false));
+    }
+    
+
+    public override void InLight()
+    {
+        if (isLight)
+        {
+            InGameManager.Inst.moveBlock = true;
+            dissolve.DIssolvessad(true);
+            DOVirtual.DelayedCall(0.5f,()=> CharacterDead());
+            return;
+
+        }
+    }
+}
