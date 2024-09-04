@@ -12,6 +12,8 @@ public class InteractiveObject : MonoBehaviour
 
     public virtual void ResetLigt() { }
 
+    public virtual void ResetObj() { }
+
     private void OnDrawGizmos()
     {  
         Gizmos.color = Color.blue;

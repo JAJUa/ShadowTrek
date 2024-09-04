@@ -61,7 +61,7 @@ public class Dialouge : MonoBehaviour
 
     [SerializeField] Vector3 colliderTrans;
     [SerializeField] Vector3 colliderSize;
-    [SerializeField] LayerMask playerMask;
+    [SerializeField] LayerMask layerMask;
 
     private RectTransform interTransform,dialoTransform;
     [SerializeField] private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
@@ -75,9 +75,7 @@ public class Dialouge : MonoBehaviour
 
     private void Awake()
     {
-       playerMask = LayerMask.GetMask("Player");
-       playerMask += LayerMask.GetMask("Pet");
-       playerMask += LayerMask.GetMask("Papa");
+       layerMask += LayerMask.GetMask("Papa");
     }
 
     private void Start()
@@ -136,7 +134,7 @@ public class Dialouge : MonoBehaviour
 
     private void FixedUpdate() // 클릭했을 때로 바꾸기
     {
-        Collider[] hit = Physics.OverlapBox(transform.position+colliderTrans, colliderSize, Quaternion.identity, playerMask);
+        Collider[] hit = Physics.OverlapBox(transform.position+colliderTrans, colliderSize, Quaternion.identity, layerMask);
         if (hit.Length > 0)
         {
             if (!isInterActiveing && !onColider)

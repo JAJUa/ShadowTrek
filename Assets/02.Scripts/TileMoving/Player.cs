@@ -12,7 +12,7 @@ public class Player : Character
     [SerializeField] Transform endObj;
     [SerializeField] bool isReplay; //목표 지점에 도착하면 다시 돌아갈 것인가
     [SerializeField] Transform bwShaderSphere;
-    [SerializeField] PlayableDirector playableDirector;
+    [SerializeField] PlayableDirector endPlayableDirector;
     public int shadowIndex = 3;
 
 
@@ -49,7 +49,7 @@ public class Player : Character
         {
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {
-                playableDirector.Play();
+                endPlayableDirector.Play();
             }
            
         }

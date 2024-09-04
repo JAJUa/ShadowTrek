@@ -36,7 +36,8 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] Image[] dialogueImage;
     [SerializeField] TypewriterByCharacter[] dialogueText;
     [SerializeField] float dialogueTextCloseCool;
-    [SerializeField] Tween[] dialogueTextTween = new Tween[2];
+     Tween[] dialogueFadeTween = new Tween[2];
+     Tween[] dialogueTextTween = new Tween[2];
 
     [Foldout("Bottom")]
     [Header ("Bottom Text")]
@@ -94,17 +95,15 @@ public class CutSceneManager : MonoBehaviour
 
     public void DialogueImage(int dialogueIndex)
     {
-        if (dialogueTextTween != null)
-        {
-            dialogueTextTween[dialogueIndex].Kill();
-        }
+        if (dialogueFadeTween != null) dialogueFadeTween[dialogueIndex].Kill();
+        if(dialogueTextTween != null) dialogueTextTween[dialogueIndex].Kill();
         dialogueImage[dialogueIndex].gameObject.SetActive(true);
         
         dialogueImage[dialogueIndex].DOFade(1, 0.5f);
         dialogueText[dialogueIndex].ShowText(dialogueDetail[this.dialogueIndex]);
 
-        DOVirtual.DelayedCall(dialogueTextCloseCool + 0.2f, () => dialogueText[dialogueIndex].StartDisappearingText());
-        dialogueTextTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool + 1f, () => {
+        dialogueTextTween[dialogueIndex] =  DOVirtual.DelayedCall(dialogueTextCloseCool , () => dialogueText[dialogueIndex].StartDisappearingText());
+        dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool , () => {
             dialogueImage[dialogueIndex].DOFade(0, 0.5f).OnComplete(()=>dialogueImage[dialogueIndex].gameObject.SetActive(false)) ;      
             });
         this.dialogueIndex++;
@@ -174,6 +173,7 @@ public class CutSceneManager : MonoBehaviour
             InGameManager.Inst.moveBlock = false;
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);
+            transform.gameObject.SetActive(false);
         }
     }
 

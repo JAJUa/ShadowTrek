@@ -47,16 +47,19 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-       
-        switch (character)
+       if(player== null)
         {
-            case Character.Daughter:
-                player = GameObject.FindGameObjectWithTag("PlayerControl").transform;
-                break;
-            case Character.Papa:
-                player = GameObject.FindGameObjectWithTag("Papa").transform;
-                break;
+            switch (character)
+            {
+                case Character.Daughter:
+                    player = GameObject.FindGameObjectWithTag("PlayerControl").transform;
+                    break;
+                case Character.Papa:
+                    player = GameObject.FindGameObjectWithTag("Papa").transform;
+                    break;
+            }
         }
+     
 
         if (replayPlayerPosChange)
         {
@@ -109,7 +112,6 @@ public class Tutorial : MonoBehaviour
         {
             if (tutorialType == TutorialType.MoveTutorial && triggerObj != null)
             {
-                Debug.Log(Vector3.Distance(player.position, triggerObj.position));
                 if (Vector3.Distance(player.position, triggerObj.position) < 1.4f)
                 {
                   
@@ -117,7 +119,6 @@ public class Tutorial : MonoBehaviour
                     if (moveTutoCutScene)
                     {
                         InGameManager.Inst.StopMoving();
-                        Debug.Log("sada");
 
                         
                         cutSceneManager.StartCutScene();

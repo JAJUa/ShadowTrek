@@ -1666,7 +1666,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5886,7 +5886,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   waitForNormalChars: 0.03
-  waitLong: 0.6
+  waitLong: 0.03
   waitMiddle: 0.2
   avoidMultiplePunctuactionWait: 0
   waitForNewLines: 1
@@ -7679,7 +7679,7 @@ MonoBehaviour:
   - {fileID: 881020235}
   player: {fileID: 0}
   textExplain: 0
-  moveTutoCutScene: 0
+  moveTutoCutScene: 1
   replayPlayerPosChange: 0
   character: 0
   tutorialType: 0
@@ -7689,7 +7689,7 @@ MonoBehaviour:
   isContinuous: 0
   textTriggerObj: {fileID: 0}
   textIndex: 0
-  cutSceneManager: {fileID: 0}
+  cutSceneManager: {fileID: 1235943635}
   tutorialText: []
 --- !u!4 &1114055490
 Transform:
@@ -9106,6 +9106,190 @@ Transform:
   m_Children: []
   m_Father: {fileID: 261956233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235943633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235943636}
+  - component: {fileID: 1235943635}
+  - component: {fileID: 1235943634}
+  - component: {fileID: 1235943637}
+  m_Layer: 0
+  m_Name: MidCutScene2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1235943634
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235943633}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 3458ea872a466f34b8314a0ee09069db, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -1027732632016974519, guid: 3458ea872a466f34b8314a0ee09069db, type: 2}
+    value: {fileID: 2144106753}
+  - key: {fileID: -5479500293813187641, guid: 3458ea872a466f34b8314a0ee09069db, type: 2}
+    value: {fileID: 1235943637}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &1235943635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235943633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97f2ca61bed214459aa088c8d4ca7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 1235943634}
+  cutSceneType: 1
+  typingEffect: 0
+  up: {fileID: 725120928}
+  down: {fileID: 885901255}
+  character:
+  - {fileID: 537864929}
+  isDialogue: 1
+  centerDetail: []
+  centerText: {fileID: 0}
+  centerTextCloseCool: 0
+  dialogueDetail:
+  - "\uBC29\uAE08 \uADF8 \uADF8\uB9BC\uC790\uB294 \uBB50\uC600\uC9C0.. \n\uAD49\uC7A5\uD788
+    \uC775\uC219\uD588\uB294\uB370"
+  - "\uAE30\uC5B5\uC774 \uB098\uC9C0 \uC54A\uC544.."
+  dialogueIndex: 0
+  dialogueImage:
+  - {fileID: 1700530802}
+  dialogueText:
+  - {fileID: 818528549}
+  dialogueTextCloseCool: 3
+  text: []
+  bottomTextBackground: {fileID: 0}
+  bottomTextCloseCool: 0
+  cutSceneBottomText: {fileID: 0}
+  typingCool: 0
+  ttsAudio: []
+--- !u!4 &1235943636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235943633}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1235943637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235943633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2f10956560c6f184493c73d4cedb1146, type: 2}
+    - {fileID: 11400000, guid: 387d690ee93d8f14282722d352c4e80e, type: 2}
+    - {fileID: 11400000, guid: 8b5e79a3cde35124aae7dd58c6a83e03, type: 2}
+    - {fileID: 11400000, guid: 3fb8a2c1b64787d43875b007fcc94e53, type: 2}
+    - {fileID: 11400000, guid: ecd15e296d02c1548970d92dc9bfaee1, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1235943635}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: CutSceneIn
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1235943635}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: DialogueImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1235943635}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: DialogueImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1235943635}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: CutSceneIn
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 543132344}
+          m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+          m_MethodName: FinshTutorial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1242213388
 GameObject:
   m_ObjectHideFlags: 0
@@ -15367,6 +15551,7 @@ SceneRoots:
   - {fileID: 450059513}
   - {fileID: 543132345}
   - {fileID: 1487383083}
+  - {fileID: 1235943636}
   - {fileID: 812861229}
   - {fileID: 104092801}
   - {fileID: 1186803867}

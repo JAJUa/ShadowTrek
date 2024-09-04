@@ -8,11 +8,14 @@ public class Lever : InteractiveObject
 {
     [SerializeField] GameObject[] turnOnOffLights;
     [SerializeField] bool isTurnOn = false;
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] bool autoBool;
     Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
+        layerMask += LayerMask.GetMask("Papa");
         foreach (GameObject light in turnOnOffLights)
         {
             light.gameObject.SetActive(isTurnOn);
@@ -29,19 +32,29 @@ public class Lever : InteractiveObject
       
     }
 
+    public override void ResetObj()
+    {
+        isTurnOn= false;
+        TurnLight(isTurnOn);
+    }
+
     public override void AutoLight()
     {
-        Collider[] colliders = Physics.OverlapBox(transform.position + pos, size / 2, Quaternion.identity, LayerMask.GetMask("Player"));
-        if (colliders.Length > 0)
+        if (autoBool)
         {
-            if(!isTurnOn)
-                 TurnLight(true);
+            Collider[] colliders = Physics.OverlapBox(transform.position + pos, size / 2, Quaternion.identity, layerMask);
+            if (colliders.Length > 0)
+            {
+                if (!isTurnOn)
+                    TurnLight(true);
+            }
+            else
+            {
+                if (isTurnOn)
+                    TurnLight(false);
+            }
         }
-        else
-        {
-            if(isTurnOn)
-                TurnLight(false);
-        }
+       
     }
 
     [Button]

@@ -1235,7 +1235,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3743,6 +3743,8 @@ GameObject:
   - component: {fileID: 786539500}
   - component: {fileID: 786539502}
   - component: {fileID: 786539501}
+  - component: {fileID: 786539504}
+  - component: {fileID: 786539503}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3867,6 +3869,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786539499}
   m_CullTransparentMesh: 1
+--- !u!114 &786539503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786539499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTypeWriter: 1
+  startTypewriterMode: 3
+  hideAppearancesOnSkip: 0
+  hideDisappearancesOnSkip: 0
+  triggerEventsOnSkip: 0
+  resetTypingSpeedAtStartup: 1
+  disappearanceOrientation: 0
+  onTextShowed:
+    m_PersistentCalls:
+      m_Calls: []
+  onTypewriterStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onTextDisappeared:
+    m_PersistentCalls:
+      m_Calls: []
+  onCharacterVisible:
+    m_PersistentCalls:
+      m_Calls: []
+  onMessage:
+    m_PersistentCalls:
+      m_Calls: []
+  waitForNormalChars: 0.03
+  waitLong: 0.6
+  waitMiddle: 0.2
+  avoidMultiplePunctuactionWait: 0
+  waitForNewLines: 1
+  waitForLastCharacter: 1
+  useTypewriterWaitForDisappearances: 1
+  disappearanceWaitTime: 0.015
+  disappearanceSpeedMultiplier: 1
+--- !u!114 &786539504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786539499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: 
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 0}
+  databaseAppearances: {fileID: 0}
+  useDefaultStyleSheet: 1
+  styleSheet: {fileID: 0}
+  databaseActions: {fileID: 0}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!4 &803848138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 48068c811dfd68045a270824a5ed0d0f,
@@ -6274,6 +6350,10 @@ PlayableDirector:
     value: {fileID: 736801218}
   - key: {fileID: 7535502778366492406, guid: c4e9ee9f07ae98e45b83abbbf90b945c, type: 2}
     value: {fileID: 1426184011}
+  - key: {fileID: -5727353148545412041, guid: c4e9ee9f07ae98e45b83abbbf90b945c, type: 2}
+    value: {fileID: 1676412063}
+  - key: {fileID: 8983415953035246918, guid: c4e9ee9f07ae98e45b83abbbf90b945c, type: 2}
+    value: {fileID: 1886314951}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1426184009
@@ -6308,7 +6388,8 @@ MonoBehaviour:
   typingEffect: 0
   up: {fileID: 1676412062}
   down: {fileID: 1886314950}
-  character: []
+  character:
+  - {fileID: 1867652071}
   isDialogue: 1
   centerDetail: []
   centerText: {fileID: 0}
@@ -6321,7 +6402,7 @@ MonoBehaviour:
   - "\uC77C\uB2E8 \uB2E4\uC2DC \uBCC4\uB4E4\uC744 \uC90D\uC790"
   dialogueIndex: 0
   dialogueImage:
-  - {fileID: 0}
+  - {fileID: 127130097}
   dialogueText:
   - {fileID: 0}
   dialogueTextCloseCool: 5
@@ -6369,7 +6450,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1426184010}
           m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
-          m_MethodName: DialogueText
+          m_MethodName: DialogueImage
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
