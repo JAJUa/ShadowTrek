@@ -687,6 +687,10 @@ MonoBehaviour:
   turnOnOffLights:
   - {fileID: 767790106}
   isTurnOn: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  autoBool: 0
 --- !u!95 &25271135
 Animator:
   serializedVersion: 5
@@ -6925,6 +6929,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 421966816}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &429773931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2441754845210464324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &431015779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6830840579194987235, guid: 7ce31c7e6432ff642b176ec71e0b8687,
@@ -31878,9 +31894,9 @@ MonoBehaviour:
   lamp: {fileID: 0}
   colliderTrans: {x: 0, y: -5.44, z: 8.89}
   colliderSize: {x: 3, y: 3, z: 3}
-  playerMask:
+  layerMask:
     serializedVersion: 2
-    m_Bits: 49152
+    m_Bits: 0
   isInterActiveing: 0
   isdialoActiveing: 0
   isAnimating: 0
@@ -41674,6 +41690,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 109295945279473658, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 109295945279473658, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 429773931}
+    - target: {fileID: 109295945279473658, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 109295945279473658, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InGameUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 109295945279473658, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2391578117029483366, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_Name
@@ -41689,6 +41730,16 @@ PrefabInstance:
       propertyPath: ShadowObjectTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2555344706896819685, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 429773931}
+    - target: {fileID: 2555344706896819685, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuFade
+      objectReference: {fileID: 0}
     - target: {fileID: 3784261081690323574, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive
@@ -41699,6 +41750,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5604038432819074059, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792656770108992661, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_Name
+      value: RestartBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: menuAnim
+      value: 
+      objectReference: {fileID: 2441754845210464325}
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: inGameCanvas
@@ -41869,6 +41935,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 490
       objectReference: {fileID: 0}
+    - target: {fileID: 7399897809023173751, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7615339930342182797, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_Camera
@@ -41879,6 +41950,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
+--- !u!95 &2441754845210464325 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 536410319745510338, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2441754845210464324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2524215006798571521
 GameObject:
   m_ObjectHideFlags: 0
@@ -43144,9 +43221,9 @@ MonoBehaviour:
   lamp: {fileID: 0}
   colliderTrans: {x: 1.45, y: -5, z: 7.33}
   colliderSize: {x: 3, y: 3, z: 3}
-  playerMask:
+  layerMask:
     serializedVersion: 2
-    m_Bits: 49152
+    m_Bits: 0
   isInterActiveing: 0
   isdialoActiveing: 0
   isAnimating: 0

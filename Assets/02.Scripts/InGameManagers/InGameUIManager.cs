@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class InGameUIManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class InGameUIManager : MonoBehaviour
     public Image shadowGauge,modeChangeImage;
     public Sprite normalModeSprite, shadowModeSprite;
     public GameObject optionCanvas,inGameCanvas,helpBookCanvas;
+    public Animator menuAnim;
     public bool openUI;
 
 
@@ -61,5 +63,24 @@ public class InGameUIManager : MonoBehaviour
         {
             modeChangeImage.sprite = shadowModeSprite;
         }
+    }
+
+    public void MenuFade()
+    {
+        if(menuAnim.GetBool("MenuFade") == false)
+            menuAnim.SetBool("MenuFade", true);
+        else
+            menuAnim.SetBool("MenuFade", false);
+    }
+
+    public void Restart()
+    {
+        FadeInFadeOut.Inst.FadeIn();
+
+        DOVirtual.DelayedCall(0.5f, () =>
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
+        });
     }
 }
