@@ -18,7 +18,7 @@ public class Player : Character
 
     private void Awake()
     {
-        startPos = transform.position;
+        
     }
 
     // Start is called before the first frame update
@@ -42,13 +42,15 @@ public class Player : Character
         {
             if (Vector3.Distance(transform.position,endObj.position)<2f)
             {
-               EnterReplayMode();
+                TileMoveScript.Inst.ResetLight();
+                EnterReplayMode();
             }
         }
         else if (InGameManager.Inst.inRelpayMode || !isReplay)
         {
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {
+
                 endPlayableDirector.Play();
             }
            
@@ -65,7 +67,7 @@ public class Player : Character
         RePlay.Inst.isReplayMode= true;
         RePlay.Inst.RePlayMode(gameObject, animator, pointInTime);
         animator.SetBool("isWalk", false);
-
+        playerInLight();
         InGameManager.Inst.CameraPosReset();
         return;
     }

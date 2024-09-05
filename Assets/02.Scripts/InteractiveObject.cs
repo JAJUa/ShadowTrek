@@ -10,7 +10,6 @@ public class InteractiveObject : MonoBehaviour
     public virtual void AutoLight() { }
 
 
-    public virtual void ResetLigt() { }
 
     public virtual void ResetObj() { }
 

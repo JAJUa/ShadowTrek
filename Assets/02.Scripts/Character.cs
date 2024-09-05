@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     public bool isLight = false;
     public Coroutine moveCoroutine;
     public Vector3 startPos;
+    public Quaternion startRot;
     public LineRenderer lineRenderer;
 
     // Start is called before the first frame update
@@ -25,6 +26,8 @@ public class Character : MonoBehaviour
         pathFind.FindPath(Vector3Int.FloorToInt(Vector3Int.RoundToInt(transform.position)), TileMoveScript.Inst.topRight);
         if (animator != null) animator.GetComponent<Animator>();
         pointInTime = new List<PointInTime>();
+        startPos = transform.position;
+        startRot= transform.rotation;
 
     }
 

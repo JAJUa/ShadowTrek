@@ -34,8 +34,8 @@ public class ShadowModePapa : Character
     {
         
         isLight= false;
-        transform.position = startPos;
-        Debug.Log("papaReset");
+        DOVirtual.DelayedCall(0.1f, ()=>transform.position = startPos);
+        DOVirtual.DelayedCall(0.1f, () => transform.rotation = startRot);
         DOVirtual.DelayedCall(1f, () => dissolve.DIssolvessad(false));
     }
     

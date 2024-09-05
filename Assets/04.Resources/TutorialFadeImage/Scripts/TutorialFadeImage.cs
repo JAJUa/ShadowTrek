@@ -31,7 +31,7 @@
         /// <summary>
         /// Max hole size. Could be changed, however you should change the "5" value in UITutorialFade.shared file also.
         /// </summary>
-        const int HolesSize = 5;
+        const int HolesSize = 8;
         
         readonly List<TutorialHole> Holes = new List<TutorialHole>(HolesSize);
 

@@ -86,6 +86,7 @@ public class InGameManager : MonoBehaviour
         CameraPosReset();
         papa.ResetPos();
         player.playerInLight();
+        TileMoveScript.Inst.ResetLight();
         DOVirtual.DelayedCall(1.5f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; }) ;
         
     }

@@ -34,8 +34,7 @@ public class Lever : InteractiveObject
 
     public override void ResetObj()
     {
-        isTurnOn= false;
-        TurnLight(isTurnOn);
+        TurnLight(false);
     }
 
     public override void AutoLight()
@@ -73,6 +72,7 @@ public class Lever : InteractiveObject
             foreach (GameObject light in turnOnOffLights)
             {
                 light.GetComponent<Light>().DOIntensity(intensity,0.5f);
+                Debug.Log(intensity);
                 if (!turnOn) interactiveLight.TileColorDefault();
                 DOVirtual.DelayedCall( 0.5f,()=>
                 {

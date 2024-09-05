@@ -2331,7 +2331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072dd9d4518ef6747b6c6b383f0e54ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 174777050}
 --- !u!95 &174777059
 Animator:
   serializedVersion: 5
@@ -8532,7 +8531,7 @@ PrefabInstance:
         type: 3}
       propertyPath: endObj
       value: 
-      objectReference: {fileID: 7773608475402375397}
+      objectReference: {fileID: 8341468765018529303}
     - target: {fileID: 6356770279524317024, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
       propertyPath: shadowPapa
@@ -18369,7 +18368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072dd9d4518ef6747b6c6b383f0e54ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 174777050}
 --- !u!65 &1591023828
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -240,6 +240,19 @@ public class TileMoveScript : MonoBehaviour
 
 
 
+    public void ResetLight()
+    {
+        if (autoLights.Length > 0)
+        {
+            foreach(var obj in autoLights)
+            {
+                obj.GetComponent<InteractiveObject>().ResetObj();
+            }
+        }
+    }
+
+
+
 
 
 }
