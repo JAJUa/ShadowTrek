@@ -17743,6 +17743,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2441754845210464324}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1178929822 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6584877389966614504, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2441754845210464324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1179113221
 GameObject:
   m_ObjectHideFlags: 0
@@ -41905,6 +41911,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1178929822}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: aaedeaaece573f14da3e2102789684fb,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 30d104282c1c3024fb05511062b8be17,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: aaedeaaece573f14da3e2102789684fb,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 30d104282c1c3024fb05511062b8be17,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: aaedeaaece573f14da3e2102789684fb,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 30d104282c1c3024fb05511062b8be17,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: aaedeaaece573f14da3e2102789684fb,
+        type: 3}
+    - target: {fileID: 7078678878093210629, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPages.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 30d104282c1c3024fb05511062b8be17,
+        type: 3}
     - target: {fileID: 7301608281004657609, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -41945,6 +42004,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 174777052}
+    - target: {fileID: 8077359576734900549, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
