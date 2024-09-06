@@ -2784,7 +2784,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!95 &360507671
 Animator:
@@ -13744,6 +13744,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 387d690ee93d8f14282722d352c4e80e, type: 2}
     - {fileID: 11400000, guid: 2f10956560c6f184493c73d4cedb1146, type: 2}
     - {fileID: 11400000, guid: 3fb8a2c1b64787d43875b007fcc94e53, type: 2}
+    - {fileID: 11400000, guid: dc7d2d6406e3a224aae20dfe7872035d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -13786,6 +13787,20 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2050720448}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: MoveBlock
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!320 &2050720447
 PlayableDirector:

@@ -165,17 +165,22 @@ public class CutSceneManager : MonoBehaviour
     {
         if(cutSceneIn)
         {
-            InGameManager.Inst.moveBlock = true;
+            MoveBlock(true);
             up.DOAnchorPosY(-50, 0.7f);
             down.DOAnchorPosY(50, 0.7f);
         }
         else
         {
-            InGameManager.Inst.moveBlock = false;
+           MoveBlock(false);
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);
             transform.gameObject.SetActive(false);
         }
+    }
+
+    public void MoveBlock(bool isBlock)
+    {
+        InGameManager.Inst.moveBlock = isBlock;
     }
 
 }
