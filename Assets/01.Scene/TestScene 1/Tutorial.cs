@@ -16,8 +16,10 @@ public class Tutorial : MonoBehaviour
     public bool textExplain,moveTutoCutScene,replayPlayerPosChange;
     public enum Character {Daughter,Papa}
     public Character character;
-    public enum TutorialType { MoveTutorial, textTutorial, cutSceneClickTuto, ClickObj }
+    public enum TutorialType { MoveTutorial, textTutorial, cutSceneClickTuto, ClickObj,TutorialAnimation }
     public TutorialType tutorialType;
+    [SerializeField] Animator tutorialAnimator;
+    [SerializeField] string triggerName;
     [ShowIf("textExplain")]
     [SerializeField] TextMeshProUGUI dialogue;
     [ShowIf("textExplain")]
@@ -35,6 +37,8 @@ public class Tutorial : MonoBehaviour
 
     [ShowIf("moveTutoCutScene")]
     [SerializeField] CutSceneManager cutSceneManager;
+
+   
 
 
 
@@ -77,6 +81,7 @@ public class Tutorial : MonoBehaviour
         foreach(Transform tile in activeTiles) tile.gameObject.SetActive(true);
         if (triggerObj != null) triggerObj.gameObject.SetActive(true);
         if (textExplain) TutorialDialogueText(true);
+        if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f,()=> tutorialAnimator.SetTrigger(triggerName));
 
     }
 
@@ -112,10 +117,11 @@ public class Tutorial : MonoBehaviour
         {
             if (tutorialType == TutorialType.MoveTutorial && triggerObj != null)
             {
-                if (Vector3.Distance(player.position, triggerObj.position) < 1.4f)
+                if (Vector3.Distance(player.position, triggerObj.position) < 2f)
                 {
                   
                     tutoFnish = true;
+                    player.position = triggerObj.position;  
                     if (moveTutoCutScene)
                     {
                         InGameManager.Inst.StopMoving();

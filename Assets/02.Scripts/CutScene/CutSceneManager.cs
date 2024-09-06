@@ -148,6 +148,7 @@ public class CutSceneManager : MonoBehaviour
             for(int i = 0; i<character.Length; i++)
             {
                 dialogueImage[i].transform.position = character[i].transform.position + new Vector3(0, 15, 0);
+                
                 dialogueImage[i].transform.rotation = Camera.main.transform.rotation;
             }
          

@@ -93,7 +93,7 @@ public class InGameManager : MonoBehaviour
 
     public void StopMoving()
     {
-        player.lineRenderer.positionCount = 0;
+        DOVirtual.DelayedCall(0.05f, () => player.lineRenderer.positionCount = 0); 
         moveBlock = true;
       
         //player.lineRenderer.enabled = false;
