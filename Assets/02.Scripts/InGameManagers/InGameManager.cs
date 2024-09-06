@@ -80,6 +80,7 @@ public class InGameManager : MonoBehaviour
 
     public void PapaRestart()
     {
+        StopAllCoroutines();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();
         RePlay.Inst.ResetReplayMode();

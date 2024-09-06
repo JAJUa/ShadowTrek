@@ -83,7 +83,6 @@ namespace DissolveExample
 
             for (int i = 0; i < materials.Count; i++)
             {
-                Debug.Log("sadaw");
                 materials[i].SetFloat("_Dissolve", value);
             }
         }

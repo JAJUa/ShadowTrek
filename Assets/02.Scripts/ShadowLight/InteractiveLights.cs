@@ -81,12 +81,8 @@ public class InteractiveLights : MonoBehaviour
                 Collider[] colliders = Physics.OverlapBox(transform.position + colliderPos, colliderSize / 2, Quaternion.identity, detectionLayerMask);
                 if (colliders.Length > 0)
                 {
-                    Debug.Log(transform.gameObject.name);
-                    Debug.Log(colliders[0].gameObject.name);
                     foreach (Collider collider in colliders)
                     {
-                        Debug.Log("detect");
-
                         collider.GetComponent<Character>().isLight = true;
 
 

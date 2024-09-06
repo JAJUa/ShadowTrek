@@ -15,7 +15,7 @@ public class Lever : InteractiveObject
     // Start is called before the first frame update
     void Start()
     {
-        layerMask += LayerMask.GetMask("Papa");
+        layerMask += LayerMask.GetMask("Player");
         foreach (GameObject light in turnOnOffLights)
         {
             light.gameObject.SetActive(isTurnOn);
@@ -26,15 +26,10 @@ public class Lever : InteractiveObject
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
 
     public override void ResetObj()
     {
-        TurnLight(false);
+        TurnLight(false,true);
     }
 
     public override void AutoLight()
@@ -57,12 +52,12 @@ public class Lever : InteractiveObject
     }
 
     [Button]
-    public void TurnLight(bool turnOn)
+    public void TurnLight(bool turnOn,bool isResetLight = false)
     {
         AudioManager.Inst.AudioEffectPlay(1);
-        InGameManager.Inst.OnlyPlayerReplay();
+        if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay();
         foreach (GameObject light in turnOnOffLights)  light.gameObject.SetActive(true); 
-        isTurnOn = !isTurnOn;
+        isTurnOn = turnOn;
 
         if (isTurnOn) animator.SetTrigger("Right");
         else animator.SetTrigger("Left");

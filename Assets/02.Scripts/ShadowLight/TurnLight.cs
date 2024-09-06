@@ -13,18 +13,20 @@ public class TurnLight : InteractiveObject
     [SerializeField] float turnAngle;
     [SerializeField] GameObject lampClickTileParent;
     public List<LampClickTile> lampClickTiles = new List<LampClickTile>();
+    Quaternion firstRot;
+
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < lampClickTileParent.transform.childCount; i++)
         {
-            Debug.Log(lampClickTileParent.transform.GetChild(i).gameObject.name);
             lampClickTiles.Add(lampClickTileParent.transform.GetChild(i).transform.GetComponent<LampClickTile>());
             lampClickTiles[i].gameObject.SetActive(false);
         }
 
 
         turnAngle = Mathf.Abs(turnAngle);
+        firstRot = transform.rotation;
     }
 
     // Update is called once per frame
@@ -48,14 +50,19 @@ public class TurnLight : InteractiveObject
         }
     }
 
+    public override void ResetObj()
+    {
+        Turning(firstRot.eulerAngles.y,true);
+    }
 
-    public void Turning(float angle)
+
+    public void Turning(float angle, bool isResetLight = false)
     {
          Vector3 target = new Vector3(transform.eulerAngles.x, angle, transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
              interactiveLight.ChangeTileColor();
-             InGameManager.Inst.OnlyPlayerReplay();
+             if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay();
              });
     }
 
