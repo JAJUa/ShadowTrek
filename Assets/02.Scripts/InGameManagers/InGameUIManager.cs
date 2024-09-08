@@ -5,14 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
+using TMPro.EditorUtilities;
+using Febucci.UI;
 
 public class InGameUIManager : MonoBehaviour
 {
     public static InGameUIManager Inst;
-    public Image shadowGauge,modeChangeImage;
+    public Image modeChangeImage;
     public Sprite normalModeSprite, shadowModeSprite;
     public GameObject optionCanvas,inGameCanvas,helpBookCanvas;
     public Animator menuAnim;
+    [SerializeField] TypewriterByCharacter titleText;
+    [SerializeField] string titleName;
+    [SerializeField] bool startTitleAnim;
     public bool openUI;
 
 
@@ -24,7 +29,7 @@ public class InGameUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (startTitleAnim) ShowTitleText(0.2f);
     }
 
  
@@ -44,8 +49,20 @@ public class InGameUIManager : MonoBehaviour
 
     public void OpenBook()
     {
-        InGameManager.Inst.moveBlock = true;
-        helpBookCanvas.SetActive(true);
+        openUI = !openUI;
+        InGameManager.Inst.moveBlock = openUI;
+        helpBookCanvas.SetActive(openUI);
+
+    }
+
+    public void ShowTitleText(float delay = 0)
+    {
+        DOVirtual.DelayedCall(delay, () =>
+        {
+            titleText.ShowText(titleName);
+            DOVirtual.DelayedCall(1.5f, () => titleText.StartDisappearingText());
+        });
+       
 
     }
 
@@ -67,6 +84,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void MenuFade()
     {
+        Debug.Log("123");
         if(menuAnim.GetBool("MenuFade") == false)
             menuAnim.SetBool("MenuFade", true);
         else

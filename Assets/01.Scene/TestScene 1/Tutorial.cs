@@ -130,7 +130,11 @@ public class Tutorial : MonoBehaviour
                         cutSceneManager.StartCutScene();
                         
                     }
-                    TutorialManager.Inst.FinshTutorial();
+                    else
+                    {
+                        TutorialManager.Inst.FinshTutorial();
+                    }
+                    
                 }
             }
 

@@ -103,8 +103,8 @@ public class CutSceneManager : MonoBehaviour
         dialogueText[dialogueIndex].ShowText(dialogueDetail[this.dialogueIndex]);
 
         dialogueTextTween[dialogueIndex] =  DOVirtual.DelayedCall(dialogueTextCloseCool , () => dialogueText[dialogueIndex].StartDisappearingText());
-        dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool , () => {
-            dialogueImage[dialogueIndex].DOFade(0, 0.5f).OnComplete(()=>dialogueImage[dialogueIndex].gameObject.SetActive(false)) ;      
+        dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool+1f , () => {
+            dialogueImage[dialogueIndex].DOFade(0, 0.5f) ;      
             });
         this.dialogueIndex++;
     }
