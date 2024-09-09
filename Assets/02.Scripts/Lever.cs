@@ -51,6 +51,11 @@ public class Lever : InteractiveObject
        
     }
 
+    public void CutSceneTurnLight(bool turnOn)
+    {
+        TurnLight(turnOn);
+    }
+
     [Button]
     public void TurnLight(bool turnOn,bool isResetLight = false)
     {

@@ -40,9 +40,13 @@ public class TutorialManager : MonoBehaviour
     [Button]
     public void FinshTutorial()
     {
-        if (tutorials[tutorialNumber].textExplain) tutorials[tutorialNumber].TutorialDialogueText(false);
-        tutorialNumber++;
-        TutorialPlay();
+        if(tutorialNumber < tutorials.Length)
+        {
+            if (tutorials[tutorialNumber].textExplain) tutorials[tutorialNumber].TutorialDialogueText(false);
+            tutorialNumber++;
+            TutorialPlay();
+        }
+        
 
     }
 

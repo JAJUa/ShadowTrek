@@ -81,7 +81,7 @@ public class Tutorial : MonoBehaviour
         foreach(Transform tile in activeTiles) tile.gameObject.SetActive(true);
         if (triggerObj != null) triggerObj.gameObject.SetActive(true);
         if (textExplain) TutorialDialogueText(true);
-        if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f,()=> tutorialAnimator.SetTrigger(triggerName));
+        if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f,()=> { tutorialAnimator.SetTrigger(triggerName);InGameManager.Inst.moveBlock = true; });;
 
     }
 
@@ -115,7 +115,7 @@ public class Tutorial : MonoBehaviour
     {
         if(!tutoFnish) 
         {
-            if (tutorialType == TutorialType.MoveTutorial && triggerObj != null)
+            if (triggerObj != null)
             {
                 if (Vector3.Distance(player.position, triggerObj.position) < 2f)
                 {

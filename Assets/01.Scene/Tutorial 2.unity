@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43055704, g: 0.5636739, b: 0.7119701, a: 1}
+  m_IndirectSpecularColor: {r: 0.46602172, g: 0.5960813, b: 0.7371453, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -405,7 +405,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1798406536}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 949869426}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
@@ -5038,8 +5038,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StartBookManager, Assembly-CSharp
+      - m_Target: {fileID: 949869428}
+        m_TargetAssemblyTypeName: TutorialBook, Assembly-CSharp
         m_MethodName: CloseText
         m_Mode: 6
         m_Arguments:
@@ -8111,6 +8111,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 261956233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &949869426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6302509891423707487, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1798406536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &949869428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949869426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502f85c6ea8ee584fa485649374b1767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookPageIndex: 0
+  autoFlip: {fileID: 2082387989}
+  clipNameTxt: {fileID: 1553623718}
+  clipInforTxt: {fileID: 559068286}
+  clipName:
+  - "\uADF8\uB9BC\uC790\uCE68\uC2DD"
+  - "\uC774\uB3D9"
+  usedInfor:
+  - "<size= 30>\"\uBE5B\uC5D0 2\uD134 \uB3D9\uC548 \uBC97\uC5B4\uB098\uBA74 \uD654\uBA74\uC774                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    \uD751\uBC31\uC73C\uB85C \uC804\uD658\uB418\uBA74\uC11C \uADF8\uB9BC\uC790\uC5D0
+    \uCE68\uC2DD\uB418\uAE30 \uC9C1\uC804 \uC0C1\uD0DC\uAC00 \uB41C\uB2E4. \n\uC774
+    \uC0C1\uD0DC\uC5D0\uC11C \uD55C\uBC88 \uB354 \uBE5B\uC744 \uBC97\uC5B4\uB0A0
+    \uC2DC \uC7AC\uAE30\uBD88\uB2A5\uC774 \uB41C\uB2E4.\"</size>"
+  - "\u3134\u3141\u3147"
 --- !u!1001 &955574687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9099,20 +9131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2068630452440520261, guid: bbe73920272189642908eb2885b2f33d,
-        type: 3}
-      propertyPath: m_Name
-      value: pl_Text (TMP)
-      objectReference: {fileID: 0}
     - target: {fileID: 3246650987275692444, guid: bbe73920272189642908eb2885b2f33d,
         type: 3}
       propertyPath: m_Name
       value: Player_DialogueCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6713371501210283999, guid: bbe73920272189642908eb2885b2f33d,
-        type: 3}
-      propertyPath: m_Name
-      value: pl_Dialogue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10586,6 +10608,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8b5e79a3cde35124aae7dd58c6a83e03, type: 2}
     - {fileID: 11400000, guid: 3fb8a2c1b64787d43875b007fcc94e53, type: 2}
     - {fileID: 11400000, guid: ecd15e296d02c1548970d92dc9bfaee1, type: 2}
+    - {fileID: 11400000, guid: 02c978913a5f6754f9bc3cc3986e86e1, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -10635,6 +10658,20 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
           m_MethodName: CutSceneIn
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 543132344}
+          m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+          m_MethodName: FinshTutorial
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14725,7 +14762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1720327251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15643,6 +15680,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 703686781967586863, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 773363457204114540, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 54265072}
+    - target: {fileID: 773363457204114540, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MenuFade
+      objectReference: {fileID: 0}
     - target: {fileID: 887425825082821839, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive
@@ -15711,7 +15763,7 @@ PrefabInstance:
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: titleName
-      value: -15571557-
+      value: "-\uC54C \uC218 \uC5C6\uB294 \uADF8\uB9BC\uC790-"
       objectReference: {fileID: 0}
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -15852,7 +15904,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1720327251}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6302509891423707487, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 949869428}
   m_SourcePrefab: {fileID: 100100000, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
 --- !u!4 &1798406537 stripped
 Transform:
@@ -16162,8 +16218,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: StartBookManager, Assembly-CSharp
+      - m_Target: {fileID: 949869428}
+        m_TargetAssemblyTypeName: TutorialBook, Assembly-CSharp
         m_MethodName: CloseText
         m_Mode: 6
         m_Arguments:
