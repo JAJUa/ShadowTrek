@@ -6322,12 +6322,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4364c5d8bee047943892b93579765e06, type: 3}
---- !u!1 &963841513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2737800133577696061, guid: 7c3cda88157e9334994a06a2f6e521ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 1798406536}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1007057333
 GameObject:
   m_ObjectHideFlags: 0
@@ -11706,7 +11700,12 @@ PrefabInstance:
         type: 3}
       propertyPath: helpBookCanvas
       value: 
-      objectReference: {fileID: 963841513}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: startTitleAnim
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: modeChangeImage

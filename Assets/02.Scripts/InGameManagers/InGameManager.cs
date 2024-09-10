@@ -115,12 +115,12 @@ public class InGameManager : MonoBehaviour
             OnlyPlayerReplay();
     }
 
-    public void OnlyPlayerReplay()
+    public void OnlyPlayerReplay(bool lightFinished = false)
     {
         if (RePlay.Inst.isReplayMode)
         {
             isInteractionDetect = true;
-            TileMoveScript.Inst.TurnAction();
+            if(!lightFinished)TileMoveScript.Inst.TurnAction();
             RePlay.Inst.ReMove();
           
         }

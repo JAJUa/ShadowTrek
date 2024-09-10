@@ -32,9 +32,12 @@ public class GameData : MonoBehaviour
                 relicsBool[i].Add(false);
             }
         }
+        Debug.Log(relicsMaxCount.Count);
 
-      //  Debug.Log(relicsBool[0][0]);
-     
+        Debug.Log("relicsBool 초기화 완료");
+      // Debug.Log("relicsBool[0] 리스트 크기: " + relicsBool[0].Count);
+      //  Debug.Log("relicsBool[0][0] 값: " + relicsBool[0][0]);
+
 
     }
 
@@ -81,7 +84,7 @@ public class GameData : MonoBehaviour
         localizationNum = 2;
         skinNum = 0;
         relicsBool.Clear();
-        relicsCurCount.Clear(); 
+        relicsCurCount.Clear();
         SaveSystem.Inst.SaveData();
     }
 

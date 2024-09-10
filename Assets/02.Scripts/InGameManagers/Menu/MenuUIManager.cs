@@ -39,7 +39,7 @@ public class MenuUIManager : MonoBehaviour
 
    
     [SerializeField] GameObject relicsContent, skinsContent;
-    [HideInInspector]public List<GameObject> relicScrollbarImage, skinScrollbarImage = new List<GameObject>();
+    public List<GameObject> relicScrollbarImage, skinScrollbarImage = new List<GameObject>();
 
 
  
@@ -273,6 +273,7 @@ public class MenuUIManager : MonoBehaviour
     {
         for(int i = 1;i<relicScrollbarImage.Count-1;i++)
         {
+            Debug.Log(relicScrollbarImage[i].gameObject.name);
             GameObject countTxt =  relicScrollbarImage[i].transform.Find("Count").gameObject;
             countTxt.GetComponent<TextMeshProUGUI>().text = GameData.Inst.relicsCurCount[i-1].ToString() + " / " + GameData.Inst.relicsMaxCount[i-1].ToString() + " Founded";
         }
@@ -331,7 +332,9 @@ public class MenuUIManager : MonoBehaviour
     IEnumerator waitLocalization()
     {
         yield return new WaitForSeconds(0.5f);
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[GameData.Inst.localizationNum-1];
+        int localizedIndex = GameData.Inst.localizationNum > 0 ? GameData.Inst.localizationNum - 1 : GameData.Inst.localizationNum;
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localizedIndex];
     }
 
    

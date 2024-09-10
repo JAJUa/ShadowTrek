@@ -75,6 +75,8 @@ public class SaveSystem : MonoBehaviour
         playerData.bgmVolume = GameData.Inst.bgmVolume;
         playerData.soundEffectVolume= GameData.Inst.soundEffectVolume;
 
+       
+        
         playerData.relicsBool = GameData.Inst.relicsBool;
 
    
@@ -114,7 +116,7 @@ public class SaveSystem : MonoBehaviour
                 GameData.Inst.relicsMaxCount= playerData.relicsMaxCount;
                 GameData.Inst.localizationNum= playerData.localizationNum;
                 GameData.Inst.bgmVolume= playerData.bgmVolume;
-                Debug.Log(playerData.relicsBool[0][0]);
+                //Debug.Log(playerData.relicsBool[0][0]);
                 GameData.Inst.soundEffectVolume= playerData.soundEffectVolume;
             }
         }

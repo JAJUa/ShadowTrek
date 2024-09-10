@@ -40,19 +40,20 @@ public class CollectRelicManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 uiCanvas.SetActive(false);
-                InGameUIManager.Inst.inGameCanvas.SetActive(true);
+                //InGameUIManager.Inst.inGameCanvas.SetActive(true);
             }
         }
     }
 
     public void Collect(int itemType)
     {
+        Debug.Log("sss");
         uiCanvas.SetActive(true);
         StartCoroutine(Delay());
         relicName.text = chapterRelicName[itemType];
-        relicCount.text = GameData.Inst.relicsCurCount[itemType]++.ToString() + " / " + GameData.Inst.relicsMaxCount[itemType] + " Founded";
+        relicCount.text = (GameData.Inst.relicsCurCount[itemType]+1).ToString() + " / " + GameData.Inst.relicsMaxCount[itemType] + " Founded";
         chapterRelicOBJ[itemType].transform.DOLocalRotate(new Vector3(0f, 540f, 0f), 1.5f, RotateMode.FastBeyond360);
-        InGameUIManager.Inst.inGameCanvas.SetActive(false);
+       // InGameUIManager.Inst.inGameCanvas.SetActive(false);
     }
 
     IEnumerator Delay()

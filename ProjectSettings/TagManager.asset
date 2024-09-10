@@ -11,6 +11,8 @@ TagManager:
   - PlayerControl
   - Relic
   - Papa
+  - Pet
+  - SNS
   layers:
   - Default
   - TransparentFX
@@ -18,11 +20,11 @@ TagManager:
   - Ground
   - Water
   - UI
-  - st1
-  - st2
-  - Shadow
+  - 
+  - 
+  - 
   - Relic
-  - ModeChange
+  - 
   - ShadowMark
   - BackGround
   - Wall
