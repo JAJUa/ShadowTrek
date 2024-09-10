@@ -35,13 +35,13 @@ public class FadeInFadeOut : MonoBehaviour
     public void FadeIn()
     {
         fadeImage.enabled = true;
-        fadeImage.DOFade(1, 0.5f);
+        fadeImage.DOFade(1, 0.3f);
     }
 
     public void FadeOut()
     {
 
-        fadeImage.DOFade(0, 0.5f).OnComplete(() =>
+        fadeImage.DOFade(0, 0.3f).OnComplete(() =>
         {
             fadeImage.enabled = false;
         });

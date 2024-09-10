@@ -31,7 +31,7 @@ public class LampClickTile : MonoBehaviour
     {
         Debug.Log("touch");
         dialouge.InterFade(true);
-        turnLight.GeneralTileAppear(false);
+       // turnLight.GeneralTileAppear(false);
         turnLight.Turning(lampRot);
     }
 

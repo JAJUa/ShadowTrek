@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,9 @@ public class InteractiveObject : MonoBehaviour
 
 
 
-    public virtual void ResetObj() { }
+    public virtual void ResetObj() { } //다시시작 시 리셋위치
+
+    public virtual void TurnAction() { }
 
     private void OnDrawGizmos()
     {  

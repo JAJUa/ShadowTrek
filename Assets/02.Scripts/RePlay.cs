@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using DG.Tweening;
 
 public class RePlay : MonoBehaviour
 {
@@ -34,7 +35,8 @@ public class RePlay : MonoBehaviour
 
     public void RePlayMode(GameObject character, Animator animCharacter, List<PointInTime> pointsInTime)
     {
-     
+        FadeInFadeOut.Inst.FadeIn();
+        DOVirtual.DelayedCall(1f, ()=>FadeInFadeOut.Inst.FadeOut());
         pointsInTime.Reverse();
         isReplayMode = true;
         InGameManager.Inst.curCharacter = CurCharacter.Papa;
@@ -47,11 +49,11 @@ public class RePlay : MonoBehaviour
         savedPointsInTime = this.pointsInTime.ToList();
         savedPointsInLine = pointsInLine.ToList();
         
-       // character.transform.position = this.pointsInTime[0].position;
-       // character.transform.rotation = this.pointsInTime[0].rotation;
+        character.transform.position = this.pointsInTime[0].position;
+        character.transform.rotation = this.pointsInTime[0].rotation;
         this.pointsInTime.RemoveAt(0);
         pointsInLine.RemoveAt(0);
-        StartCoroutine(back());
+       // StartCoroutine(back());
     }
 
     public void ResetReplayMode()
@@ -70,10 +72,12 @@ public class RePlay : MonoBehaviour
 
     public void ReMove()
     {
+        Debug.Log("remove");
         StartCoroutine(MoveToFrontTile());
         pointsInTime.RemoveAt(0);
     }
 
+    /*
     public IEnumerator back()
     {
         Time.timeScale = 2;
@@ -122,7 +126,7 @@ public class RePlay : MonoBehaviour
             InGameManager.Inst.moveBlock = false;
         }
         player.CheckReplay();
-    }
+    }*/
 
     public IEnumerator MoveToFrontTile()
     {

@@ -38,6 +38,7 @@ public class TurnLight : InteractiveObject
     [Button]
     public override void AutoLight()
     {
+        /*
         Collider[] colliders = Physics.OverlapBox(transform.position + pos, size / 2, Quaternion.identity, LayerMask.GetMask("Player"));
         if (colliders.Length > 0)
         {
@@ -47,9 +48,18 @@ public class TurnLight : InteractiveObject
             float angle = Mathf.Round(targetEulerAngles.y / 45) * 45;
             Debug.Log(angle);
             Turning(angle);
-        }
+        }*/
+        Turning(turnAngle,true);
     }
 
+    [Button]
+    public override void TurnAction()
+    {
+        Turning(turnAngle,true);
+    }
+
+
+ 
     public override void ResetObj()
     {
         Turning(firstRot.eulerAngles.y,true);
@@ -58,7 +68,8 @@ public class TurnLight : InteractiveObject
 
     public void Turning(float angle, bool isResetLight = false)
     {
-         Vector3 target = new Vector3(transform.eulerAngles.x, angle, transform.eulerAngles.z);
+        float rot = transform.eulerAngles.y + angle;
+         Vector3 target = new Vector3(transform.eulerAngles.x,rot , transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
              interactiveLight.ChangeTileColor();
@@ -67,6 +78,15 @@ public class TurnLight : InteractiveObject
     }
 
 
+
+
+    public void TurnReverse()
+    {
+        turnAngle = -turnAngle;
+        Turning(turnAngle, true);
+    }
+
+    /*
     [Button]
     public void GeneralTileAppear(bool appear, Dialouge dia = null)
     {
@@ -76,5 +96,5 @@ public class TurnLight : InteractiveObject
             if (Physics.Raycast(clickTile.transform.position, Vector3.down, 10, LayerMask.GetMask("MoveTile")))
                 clickTile.AppearTile(appear, dia);
         };
-    }
+    }*/
 }

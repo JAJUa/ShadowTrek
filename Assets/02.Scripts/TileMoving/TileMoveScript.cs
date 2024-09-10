@@ -130,7 +130,11 @@ public class TileMoveScript : MonoBehaviour
             
             // RePlay 리플레이 모드면 실행
             if (RePlay.Inst.isReplayMode)
+            {
                 RePlay.Inst.ReMove();
+                Debug.Log("Replay");
+            }
+
 
             if (characterRole == CurCharacter.Papa)
             {
@@ -166,7 +170,7 @@ public class TileMoveScript : MonoBehaviour
 
     private IEnumerator MoveToPosition(GameObject character, Vector3 targetPosition, float moveSpeed, PathFind pathFind, int passtile,CurCharacter characterRole,List<PointInTime> pointsInTime)
     {
-       
+        TurnAction();
         // Position
         Vector3 startPosition = character.transform.position;
         float distance = Vector3.Distance(startPosition, targetPosition);
@@ -201,16 +205,7 @@ public class TileMoveScript : MonoBehaviour
                 DetectLight();
 
             }
-            else
-            {
-                if(autoLights.Length > 0)
-                {
-                    foreach(var light in autoLights)
-                    {
-                        light.GetComponent<InteractiveObject>().AutoLight();
-                    }
-                }
-            }
+
 
         }
         
@@ -218,13 +213,12 @@ public class TileMoveScript : MonoBehaviour
         character.transform.position = targetPosition;
         InGameManager.Inst.CheckReplay();
 
-
-
     }
     #endregion
 
     public void DetectLight()
     {
+      
         if (interactionLights.Length > 0)
         {
             foreach (var light in interactionLights)
@@ -233,9 +227,32 @@ public class TileMoveScript : MonoBehaviour
 
             }
         }
-
         InGameManager.Inst.DetectCharacterLight();
 
+    }
+
+    public void TurnAction()
+    {
+        if (InGameManager.Inst.inRelpayMode)
+        {
+            if (autoLights.Length > 0)
+            {
+                foreach (var light in autoLights)
+                {
+                    light.GetComponent<InteractiveObject>().TurnAction();
+                }
+            }
+        }
+        else
+        {
+            if (autoLights.Length > 0)
+            {
+                foreach (var light in autoLights)
+                {
+                    light.GetComponent<InteractiveObject>().AutoLight();
+                }
+            }
+        }
     }
 
 
