@@ -72,7 +72,6 @@ public class RePlay : MonoBehaviour
 
     public void ReMove()
     {
-        Debug.Log("remove");
         StartCoroutine(MoveToFrontTile());
         pointsInTime.RemoveAt(0);
     }

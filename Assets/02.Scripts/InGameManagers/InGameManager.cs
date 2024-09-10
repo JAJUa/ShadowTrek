@@ -120,7 +120,7 @@ public class InGameManager : MonoBehaviour
         if (RePlay.Inst.isReplayMode)
         {
             isInteractionDetect = true;
-            Debug.Log("aaaaaa");
+            TileMoveScript.Inst.TurnAction();
             RePlay.Inst.ReMove();
           
         }

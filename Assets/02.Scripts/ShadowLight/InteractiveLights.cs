@@ -57,12 +57,10 @@ public class InteractiveLights : MonoBehaviour
                         {
                             if(!Physics.Raycast(transform.position,target.transform.position - transform.position,Vector3.Distance(transform.position, target.transform.position), LayerMask.GetMask("Wall")))
                             {
-                                Debug.Log("감지");
                                 dir = target.transform.position - transform.position;
                                 length = Vector3.Distance(transform.position, target.transform.position);
                                 if (target.TryGetComponent(out Character character))
                                 {
-                                    Debug.Log("라이트");
                                     character.isLight = true;
                                     Debug.Log($"Object {target.name} is within the spotlight's range and angle.");
                                 }

@@ -13,7 +13,7 @@ public class TurnLight : InteractiveObject
     [SerializeField] float turnAngle;
     [SerializeField] GameObject lampClickTileParent;
     public List<LampClickTile> lampClickTiles = new List<LampClickTile>();
-    Quaternion firstRot;
+    [SerializeField]Quaternion firstRot;
 
     // Start is called before the first frame update
     void Start()
@@ -49,27 +49,28 @@ public class TurnLight : InteractiveObject
             Debug.Log(angle);
             Turning(angle);
         }*/
-        Turning(turnAngle,true);
+        Turning(transform.eulerAngles.y + turnAngle, true);
     }
 
     [Button]
     public override void TurnAction()
     {
-        Turning(turnAngle,true);
+
+        Turning(transform.eulerAngles.y + turnAngle, true);
     }
 
 
- 
+    [Button]
     public override void ResetObj()
     {
+        turnAngle = Mathf.Abs(turnAngle); 
         Turning(firstRot.eulerAngles.y,true);
     }
 
 
     public void Turning(float angle, bool isResetLight = false)
     {
-        float rot = transform.eulerAngles.y + angle;
-         Vector3 target = new Vector3(transform.eulerAngles.x,rot , transform.eulerAngles.z);
+         Vector3 target = new Vector3(transform.eulerAngles.x,angle , transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
              interactiveLight.ChangeTileColor();
@@ -83,7 +84,7 @@ public class TurnLight : InteractiveObject
     public void TurnReverse()
     {
         turnAngle = -turnAngle;
-        Turning(turnAngle, true);
+        Turning(transform.eulerAngles.y + turnAngle);
     }
 
     /*
