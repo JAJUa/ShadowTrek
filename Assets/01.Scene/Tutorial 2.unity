@@ -15688,6 +15688,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6679422457438540058}
     m_Modifications:
+    - target: {fileID: 1490107713371489886, guid: 1de2b4ab231d06148902c5296fdc631c,
+        type: 3}
+      propertyPath: bookPageIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2589023536710921281, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
       propertyPath: m_IsActive
@@ -15751,7 +15756,7 @@ PrefabInstance:
     - target: {fileID: 6957951698413738582, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
       propertyPath: bookPages.Array.size
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6957951698413738582, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}

@@ -3332,7 +3332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookPageIndex: 0
+  bookPageMaxIndex: 1
   autoFlip: {fileID: 5501859950889574051}
+  bookScript: {fileID: 6957951698413738582}
   clipNameText:
   - "\uC774\uB3D9"
   - "\uCE68\uC2DD"
@@ -5106,6 +5108,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5501859950889574051}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bfb5044c0cc646baba1ad7d354100, type: 3}
+--- !u!114 &6957951698413738582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11415212, guid: fe9bfb5044c0cc646baba1ad7d354100,
+    type: 3}
+  m_PrefabInstance: {fileID: 6957951698424362234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957951698424449978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4446b7192d8bf914ebaf797b64fe8b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6957951698424449978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 180032, guid: fe9bfb5044c0cc646baba1ad7d354100,

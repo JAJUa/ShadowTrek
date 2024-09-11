@@ -10,7 +10,9 @@ public class InGameBookManager : MonoBehaviour
 {
     [Tab("Debugging")]
     [SerializeField] private int bookPageIndex = 0;
+    [SerializeField] private int bookPageMaxIndex = 1;
     [SerializeField] private AutoFlip autoFlip;
+    [SerializeField] private Book bookScript;
 
     [Tab("Modify")]
     [TextArea] [SerializeField] private string[] clipNameText;
@@ -38,6 +40,11 @@ public class InGameBookManager : MonoBehaviour
         player = 1 << 1,
     }
 
+    private void Start()
+    {
+        SettingBook(bookPageIndex);
+    }
+
     public void NextPage()
     {
         // Start text animation
@@ -52,6 +59,9 @@ public class InGameBookManager : MonoBehaviour
 
     public void CloseText(bool isNext)
     {
+        if (bookPageMaxIndex <= bookPageIndex && isNext) return;
+        if (bookPageIndex <= 0 && !isNext) return;
+
         // Stop text animation
         HideTextAnimations();
 
@@ -100,6 +110,11 @@ public class InGameBookManager : MonoBehaviour
         vidmaskImage.DOFade(1f, 1f);
         vidraw.DOColor(new Color(vidraw.color.r, vidraw.color.g, vidraw.color.b, 1f), 1f);
 
+        StartFadeIcon();
+    }
+
+    private void StartFadeIcon()
+    {
         PlayerIcon currentIcons = selectIcon[bookPageIndex];
 
         bool hasPapa = (currentIcons & PlayerIcon.papa) == PlayerIcon.papa;
@@ -150,5 +165,14 @@ public class InGameBookManager : MonoBehaviour
         });
 
         DOVirtual.DelayedCall(delay + 1.5f, () => NextPage());
+    }
+
+    public void SettingBook(int bookPage)
+    {
+        bookPageIndex = bookPage;
+
+        bookScript.currentPage = (bookPage + 1) * 2;
+        StartFadeIcon();
+        ShowTextAnimations();
     }
 }
