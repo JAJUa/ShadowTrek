@@ -72,6 +72,7 @@ public class RePlay : MonoBehaviour
 
     public void ReMove()
     {
+        if (pointsInTime.Count <= 0) return;
         StartCoroutine(MoveToFrontTile());
         pointsInTime.RemoveAt(0);
     }
@@ -129,6 +130,7 @@ public class RePlay : MonoBehaviour
 
     public IEnumerator MoveToFrontTile()
     {
+      
         InGameManager.Inst.moveBlock = true;
         PointInTime pointInTime = pointsInTime[0];
         Vector3 targetPosition = pointInTime.position;
