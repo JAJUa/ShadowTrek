@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Febucci.UI;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -29,9 +30,13 @@ public class InGameBookManager : MonoBehaviour
     [SerializeField] private TypewriterByCharacter manualText_TA;
     [SerializeField] private TypewriterByCharacter manualInfoText_TA;
     [SerializeField] private TypewriterByCharacter selectInfoText_TA;
-    [SerializeField] private TypewriterByCharacter manualTitleText_TA;
 
-    private enum PlayerIcon { player, papa }
+    [Flags] private enum PlayerIcon
+    {
+        None = 0,
+        papa = 1 << 0,
+        player = 1 << 1,
+    }
 
     public void NextPage()
     {
@@ -67,7 +72,6 @@ public class InGameBookManager : MonoBehaviour
         manualText_TA.StartShowingText();
         manualInfoText_TA.StartShowingText();
         selectInfoText_TA.StartShowingText();
-        manualTitleText_TA.StartShowingText();
     }
 
     private void HideTextAnimations()
@@ -77,14 +81,12 @@ public class InGameBookManager : MonoBehaviour
         manualText_TA.StopShowingText();
         manualInfoText_TA.StopShowingText();
         selectInfoText_TA.StopShowingText();
-        manualTitleText_TA.StopShowingText();
 
         clipNameText_TA.StartDisappearingText();
         infoText_TA.StartDisappearingText();
         manualText_TA.StartDisappearingText();
         manualInfoText_TA.StartDisappearingText();
         selectInfoText_TA.StartDisappearingText();
-        manualTitleText_TA.StartDisappearingText();
     }
 
     private void UpdateVideoPlayer()
@@ -98,14 +100,25 @@ public class InGameBookManager : MonoBehaviour
         vidmaskImage.DOFade(1f, 1f);
         vidraw.DOColor(new Color(vidraw.color.r, vidraw.color.g, vidraw.color.b, 1f), 1f);
 
-        switch (selectIcon[bookPageIndex])
+        PlayerIcon currentIcons = selectIcon[bookPageIndex];
+
+        bool hasPapa = (currentIcons & PlayerIcon.papa) == PlayerIcon.papa;
+        bool hasPlayer = (currentIcons & PlayerIcon.player) == PlayerIcon.player;
+
+        if (hasPapa && hasPlayer)
         {
-            case PlayerIcon.papa:
-                papaImage.DOFade(1f, 1f);
-                break;
-            case PlayerIcon.player:
-                playerImage.DOFade(1f, 1f);
-                break;
+            papaImage.DOFade(1f, 1f);
+            playerImage.DOFade(1f, 1f);
+        }
+        else if (hasPapa)
+        {
+            papaImage.DOFade(1f, 1f);
+            playerImage.DOFade(0.4f, 1f);
+        }
+        else if (hasPlayer)
+        {
+            papaImage.DOFade(0.4f, 1f);
+            playerImage.DOFade(1f, 1f);
         }
     }
 

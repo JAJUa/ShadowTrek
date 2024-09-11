@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8544973649115006763}
   - component: {fileID: 8544973649115006762}
-  - component: {fileID: 2496104271020422898}
   m_Layer: 0
   m_Name: ImGameUIManager
   m_TagString: Untagged
@@ -56,29 +55,3 @@ MonoBehaviour:
   titleName: "-\uC54C \uC218 \uC5C6\uB294 \uADF8\uB9BC\uC790-"
   startTitleAnim: 1
   openUI: 0
---- !u!114 &2496104271020422898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8544973649115006765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 502f85c6ea8ee584fa485649374b1767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bookPageIndex: 0
-  autoFlip: {fileID: 0}
-  clipNameTxt: {fileID: 0}
-  clipInforTxt: {fileID: 0}
-  clipName:
-  - "\uADF8\uB9BC\uC790\uCE68\uC2DD"
-  - "\uC774\uB3D9"
-  usedInfor:
-  - "<size= 30>\"\uBE5B\uC5D0 2\uD134 \uB3D9\uC548 \uBC97\uC5B4\uB098\uBA74 \uD654\uBA74\uC774                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-    \uD751\uBC31\uC73C\uB85C \uC804\uD658\uB418\uBA74\uC11C \uADF8\uB9BC\uC790\uC5D0
-    \uCE68\uC2DD\uB418\uAE30 \uC9C1\uC804 \uC0C1\uD0DC\uAC00 \uB41C\uB2E4. \n\uC774
-    \uC0C1\uD0DC\uC5D0\uC11C \uD55C\uBC88 \uB354 \uBE5B\uC744 \uBC97\uC5B4\uB0A0
-    \uC2DC \uC7AC\uAE30\uBD88\uB2A5\uC774 \uB41C\uB2E4.\"</size>"
-  - "\u3134\u3141\u3147"
