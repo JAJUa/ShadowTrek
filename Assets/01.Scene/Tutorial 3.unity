@@ -6617,9 +6617,9 @@ Material:
     - _Smoothness: 1
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!1 &1060434464 stripped
+--- !u!1 &1050817105 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6302509891423707487, guid: 7c3cda88157e9334994a06a2f6e521ab,
+  m_CorrespondingSourceObject: {fileID: 8881047790457688523, guid: 7c3cda88157e9334994a06a2f6e521ab,
     type: 3}
   m_PrefabInstance: {fileID: 1798406536}
   m_PrefabAsset: {fileID: 0}
@@ -9141,7 +9141,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1798406536}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060434464}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
@@ -11695,22 +11695,22 @@ PrefabInstance:
     - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1060434464}
+      objectReference: {fileID: 1351139543}
     - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: OpenBook
       objectReference: {fileID: 0}
     - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: InGameUIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4979898425629636575, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -11746,7 +11746,7 @@ PrefabInstance:
         type: 3}
       propertyPath: helpBookCanvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1050817105}
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: startTitleAnim
@@ -11842,7 +11842,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5278568691605347635, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
+    - {fileID: 6236716849675880967, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     m_RemovedGameObjects:
     - {fileID: 887425825082821839, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     - {fileID: 8077359576734900549, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
