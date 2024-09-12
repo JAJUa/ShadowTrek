@@ -140,7 +140,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: ad5d05cfe76747444b8fb35a5210aa4f, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -265,8 +266,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{dedicated}: Desktop/shadowTrek.keystore'
-  AndroidKeyaliasName: shadowtrekteam
+  AndroidKeystoreName: '{inproject}: user.keystore'
+  AndroidKeyaliasName: 123456
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

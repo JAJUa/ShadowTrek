@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
-using TMPro.EditorUtilities;
 using Febucci.UI;
 
 public class InGameUIManager : MonoBehaviour

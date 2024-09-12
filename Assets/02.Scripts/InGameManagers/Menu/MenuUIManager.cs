@@ -47,6 +47,7 @@ public class MenuUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
         curLanguageNum = GameData.Inst.localizationNum;
         iconTween = new Tween[iconsObj.Length];
         Spawn();
