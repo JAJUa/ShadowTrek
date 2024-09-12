@@ -10281,12 +10281,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 887776367}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &889359313 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2737800133577696061, guid: 7c3cda88157e9334994a06a2f6e521ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 2441754845210464324}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895845483
 GameObject:
   m_ObjectHideFlags: 0
@@ -25010,7 +25004,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &2105262237
 Canvas:
   m_ObjectHideFlags: 0
@@ -25880,7 +25874,7 @@ PrefabInstance:
         type: 3}
       propertyPath: helpBookCanvas
       value: 
-      objectReference: {fileID: 889359313}
+      objectReference: {fileID: 0}
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: startTitleAnim
