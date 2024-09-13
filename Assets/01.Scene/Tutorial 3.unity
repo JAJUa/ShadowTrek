@@ -10724,16 +10724,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
-        type: 3}
-      propertyPath: bookPageIndex
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
-        type: 3}
-      propertyPath: bookPageMaxIndex
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -10883,11 +10873,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8881047790457688523, guid: 7c3cda88157e9334994a06a2f6e521ab,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5278568691605347635, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}

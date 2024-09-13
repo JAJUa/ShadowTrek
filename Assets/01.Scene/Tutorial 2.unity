@@ -1581,6 +1581,9 @@ MonoBehaviour:
   zoomSpeed: 30
   maxOthograpicSize: 60
   minOthograpicSize: 45
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
+  dampingSpeed: 1
   PlayerFollow: 0
   Player: {fileID: 0}
   offset: {x: -112, y: 112, z: -112}
@@ -7223,6 +7226,8 @@ MonoBehaviour:
   character: 0
   tutorialType: 4
   tutorialAnimator: {fileID: 1721497144}
+  tutoIndex: 0
+  isTutoAnimInt: 0
   triggerName: Explain
   dialogue: {fileID: 0}
   dialogueImage: {fileID: 0}
@@ -7850,6 +7855,8 @@ MonoBehaviour:
   character: 0
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
+  tutoIndex: 0
+  isTutoAnimInt: 0
   triggerName: 
   dialogue: {fileID: 0}
   dialogueImage: {fileID: 0}
@@ -10783,6 +10790,8 @@ MonoBehaviour:
   character: 0
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
+  tutoIndex: 0
+  isTutoAnimInt: 0
   triggerName: 
   dialogue: {fileID: 0}
   dialogueImage: {fileID: 0}
@@ -11922,6 +11931,8 @@ MonoBehaviour:
   character: 0
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
+  tutoIndex: 0
+  isTutoAnimInt: 0
   triggerName: 
   dialogue: {fileID: 0}
   dialogueImage: {fileID: 0}
@@ -15625,7 +15636,12 @@ PrefabInstance:
     - target: {fileID: 1490107713371489886, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
       propertyPath: bookPageIndex
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490107713371489886, guid: 1de2b4ab231d06148902c5296fdc631c,
+        type: 3}
+      propertyPath: bookPageMaxIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2403639738786699907, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
@@ -15636,6 +15652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3432133878844344457, guid: 1de2b4ab231d06148902c5296fdc631c,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229414435642172336, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
@@ -15666,6 +15687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813950560924593757, guid: 1de2b4ab231d06148902c5296fdc631c,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6957951698413738582, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
