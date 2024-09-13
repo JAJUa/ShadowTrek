@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using VInspector;
 
 public class CameraMove : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class CameraMove : MonoBehaviour
 
     Camera m_camera;
 
+    public float shakeDuration = 0.5f; // 흔들리는 시간
+    public float shakeMagnitude = 0.1f; // 흔들리는 강도
+    public float dampingSpeed = 1.0f; // 흔들림이 사라지는 속도
+    Vector3 initialPosition;
+    float shakeTime = 0f;
 
     [Space(10)] [Header("-- Player Follow --")]
 
@@ -29,12 +35,30 @@ public class CameraMove : MonoBehaviour
 
     private void Start()
     {
+        initialPosition = transform.localPosition;
         //transform.LookAt(cameraCenter.transform.position);
     }
 
     void Update()
     {
+        if (shakeTime > 0)
+        {
+            // 카메라 위치에 랜덤한 진동을 더해줌
+            transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+            // 흔들림 시간이 지나면 줄어듬
+            shakeTime -= Time.deltaTime * dampingSpeed;
+        }
+        else
+        {
+            shakeTime = 0f;
+            transform.localPosition = initialPosition;
+        }
+    }
 
+    [Button]
+    public void TriggerShake(float duration)
+    {
+        shakeTime = duration;
     }
 
     private void FixedUpdate()
@@ -71,4 +95,5 @@ public class CameraMove : MonoBehaviour
         else
             transform.position = Player.position + offset;
     }
+
 }

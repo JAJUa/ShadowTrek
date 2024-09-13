@@ -31,6 +31,8 @@ public class InGameManager : MonoBehaviour
     public bool changeRoom;
     public CameraMove cam;
     private Vector3 camPos, camRot;
+    [HideInInspector] public bool isCutsceneIn;
+    
     [ShowIf("changeRoom")]
     [Space(10)] [Header("-- Room --")]
     public bool[] isKey;
@@ -106,7 +108,23 @@ public class InGameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (isCutsceneIn)
+        {
+            if (Input.GetMouseButton(0)) CutSceneSpeedSet(true);
+
+            if (Input.GetMouseButtonUp(0) && Time.timeScale != 1) CutSceneSpeedSet(false);
+        }
+        else
+        {
+            if (Time.timeScale != 1) CutSceneSpeedSet(false);
+        }
+    }
+
+    void CutSceneSpeedSet(bool speedUp)
+    {
+        Time.timeScale = speedUp?3:1;
+        Time.fixedDeltaTime = 1 / Time.timeScale * 0.02f;
+        InGameUIManager.Inst.CutSceneSpeedUp(speedUp);
     }
 
     public void StayPapa()

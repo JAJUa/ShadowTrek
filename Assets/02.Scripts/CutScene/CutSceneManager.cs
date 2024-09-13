@@ -14,7 +14,6 @@ using Febucci.UI;
 public class CutSceneManager : MonoBehaviour
 {
     public static CutSceneManager Inst;
-
     [SerializeField] PlayableDirector playableDirector;
     public enum CutSceneType { startCutScene, middleCutScene }
     [SerializeField] CutSceneType cutSceneType;
@@ -158,6 +157,7 @@ public class CutSceneManager : MonoBehaviour
 
     public void StartCutScene()
     {
+        
         playableDirector.Play();
     }
 
@@ -165,13 +165,15 @@ public class CutSceneManager : MonoBehaviour
     {
         if(cutSceneIn)
         {
+            InGameManager.Inst.isCutsceneIn= true;
             MoveBlock(true);
             up.DOAnchorPosY(-50, 0.7f);
             down.DOAnchorPosY(50, 0.7f);
         }
         else
         {
-           MoveBlock(false);
+            InGameManager.Inst.isCutsceneIn =false;
+            MoveBlock(false);
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);
             transform.gameObject.SetActive(false);

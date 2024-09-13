@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8544973649115006763}
-  - component: {fileID: 8544973649115006762}
   m_Layer: 0
   m_Name: ImGameUIManager
   m_TagString: Untagged
@@ -32,26 +31,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8544973649115006762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8544973649115006765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modeChangeImage: {fileID: 0}
-  normalModeSprite: {fileID: 21300000, guid: bb24cbe0e549929449bd6d313c1f417c, type: 3}
-  shadowModeSprite: {fileID: 21300000, guid: aa6e46ccf3feed5459f6dacdb5885bc1, type: 3}
-  optionCanvas: {fileID: 0}
-  inGameCanvas: {fileID: 0}
-  helpBookCanvas: {fileID: 0}
-  menuAnim: {fileID: 0}
-  titleText: {fileID: 0}
-  titleName: "-\uC54C \uC218 \uC5C6\uB294 \uADF8\uB9BC\uC790-"
-  startTitleAnim: 1
-  openUI: 0

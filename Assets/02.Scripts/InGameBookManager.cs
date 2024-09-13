@@ -24,6 +24,7 @@ public class InGameBookManager : MonoBehaviour
     [SerializeField] private Image vidImage;
     [SerializeField] private Image vidmaskImage;
     [SerializeField] private RawImage vidraw;
+    [SerializeField] private Image nextBtn, preBtn;
     [SerializeField] private VideoClip[] videos;
 
     [Tab("TypeWriterAnim")]
@@ -151,6 +152,14 @@ public class InGameBookManager : MonoBehaviour
         bookPageIndex = isNext
             ? Mathf.Min(bookPageIndex + 1, clipNameText.Length - 1)
             : Mathf.Max(bookPageIndex - 1, 0);
+
+        //책 넘기는 버튼 인덱스 넘어가면 사라지게
+        float nextFade = bookPageIndex < bookPageMaxIndex ? 1f : 0f;
+        float preFade = bookPageIndex >0? 1f : 0f;
+        //  nextBtn.DOFade(nextFade, 0.5f);
+        //  preBtn.DOFade(preFade, 0.5f);
+        nextBtn.enabled = bookPageIndex < bookPageMaxIndex;
+        preBtn.enabled = bookPageIndex > 0;
     }
 
     private void HandlePageFlip(bool isNext)

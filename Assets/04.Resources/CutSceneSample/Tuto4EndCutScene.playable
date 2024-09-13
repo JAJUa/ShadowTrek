@@ -184,6 +184,22 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 042e6c81264cb9445a7592abc61ace46, type: 2}
+--- !u!114 &-3996810009599960992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 6.983333333333333
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: df0d46506098df943841857171942b60, type: 2}
 --- !u!74 &-2963874850404649549
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -482,6 +498,7 @@ MonoBehaviour:
     - {fileID: 8587991596420965441}
     - {fileID: 9147080259892924252}
     - {fileID: -4291538452985559018}
+    - {fileID: -3996810009599960992}
 --- !u!74 &3375918588696988649
 AnimationClip:
   m_ObjectHideFlags: 0
@@ -607,7 +624,7 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 7.5
+        time: 7.366667
         value: {x: -0.000030517578, y: 0, z: 14.99999}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -833,7 +850,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 7.5
+        time: 7.366667
         value: -0.000030517578
         inSlope: 0
         outSlope: 0
@@ -953,7 +970,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 7.5
+        time: 7.366667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1073,7 +1090,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 7.5
+        time: 7.366667
         value: 14.99999
         inSlope: 0
         outSlope: 0

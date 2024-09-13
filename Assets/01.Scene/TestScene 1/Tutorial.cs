@@ -16,9 +16,11 @@ public class Tutorial : MonoBehaviour
     public bool textExplain,moveTutoCutScene,replayPlayerPosChange;
     public enum Character {Daughter,Papa}
     public Character character;
-    public enum TutorialType { MoveTutorial, textTutorial, cutSceneClickTuto, ClickObj,TutorialAnimation }
+    public enum TutorialType { MoveTutorial, textTutorial, cutSceneClickTuto, ClickObj,TutorialAnimation}
     public TutorialType tutorialType;
     [SerializeField] Animator tutorialAnimator;
+    [SerializeField] int tutoIndex;
+    [SerializeField] bool isTutoAnimInt;
     [SerializeField] string triggerName;
     [ShowIf("textExplain")]
     [SerializeField] TextMeshProUGUI dialogue;
@@ -81,7 +83,17 @@ public class Tutorial : MonoBehaviour
         foreach(Transform tile in activeTiles) tile.gameObject.SetActive(true);
         if (triggerObj != null) triggerObj.gameObject.SetActive(true);
         if (textExplain) TutorialDialogueText(true);
-        if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f,()=> { tutorialAnimator.SetTrigger(triggerName);InGameManager.Inst.moveBlock = true; });;
+        if (isTutoAnimInt)
+        {
+            if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f, () =>
+            { tutorialAnimator.SetInteger(triggerName,tutoIndex); InGameManager.Inst.moveBlock = true; }); ;
+        }
+        else
+        {
+            if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f, () =>
+            { tutorialAnimator.SetTrigger(triggerName); InGameManager.Inst.moveBlock = true; }); ;
+        }
+     
 
     }
 

@@ -12,7 +12,7 @@ public class InGameUIManager : MonoBehaviour
     public static InGameUIManager Inst;
     public Image modeChangeImage;
     public Sprite normalModeSprite, shadowModeSprite;
-    public GameObject optionCanvas,inGameCanvas,helpBookCanvas;
+    public GameObject optionCanvas,inGameCanvas,helpBookCanvas,cutSceneSpeed;
     public Animator menuAnim;
     [SerializeField] TypewriterByCharacter titleText;
     [SerializeField] string titleName;
@@ -52,6 +52,11 @@ public class InGameUIManager : MonoBehaviour
         InGameManager.Inst.moveBlock = openUI;
         helpBookCanvas.SetActive(openUI);
 
+    }
+
+    public void CutSceneSpeedUp(bool active)
+    {
+        cutSceneSpeed.SetActive(active);
     }
 
     public void ShowTitleText(float delay = 0)
