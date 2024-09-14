@@ -64,7 +64,7 @@ public class InGameUIManager : MonoBehaviour
         DOVirtual.DelayedCall(delay, () =>
         {
             titleText.ShowText(titleName);
-            DOVirtual.DelayedCall(0.9f, () => {
+            DOVirtual.DelayedCall(2f, () => {
                 titleText.StartDisappearingText();
                 DOVirtual.DelayedCall(1f, () => titleText.GetComponent<TextMeshProUGUI>().enabled = false); 
                 });

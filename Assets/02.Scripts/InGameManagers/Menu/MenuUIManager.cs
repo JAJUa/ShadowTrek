@@ -276,7 +276,7 @@ public class MenuUIManager : MonoBehaviour
         {
             Debug.Log(relicScrollbarImage[i].gameObject.name);
             GameObject countTxt =  relicScrollbarImage[i].transform.Find("Count").gameObject;
-            countTxt.GetComponent<TextMeshProUGUI>().text = GameData.Inst.relicsCurCount[i-1].ToString() + " / " + GameData.Inst.relicsMaxCount[i-1].ToString() + " Founded";
+            countTxt.GetComponent<TextMeshProUGUI>().text = GameData.Inst.relicsCurCount[i-1].ToString() + " / " + GameData.Inst.relicsMaxCount[i-1].ToString() + " Found";
         }
     }
 

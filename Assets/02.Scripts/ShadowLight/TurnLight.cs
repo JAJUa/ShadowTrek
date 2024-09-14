@@ -85,6 +85,7 @@ public class TurnLight : InteractiveObject
     {
         turnAngle = -turnAngle;
         Turning(transform.eulerAngles.y + turnAngle,false,true);
+        DOVirtual.DelayedCall(0.5f,()=> dia.InterFade(true));
     }
 
     /*
