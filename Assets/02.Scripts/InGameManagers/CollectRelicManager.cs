@@ -51,7 +51,7 @@ public class CollectRelicManager : MonoBehaviour
         uiCanvas.SetActive(true);
         StartCoroutine(Delay());
         relicName.text = chapterRelicName[itemType];
-        relicCount.text = (GameData.Inst.relicsCurCount[itemType]+1).ToString() + " / " + GameData.Inst.relicsMaxCount[itemType] + " Founded";
+        relicCount.text = (GameData.Inst.relicsCurCount[itemType]+1).ToString() + " / " + GameData.Inst.relicsMaxCount[itemType] + " Found";
         chapterRelicOBJ[itemType].transform.DOLocalRotate(new Vector3(0f, 540f, 0f), 1.5f, RotateMode.FastBeyond360);
        // InGameUIManager.Inst.inGameCanvas.SetActive(false);
     }

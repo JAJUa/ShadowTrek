@@ -42,7 +42,9 @@ public class MenuUIManager : MonoBehaviour
     public List<GameObject> relicScrollbarImage, skinScrollbarImage = new List<GameObject>();
 
 
- 
+    Vector2 startTouchPos, endTouchPos,swipeDelta;
+    [SerializeField] private float touchInterval;
+    bool isSwiping;
 
     // Start is called before the first frame update
     void Start()
@@ -233,6 +235,8 @@ public class MenuUIManager : MonoBehaviour
     void Update()
     {
 
+        
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -256,8 +260,38 @@ public class MenuUIManager : MonoBehaviour
 
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            startTouchPos= Input.mousePosition;
+            isSwiping= true;
+        }
+
+        if(Input.GetMouseButtonUp(0) && isSwiping)
+        {
+            endTouchPos = Input.mousePosition;
+            swipeDelta = startTouchPos- endTouchPos;
+            if (swipeDelta.magnitude > touchInterval) // 최소 스와이프 길이 설정
+            {
+                DetectSwipe(swipeDelta);
+            }
+
+            isSwiping = false; // 스와이프 동작 끝
+        }
+
     }
 
+    public void DetectSwipe(Vector2 swipeDelta)
+    {
+
+        if (swipeDelta.x > 0)
+            TurnIcon(true);
+        else
+            TurnIcon(false);
+        
+    }
+
+   
     public void GetSkinData()
     {
         for(int i = 1; i < skinScrollbarImage.Count - 1; i++)
@@ -276,7 +310,7 @@ public class MenuUIManager : MonoBehaviour
         {
             Debug.Log(relicScrollbarImage[i].gameObject.name);
             GameObject countTxt =  relicScrollbarImage[i].transform.Find("Count").gameObject;
-            countTxt.GetComponent<TextMeshProUGUI>().text = GameData.Inst.relicsCurCount[i-1].ToString() + " / " + GameData.Inst.relicsMaxCount[i-1].ToString() + " Founded";
+            countTxt.GetComponent<TextMeshProUGUI>().text = GameData.Inst.relicsCurCount[i-1].ToString() + " / " + GameData.Inst.relicsMaxCount[i-1].ToString() + " Found";
         }
     }
 
