@@ -34,20 +34,20 @@ public class SaveSystem : MonoBehaviour
     private void Awake()
     {
         Inst = this;
-        
-        
-
-
-    }
-    void Start()
-    {
-      
 
 
         path = Path.Combine(Application.persistentDataPath + fileName);
         Debug.Log(path);
+      
+
+    }
+    void Start()
+    {
         LoadData();
-       
+
+
+
+
     }
 
     private void Update()
@@ -116,11 +116,18 @@ public class SaveSystem : MonoBehaviour
                 GameData.Inst.relicsMaxCount= playerData.relicsMaxCount;
                 GameData.Inst.localizationNum= playerData.localizationNum;
                 GameData.Inst.bgmVolume= playerData.bgmVolume;
-                //Debug.Log(playerData.relicsBool[0][0]);
+                Debug.Log(GameData.Inst.relicsBool[0][0]);
                 GameData.Inst.soundEffectVolume= playerData.soundEffectVolume;
             }
         }
       
+    }
+
+    public bool IsNewFile()
+    {
+        if (!File.Exists(path))
+            return true;
+        else return false;
     }
 }
 

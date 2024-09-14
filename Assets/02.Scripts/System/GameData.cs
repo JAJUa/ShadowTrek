@@ -20,18 +20,23 @@ public class GameData : MonoBehaviour
     {
         
         Inst= this;
-
-        for (int i = 0; i < relicsMaxCount.Count; i++)
+        if (SaveSystem.Inst.IsNewFile())
         {
-            relicsBool.Add(new List<bool>());
-        }
-        for (int i = 0; i< relicsMaxCount.Count; i++)
-        {
-            for(int j = 0; j < relicsMaxCount[i]; j++)
+            for (int i = 0; i < relicsMaxCount.Count; i++)
             {
-                relicsBool[i].Add(false);
+                relicsBool.Add(new List<bool>());
             }
+            for (int i = 0; i < relicsMaxCount.Count; i++)
+            {
+                for (int j = 0; j < relicsMaxCount[i]; j++)
+                {
+                    relicsBool[i].Add(false);
+                }
+            }
+
         }
+
+
         Debug.Log(relicsMaxCount.Count);
 
         Debug.Log("relicsBool 초기화 완료");

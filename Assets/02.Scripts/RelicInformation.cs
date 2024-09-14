@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,18 @@ public class RelicInformation : MonoBehaviour
 
     private void Start()
     {
-        
-        if (GameData.Inst.relicsBool[relicType][relicNum])
+        DOVirtual.DelayedCall(0.05f, () =>
         {
-            gameObject.SetActive(false);
-        }
-        else
-            gameObject.SetActive(true);
+            Debug.Log(GameData.Inst.relicsBool[relicType][relicNum]);
+            if (GameData.Inst.relicsBool[relicType][relicNum])
+            {
+
+                gameObject.SetActive(false);
+            }
+            else
+                gameObject.SetActive(true);
+        });
+        
     }
 
 
