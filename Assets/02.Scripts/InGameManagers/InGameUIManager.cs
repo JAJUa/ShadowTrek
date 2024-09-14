@@ -51,7 +51,7 @@ public class InGameUIManager : MonoBehaviour
         openUI = !openUI;
         InGameManager.Inst.moveBlock = openUI;
         helpBookCanvas.SetActive(openUI);
-
+        if (openUI == false) MenuFade(); 
     }
 
     public void CutSceneSpeedUp(bool active)
@@ -96,6 +96,8 @@ public class InGameUIManager : MonoBehaviour
             menuAnim.SetBool("MenuFade", true);
         else
             menuAnim.SetBool("MenuFade", false);
+
+        if (openUI == true) { helpBookCanvas.SetActive(false); openUI = false; InGameManager.Inst.moveBlock = false; }
     }
 
     public void Restart()
