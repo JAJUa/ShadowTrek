@@ -81,7 +81,7 @@ public class TurnLight : InteractiveObject
 
 
 
-    public void TurnReverse()
+    public void TurnReverse(Dialouge dia = null)
     {
         turnAngle = -turnAngle;
         Turning(transform.eulerAngles.y + turnAngle,false,true);

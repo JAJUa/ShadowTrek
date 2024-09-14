@@ -525,6 +525,9 @@ MonoBehaviour:
   zoomSpeed: 30
   maxOthograpicSize: 60
   minOthograpicSize: 45
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
+  dampingSpeed: 1
   PlayerFollow: 0
   Player: {fileID: 0}
   offset: {x: -112, y: 112, z: -112}
@@ -728,27 +731,27 @@ PrefabInstance:
     - target: {fileID: 6834764990165367352, guid: 5e823f07343978e4aae8f4a0041a819e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99138784
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6834764990165367352, guid: 5e823f07343978e4aae8f4a0041a819e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6834764990165367352, guid: 5e823f07343978e4aae8f4a0041a819e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.13095929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6834764990165367352, guid: 5e823f07343978e4aae8f4a0041a819e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6834764990165367352, guid: 5e823f07343978e4aae8f4a0041a819e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 15.05
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5078,6 +5081,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 703686781967586863, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2391578117029483366, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_Name
@@ -5103,6 +5111,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1798406541}
+    - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenBook
+      objectReference: {fileID: 0}
     - target: {fileID: 4979898425629636575, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive
@@ -5117,6 +5135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: modeChangeImage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503651818335616278, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6584877391723996155, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -5178,6 +5201,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6808362245948213350, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7301608281004657609, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5210,6 +5238,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1798406536}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1798406541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1798406536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798406538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1799272190
 GameObject:
   m_ObjectHideFlags: 0

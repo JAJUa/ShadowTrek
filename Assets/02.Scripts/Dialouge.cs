@@ -193,7 +193,7 @@ public class Dialouge : MonoBehaviour
                 break;
             case Type.LampRotation:
                 //lamp.GetComponent<TurnLight>().GeneralTileAppear(true, this);
-                lamp.GetComponent<TurnLight>().TurnReverse();
+                lamp.GetComponent<TurnLight>().TurnReverse(this);
                 break;
 
         }
