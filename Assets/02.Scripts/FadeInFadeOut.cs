@@ -31,17 +31,26 @@ public class FadeInFadeOut : MonoBehaviour
         sequence.Append(fadeImage.DOFade(1, 0.5f));
         sequence.AppendCallback(() => { SceneManager.LoadScene(sceneName); });
     }
+    public void NextScene(int sceneIndex)
+    {
+        fadeImage.enabled = true;
+        var sequence = DOTween.Sequence();
+
+        sequence.Append(fadeImage.DOFade(1, 0.5f));
+        sequence.AppendCallback(() => { SceneManager.LoadScene(sceneIndex); });
+    }
+
 
     public void FadeIn()
     {
         fadeImage.enabled = true;
-        fadeImage.DOFade(1, 0.3f);
+        fadeImage.DOFade(1, 0.15f);
     }
 
     public void FadeOut()
     {
 
-        fadeImage.DOFade(0, 0.3f).OnComplete(() =>
+        fadeImage.DOFade(0, 0.15f).OnComplete(() =>
         {
             fadeImage.enabled = false;
         });

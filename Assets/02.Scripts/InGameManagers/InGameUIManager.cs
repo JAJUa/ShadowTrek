@@ -11,19 +11,21 @@ public class InGameUIManager : MonoBehaviour
 {
     public static InGameUIManager Inst;
     public Image modeChangeImage;
-    public Sprite normalModeSprite, shadowModeSprite;
+    public GameObject seraSprite, papaSprite;
     public GameObject optionCanvas,inGameCanvas,helpBookCanvas,cutSceneSpeed;
     public Animator menuAnim;
     [SerializeField] TypewriterByCharacter titleText;
+    [SerializeField] Image titleTextBox;
     [SerializeField] string titleName;
     [SerializeField] bool startTitleAnim;
-    public bool openUI;
+    public bool openUI,ableMenuBtn;
 
 
 
     private void Awake()
     {
         Inst = this;
+        ableMenuBtn = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -61,12 +63,13 @@ public class InGameUIManager : MonoBehaviour
 
     public void ShowTitleText(float delay = 0)
     {
+        titleTextBox.DOFade(0.5f, 0.5f);
         DOVirtual.DelayedCall(delay, () =>
         {
             titleText.ShowText(titleName);
             DOVirtual.DelayedCall(2f, () => {
                 titleText.StartDisappearingText();
-                DOVirtual.DelayedCall(1f, () => titleText.GetComponent<TextMeshProUGUI>().enabled = false); 
+                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false; titleTextBox.DOFade(0, 0.5f); }); 
                 });
         });
        
@@ -77,27 +80,31 @@ public class InGameUIManager : MonoBehaviour
 
   
 
-    public void ModeSpriteChange(bool isNormal) 
+    public void SpriteChange(bool isSera) 
     {
-        if (isNormal)
-        {
-            modeChangeImage.sprite = normalModeSprite;
-        }
-        else
-        {
-            modeChangeImage.sprite = shadowModeSprite;
-        }
+       
+        seraSprite.SetActive(isSera);
+        papaSprite.SetActive(!isSera);
+       
     }
 
     public void MenuFade()
     {
-        Debug.Log("123");
-        if(menuAnim.GetBool("MenuFade") == false)
-            menuAnim.SetBool("MenuFade", true);
-        else
-            menuAnim.SetBool("MenuFade", false);
+        if (ableMenuBtn)
+        {
+            if (menuAnim.GetBool("MenuFade") == false)
+                menuAnim.SetBool("MenuFade", true);
+            else
+                menuAnim.SetBool("MenuFade", false);
 
-        if (openUI == true) { helpBookCanvas.SetActive(false); openUI = false; InGameManager.Inst.moveBlock = false; }
+            if (openUI == true) { helpBookCanvas.SetActive(false); openUI = false; InGameManager.Inst.moveBlock = false; }
+        }
+        
+    }
+
+    public void AbleMenuBtn(bool able)
+    {
+        ableMenuBtn = able;
     }
 
     public void Restart()

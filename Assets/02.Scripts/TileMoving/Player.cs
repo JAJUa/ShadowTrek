@@ -42,6 +42,7 @@ public class Player : Character
         {
             if (Vector3.Distance(transform.position,endObj.position)<2f)
             {
+                InGameManager.Inst.StopMoving();
                 TileMoveScript.Inst.ResetLight();
                 EnterReplayMode();
             }
@@ -69,6 +70,7 @@ public class Player : Character
         animator.SetBool("isWalk", false);
         playerInLight();
         InGameManager.Inst.CameraPosReset();
+        InGameUIManager.Inst.SpriteChange(false);
         return;
     }
 

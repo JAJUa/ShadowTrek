@@ -12,8 +12,9 @@ using VInspector;
 public class StartBookManager : MonoBehaviour
 {
     [Tab("디버깅")]
-    [SerializeField] private int bookPageIndex = 0;
+    [SerializeField] private int bookPageIndex = 0,maxPageIndex;
     [SerializeField] AutoFlip autoFlip;
+    [SerializeField] Book bookScript;
     [SerializeField] Button sceneStartBtn;
 
     [Tab ("내용")]
@@ -33,9 +34,10 @@ public class StartBookManager : MonoBehaviour
     private void Start()
     {
         sceneStartBtn.enabled = true;
+        SettingBook(bookPageIndex);
     }
 
-    public void NextPage()
+    public void ShowTextAnimations()
     {
         sceneStartBtn.enabled = true;
         chapterSceneName_TA.ShowText(chapterSceneName[bookPageIndex].ToString());
@@ -47,21 +49,18 @@ public class StartBookManager : MonoBehaviour
 
     public void EnterScene()
     {
-        Debug.Log("EnterScene");
-        SceneManager.LoadScene(1+bookPageIndex);
+        FadeInFadeOut.Inst.NextScene(1 + bookPageIndex);
     }
 
-    public void CloseText(bool isNext)
+    public void HideText(bool isNext)
     {
         sceneStartBtn.enabled = false;
         if (isNext)
         {
-            if (bookPageIndex + 1 >= chapterStory.Length) return;
+            if (bookPageIndex + 1 >= maxPageIndex) return;
         }
-        else
-        {
-            if(bookPageIndex - 1 < 0) return;
-        }
+        else if (bookPageIndex - 1 < 0) return;
+      
         chapterSceneName_TA.StopShowingText();
         chapterText_TA.StopShowingText();
         bgmText_TA.StopShowingText();
@@ -81,10 +80,18 @@ public class StartBookManager : MonoBehaviour
        
 
 
-        if (isNext) DOVirtual.DelayedCall(0.8f, () => autoFlip.FlipRightPage());
-        else DOVirtual.DelayedCall(0.8f, () => autoFlip.FlipLeftPage());
+        if (isNext) DOVirtual.DelayedCall(0.6f, () => autoFlip.FlipRightPage());
+        else DOVirtual.DelayedCall(0.6f, () => autoFlip.FlipLeftPage());
 
-        DOVirtual.DelayedCall(1.6f, () => NextPage());
+        DOVirtual.DelayedCall(1.6f, () => ShowTextAnimations());
+    }
+
+    public void SettingBook(int bookPage)
+    {
+        bookPageIndex = bookPage;
+
+        bookScript.currentPage = (bookPage + 1) * 2;
+        ShowTextAnimations();
     }
 
 

@@ -69,6 +69,8 @@ public class InGameManager : MonoBehaviour
         if(!onlyPlayer)
              papa.gameObject.SetActive(false);
 
+       
+
     }
 
 

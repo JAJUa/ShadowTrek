@@ -154,8 +154,8 @@ public class InGameBookManager : MonoBehaviour
             : Mathf.Max(bookPageIndex - 1, 0);
 
         //책 넘기는 버튼 인덱스 넘어가면 사라지게
-        float nextFade = bookPageIndex < bookPageMaxIndex ? 1f : 0f;
-        float preFade = bookPageIndex >0? 1f : 0f;
+       // float nextFade = bookPageIndex < bookPageMaxIndex ? 1f : 0f;
+       // float preFade = bookPageIndex >0? 1f : 0f;
         //  nextBtn.DOFade(nextFade, 0.5f);
         //  preBtn.DOFade(preFade, 0.5f);
         nextBtn.enabled = bookPageIndex < bookPageMaxIndex;

@@ -55,6 +55,7 @@ public class MenuUIManager : MonoBehaviour
         Spawn();
         ChangeIconName();
         GetScrollbarImages();
+        instanceIcon[curIconNum - 1].transform.DOScale(1.4f, 0.5f);
         AnimationIcon();
         StartCoroutine(waitLocalization());
         turnRate = 360 / iconsObj.Length;
@@ -64,6 +65,7 @@ public class MenuUIManager : MonoBehaviour
             icon.transform.LookAt(dir);
         }
         bgmScrollBar.value = SoundManager.Inst.bgmAudioSource.volume;
+        
     }
 
     #region 아이콘 관련
