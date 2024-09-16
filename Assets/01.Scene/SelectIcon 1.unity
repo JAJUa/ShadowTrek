@@ -799,7 +799,7 @@ MonoBehaviour:
       m_Calls: []
   waitForNormalChars: 0.03
   waitLong: 0.03
-  waitMiddle: 0.2
+  waitMiddle: 0.03
   avoidMultiplePunctuactionWait: 0
   waitForNewLines: 1
   waitForLastCharacter: 1

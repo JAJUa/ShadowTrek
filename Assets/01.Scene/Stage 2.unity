@@ -8545,6 +8545,11 @@ PrefabInstance:
       propertyPath: playableDirector
       value: 
       objectReference: {fileID: 1793641737}
+    - target: {fileID: 6356770279524317024, guid: 0c1873c5e90410c44815c106a012dea1,
+        type: 3}
+      propertyPath: endPlayableDirector
+      value: 
+      objectReference: {fileID: 1793641737}
     - target: {fileID: 7119587813446724366, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -21349,7 +21354,7 @@ GameObject:
   - component: {fileID: 1793641736}
   - component: {fileID: 1793641735}
   m_Layer: 0
-  m_Name: EndCutSceneManager1
+  m_Name: EndCutSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25831,7 +25836,7 @@ PrefabInstance:
     - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 743
       objectReference: {fileID: 0}
     - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -26018,6 +26023,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 174777052}
+    - target: {fileID: 9134980456062195647, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 887425825082821839, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
