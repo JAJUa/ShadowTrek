@@ -30,7 +30,7 @@ public class CameraMove : MonoBehaviour
     private void Awake()
     {
         m_camera= GetComponent<Camera>();
-        Player = GameObject.Find("BS_Transform").transform;
+       // Player = GameObject.Find("BS_Transform").transform;
     }
 
     private void Start()

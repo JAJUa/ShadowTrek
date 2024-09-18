@@ -102,7 +102,7 @@ public class CutSceneManager : MonoBehaviour
         dialogueText[dialogueIndex].ShowText(dialogueDetail[this.dialogueIndex]);
 
         dialogueTextTween[dialogueIndex] =  DOVirtual.DelayedCall(dialogueTextCloseCool , () => dialogueText[dialogueIndex].StartDisappearingText());
-        dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool+1f , () => {
+        dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool+1.5f , () => {
             dialogueImage[dialogueIndex].DOFade(0, 0.5f) ;      
             });
         this.dialogueIndex++;
@@ -146,7 +146,7 @@ public class CutSceneManager : MonoBehaviour
         {
             for(int i = 0; i<character.Length; i++)
             {
-                dialogueImage[i].transform.position = character[i].transform.position + new Vector3(0, 15, 0);
+                dialogueImage[i].transform.position = character[i].transform.position + new Vector3(0, 16, 0);
                 
                 dialogueImage[i].transform.rotation = Camera.main.transform.rotation;
             }
@@ -165,7 +165,8 @@ public class CutSceneManager : MonoBehaviour
     {
         if(cutSceneIn)
         {
-            InGameManager.Inst.isCutsceneIn= true;
+            //트레일러 촬영 시 주석
+            //InGameManager.Inst.isCutsceneIn= true;
             MoveBlock(true);
             up.DOAnchorPosY(-50, 0.7f);
             down.DOAnchorPosY(50, 0.7f);
@@ -182,7 +183,8 @@ public class CutSceneManager : MonoBehaviour
 
     public void MoveBlock(bool isBlock)
     {
-        InGameManager.Inst.moveBlock = isBlock;
+        //트레일러 촬영 시 주석
+        //InGameManager.Inst.moveBlock = isBlock;
     }
 
 }

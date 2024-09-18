@@ -261,6 +261,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 398765018}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &32747893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,6 +2911,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialFade: {fileID: 1758458247}
+--- !u!114 &398765018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1798406536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398765011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &399528900
 GameObject:
   m_ObjectHideFlags: 0
@@ -5700,6 +5724,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 398765018}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &933766111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6231,7 +6267,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Aspect: 1.7777778
-    - _Smoothness: 0.9991957
+    - _Smoothness: 0.99333
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1 &1050817105 stripped

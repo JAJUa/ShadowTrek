@@ -13659,6 +13659,8 @@ MonoBehaviour:
   curCharacter: 0
   isLight: 0
   startPos: {x: 0, y: 0, z: 0}
+  startRot: {x: 0, y: 0, z: 0, w: 0}
+  lineRenderer: {fileID: 0}
   invisableMat: {fileID: 0}
   InvTime: 0
   isInv: 0
@@ -14755,6 +14757,9 @@ MonoBehaviour:
   zoomSpeed: 30
   maxOthograpicSize: 100
   minOthograpicSize: 20
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
+  dampingSpeed: 1
   PlayerFollow: 0
   Player: {fileID: 0}
   offset: {x: -112, y: 112, z: -112}
@@ -15079,18 +15084,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45f156a968a7d64e990b91ba5f6ea48, type: 3}
---- !u!114 &1062894745 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 496615350, guid: 7c3cda88157e9334994a06a2f6e521ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 1811165452}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1070456251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16346,7 +16339,7 @@ MonoBehaviour:
   lamp: {fileID: 0}
   colliderTrans: {x: 0, y: 5, z: 14.45}
   colliderSize: {x: 5, y: 5, z: 5}
-  playerMask:
+  layerMask:
     serializedVersion: 2
     m_Bits: 0
   isInterActiveing: 0
@@ -20266,12 +20259,17 @@ MonoBehaviour:
   typingEffect: 0
   up: {fileID: 0}
   down: {fileID: 0}
+  character: []
+  isDialogue: 0
   centerDetail: []
   centerText: {fileID: 0}
   centerTextCloseCool: 0
   dialogueDetail: []
-  dialogueImage: {fileID: 0}
-  dialogueText: {fileID: 0}
+  dialogueIndex: 0
+  dialogueImage:
+  - {fileID: 0}
+  dialogueText:
+  - {fileID: 0}
   dialogueTextCloseCool: 0
   text: []
   bottomTextBackground: {fileID: 0}
@@ -20279,8 +20277,6 @@ MonoBehaviour:
   cutSceneBottomText: {fileID: 0}
   typingCool: 0
   ttsAudio: []
-  player: {fileID: 0}
-  isDialogue: 0
 --- !u!1 &1557097092
 GameObject:
   m_ObjectHideFlags: 0
@@ -23752,6 +23748,61 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2391578117029483366, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_Name
@@ -23816,7 +23867,7 @@ PrefabInstance:
         type: 3}
       propertyPath: modeChangeImage
       value: 
-      objectReference: {fileID: 1062894745}
+      objectReference: {fileID: 0}
     - target: {fileID: 6584877391723996155, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive

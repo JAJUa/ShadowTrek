@@ -12,7 +12,7 @@ public class InteractiveObject : MonoBehaviour
 
 
 
-    public virtual void ResetObj() { } //´Ù½Ã½ÃÀÛ ½Ã ¸®¼ÂÀ§Ä¡
+    public virtual void ResetObj() { } //ï¿½Ù½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡
 
     public virtual void TurnAction() { }
 

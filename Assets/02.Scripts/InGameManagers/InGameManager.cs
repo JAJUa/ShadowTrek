@@ -66,11 +66,16 @@ public class InGameManager : MonoBehaviour
             return;
         }
 
-        if(!onlyPlayer)
-             papa.gameObject.SetActive(false);
+     
 
        
 
+    }
+
+    private void Start()
+    {
+        if (!onlyPlayer)
+            papa.gameObject.SetActive(false);
     }
 
 

@@ -136,6 +136,7 @@ public class Tutorial : MonoBehaviour
                     player.position = triggerObj.position;  
                     if (moveTutoCutScene)
                     {
+
                         InGameManager.Inst.StopMoving();
 
                         
