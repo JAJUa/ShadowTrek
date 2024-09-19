@@ -6202,7 +6202,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9339623, g: 0.3480331, b: 0.3480331, a: 1}
+      key0: {r: 1, g: 0.13396227, b: 0.13396227, a: 1}
       key1: {r: 0.6603774, g: 0.0892963, b: 0.07787468, a: 0.9264706}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -8493,6 +8493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.16234927
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674648245991064499, guid: 0c1873c5e90410c44815c106a012dea1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}

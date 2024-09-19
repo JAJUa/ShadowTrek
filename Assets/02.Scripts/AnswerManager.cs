@@ -46,11 +46,18 @@ public class AnswerManager : MonoBehaviour
             LineRenderer();
             if (!InGameManager.Inst.inRelpayMode)
             {
-              
-                if (Vector3.Distance(player.position, seraCorrectTiles[tileIndex].transform.position) < 15.2f &&  tileIndex < seraCorrectTiles.Count-1)
+                if (Vector3.Distance(player.position, seraCorrectTiles[tileIndex-1].transform.position) < 2f &&  tileIndex <= seraCorrectTiles.Count-1)
                 {
-                    player.position = new Vector3(seraCorrectTiles[tileIndex].transform.position.x, player.position.y, seraCorrectTiles[tileIndex].transform.position.z);
+                    player.position = new Vector3(seraCorrectTiles[tileIndex-1].transform.position.x, player.position.y, seraCorrectTiles[tileIndex-1].transform.position.z);
                     SeraTile();
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(papa.position, papaCorrectTiles[tileIndex - 1].transform.position) < 2f && tileIndex <= papaCorrectTiles.Count - 1)
+                {
+                    papa.position = new Vector3(papaCorrectTiles[tileIndex - 1].transform.position.x, papa.position.y, papaCorrectTiles[tileIndex - 1].transform.position.z);
+                    PapaTile();
                 }
             }
         }
@@ -58,6 +65,10 @@ public class AnswerManager : MonoBehaviour
 
     }
 
+    public void ChangeChracter()
+    {
+
+    }
     public void PapaTile()
     {
         if (tileIndex >= papaCorrectTiles.Count) return;
@@ -66,8 +77,7 @@ public class AnswerManager : MonoBehaviour
     }
 
     public void TileColDisable(Collider targetCol,Collider preCol)
-    {
-       
+    {  
         lineTrans.Clear();
         lineTrans.Add(targetCol.transform);
         lineTrans.Add(preCol.transform);
