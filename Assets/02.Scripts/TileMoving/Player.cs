@@ -52,7 +52,7 @@ public class Player : Character
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {
 
-                endPlayableDirector.Play();
+                DOVirtual.DelayedCall(0.5f,()=> endPlayableDirector.Play());
             }
            
         }
@@ -63,14 +63,21 @@ public class Player : Character
     public void EnterReplayMode()
     {
         StopCoroutine(moveCoroutine);
+
         shadowPapa.SetActive(true);
         InGameManager.Inst.inRelpayMode = true;
+
         RePlay.Inst.isReplayMode= true;
         RePlay.Inst.RePlayMode(gameObject, animator, pointInTime);
         animator.SetBool("isWalk", false);
+
         playerInLight();
+
         InGameManager.Inst.CameraPosReset();
         InGameUIManager.Inst.SpriteChange(false);
+
+        if(InGameManager.Inst.isAnswering)
+            AnswerManager.Inst.ChangeChracter(false);
         return;
     }
 

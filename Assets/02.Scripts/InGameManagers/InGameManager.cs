@@ -23,6 +23,7 @@ public class InGameManager : MonoBehaviour
     public bool isInteractionDetect;
     public bool inRelpayMode;
     public bool noPapaButDetect;
+    public bool isAnswering;
     public CurCharacter curCharacter;
     public int curStageNum;
     [SerializeField]Player player;

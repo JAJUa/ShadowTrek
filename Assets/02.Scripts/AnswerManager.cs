@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,25 +7,41 @@ using VInspector;
 
 public class AnswerManager : MonoBehaviour
 {
+
+    public static AnswerManager Inst;
     [SerializeField] List<Collider>  seraCorrectTiles = new List<Collider>(),papaCorrectTiles = new List<Collider>(),allTiles = new List<Collider>();
     [SerializeField] Transform tilesParent;
     [SerializeField] int tileIndex=1;
     [SerializeField] GameObject arrow;
     [SerializeField] List<Transform> lineTrans = new List<Transform>(); 
     [SerializeField]LineRenderer lineRenderer;
-    Transform player, papa;
+    Transform player, papa,curCharacter;
 
-    public bool isAnswer;
+    [Serializable]
+    public struct AnswerData
+   {
+        public enum  AnswerType{ tileTurn,interaction };
+        public AnswerType answerType;
+        public Collider tile;
+        public GameObject obj;
+
+    }
+
+    public AnswerData[] answerData;
+
 
     private void Awake()
     {
+        Inst = this;
         player = GameObject.FindGameObjectWithTag("PlayerControl").transform;
         papa = GameObject.FindGameObjectWithTag("Papa").transform;
+        curCharacter = player;
 
     }
     // Start is called before the first frame update
     void Start()
     {
+        tileIndex = 1;
        
         for(int i = 0; i < tilesParent.childCount; i++)
         {
@@ -41,7 +58,7 @@ public class AnswerManager : MonoBehaviour
 
     private void Update()
     {
-        if (isAnswer)
+        if (InGameManager.Inst.isAnswering)
         {
             LineRenderer();
             if (!InGameManager.Inst.inRelpayMode)
@@ -65,9 +82,10 @@ public class AnswerManager : MonoBehaviour
 
     }
 
-    public void ChangeChracter()
+    public void ChangeChracter(bool isSera)
     {
-
+        curCharacter = isSera ? player : papa;
+        tileIndex= 1;
     }
     public void PapaTile()
     {
@@ -81,20 +99,19 @@ public class AnswerManager : MonoBehaviour
         lineTrans.Clear();
         lineTrans.Add(targetCol.transform);
         lineTrans.Add(preCol.transform);
-        isAnswer = true;
+        InGameManager.Inst.isAnswering = true;
         foreach (Collider col in allTiles)
         {
             col.enabled = false;
         }
         targetCol.enabled = true;
         preCol.enabled = true;
-        //Instantiate(arrow, targetCol.transform.position + new Vector3(0, 10, 0), Quaternion.identity);
         tileIndex++;
     }
     public void LineRenderer()
     {
         lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, 2.7f, player.transform.position.z));
+        lineRenderer.SetPosition(0, new Vector3(curCharacter.transform.position.x, 2.7f, curCharacter.transform.position.z));
         lineRenderer.SetPosition(1, new Vector3(lineTrans[0].position.x, 2.7f, lineTrans[0].position.z));
    
     }
