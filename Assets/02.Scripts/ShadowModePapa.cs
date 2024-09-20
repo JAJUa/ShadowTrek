@@ -32,7 +32,7 @@ public class ShadowModePapa : Character
 
    public void ResetPos()
     {
-        
+        Debug.Log("PapaReset");
         isLight= false;
         DOVirtual.DelayedCall(0.1f, ()=>transform.position = startPos);
         DOVirtual.DelayedCall(0.1f, () => transform.rotation = startRot);
@@ -46,7 +46,8 @@ public class ShadowModePapa : Character
         {
             InGameManager.Inst.moveBlock = true;
             dissolve.DIssolvessad(true);
-            DOVirtual.DelayedCall(0.5f,()=> CharacterDead());
+            DOVirtual.DelayedCall(0,()=> CharacterDead());
+            DOVirtual.DelayedCall(0.5f, () => dissolve.DIssolvessad(false));
             return;
 
         }

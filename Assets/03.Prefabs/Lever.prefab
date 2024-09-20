@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.19, y: 2.3, z: -6.9}
-  m_LocalScale: {x: 1.2121, y: 1.2121, z: 1.2121}
+  m_LocalScale: {x: 1.2120999, y: 1.2120999, z: 1.2120999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3202847995433902307}
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17095046f16bb3845929131578577316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 11.63, y: 9.56, z: 33.27}
-  pos: {x: 9.9, y: 0, z: 0}
+  autoLight: {x: 8.8, y: 5.96, z: 39.06}
+  autoLightPos: {x: 10.07, y: 0.65, z: 0}
   interactiveLight: {fileID: 0}
   turnOnOffLights:
   - {fileID: 0}
@@ -78,7 +78,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  autoBool: 0
+  autoBool: 1
 --- !u!1 &1442754054851309065
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,8 +324,8 @@ GameObject:
   - component: {fileID: 2272579102060072071}
   - component: {fileID: 2272579102060072070}
   - component: {fileID: 2272579102060072073}
-  - component: {fileID: 2272579102060072072}
   - component: {fileID: 2272579102060072075}
+  - component: {fileID: 4659558571723040797}
   m_Layer: 5
   m_Name: DialougeObjectCanavs
   m_TagString: Untagged
@@ -417,35 +417,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2272579102060072072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2272579102060072077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eebb973c793c7b240aaa8e303f930d17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 1
-  pictureCanvas: {fileID: 0}
-  isTutorial: 0
-  type: 4
-  interBox: {fileID: 2272579101868509867}
-  dialougeBox: {fileID: 2272579102854880445}
-  colliderTrans: {x: 0.4, y: -4.96, z: 0}
-  colliderSize: {x: 10, y: 3, z: 5}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  interTransform: {fileID: 0}
-  dialoTransform: {fileID: 0}
-  isInterActiveing: 0
-  isdialoActiveing: 0
-  isAnimating: 0
-  onColider: 0
 --- !u!95 &2272579102060072075
 Animator:
   serializedVersion: 5
@@ -467,6 +438,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4659558571723040797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272579102060072077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f2741cf93ff3f4b8b6967d3182a1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.7
+  pictureCanvas: {fileID: 0}
+  isTutorial: 0
+  type: 4
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  answerColor: {r: 1, g: 0.2784314, b: 0.2784314, a: 1}
+  interBox: {fileID: 2272579101868509867}
+  dialougeBox: {fileID: 0}
+  colliderTrans: {x: 0.4, y: -5, z: 0}
+  colliderSize: {x: 8.93, y: 7.09, z: 5.72}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131072
+  interTransform: {fileID: 2272579101868509866}
+  dialoTransform: {fileID: 0}
+  isInterActiveing: 0
+  isdialoActiveing: 0
+  isAnimating: 0
+  onColider: 0
+  levera: {fileID: 2272579102633413547}
 --- !u!1 &2272579102274783735
 GameObject:
   m_ObjectHideFlags: 0

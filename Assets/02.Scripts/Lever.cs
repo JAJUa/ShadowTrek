@@ -36,7 +36,7 @@ public class Lever : InteractiveObject
     {
         if (autoBool)
         {
-            Collider[] colliders = Physics.OverlapBox(transform.position + pos, size / 2, Quaternion.identity, layerMask);
+            Collider[] colliders = Physics.OverlapBox(transform.position + autoLightPos, autoLight / 2, Quaternion.identity, layerMask);
             if (colliders.Length > 0)
             {
                 if (!isTurnOn)

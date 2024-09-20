@@ -262,11 +262,66 @@ PrefabInstance:
       propertyPath: colliderTrans.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6607778573685731692, guid: 63f5dbdb430762d42b09b5f8bc9036a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6607778573685731686, guid: 63f5dbdb430762d42b09b5f8bc9036a4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3042101836884876640}
   m_SourcePrefab: {fileID: 100100000, guid: 63f5dbdb430762d42b09b5f8bc9036a4, type: 3}
+--- !u!114 &1111623904747526298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6607778572876141849, guid: 63f5dbdb430762d42b09b5f8bc9036a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6115540397339397507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1111623905548631269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6607778573685731686, guid: 63f5dbdb430762d42b09b5f8bc9036a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6115540397339397507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3042101836884876640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111623905548631269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef48f3620b206f4da58f557a9eb432d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.7
+  pictureCanvas: {fileID: 0}
+  isTutorial: 0
+  type: 5
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  answerColor: {r: 1, g: 0.2784314, b: 0.2784314, a: 0}
+  interBox: {fileID: 1111623904747526298}
+  dialougeBox: {fileID: 1111623904747526298}
+  colliderTrans: {x: 0, y: -4.95, z: 0}
+  colliderSize: {x: 18.92, y: 8.33, z: 20.12}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 131072
+  interTransform: {fileID: 0}
+  dialoTransform: {fileID: 0}
+  isInterActiveing: 0
+  isdialoActiveing: 0
+  isAnimating: 0
+  onColider: 0
+  m_lamp: {fileID: 6115540399458525660}
 --- !u!4 &7126584397878190871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3907001695039237780, guid: 63f5dbdb430762d42b09b5f8bc9036a4,
@@ -360,6 +415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotArrow (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -508,6 +568,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotArrow (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -654,6 +719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -802,6 +872,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotArrow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -948,6 +1023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotArrow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1096,6 +1176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotArrow (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1201,7 +1286,7 @@ PrefabInstance:
     - target: {fileID: 722604662613132927, guid: 70ce9aebe962c2d4990ddeff6c9798a2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 722604662613132927, guid: 70ce9aebe962c2d4990ddeff6c9798a2,
         type: 3}
@@ -1211,7 +1296,7 @@ PrefabInstance:
     - target: {fileID: 722604662613132927, guid: 70ce9aebe962c2d4990ddeff6c9798a2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 722604662613132927, guid: 70ce9aebe962c2d4990ddeff6c9798a2,
         type: 3}
@@ -1226,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 722604662613132927, guid: 70ce9aebe962c2d4990ddeff6c9798a2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 722604662613132927, guid: 70ce9aebe962c2d4990ddeff6c9798a2,
         type: 3}
@@ -1411,8 +1496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71ea6f88e52040499d74133b6ec64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 65.28, y: 8.91, z: 72.8}
-  pos: {x: 0, y: 0, z: 0}
+  autoLight: {x: 0, y: 0, z: 0}
+  autoLightPos: {x: 0, y: 0, z: 0}
   interactiveLight: {fileID: 6834764990300208574}
   turnSpeed: 0.5
   turnAngle: 45
@@ -1518,6 +1603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotArrow (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1665,6 +1755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotArrow (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d53d95c3f88a1c2488136fcdc321e181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

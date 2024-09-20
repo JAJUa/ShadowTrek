@@ -57,6 +57,7 @@ public class AnswerManager : MonoBehaviour
     [Button]
     public void SeraTile()
     {
+        InGameManager.Inst.ChangeGlobalVolume(true);
         if (tileIndex >= sera_answerData.Length) return;
         TileColDisable(sera_answerData[tileIndex].tile, sera_answerData[tileIndex-1].tile);
     }

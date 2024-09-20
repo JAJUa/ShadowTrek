@@ -16328,20 +16328,17 @@ MonoBehaviour:
   pictureCanvas: {fileID: 0}
   isTutorial: 0
   type: 0
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  answerColor: {r: 0, g: 0, b: 0, a: 0}
   interBox: {fileID: 310816717}
   dialougeBox: {fileID: 518113201}
-  objType: 0
-  keyIndex: 0
-  picture: {fileID: 0}
-  message: 
-  cutSceneObj: {fileID: 0}
-  lever: {fileID: 0}
-  lamp: {fileID: 0}
   colliderTrans: {x: 0, y: 5, z: 14.45}
   colliderSize: {x: 5, y: 5, z: 5}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  interTransform: {fileID: 0}
+  dialoTransform: {fileID: 0}
   isInterActiveing: 0
   isdialoActiveing: 0
   isAnimating: 0

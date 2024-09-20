@@ -5,6 +5,7 @@ using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -19,6 +20,7 @@ public class InGameManager : MonoBehaviour
 {
     public static InGameManager Inst;
 
+    [Tab("InGame")]
     public bool moveBlock = false;
     public bool isInteractionDetect;
     public bool inRelpayMode;
@@ -29,15 +31,23 @@ public class InGameManager : MonoBehaviour
     [SerializeField]Player player;
     [SerializeField]ShadowModePapa papa;
     [SerializeField] bool onlyPlayer;
+
+    
     public bool changeRoom;
     public CameraMove cam;
     private Vector3 camPos, camRot;
     [HideInInspector] public bool isCutsceneIn;
-    
+
+    [Tab("ETC")]
+    [SerializeField] Volume globalVolume;
+    [SerializeField] VolumeProfile defaultVolume, answerVolume;
+
     [ShowIf("changeRoom")]
     [Space(10)] [Header("-- Room --")]
     public bool[] isKey;
     public GameObject[] Rooms; // RoomChange Script
+
+   
 
   
 
@@ -54,7 +64,6 @@ public class InGameManager : MonoBehaviour
             GameObject pa = GameObject.FindGameObjectWithTag("Papa");
             papa = pa.GetComponent<ShadowModePapa>();
         }
-      
 
         curCharacter = CurCharacter.Player;      
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMove>();
@@ -66,11 +75,11 @@ public class InGameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
 
-     
-
-       
-
+    public void ChangeGlobalVolume(bool isAnswer)
+    {
+        globalVolume.profile = isAnswer ? answerVolume : defaultVolume;
     }
 
     private void Start()
@@ -93,9 +102,11 @@ public class InGameManager : MonoBehaviour
         StopAllCoroutines();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();
-        RePlay.Inst.ResetReplayMode();
+       
         CameraPosReset();
-        papa.ResetPos();
+        StopMoving();
+        DOVirtual.DelayedCall(0.2f,()=> papa.ResetPos());
+        RePlay.Inst.ResetReplayMode();
         player.playerInLight();
         TileMoveScript.Inst.ResetLight();
         DOVirtual.DelayedCall(1.5f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; }) ;
@@ -104,6 +115,13 @@ public class InGameManager : MonoBehaviour
 
     public void StopMoving()
     {
+        if (papa != null)
+        {
+            if (papa.moveCoroutine != null)
+                StopCoroutine(papa.moveCoroutine);
+            DOVirtual.DelayedCall(0.1f, () => papa.lineRenderer.positionCount = 0);
+        }
+
         DOVirtual.DelayedCall(0.1f, () => player.lineRenderer.positionCount = 0); 
         moveBlock = true;
       
@@ -112,6 +130,8 @@ public class InGameManager : MonoBehaviour
         Debug.Log(player.lineRenderer.positionCount);
 
         StopCoroutine(player.moveCoroutine);
+
+      
     }
 
     private void Update()
@@ -128,7 +148,7 @@ public class InGameManager : MonoBehaviour
         }
     }
 
-    void CutSceneSpeedSet(bool speedUp)
+    void CutSceneSpeedSet(bool speedUp) //컷씬 속도 변경
     {
         Time.timeScale = speedUp?3:1;
         Time.fixedDeltaTime = 1 / Time.timeScale * 0.02f;

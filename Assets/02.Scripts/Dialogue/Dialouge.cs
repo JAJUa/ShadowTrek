@@ -21,6 +21,7 @@ public class Dialouge : MonoBehaviour
     public enum ObjType { key };
     public Type type;
 
+    [SerializeField]Color defaultColor, answerColor;
 
     public Image interBox;// 투명해지고 이동할 이미지
 
@@ -77,12 +78,13 @@ public class Dialouge : MonoBehaviour
 
     private void Awake()
     {
-        layerMask += LayerMask.GetMask("Papa");
+       
     }
 
     private void Start()
     {
-
+       // layerMask += LayerMask.GetMask("Papa");
+        defaultColor = interBox.color;
         interTransform = interBox.GetComponent<RectTransform>();
         interTransform.anchoredPosition = new Vector2(interTransform.anchoredPosition.x, interTransform.anchoredPosition.y - 1);
         interBox.color = new Color(interBox.color.r, interBox.color.g, interBox.color.b, 0f);
@@ -142,8 +144,10 @@ public class Dialouge : MonoBehaviour
             Collider[] hit = Physics.OverlapBox(transform.position + colliderTrans, colliderSize, Quaternion.identity, layerMask);
             if (hit.Length > 0)
             {
+                Debug.Log("올라가-1");
                 if (!isInterActiveing && !onColider)
                 {
+                    Debug.Log("올라가");
                     InterFade(true);
                     onColider = true;
                 }
@@ -159,14 +163,13 @@ public class Dialouge : MonoBehaviour
 
     public void InterFade(bool isFadeIn)
     {
-        if (isFadeIn && !InGameManager.Inst.isAnswering) return;
+        interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
+
         int posY = isFadeIn ? 1 : -1;
         interBox.transform.rotation = Camera.main.transform.rotation;
         if (isFadeIn)
         {
-
             interBox.gameObject.SetActive(true);
-
         }
         isAnimating = true;
         isInterActiveing = isFadeIn;
