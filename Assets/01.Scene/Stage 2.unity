@@ -3693,6 +3693,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 295940328}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &303820209 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2272579101868509866, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2086142123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &304282932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7998,35 +8004,18 @@ MonoBehaviour:
   type: 4
   interBox: {fileID: 261198317}
   dialougeBox: {fileID: 0}
-  objType: 0
-  keyIndex: 0
-  picture: {fileID: 0}
-  message: 
-  cutSceneObj: {fileID: 0}
-  lever: {fileID: 0}
-  lamp: {fileID: 0}
   colliderTrans: {x: 0.4, y: -5, z: 0}
   colliderSize: {x: 8.93, y: 7.09, z: 5.72}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  interTransform: {fileID: 303820209}
+  dialoTransform: {fileID: 0}
   isInterActiveing: 0
   isdialoActiveing: 0
   isAnimating: 0
   onColider: 0
   levera: {fileID: 579835035}
---- !u!114 &704320720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2272579102060072072, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 2086142123}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704320715}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eebb973c793c7b240aaa8e303f930d17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &729645270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11694,7 +11683,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
   - answerType: 1
     tile: {fileID: 4930599576276374879}
-    dialogue: {fileID: 704320720}
+    dialogue: {fileID: 704320717}
   - answerType: 0
     tile: {fileID: 4930599575527470273}
     dialogue: {fileID: 0}
@@ -11706,7 +11695,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
   - answerType: 1
     tile: {fileID: 4930599576276359027}
-    dialogue: {fileID: 1928922780}
+    dialogue: {fileID: 1928922778}
   - answerType: 0
     tile: {fileID: 4930599574915293341}
     dialogue: {fileID: 0}
@@ -23223,35 +23212,18 @@ MonoBehaviour:
   type: 5
   interBox: {fileID: 1971303071}
   dialougeBox: {fileID: 1971303071}
-  objType: 0
-  keyIndex: 0
-  picture: {fileID: 0}
-  message: 
-  cutSceneObj: {fileID: 0}
-  lever: {fileID: 0}
-  lamp: {fileID: 0}
   colliderTrans: {x: 0, y: -4.95, z: 0}
   colliderSize: {x: 18.92, y: 8.33, z: 20.12}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  interTransform: {fileID: 0}
+  dialoTransform: {fileID: 0}
   isInterActiveing: 0
   isdialoActiveing: 0
   isAnimating: 0
   onColider: 0
   m_lamp: {fileID: 633034474}
---- !u!114 &1928922780 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1111623905548631279, guid: 5e823f07343978e4aae8f4a0041a819e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6115540398695004384}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928922776}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eebb973c793c7b240aaa8e303f930d17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1930660062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25154,7 +25126,8 @@ PrefabInstance:
       propertyPath: turnOnOffLights.Array.data[0]
       value: 
       objectReference: {fileID: 1499726186}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2272579102060072072, guid: 8a05d9a889cb01c42af2333b2a0487dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -26259,6 +26232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0
       objectReference: {fileID: 0}
@@ -27325,7 +27303,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1111623905548631279, guid: 5e823f07343978e4aae8f4a0041a819e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

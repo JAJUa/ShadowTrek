@@ -90,8 +90,13 @@ public class AnswerManager : MonoBehaviour
                 }
                 else
                 {
-                    if(!isInteract) papa_answerData[tileIndex - 1].dialogue.AnswerDialogue();
-                    isInteract = true;
+                    if (!isInteract)
+                    {
+                        isInteract = true;
+                        Debug.Log(tileIndex - 1);
+                        papa_answerData[tileIndex - 1].dialogue.AnswerDialogue();
+                    }
+                    
                    
                 }
               

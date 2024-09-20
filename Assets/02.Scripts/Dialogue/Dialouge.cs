@@ -27,6 +27,8 @@ public class Dialouge : MonoBehaviour
     [ShowIfEnum("type", (int)Type.text)]
     public Image dialougeBox; // 투명해지고 이동할 이미지
 
+    /*
+
     [Foldout("Take key")]
     [ShowIfEnum("type", (int)Type.takeObj)]
     public ObjType objType;
@@ -50,7 +52,7 @@ public class Dialouge : MonoBehaviour
 
     [Foldout("RampRot")]
     [ShowIfEnum("type", (int)Type.LampRotation)]
-    [SerializeField] GameObject lamp;
+    [SerializeField] GameObject lamp;*/
 
 
 
@@ -63,7 +65,7 @@ public class Dialouge : MonoBehaviour
     [SerializeField] Vector3 colliderSize;
     [SerializeField] LayerMask layerMask;
 
-    private RectTransform interTransform, dialoTransform;
+    [SerializeField]private RectTransform interTransform, dialoTransform;
     [SerializeField] private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
 
 
@@ -157,6 +159,7 @@ public class Dialouge : MonoBehaviour
 
     public void InterFade(bool isFadeIn)
     {
+        if (isFadeIn && !InGameManager.Inst.isAnswering) return;
         int posY = isFadeIn ? 1 : -1;
         interBox.transform.rotation = Camera.main.transform.rotation;
         if (isFadeIn)
@@ -168,6 +171,7 @@ public class Dialouge : MonoBehaviour
         isAnimating = true;
         isInterActiveing = isFadeIn;
         interBox.DOFade(isFadeIn ? 1f : 0f, duration);
+        Debug.Log(interTransform);
         interTransform.DOAnchorPosY(interTransform.anchoredPosition.y + posY, duration).SetEase(Ease.InOutSine).OnComplete(() =>
         { isAnimating = false; interBox.gameObject.SetActive(isFadeIn); });
 
@@ -229,21 +233,13 @@ public class Dialouge : MonoBehaviour
         dialoTransform.DOAnchorPos(new Vector2(dialoTransform.anchoredPosition.x + posX, dialoTransform.anchoredPosition.y + posY), duration).SetEase(Ease.InOutSine);
         dialoTransform.DOScale(isFadeIn? Vector3.one:Vector3.zero, duration).SetEase(Ease.InOutSine).OnComplete(() => { isAnimating = false; dialougeBox.gameObject.SetActive(isFadeIn); });
     }
-
+/*
     void PictureInteract()
     {
         pictureCanvas.transform.GetChild(1).GetComponent<Image>().sprite = picture;
         pictureCanvas.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = message;
         pictureCanvas.enabled = true;
-    }
+    }*/
 
-    void ObjInterect()
-    {
-        switch (objType)
-        {
-            case ObjType.key:
-                InGameManager.Inst.isKey[keyIndex] = true;
-                break;
-        }
-    }
+  
 }
