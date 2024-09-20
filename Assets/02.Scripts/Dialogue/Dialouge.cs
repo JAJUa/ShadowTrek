@@ -13,11 +13,11 @@ public class Dialouge : MonoBehaviour
     [Space(10)]
     [Header("-- Dialouge System --")]
 
-  
+
     public float duration = 0.7f; // 애니메이션 지속 시간
     public Canvas pictureCanvas;
     public bool isTutorial;
-    public enum Type {text,takeObj,picture,ClickCutScene,ClickLever,LampRotation};
+    public enum Type { text, takeObj, picture, ClickCutScene, ClickLever, LampRotation };
     public enum ObjType { key };
     public Type type;
 
@@ -54,40 +54,40 @@ public class Dialouge : MonoBehaviour
 
 
 
- 
 
 
-    [Space(10)] [Header("-- Collider --")]
+
+    [Space(10)][Header("-- Collider --")]
 
     [SerializeField] Vector3 colliderTrans;
     [SerializeField] Vector3 colliderSize;
     [SerializeField] LayerMask layerMask;
 
-    private RectTransform interTransform,dialoTransform;
+    private RectTransform interTransform, dialoTransform;
     [SerializeField] private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
 
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position +colliderTrans, colliderSize * 2);
+        Gizmos.DrawWireCube(transform.position + colliderTrans, colliderSize * 2);
     }
 
     private void Awake()
     {
-       layerMask += LayerMask.GetMask("Papa");
+        layerMask += LayerMask.GetMask("Papa");
     }
 
     private void Start()
     {
-        
-        interTransform = interBox.GetComponent<RectTransform>(); 
+
+        interTransform = interBox.GetComponent<RectTransform>();
         interTransform.anchoredPosition = new Vector2(interTransform.anchoredPosition.x, interTransform.anchoredPosition.y - 1);
         interBox.color = new Color(interBox.color.r, interBox.color.g, interBox.color.b, 0f);
         interBox.transform.rotation = Camera.main.transform.rotation;
         interBox.gameObject.SetActive(false);
 
-        if(type == Type.text)
+        if (type == Type.text)
         {
             dialoTransform = dialougeBox.GetComponent<RectTransform>();
             dialoTransform.anchoredPosition = new Vector2(dialoTransform.anchoredPosition.x - 8, dialoTransform.anchoredPosition.y - 3);
@@ -96,7 +96,7 @@ public class Dialouge : MonoBehaviour
             dialougeBox.transform.localScale = Vector3.zero;
             dialougeBox.gameObject.SetActive(false);
         }
-       
+
     }
 
     void Update()
@@ -107,11 +107,11 @@ public class Dialouge : MonoBehaviour
             if (isdialoActiveing)
             {
                 InterFade(true);
-                if(type == Type.text) DialoFade(false);
+                if (type == Type.text) DialoFade(false);
 
                 return;
             }
-            else 
+            else
             {
                 PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
                 pointerEventData.position = Input.mousePosition;
@@ -124,30 +124,35 @@ public class Dialouge : MonoBehaviour
                     if (result.gameObject == interBox.gameObject)//InterBox 클릭 했을 때
                     {
                         InterFade(false);
-                        if (type == Type.text) DialoFade(true); ;
+                        if (type == Type.text) DialoFade(true);
+                       
                         Interact();
                     }
                 }
-            }  
+            }
         }
     }
 
     private void FixedUpdate() // 클릭했을 때로 바꾸기
     {
-        Collider[] hit = Physics.OverlapBox(transform.position+colliderTrans, colliderSize, Quaternion.identity, layerMask);
-        if (hit.Length > 0)
+        if (!InGameManager.Inst.isAnswering)
         {
-            if (!isInterActiveing && !onColider)
+            Collider[] hit = Physics.OverlapBox(transform.position + colliderTrans, colliderSize, Quaternion.identity, layerMask);
+            if (hit.Length > 0)
             {
-                InterFade(true);
-                onColider = true;
+                if (!isInterActiveing && !onColider)
+                {
+                    InterFade(true);
+                    onColider = true;
+                }
+            }
+            else if (onColider)
+            {
+                InterFade(false);
+                onColider = false;
             }
         }
-        else if ( onColider)
-        {
-            InterFade(false);
-            onColider = false;
-        }
+       
     }
 
     public void InterFade(bool isFadeIn)
@@ -156,16 +161,16 @@ public class Dialouge : MonoBehaviour
         interBox.transform.rotation = Camera.main.transform.rotation;
         if (isFadeIn)
         {
-            
+
             interBox.gameObject.SetActive(true);
-            
+
         }
         isAnimating = true;
         isInterActiveing = isFadeIn;
-        interBox.DOFade(isFadeIn ? 1f:0f, duration);
-        interTransform.DOAnchorPosY(interTransform.anchoredPosition.y +posY, duration).SetEase(Ease.InOutSine).OnComplete(() => 
+        interBox.DOFade(isFadeIn ? 1f : 0f, duration);
+        interTransform.DOAnchorPosY(interTransform.anchoredPosition.y + posY, duration).SetEase(Ease.InOutSine).OnComplete(() =>
         { isAnimating = false; interBox.gameObject.SetActive(isFadeIn); });
-      
+
     }
 
     //이거 수정 필요
@@ -198,10 +203,19 @@ public class Dialouge : MonoBehaviour
                 break;
 
         }*/
-        Debug.Log("인터2");
+        if (InGameManager.Inst.isAnswering)
+        {
+            AnswerManager.Inst.PapaTile();
+        }
 
-        if(isTutorial) TutorialManager.Inst.FinshTutorial();
+        if (isTutorial) TutorialManager.Inst.FinshTutorial();
 
+    }
+
+    public void AnswerDialogue()
+    {
+        Debug.Log("인터렉트 하셈!");
+        InterFade(true); 
     }
 
     void DialoFade(bool isFadeIn)

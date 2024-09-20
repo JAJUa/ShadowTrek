@@ -9,25 +9,30 @@ public class AnswerManager : MonoBehaviour
 {
 
     public static AnswerManager Inst;
-    [SerializeField] List<Collider>  seraCorrectTiles = new List<Collider>(),papaCorrectTiles = new List<Collider>(),allTiles = new List<Collider>();
+    [SerializeField] List<Collider>  allTiles = new List<Collider>();
     [SerializeField] Transform tilesParent;
     [SerializeField] int tileIndex=1;
     [SerializeField] GameObject arrow;
     [SerializeField] List<Transform> lineTrans = new List<Transform>(); 
     [SerializeField]LineRenderer lineRenderer;
-    Transform player, papa,curCharacter;
+    [SerializeField]Transform player, papa,curCharacter;
+
+    [SerializeField ]bool isInteract = false;
 
     [Serializable]
     public struct AnswerData
-   {
-        public enum  AnswerType{ tileTurn,interaction };
+    {
+        public enum AnswerType { tileTurn, interaction };
         public AnswerType answerType;
         public Collider tile;
-        public GameObject obj;
+        public Dialouge dialogue;
 
     }
 
-    public AnswerData[] answerData;
+    [Foldout("SeraAnswerData")]
+    public AnswerData[] sera_answerData;
+    [Foldout("PapaAnswerData")]
+    public AnswerData[] papa_answerData;
 
 
     private void Awake()
@@ -52,8 +57,8 @@ public class AnswerManager : MonoBehaviour
     [Button]
     public void SeraTile()
     {
-        if (tileIndex >= seraCorrectTiles.Count) return;
-        TileColDisable(seraCorrectTiles[tileIndex], seraCorrectTiles[tileIndex-1]);
+        if (tileIndex >= sera_answerData.Length) return;
+        TileColDisable(sera_answerData[tileIndex].tile, sera_answerData[tileIndex-1].tile);
     }
 
     private void Update()
@@ -63,19 +68,33 @@ public class AnswerManager : MonoBehaviour
             LineRenderer();
             if (!InGameManager.Inst.inRelpayMode)
             {
-                if (Vector3.Distance(player.position, seraCorrectTiles[tileIndex-1].transform.position) < 2f &&  tileIndex <= seraCorrectTiles.Count-1)
+                if (sera_answerData[tileIndex-1].answerType == AnswerData.AnswerType.tileTurn)
                 {
-                    player.position = new Vector3(seraCorrectTiles[tileIndex-1].transform.position.x, player.position.y, seraCorrectTiles[tileIndex-1].transform.position.z);
-                    SeraTile();
+                    if (Vector3.Distance(player.position, sera_answerData[tileIndex - 1].tile.transform.position) < 2f && tileIndex <= sera_answerData.Length - 1)
+                    {
+                        player.position = new Vector3(sera_answerData[tileIndex - 1].tile.transform.position.x, player.position.y, sera_answerData[tileIndex - 1].tile.transform.position.z);
+                        SeraTile();
+                    }
                 }
+              
             }
             else
             {
-                if (Vector3.Distance(papa.position, papaCorrectTiles[tileIndex - 1].transform.position) < 2f && tileIndex <= papaCorrectTiles.Count - 1)
+                if (papa_answerData[tileIndex - 1].answerType == AnswerData.AnswerType.tileTurn)
                 {
-                    papa.position = new Vector3(papaCorrectTiles[tileIndex - 1].transform.position.x, papa.position.y, papaCorrectTiles[tileIndex - 1].transform.position.z);
-                    PapaTile();
+                    if (Vector3.Distance(papa.position, papa_answerData[tileIndex - 1].tile.transform.position) < 2f && tileIndex <= papa_answerData.Length - 1)
+                    {
+                        papa.position = new Vector3(papa_answerData[tileIndex - 1].tile.transform.position.x, papa.position.y, papa_answerData[tileIndex - 1].tile.transform.position.z);
+                        PapaTile();
+                    }
                 }
+                else
+                {
+                    if(!isInteract) papa_answerData[tileIndex - 1].dialogue.AnswerDialogue();
+                    isInteract = true;
+                   
+                }
+              
             }
         }
         
@@ -89,8 +108,9 @@ public class AnswerManager : MonoBehaviour
     }
     public void PapaTile()
     {
-        if (tileIndex >= papaCorrectTiles.Count) return;
-        TileColDisable(papaCorrectTiles[tileIndex], papaCorrectTiles[tileIndex - 1]);
+        if (tileIndex >= papa_answerData.Length) return;
+        TileColDisable(papa_answerData[tileIndex].tile, papa_answerData[tileIndex - 1].tile);
+        isInteract = false;
         
     }
 
