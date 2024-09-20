@@ -7026,6 +7026,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 625265251}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &633034474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6115540399458525660, guid: 5e823f07343978e4aae8f4a0041a819e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6115540398695004384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71ea6f88e52040499d74133b6ec64ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &633449923
 GameObject:
   m_ObjectHideFlags: 0
@@ -8003,6 +8015,18 @@ MonoBehaviour:
   isAnimating: 0
   onColider: 0
   levera: {fileID: 579835035}
+--- !u!114 &704320720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2272579102060072072, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2086142123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704320715}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebb973c793c7b240aaa8e303f930d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &729645270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11617,27 +11641,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda9bbfc779d10f4581dc2ae2ea42452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seraCorrectTiles:
-  - {fileID: 4930599575218077899}
-  - {fileID: 4930599574972173421}
-  - {fileID: 4930599575241868476}
-  - {fileID: 4930599574613411095}
-  - {fileID: 4930599575088291177}
-  - {fileID: 4930599576110337411}
-  - {fileID: 4930599575819275536}
-  - {fileID: 4930599574429488884}
-  - {fileID: 4930599574841174565}
-  - {fileID: 4930599576232533809}
-  - {fileID: 4930599576255845658}
-  - {fileID: 4930599575812379057}
-  papaCorrectTiles: []
   allTiles: []
   tilesParent: {fileID: 6779347441530621867}
   tileIndex: 1
   arrow: {fileID: 5636555864533998163, guid: e875f0d408c82cf4ab4a8e2724dc2783, type: 3}
   lineTrans: []
   lineRenderer: {fileID: 501775842}
-  answerData: []
+  player: {fileID: 0}
+  papa: {fileID: 0}
+  curCharacter: {fileID: 0}
+  isInteract: 0
+  sera_answerData:
+  - answerType: 0
+    tile: {fileID: 4930599575218077899}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574972173421}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599575241868476}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574613411095}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599575088291177}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599576110337411}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599575819275536}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574429488884}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574841174565}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599576232533809}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599576255845658}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599575812379057}
+    dialogue: {fileID: 0}
+  papa_answerData:
+  - answerType: 0
+    tile: {fileID: 4930599576276374879}
+    dialogue: {fileID: 0}
+  - answerType: 1
+    tile: {fileID: 4930599576276374879}
+    dialogue: {fileID: 704320720}
+  - answerType: 0
+    tile: {fileID: 4930599575527470273}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574915293341}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599576276359027}
+    dialogue: {fileID: 0}
+  - answerType: 1
+    tile: {fileID: 4930599576276359027}
+    dialogue: {fileID: 1928922780}
+  - answerType: 0
+    tile: {fileID: 4930599574915293341}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599576110337411}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599575819275536}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574429488884}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574383531852}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 4930599574429488884}
+    dialogue: {fileID: 0}
 --- !u!1001 &1019999054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18361,7 +18448,7 @@ PrefabInstance:
     - target: {fileID: 9216310316115852467, guid: 747bce1ecd05b7a45b0fbc716924bbab,
         type: 3}
       propertyPath: sceneName
-      value: Stage 3
+      value: Stage 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23112,6 +23199,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914804951}
   m_Mesh: {fileID: -7022509800697576645, guid: 2801f01a66a11834fb0ee848018864c1, type: 3}
+--- !u!1 &1928922776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1111623905548631269, guid: 5e823f07343978e4aae8f4a0041a819e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6115540398695004384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1928922778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928922776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef48f3620b206f4da58f557a9eb432d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.7
+  pictureCanvas: {fileID: 0}
+  isTutorial: 0
+  type: 5
+  interBox: {fileID: 1971303071}
+  dialougeBox: {fileID: 1971303071}
+  objType: 0
+  keyIndex: 0
+  picture: {fileID: 0}
+  message: 
+  cutSceneObj: {fileID: 0}
+  lever: {fileID: 0}
+  lamp: {fileID: 0}
+  colliderTrans: {x: 0, y: -4.95, z: 0}
+  colliderSize: {x: 18.92, y: 8.33, z: 20.12}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isInterActiveing: 0
+  isdialoActiveing: 0
+  isAnimating: 0
+  onColider: 0
+  m_lamp: {fileID: 633034474}
+--- !u!114 &1928922780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1111623905548631279, guid: 5e823f07343978e4aae8f4a0041a819e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6115540398695004384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928922776}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebb973c793c7b240aaa8e303f930d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1930660062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23497,6 +23637,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968343759}
   m_Mesh: {fileID: -7022509800697576645, guid: 2801f01a66a11834fb0ee848018864c1, type: 3}
+--- !u!114 &1971303071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1111623904747526298, guid: 5e823f07343978e4aae8f4a0041a819e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6115540398695004384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1971983581
 GameObject:
   m_ObjectHideFlags: 0
@@ -27003,6 +27155,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1490327483}
     m_Modifications:
+    - target: {fileID: 1111623905548631279, guid: 5e823f07343978e4aae8f4a0041a819e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4836679316933777372, guid: 5e823f07343978e4aae8f4a0041a819e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -27171,7 +27328,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1111623905548631269, guid: 5e823f07343978e4aae8f4a0041a819e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1928922778}
   m_SourcePrefab: {fileID: 100100000, guid: 5e823f07343978e4aae8f4a0041a819e, type: 3}
 --- !u!1 &6779347441530621864
 GameObject:
