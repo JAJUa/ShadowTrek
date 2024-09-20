@@ -3693,12 +3693,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 295940328}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &303820209 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2272579101868509866, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 2086142123}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &304282932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8009,7 +8003,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  interTransform: {fileID: 303820209}
+  interTransform: {fileID: 0}
   dialoTransform: {fileID: 0}
   isInterActiveing: 0
   isdialoActiveing: 0
@@ -25096,6 +25090,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2272579101868509867, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c0677a6b5f460d04cb9d50ae37c05367,
+        type: 3}
     - target: {fileID: 2272579102060072072, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
       propertyPath: m_Enabled
@@ -26238,7 +26238,7 @@ PrefabInstance:
     - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0
+      value: -83.349976
       objectReference: {fileID: 0}
     - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
