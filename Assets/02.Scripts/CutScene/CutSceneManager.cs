@@ -10,6 +10,8 @@ using System.Text;
 using System;
 using VInspector;
 using Febucci.UI;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization;
 
 public class CutSceneManager : MonoBehaviour
 {
@@ -17,16 +19,14 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] PlayableDirector playableDirector;
     public enum CutSceneType { startCutScene, middleCutScene }
     [SerializeField] CutSceneType cutSceneType;
-    [SerializeField] bool typingEffect;
     [SerializeField] RectTransform up, down;
     [SerializeField] GameObject[] character;
     [SerializeField] bool isDialogue;
 
-    [Foldout("Center")]
-    [Header("Center Text")]
-    [TextArea] [SerializeField] string[] centerDetail;
-    [SerializeField] TextMeshProUGUI centerText;
-    [SerializeField] float centerTextCloseCool;
+    [SerializeField] LocalizedString[] localizeName;
+    [SerializeField] LocalizeStringEvent[] localizeStringEvent;
+
+  
 
     [Foldout("Dialogue")]
     [Header("Dialogue Text")]
@@ -37,21 +37,7 @@ public class CutSceneManager : MonoBehaviour
     [SerializeField] float dialogueTextCloseCool;
      Tween[] dialogueFadeTween = new Tween[2];
      Tween[] dialogueTextTween = new Tween[2];
-
-    [Foldout("Bottom")]
-    [Header ("Bottom Text")]
-    [TextArea][SerializeField] string[] text;
-    [SerializeField] Image bottomTextBackground;
-    [SerializeField] float bottomTextCloseCool;
-    [SerializeField] TextMeshProUGUI cutSceneBottomText;
-    [SerializeField] float typingCool;
-    [SerializeField] AudioClip[] ttsAudio;
-
     Coroutine textCloseCor;
-
-    
-
-   
 
     private void Awake()
     {
@@ -64,34 +50,6 @@ public class CutSceneManager : MonoBehaviour
 
     }
 
-    public void Texting(int index)
-    {
-        if(textCloseCor != null) StopCoroutine(textCloseCor);
-
-
-        if (typingEffect)
-        {
-            StartCoroutine(TypingEffect(index));
-        }
-        else
-        {
-           // dialogueTextTween.Kill();
-            bottomTextBackground.DOFade(0, 0f);
-            cutSceneBottomText.DOFade(0, 0f);
-            bottomTextBackground.gameObject.SetActive(true);
-            bottomTextBackground.DOFade(1, 0.4f);
-            cutSceneBottomText.DOFade(1, 0.4f);
-            cutSceneBottomText.text = text[index];
-            if(index<ttsAudio.Length)
-                AudioManager.Inst.DialogueAudio(ttsAudio[index]);
-            textCloseCor = StartCoroutine(TextClose(bottomTextCloseCool,cutSceneBottomText));
-         //   dialogueTextTween =  DOVirtual.DelayedCall(bottomTextCloseCool + 0.2f, () => bottomTextBackground.gameObject.SetActive(false));
-
-        }
-       
-
-    }
-
     public void DialogueImage(int dialogueIndex)
     {
         if (dialogueFadeTween != null) dialogueFadeTween[dialogueIndex].Kill();
@@ -99,45 +57,15 @@ public class CutSceneManager : MonoBehaviour
         dialogueImage[dialogueIndex].gameObject.SetActive(true);
         
         dialogueImage[dialogueIndex].DOFade(1, 0.5f);
-        dialogueText[dialogueIndex].ShowText(dialogueDetail[this.dialogueIndex]);
+        localizeStringEvent[dialogueIndex].StringReference = localizeName[this.dialogueIndex];
+        dialogueText[dialogueIndex].ShowText(localizeName[this.dialogueIndex].GetLocalizedString());
+     
 
         dialogueTextTween[dialogueIndex] =  DOVirtual.DelayedCall(dialogueTextCloseCool , () => dialogueText[dialogueIndex].StartDisappearingText());
         dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool+1.5f , () => {
             dialogueImage[dialogueIndex].DOFade(0, 0.5f) ;      
             });
         this.dialogueIndex++;
-    }
-
-
-
-    public void CenterText(int index)
-    {
-        centerText.gameObject.SetActive(true);
-        centerText.DOFade(1, 0.01f);
-        centerText.text = centerDetail[index];
-        StartCoroutine(TextClose(centerTextCloseCool,centerText));
-        DOVirtual.DelayedCall(centerTextCloseCool + 0.2f,()=>centerText.gameObject.SetActive(false));
-    }
-
-    IEnumerator TypingEffect(int index)
-    {
-        cutSceneBottomText.text = string.Empty;
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < text[index].Length; i++)
-        {
-          
-            stringBuilder.Append(text[index][i]);
-            cutSceneBottomText.text = stringBuilder.ToString();
-            yield return new WaitForSeconds(typingCool);
-        }
-    }
-
-    IEnumerator TextClose(float cool,TextMeshProUGUI text)
-    {
-        yield return new WaitForSeconds(cool);
-        text.DOFade(0, 0.2f).OnComplete(() => text.text = string.Empty);
-
-     
     }
 
     private void LateUpdate()
@@ -155,18 +83,13 @@ public class CutSceneManager : MonoBehaviour
 
     }
 
-    public void StartCutScene()
-    {
-        
-        playableDirector.Play();
-    }
+    public void StartCutScene() => playableDirector.Play();
 
     public void CutSceneIn(bool cutSceneIn)
     {
         if(cutSceneIn)
         {
-            //트레일러 촬영 시 주석
-            //InGameManager.Inst.isCutsceneIn= true;
+            InGameManager.Inst.isCutsceneIn= true;
             MoveBlock(true);
             up.DOAnchorPosY(-50, 0.7f);
             down.DOAnchorPosY(50, 0.7f);
@@ -180,11 +103,9 @@ public class CutSceneManager : MonoBehaviour
             transform.gameObject.SetActive(false);
         }
     }
-
     public void MoveBlock(bool isBlock)
     {
-        //트레일러 촬영 시 주석
-        //InGameManager.Inst.moveBlock = isBlock;
+        InGameManager.Inst.moveBlock = isBlock;
     }
 
 }

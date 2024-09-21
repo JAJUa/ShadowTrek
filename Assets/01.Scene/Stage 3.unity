@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71ea6f88e52040499d74133b6ec64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 0, y: 0, z: 0}
-  pos: {x: 0, y: 0, z: 0}
+  autoLight: {x: 0, y: 0, z: 0}
+  autoLightPos: {x: 0, y: 0, z: 0}
   interactiveLight: {fileID: 0}
   turnSpeed: 0.5
   turnAngle: 45

@@ -3376,25 +3376,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 450059512}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 725120928}
   down: {fileID: 885901255}
   character: []
   isDialogue: 0
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail: []
   dialogueIndex: 0
   dialogueImage: []
   dialogueText: []
   dialogueTextCloseCool: 5
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &450059511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3938,7 +3933,7 @@ MonoBehaviour:
   - {fileID: 580164291}
   - {fileID: 1732217616}
   - {fileID: 881020235}
-  tutorialNumber: 1
+  tutorialNumber: 0
   dialogueImage: {fileID: 0}
   dialogue: {fileID: 0}
 --- !u!4 &543132345
@@ -5023,6 +5018,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &720860190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 567396567875058507, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079578355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &725120927
@@ -7200,7 +7207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &956136238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7378,16 +7385,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 956136239}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 725120928}
   down: {fileID: 885901255}
   character:
   - {fileID: 537864929}
   - {fileID: 104092802}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail:
   - "\uBA48\uCDB0"
   - "\uC65C \uC5EC\uAE30\uC5D0 \uC788\uB294\uAC70\uC57C \uB2E4\uC2E0\n\uC5B4\uB460\uC73C\uB85C
@@ -7405,12 +7410,9 @@ MonoBehaviour:
   - {fileID: 720860188}
   - {fileID: 1880317679}
   dialogueTextCloseCool: 2.8
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &956136241
 Transform:
   m_ObjectHideFlags: 0
@@ -9414,7 +9416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &1235943634
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -9450,15 +9452,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1235943634}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 725120928}
   down: {fileID: 885901255}
   character:
   - {fileID: 537864929}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName:
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 209526570688512
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 209580899508224
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent:
+  - {fileID: 720860190}
   dialogueDetail:
   - "\uBC29\uAE08 \uADF8 \uADF8\uB9BC\uC790\uB294 \uBB50\uC600\uC9C0.. \n\uAD49\uC7A5\uD788
     \uC775\uC219\uD588\uB294\uB370"
@@ -9468,13 +9485,10 @@ MonoBehaviour:
   - {fileID: 582497950}
   dialogueText:
   - {fileID: 720860188}
-  dialogueTextCloseCool: 3
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  dialogueTextCloseCool: 4.5
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1235943636
 Transform:
   m_ObjectHideFlags: 0
@@ -11855,16 +11869,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1487383081}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 725120928}
   down: {fileID: 885901255}
   character:
   - {fileID: 537864929}
   - {fileID: 104092802}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName:
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 202902342803456
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 202918952247296
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 203033901342720
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 203037512638464
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 203041568530432
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent:
+  - {fileID: 720860190}
+  - {fileID: 1880317681}
   dialogueDetail:
   - "\uBA48\uCDB0"
   - "\uC65C \uC5EC\uAE30\uC5D0 \uC788\uB294\uAC70\uC57C \uB2E4\uC2E0\n\uC5B4\uB460\uC73C\uB85C
@@ -11882,12 +11936,9 @@ MonoBehaviour:
   - {fileID: 720860188}
   - {fileID: 1880317679}
   dialogueTextCloseCool: 2.8
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1487383083
 Transform:
   m_ObjectHideFlags: 0
@@ -14824,6 +14875,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1880317681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 567396567875058507, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 732984657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1884015172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d97e9bfc30050964a88e0db5a6ee06b9,
@@ -15493,7 +15556,7 @@ PrefabInstance:
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
@@ -15503,7 +15566,7 @@ PrefabInstance:
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
@@ -15518,7 +15581,7 @@ PrefabInstance:
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3674648245991064501, guid: 0c1873c5e90410c44815c106a012dea1,
         type: 3}

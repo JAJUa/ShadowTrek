@@ -51,8 +51,7 @@ public class Player : Character
         {
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {
-
-                DOVirtual.DelayedCall(0.5f,()=> endPlayableDirector.Play());
+                endPlayableDirector.Play();
             }
            
         }

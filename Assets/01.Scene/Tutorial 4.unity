@@ -2470,10 +2470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baf3d7be7394f44db18a272db99817c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fontSize: 30
-  color: {r: 0, g: 0, b: 0, a: 1}
-  width: 500
-  height: 0
 --- !u!1 &417902891
 GameObject:
   m_ObjectHideFlags: 0
@@ -8285,6 +8281,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
+      propertyPath: autoLight.x
+      value: 39.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLight.z
+      value: 14.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.y
+      value: -0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.z
+      value: -6.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
       propertyPath: interactiveLight
       value: 
       objectReference: {fileID: 1126307506}
@@ -8293,6 +8314,16 @@ PrefabInstance:
       propertyPath: turnOnOffLights.Array.data[0]
       value: 
       objectReference: {fileID: 1126307504}
+    - target: {fileID: 4659558571723040797, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: colliderSize.x
+      value: 5.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659558571723040797, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: colliderSize.z
+      value: 11.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

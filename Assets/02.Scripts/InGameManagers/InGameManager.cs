@@ -31,6 +31,7 @@ public class InGameManager : MonoBehaviour
     [SerializeField]Player player;
     [SerializeField]ShadowModePapa papa;
     [SerializeField] bool onlyPlayer;
+   
 
     
     public bool changeRoom;

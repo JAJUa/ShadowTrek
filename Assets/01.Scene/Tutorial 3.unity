@@ -10633,6 +10633,11 @@ PrefabInstance:
       propertyPath: turnOnOffLights.Array.data[0]
       value: 
       objectReference: {fileID: 1126307504}
+    - target: {fileID: 4659558571723040797, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CutSceneText_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b9253f26cf35a1645b685e8c4c5177ce, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 12441427968
+    m_Localized: "\rUgh.. where am I? I must have fallen\r\nI was going around picking
+      up stars"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 719634636800
+    m_Localized: "First, let\u2019s pick up the stars again"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 694556893184
+    m_Localized: "\rWhy did I collapse... something?\r \nI feel like I can remember,
+      but I can't"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203041568530432
+    m_Localized: "If you stay here, you too \r\nIt's going to be dangerous, go forward"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203037512638464
+    m_Localized: "\rIt doesn't matter who I am"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203033901342720
+    m_Localized: "\rWho are you.."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202918952247296
+    m_Localized: Why are you here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202902342803456
+    m_Localized: stop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 209526570688512
+    m_Localized: "What was that shadow just now? \r\nI was very used to it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 209580899508224
+    m_Localized: "\rI don't remember.."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
