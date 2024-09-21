@@ -66,8 +66,9 @@ public class Dialouge : MonoBehaviour
     [SerializeField] Vector3 colliderSize;
     [SerializeField] LayerMask layerMask;
 
-    [SerializeField]private RectTransform interTransform, dialoTransform;
-    [SerializeField] private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
+    [SerializeField] private RectTransform interTransform, dialoTransform;
+    [SerializeField] private bool recallInter;
+    private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
 
 
     private void OnDrawGizmos()
@@ -106,7 +107,7 @@ public class Dialouge : MonoBehaviour
     void Update()
     {
         // 마우스 왼쪽 버튼이 클릭되었을 때
-        if (Input.GetMouseButtonDown(0) && !isAnimating)
+        if (Input.GetMouseButtonDown(0) && isInterActiveing && !isAnimating)
         {
             if (isdialoActiveing)
             {
@@ -133,6 +134,35 @@ public class Dialouge : MonoBehaviour
                         Interact();
                     }
                 }
+
+                // Inter Object Click
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                Transform current = transform;
+                GameObject findObject = null;
+
+                while (current != null)
+                {
+                    if (current.CompareTag("AutoLight"))
+                    {
+                        findObject = current.gameObject;
+                        break;
+                    }
+                    current = current.parent;
+                }
+
+                if (Physics.Raycast(ray, out hit) && current != null)
+                {
+                    if (hit.collider.gameObject == findObject)
+                    {
+                        InterFade(false);
+                        if (type == Type.text) DialoFade(true);
+
+                        Interact();
+                    }
+                }
             }
         }
     }
@@ -144,10 +174,10 @@ public class Dialouge : MonoBehaviour
             Collider[] hit = Physics.OverlapBox(transform.position + colliderTrans, colliderSize, Quaternion.identity, layerMask);
             if (hit.Length > 0)
             {
-                Debug.Log("올라가-1");
+                //Debug.Log("올라가-1");
                 if (!isInterActiveing && !onColider)
                 {
-                    Debug.Log("올라가");
+                    //Debug.Log("올라가");
                     InterFade(true);
                     onColider = true;
                 }
@@ -177,7 +207,6 @@ public class Dialouge : MonoBehaviour
         Debug.Log(interTransform);
         interTransform.DOAnchorPosY(interTransform.anchoredPosition.y + posY, duration).SetEase(Ease.InOutSine).OnComplete(() =>
         { isAnimating = false; interBox.gameObject.SetActive(isFadeIn); });
-
     }
 
     //이거 수정 필요
@@ -211,11 +240,13 @@ public class Dialouge : MonoBehaviour
 
         }*/
         if (InGameManager.Inst.isAnswering)
-        {
             AnswerManager.Inst.PapaTile();
-        }
 
-        if (isTutorial) TutorialManager.Inst.FinshTutorial();
+        if (isTutorial)
+            TutorialManager.Inst.FinshTutorial();
+
+        if (!InGameManager.Inst.isAnswering && recallInter)
+            DOVirtual.DelayedCall(0.8f, () => InterFade(true));
 
     }
 

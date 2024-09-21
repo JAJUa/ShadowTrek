@@ -12,12 +12,8 @@ public class TitleSceneFade : MonoBehaviour
 
     [SerializeField] Animator anim;
 
-    float targetAlpha;
-
     private void Start()
     {
-        targetAlpha = 5f / 255f;
-
         startBtn.onClick.AddListener(() => StartBtn());
         settingBtn.onClick.AddListener(() => SettingBtn());
         quitBtn.onClick.AddListener(() => QuitBtn());
@@ -33,7 +29,7 @@ public class TitleSceneFade : MonoBehaviour
 
     public void StartBtn()
     {
-        startBtn.GetComponent<Image>().DOFade(targetAlpha, 1f).OnComplete(() =>
+        startBtn.GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
         {
             FadeInFadeOut.Inst.NextScene();
         });
@@ -41,12 +37,12 @@ public class TitleSceneFade : MonoBehaviour
 
     public void SettingBtn()
     {
-        settingBtn.GetComponent<Image>().DOFade(targetAlpha, 1f);
+        settingBtn.GetComponent<Image>().DOFade(1, 1f);
     }
 
     public void QuitBtn()
     {
-        quitBtn.GetComponent<Image>().DOFade(targetAlpha, 1f).OnComplete(() =>
+        quitBtn.GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
         {
             FadeInFadeOut.Inst.FadeIn();
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1730345267004570502}
   - component: {fileID: 2272579102633413546}
   - component: {fileID: 2272579102633413547}
+  - component: {fileID: 8104757752843302239}
   m_Layer: 0
   m_Name: Lever
   m_TagString: AutoLight
@@ -79,6 +80,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   autoBool: 1
+--- !u!65 &8104757752843302239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389566604150677820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7177621, y: 3.4731045, z: 5.0612884}
+  m_Center: {x: 1.4700034, y: 1.2365526, z: -0.13933463}
 --- !u!1 &1442754054851309065
 GameObject:
   m_ObjectHideFlags: 0
