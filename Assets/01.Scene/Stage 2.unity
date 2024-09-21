@@ -6154,7 +6154,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41cf57d9511013c4cacfab7e90cb17ae, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6175,7 +6175,9 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: 60, y: 2.7, z: 45}
+  - {x: 75, y: 2.7, z: 45.00005}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -6196,9 +6198,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.13396227, b: 0.13396227, a: 1}
-      key1: {r: 0.6603774, g: 0.0892963, b: 0.07787468, a: 0.9264706}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0.13396227, b: 0.13396227, a: 0}
+      key1: {r: 0.6603774, g: 0.0892963, b: 0.07787468, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0.9264706}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -6212,9 +6214,9 @@ LineRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 6361
-      atime1: 59560
-      atime2: 65535
+      atime0: 0
+      atime1: 6361
+      atime2: 63993
       atime3: 65535
       atime4: 65535
       atime5: 0
@@ -6223,7 +6225,7 @@ LineRenderer:
       m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
+      m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
@@ -21862,14 +21864,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1793641737}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 1389134664}
   down: {fileID: 189002142}
   character: []
   isDialogue: 0
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail: []
   dialogueIndex: 0
   dialogueImage:
@@ -21877,12 +21877,9 @@ MonoBehaviour:
   dialogueText:
   - {fileID: 0}
   dialogueTextCloseCool: 0
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!320 &1793641737
 PlayableDirector:
   m_ObjectHideFlags: 0

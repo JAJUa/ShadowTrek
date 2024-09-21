@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: b9253f26cf35a1645b685e8c4c5177ce, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 7878890798261993484
   m_TableData:
   - m_Id: 12441427968
     m_Localized: "\rUgh.. where am I? I must have fallen\r\nI was going around picking
@@ -60,6 +61,36 @@ MonoBehaviour:
     m_Localized: "\rI don't remember.."
     m_Metadata:
       m_Items: []
+  - m_Id: 230240237461504
+    m_Localized: "\rUh... why doesn't this work? \r\nI can't do this... I can't go
+      back."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230244775698432
+    m_Localized: "\rI'll do it for you"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230246218539008
+    m_Localized: "\rWhat is that shadow? \r\nWhy are you helping me?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 230254439374848
+    m_Localized: "\rFirst, let's go pick up stars again..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 231428076937216
+    m_Localized: How can I get through here?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 231431986028544
+    m_Localized: "\rIf I pull that lever, won't the light turn on?"
+    m_Metadata:
+      m_Items:
+      - rid: 7878890798261993484
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7878890798261993484
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 002051757cd20000

@@ -3324,8 +3324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e36e0a982eff641861a9f8b76c7ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookPageIndex: 3
-  bookPageMaxIndex: 3
+  bookPageIndex: 1
+  bookPageMaxIndex: 2
   autoFlip: {fileID: 5501859950889574051}
   bookScript: {fileID: 6957951698413738582}
   clipNameText:
@@ -3342,10 +3342,10 @@ MonoBehaviour:
     \uC2DC \uD751\uBC31 \uD654\uBA74\uC73C\uB85C \uBCC0\uD558\uBA70, \uB2E4\uC74C
     \uD134\uC5D0 \uBE5B\uB098\uB294 \uD0C0\uC77C\uC774 \uC544\uB2CC \uACF3\uC73C\uB85C
     \uC774\uB3D9\uD560 \uACBD\uC6B0 \uC138\uB77C\uAC00 \uC5B4\uB460\uC5D0 \uCE68\uC2DD
-    \uB2F9\uD569\uB2C8\uB2E4.(\uCE68\uC2DD \uC2DC \uB2E4\uC2DC \uC2A4\uD14C\uC774\uC9C0\uAC00
-    \uC2DC\uC791\uB429\uB2C8\uB2E4)"
+    \uB2F9\uD569\uB2C8\uB2E4.(\uCE68\uC2DD \uC2DC \uC2A4\uD14C\uC774\uC9C0\uAC00
+    \uB2E4\uC2DC \uC2DC\uC791\uB429\uB2C8\uB2E4)"
   - "\uD0C0\uC77C\uC774 \uBE5B\uC744 \uBC1B\uC73C\uBA74 \uBE5B\uC744 \uBA38\uAE08\uC2B5\uB2C8\uB2E4.\n\uBE5B\uB098\uB294
-    \uD0C0\uC77C\uC740 \uC138\uC758 \uCE68\uC2DD\uD6A8\uACFC\uB97C \uCD08\uAE30\uD654
+    \uD0C0\uC77C\uC740 \uC138\uB77C\uC758 \uCE68\uC2DD\uD6A8\uACFC\uB97C \uCD08\uAE30\uD654
     \uC2DC\uD0B5\uB2C8\uB2E4."
   - "\uC138\uB77C\uB85C \uD574\uB2F9 \uC2A4\uD14C\uC774\uC9C0\uC758 \uBCC4\uC744
     \uC5BB\uC744 \uACBD\uC6B0 \uC138\uB77C\uC758 \uC704\uCE58\uAC00 \uC2DC\uC791\uC73C\uB85C
@@ -3367,9 +3367,9 @@ MonoBehaviour:
   nextBtn: {fileID: 3439917753157342990}
   preBtn: {fileID: 16063388656954593}
   videos:
-  - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
-  - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
-  - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
+  - {fileID: 32900000, guid: 1730b36a5b5b3a64bbf3584902b178a4, type: 3}
+  - {fileID: 32900000, guid: faaa4b16cbf05d94a8db0f94673527e6, type: 3}
+  - {fileID: 32900000, guid: 270e62a3aa4913542907ce452b30f3a0, type: 3}
   - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
   - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
   - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}

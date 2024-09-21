@@ -16339,10 +16339,7 @@ MonoBehaviour:
     m_Bits: 0
   interTransform: {fileID: 0}
   dialoTransform: {fileID: 0}
-  isInterActiveing: 0
-  isdialoActiveing: 0
-  isAnimating: 0
-  onColider: 0
+  recallInter: 0
 --- !u!1 &1126919702
 GameObject:
   m_ObjectHideFlags: 0
@@ -20253,14 +20250,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1554678290}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 0}
   down: {fileID: 0}
   character: []
   isDialogue: 0
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail: []
   dialogueIndex: 0
   dialogueImage:
@@ -20268,12 +20263,9 @@ MonoBehaviour:
   dialogueText:
   - {fileID: 0}
   dialogueTextCloseCool: 0
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1557097092
 GameObject:
   m_ObjectHideFlags: 0

@@ -9416,7 +9416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &1235943634
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -16430,16 +16430,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490107713371489886, guid: 1de2b4ab231d06148902c5296fdc631c,
-        type: 3}
-      propertyPath: bookPageIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490107713371489886, guid: 1de2b4ab231d06148902c5296fdc631c,
-        type: 3}
-      propertyPath: bookPageMaxIndex
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2403639738786699907, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}

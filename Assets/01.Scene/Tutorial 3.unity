@@ -5527,14 +5527,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 933154100}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 1257410820}
   down: {fileID: 873008261}
   character: []
   isDialogue: 0
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail: []
   dialogueIndex: 0
   dialogueImage:
@@ -5542,12 +5540,9 @@ MonoBehaviour:
   dialogueText:
   - {fileID: 0}
   dialogueTextCloseCool: 5
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &933154102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6413,16 +6408,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1073131971}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 1257410820}
   down: {fileID: 873008261}
   character:
   - {fileID: 1303613889}
   - {fileID: 2125792126}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName:
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 230240237461504
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 230244775698432
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 230246218539008
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 230254439374848
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent:
+  - {fileID: 1545478472}
+  - {fileID: 1753293092}
   dialogueDetail:
   - " \uC5B4.. \uC774\uAC8C \uC65C \uC548\uB418\uC9C0? \n\uC774\uB7FC \uC548\uB418\uB294\uB370..
     \uB3CC\uC544\uAC08 \uC218\uB3C4 \uC5C6\uB294\uB370"
@@ -6437,12 +6464,9 @@ MonoBehaviour:
   - {fileID: 1545478470}
   - {fileID: 1753293090}
   dialogueTextCloseCool: 3
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1073131973
 Transform:
   m_ObjectHideFlags: 0
@@ -7316,15 +7340,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1139275804}
   cutSceneType: 0
-  typingEffect: 0
   up: {fileID: 1257410820}
   down: {fileID: 873008261}
   character:
   - {fileID: 1303613889}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail:
   - "\uC5EC\uAE34 \uC5B4\uB5BB\uAC8C \uC9C0\uB098\uAC00\uC9C0.."
   - "\uC800 \uB808\uBC84\uB97C \uB2F9\uAE30\uBA74 \uBE5B\uC774 \uCF1C\uC9C0\uC9C0
@@ -7335,12 +7357,9 @@ MonoBehaviour:
   dialogueText:
   - {fileID: 1545478470}
   dialogueTextCloseCool: 3
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1139275802
 Transform:
   m_ObjectHideFlags: 0
@@ -9465,6 +9484,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1545478472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 567396567875058507, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2090584322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545553477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10659,6 +10690,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1753293092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 567396567875058507, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 202531395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1758458246
@@ -13537,16 +13580,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 2050720447}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 1257410820}
   down: {fileID: 873008261}
   character:
   - {fileID: 1303613889}
   - {fileID: 196384026}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName: []
+  localizeStringEvent: []
   dialogueDetail:
   - "\uC138\uB77C.. "
   - "\uB108\uAC00 \uB098\uB97C \uAE30\uC5B5\uD558\uC9C0 \uBABB\uD574\uB3C4 \uC88B\uC544"
@@ -13559,12 +13600,9 @@ MonoBehaviour:
   - {fileID: 1545478470}
   - {fileID: 1753293090}
   dialogueTextCloseCool: 3
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &2050720449
 Transform:
   m_ObjectHideFlags: 0

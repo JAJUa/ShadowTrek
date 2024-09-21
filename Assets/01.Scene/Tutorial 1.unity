@@ -524,7 +524,8 @@ MonoBehaviour:
   character: []
   isDialogue: 0
   localizeName: []
-  localizeStringEvent: {fileID: 0}
+  localizeStringEvent:
+  - {fileID: 0}
   dialogueDetail: []
   dialogueIndex: 0
   dialogueImage:
@@ -6437,7 +6438,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  localizeStringEvent: {fileID: 1015830646}
+  localizeStringEvent:
+  - {fileID: 1015830646}
   dialogueDetail:
   - "\uC73C.. \uC5EC\uAE34 \uC5B4\uB514\uC9C0 \uBD84\uBA85 \uB5A8\uC5B4\uC9C4\n\uBCC4\uB4E4\uC744
     \uC8FC\uC6B0\uB7EC \uB2E4\uB2C8\uACE0 \uC788\uC5C8\uB294\uB370"
@@ -8040,6 +8042,12 @@ PrefabInstance:
       propertyPath: startTitleAnim
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 381345396758096923, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1,
+        type: 3}
     - target: {fileID: 1130117964817161717, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8390,6 +8398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881047790457688523, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9134980456062195647, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
