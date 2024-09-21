@@ -1,35 +1,30 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
 using TMPro;
 using VInspector;
 
 public class Dialouge : MonoBehaviour
 {
     [Space(10)]
-    [Header("-- Dialouge System --")]
-
-
-    public float duration = 0.7f; // 애니메이션 지속 시간
+    [Header("-- Dialouge System --")]   
+    public float duration = 0.7f;
     public Canvas pictureCanvas;
     public bool isTutorial;
+
     public enum Type { text, takeObj, picture, ClickCutScene, ClickLever, LampRotation };
     public enum ObjType { key };
     public Type type;
 
-    [SerializeField]Color defaultColor, answerColor;
-
-    public Image interBox;// 투명해지고 이동할 이미지
+    [SerializeField] Color defaultColor, answerColor;
+    public Image interBox;
 
     [ShowIfEnum("type", (int)Type.text)]
-    public Image dialougeBox; // 투명해지고 이동할 이미지
+    public Image dialougeBox; 
 
     /*
-
     [Foldout("Take key")]
     [ShowIfEnum("type", (int)Type.takeObj)]
     public ObjType objType;
@@ -53,14 +48,11 @@ public class Dialouge : MonoBehaviour
 
     [Foldout("RampRot")]
     [ShowIfEnum("type", (int)Type.LampRotation)]
-    [SerializeField] GameObject lamp;*/
+    [SerializeField] GameObject lamp;
+    */
 
-
-
-
-
-
-    [Space(10)][Header("-- Collider --")]
+    [Space(10)]
+    [Header("-- Collider --")]
 
     [SerializeField] Vector3 colliderTrans;
     [SerializeField] Vector3 colliderSize;
@@ -76,12 +68,6 @@ public class Dialouge : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + colliderTrans, colliderSize * 2);
     }
-
-    private void Awake()
-    {
-       
-    }
-
     private void Start()
     {
        // layerMask += LayerMask.GetMask("Papa");
@@ -132,6 +118,8 @@ public class Dialouge : MonoBehaviour
                         if (type == Type.text) DialoFade(true);
                        
                         Interact();
+
+                        return;
                     }
                 }
 
@@ -161,6 +149,8 @@ public class Dialouge : MonoBehaviour
                         if (type == Type.text) DialoFade(true);
 
                         Interact();
+
+                        return;
                     }
                 }
             }
