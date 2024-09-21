@@ -49,7 +49,7 @@ public class StartBookManager : MonoBehaviour
 
     public void EnterScene()
     {
-        FadeInFadeOut.Inst.NextScene(1 + bookPageIndex);
+        FadeInFadeOut.Inst.NextScene(2 + bookPageIndex);
     }
 
     public void HideText(bool isNext)

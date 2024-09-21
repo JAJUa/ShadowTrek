@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.CompareTag("MoveTile") && !Physics.Raycast(hit.transform.position, Vector3.up, 3f))  //MoveTile 감지 및 위에 플레이어나 펫이 있는지 감지
+                    if (hit.collider.CompareTag("MoveTile")) 
                     {
                         Debug.Log("ClickTile");
                         InGameManager.Inst.moveBlock = true;

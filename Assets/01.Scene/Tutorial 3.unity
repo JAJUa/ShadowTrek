@@ -1113,7 +1113,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 98
   m_TargetDisplay: 0
 --- !u!1 &167089798
 GameObject:
@@ -11458,6 +11458,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5278568691605347635, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     - {fileID: 6236716849675880967, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
+    - {fileID: 4148496638460921846, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     m_RemovedGameObjects:
     - {fileID: 887425825082821839, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     - {fileID: 8077359576734900549, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}

@@ -18,7 +18,7 @@ public class FadeInFadeOut : MonoBehaviour
         Inst = this;
 
        
-        FadeOut();
+        LongFadeOut();
     }
 
 
@@ -52,6 +52,17 @@ public class FadeInFadeOut : MonoBehaviour
 
         fadeImage.DOFade(0, 0.15f).OnComplete(() =>
         {
+            Debug.Log("fadeOut");
+            fadeImage.enabled = false;
+        });
+    }
+
+    public void LongFadeOut()
+    {
+
+        fadeImage.DOFade(0, 0.3f).OnComplete(() =>
+        {
+            Debug.Log("fadeOut");
             fadeImage.enabled = false;
         });
     }

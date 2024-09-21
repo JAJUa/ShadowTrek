@@ -4533,7 +4533,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 98
   m_TargetDisplay: 0
 --- !u!1001 &1009760436
 PrefabInstance:
@@ -8153,6 +8153,11 @@ PrefabInstance:
       propertyPath: onlyPlayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6099063282776132943, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6302509891423707480, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: menuAnim
@@ -8419,7 +8424,8 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4148496638460921846, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5734857651420581855, guid: 7c3cda88157e9334994a06a2f6e521ab, type: 3}
     m_AddedGameObjects:

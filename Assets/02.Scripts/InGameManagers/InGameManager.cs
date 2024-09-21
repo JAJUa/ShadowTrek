@@ -55,8 +55,7 @@ public class InGameManager : MonoBehaviour
 
     void Awake()
     {
-
-        Inst = this;
+       
 
         GameObject pl = GameObject.FindGameObjectWithTag("PlayerControl");
         player = pl.GetComponent<Player>();
@@ -73,8 +72,12 @@ public class InGameManager : MonoBehaviour
         //Dont Create 2 GameManager
         if (Inst != null && Inst != this)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(Inst.gameObject);
+            Inst = this;
+        }
+        else
+        {
+            Inst = this;
         }
     }
 

@@ -50,7 +50,9 @@ public class AnswerManager : MonoBehaviour
        
         for(int i = 0; i < tilesParent.childCount; i++)
         {
-            allTiles.Add(tilesParent.GetChild(i).GetComponent<Collider>());
+            Collider col = tilesParent.GetChild(i).GetComponentInChildren<Collider>();
+            col.tag = "Untagged";
+            allTiles.Add(col);
         }
     }
 
@@ -126,12 +128,16 @@ public class AnswerManager : MonoBehaviour
         lineTrans.Add(targetCol.transform);
         lineTrans.Add(preCol.transform);
         InGameManager.Inst.isAnswering = true;
+        
         foreach (Collider col in allTiles)
         {
-            col.enabled = false;
+            //col.enabled = false;
+            col.tag = "Untagged";
         }
-        targetCol.enabled = true;
-        preCol.enabled = true;
+        // targetCol.enabled = true;
+        targetCol.tag ="MoveTile";
+        preCol.tag = "MoveTile";
+      //  preCol.enabled = true;
         tileIndex++;
     }
     public void LineRenderer()

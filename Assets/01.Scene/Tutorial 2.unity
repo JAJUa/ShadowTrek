@@ -848,7 +848,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 98
   m_TargetDisplay: 0
 --- !u!1001 &93655186
 PrefabInstance:
@@ -9416,7 +9416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &1235943634
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -17085,7 +17085,8 @@ PrefabInstance:
       propertyPath: shadowObjects.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1761101718657613216, guid: 6817da1fae6543942bf33f8ade9e841a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
