@@ -5692,16 +5692,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playableDirector: {fileID: 1194615669}
   cutSceneType: 1
-  typingEffect: 0
   up: {fileID: 1257410820}
   down: {fileID: 873008261}
   character:
   - {fileID: 1303613889}
   - {fileID: 196384026}
   isDialogue: 1
-  centerDetail: []
-  centerText: {fileID: 0}
-  centerTextCloseCool: 0
+  localizeName:
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 303717149646848
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 303719032889344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 303720429592576
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent:
+  - {fileID: 1892052729}
+  - {fileID: 1579982032}
   dialogueDetail:
   - "\uC774\uC81C \uB098\uB3C4 \uAC00\uC57C\uC9C0..."
   - "\uAE5C\uC9DD\uC774\uC57C"
@@ -5714,12 +5738,9 @@ MonoBehaviour:
   - {fileID: 587825088}
   - {fileID: 881820341}
   dialogueTextCloseCool: 3
-  text: []
-  bottomTextBackground: {fileID: 0}
-  bottomTextCloseCool: 0
-  cutSceneBottomText: {fileID: 0}
-  typingCool: 0
-  ttsAudio: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1194615671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7612,6 +7633,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe73920272189642908eb2885b2f33d, type: 3}
+--- !u!114 &1579982032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 567396567875058507, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579982031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1583151210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 48068c811dfd68045a270824a5ed0d0f,
@@ -8809,6 +8842,11 @@ PrefabInstance:
       propertyPath: clipNameText.Array.data[6]
       value: "\uB3CC\uC544\uAC00\uB294 \uC804\uB4F1"
       objectReference: {fileID: 0}
+    - target: {fileID: 4148496638460921846, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9554,6 +9592,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe73920272189642908eb2885b2f33d, type: 3}
+--- !u!114 &1892052729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 567396567875058507, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1892052728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1897364032
 GameObject:
   m_ObjectHideFlags: 0

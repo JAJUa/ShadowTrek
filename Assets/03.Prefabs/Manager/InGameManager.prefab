@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8450690952976725790}
   - component: {fileID: 8450690952976725791}
+  - component: {fileID: 1761101718657613216}
   m_Layer: 0
   m_Name: InGameManager
   m_TagString: Untagged
@@ -24,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8450690952976725785}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -120.107445, y: 703.157, z: 3769.0352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8450690952976725791
 MonoBehaviour:
@@ -44,22 +45,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed9529edc1b8f94d8b978a5e570087e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadowCha: {fileID: 0}
-  commonCha: {fileID: 0}
-  relicEvent: {fileID: 0}
-  ShadowObject: {fileID: 0}
-  ShadowObjectMark: {fileID: 0}
-  curShadowTimerObj: {fileID: 0}
-  shadowLimitTimer: {fileID: 0}
-  shadowLimitCanvas: {fileID: 0}
-  ShadowTimer: 5
-  TempTimer: 0
-  ShadowObjectTimer: 0
-  ShadowModeOn: 0
-  ShadowObjectON: 0
-  ShadowON: 0
-  relicFound: 0
-  shadowMarkMask:
-    serializedVersion: 2
-    m_Bits: 2048
+  moveBlock: 0
+  isInteractionDetect: 0
+  inRelpayMode: 0
+  noPapaButDetect: 0
+  isAnswering: 0
+  curCharacter: 0
   curStageNum: 0
+  player: {fileID: 0}
+  papa: {fileID: 0}
+  onlyPlayer: 0
+  changeRoom: 0
+  cam: {fileID: 0}
+  isCutsceneIn: 0
+  globalVolume: {fileID: 0}
+  defaultVolume: {fileID: 0}
+  answerVolume: {fileID: 0}
+  isKey: 
+  Rooms: []
+--- !u!114 &1761101718657613216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8450690952976725785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda9bbfc779d10f4581dc2ae2ea42452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allTiles: []
+  tilesParent: {fileID: 0}
+  tileIndex: 1
+  arrow: {fileID: 5636555864533998163, guid: e875f0d408c82cf4ab4a8e2724dc2783, type: 3}
+  lineTrans: []
+  lineRenderer: {fileID: 0}
+  player: {fileID: 0}
+  papa: {fileID: 0}
+  curCharacter: {fileID: 0}
+  isInteract: 0
+  sera_answerData:
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  papa_answerData:
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 1
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 1
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}
+  - answerType: 0
+    tile: {fileID: 0}
+    dialogue: {fileID: 0}

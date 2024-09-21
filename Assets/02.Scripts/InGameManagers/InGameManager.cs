@@ -120,7 +120,9 @@ public class InGameManager : MonoBehaviour
         {
             if (papa.moveCoroutine != null)
                 StopCoroutine(papa.moveCoroutine);
-            DOVirtual.DelayedCall(0.1f, () => papa.lineRenderer.positionCount = 0);
+
+            Debug.Log("213123");
+            DOVirtual.DelayedCall(0f, () => papa.lineRenderer.positionCount = 0);
         }
 
         DOVirtual.DelayedCall(0.1f, () => player.lineRenderer.positionCount = 0); 

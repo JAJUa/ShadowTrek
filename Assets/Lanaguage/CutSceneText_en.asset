@@ -17,7 +17,7 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: b9253f26cf35a1645b685e8c4c5177ce, type: 2}
   m_Metadata:
     m_Items:
-    - rid: 7878890798261993484
+    - rid: 7878890804875362308
   m_TableData:
   - m_Id: 12441427968
     m_Localized: "\rUgh.. where am I? I must have fallen\r\nI was going around picking
@@ -85,12 +85,39 @@ MonoBehaviour:
   - m_Id: 231431986028544
     m_Localized: "\rIf I pull that lever, won't the light turn on?"
     m_Metadata:
+      m_Items: []
+  - m_Id: 265773600808960
+    m_Localized: "\rIf I can protect you..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 265713609678848
+    m_Localized: "\rIt's okay if you don't remember me"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 265690197073920
+    m_Localized: "\rSarah.."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303717149646848
+    m_Localized: "\rNow I have to go too..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303719032889344
+    m_Localized: Oops!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303720429592576
+    m_Localized: 'It was really dangerous
+
+      I''ll have to be careful from now
+      on...'
+    m_Metadata:
       m_Items:
-      - rid: 7878890798261993484
+      - rid: 7878890804875362308
   references:
     version: 2
     RefIds:
-    - rid: 7878890798261993484
+    - rid: 7878890804875362308
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 002051757cd20000
+        m_Entries: 0020516c3b140100

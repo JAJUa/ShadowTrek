@@ -51,6 +51,7 @@ public class Player : Character
         {
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {
+                InGameManager.Inst.StopMoving();
                 endPlayableDirector.Play();
             }
            

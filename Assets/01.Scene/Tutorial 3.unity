@@ -7345,8 +7345,25 @@ MonoBehaviour:
   character:
   - {fileID: 1303613889}
   isDialogue: 1
-  localizeName: []
-  localizeStringEvent: []
+  localizeName:
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 231428076937216
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 231431986028544
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent:
+  - {fileID: 1545478472}
   dialogueDetail:
   - "\uC5EC\uAE34 \uC5B4\uB5BB\uAC8C \uC9C0\uB098\uAC00\uC9C0.."
   - "\uC800 \uB808\uBC84\uB97C \uB2F9\uAE30\uBA74 \uBE5B\uC774 \uCF1C\uC9C0\uC9C0
@@ -10656,6 +10673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
+      propertyPath: autoBool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
       propertyPath: interactiveLight
       value: 
       objectReference: {fileID: 1126307506}
@@ -11257,6 +11279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148496638460921846, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4528688489799190801, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -13586,8 +13613,34 @@ MonoBehaviour:
   - {fileID: 1303613889}
   - {fileID: 196384026}
   isDialogue: 1
-  localizeName: []
-  localizeStringEvent: []
+  localizeName:
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 265690197073920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 265713609678848
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:b9253f26cf35a1645b685e8c4c5177ce
+    m_TableEntryReference:
+      m_KeyId: 265773600808960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  localizeStringEvent:
+  - {fileID: 1545478472}
+  - {fileID: 1753293092}
   dialogueDetail:
   - "\uC138\uB77C.. "
   - "\uB108\uAC00 \uB098\uB97C \uAE30\uC5B5\uD558\uC9C0 \uBABB\uD574\uB3C4 \uC88B\uC544"
