@@ -26051,6 +26051,16 @@ PrefabInstance:
       propertyPath: papa_answerData.Array.data[5].dialogue
       value: 
       objectReference: {fileID: 9144968164509099392}
+    - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2441754845210464326}
+    - target: {fileID: 4808680584836380795, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenBook
+      objectReference: {fileID: 0}
     - target: {fileID: 4979898425629636575, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive
@@ -26210,6 +26220,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2441754845210464324}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2441754845210464326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 2441754845210464324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178929818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2834843969811401374
 Transform:
   m_ObjectHideFlags: 0

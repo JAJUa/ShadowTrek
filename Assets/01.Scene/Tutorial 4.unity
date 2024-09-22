@@ -8800,6 +8800,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
+      propertyPath: bookPageIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: bookPageMaxIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
       propertyPath: infoText.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -8808,6 +8818,12 @@ PrefabInstance:
       propertyPath: infoText.Array.data[0]
       value: "\uD0C0\uC77C\uC744 \uD130\uCE58\uD558\uBA74 \uD574\uB2F9 \uC704\uCE58\uB85C
         \uC774\uB3D9\uD569\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: infoText.Array.data[4]
+      value: "\uB808\uBC84\uC5D0 \uB2E4\uAC00\uAC08 \uC2DC, \uC0C1\uD638\uC791\uC6A9\uC744
+        \uD1B5\uD574 \uAC00\uB85C\uB4F1\uC744 \uCF1C\uAC70\uB098 \uB04C \uC218 \uC788\uC2B5\uB2C8\uB2E4."
       objectReference: {fileID: 0}
     - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -8831,6 +8847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: clipNameText.Array.data[1]
       value: "\uCE68\uC2DD"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: clipNameText.Array.data[4]
+      value: "\uC804\uB4F1 \uB808\uBC84"
       objectReference: {fileID: 0}
     - target: {fileID: 3841348424904554098, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}

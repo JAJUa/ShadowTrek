@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using VInspector;
@@ -21,7 +23,6 @@ public class MenuUIManager : MonoBehaviour
     [Header("아이콘 관련")]
     public TMP_Text iconNameTxt;
     public GameObject[] iconsObj;
-    public string[] iconName;
     public List<GameObject> excuteObj = new List<GameObject>();
     private List<GameObject> instanceIcon = new List<GameObject>();
     [SerializeField] Transform spawnCenter;
@@ -29,6 +30,7 @@ public class MenuUIManager : MonoBehaviour
     private Tween[] iconTween;
 
     [Tab("기타 관련")]
+    [SerializeField] GameObject fog;
     public int curLanguageNum;
 
     public TMP_Text languageName_Text;
@@ -45,6 +47,11 @@ public class MenuUIManager : MonoBehaviour
     Vector2 startTouchPos, endTouchPos,swipeDelta;
     [SerializeField] private float touchInterval;
     bool isSwiping;
+
+    [Tab("로컬라이즈")]
+    [SerializeField] LocalizedString[] iconLocalizeName,clothSelectedLocalizeName;
+    [SerializeField] LocalizeStringEvent iconLocalizeStringEvent;
+    [SerializeField] LocalizeStringEvent[] clothSelectedLocalize_SE;
 
     // Start is called before the first frame update
     void Start()
@@ -139,8 +146,10 @@ public class MenuUIManager : MonoBehaviour
     {
         iconExcuteBackButton.SetActive(isOpen);
         clickIcon.SetActive(!isOpen);
+        fog.SetActive(!isOpen);
         if (!isOpen)
         {
+          
             instanceIcon[curIconNum - 1].SetActive(true);
             instanceIcon[curIconNum - 1].transform.DOScale(1f, 0.5f);
             excuteObj[curIconNum - 1].GetComponent<Animator>().SetBool("ActiveExcute", false);
@@ -212,7 +221,8 @@ public class MenuUIManager : MonoBehaviour
     void ChangeIconName()
     {
         iconNameTxt.DOFade(1, 0.3f);
-        iconNameTxt.text = iconName[curIconNum - 1];
+       // iconNameTxt.text = iconName[curIconNum - 1];
+        iconLocalizeStringEvent.StringReference = iconLocalizeName[curIconNum - 1];
     }
 
     public void URLButton(string name)
@@ -298,11 +308,11 @@ public class MenuUIManager : MonoBehaviour
     {
         for(int i = 1; i < skinScrollbarImage.Count - 1; i++)
         {
-            GameObject selectedTxt = skinScrollbarImage[i].transform.Find("Selected").gameObject;
-            if(i == GameData.Inst.skinNum+1)
-                selectedTxt.GetComponentInChildren<TextMeshProUGUI>().text = "장착됨";
+            Debug.Log(i);
+            if (i == GameData.Inst.skinNum + 1)
+                clothSelectedLocalize_SE[i].StringReference = clothSelectedLocalizeName[0];     
             else
-                selectedTxt.GetComponentInChildren<TextMeshProUGUI>().text = "장착";
+                clothSelectedLocalize_SE[i].StringReference = clothSelectedLocalizeName[1];
         }
     }
 

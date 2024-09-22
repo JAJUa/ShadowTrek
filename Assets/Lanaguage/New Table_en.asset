@@ -50,6 +50,46 @@ MonoBehaviour:
     m_Localized: English
     m_Metadata:
       m_Items: []
+  - m_Id: 46008249640624128
+    m_Localized: ???
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46007989090459648
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46008023680884736
+    m_Localized: Cloth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46008055888945152
+    m_Localized: Relic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46009480157143040
+    m_Localized: "\rEquipped"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46009442739757056
+    m_Localized: Equipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46013528608415744
+    m_Localized: Classic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46013532421038080
+    m_Localized: Blue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46013534186840064
+    m_Localized: Red
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46013536959275008
+    m_Localized: Yellow
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
