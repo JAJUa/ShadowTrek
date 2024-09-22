@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VInspector;
@@ -17,7 +19,10 @@ public class StartBookManager : MonoBehaviour
     [SerializeField] Book bookScript;
     [SerializeField] Button sceneStartBtn;
 
-    [Tab ("내용")]
+    [Tab("내용")]
+    [SerializeField] LocalizeStringEvent story_SE;
+    [SerializeField] LocalizedString[] story_LS;
+   
     [TextArea][SerializeField] private string[] chapterSceneName;
     [TextArea][SerializeField] private string[] chapterText;
     [TextArea][SerializeField] private string[] bgmText;
@@ -39,12 +44,13 @@ public class StartBookManager : MonoBehaviour
 
     public void ShowTextAnimations()
     {
+        story_SE.StringReference = story_LS[bookPageIndex];
         sceneStartBtn.enabled = true;
         chapterSceneName_TA.ShowText(chapterSceneName[bookPageIndex].ToString());
         chapterText_TA.ShowText(chapterText[bookPageIndex].ToString());
         bgmText_TA.ShowText(bgmText[bookPageIndex].ToString());
         bgmInforText_TA.ShowText(bgmInforText[bookPageIndex].ToString());
-        chapterStory_TA.ShowText(chapterStory[bookPageIndex].ToString());
+        chapterStory_TA.ShowText(story_LS[bookPageIndex].GetLocalizedString());
     }
 
     public void EnterScene()

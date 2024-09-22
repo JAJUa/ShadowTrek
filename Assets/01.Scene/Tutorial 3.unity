@@ -6262,7 +6262,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Aspect: 1.7777778
-    - _Smoothness: 0.99333
+    - _Smoothness: 0.02
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1 &1050817105 stripped

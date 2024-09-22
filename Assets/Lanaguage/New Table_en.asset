@@ -90,6 +90,85 @@ MonoBehaviour:
     m_Localized: Yellow
     m_Metadata:
       m_Items: []
+  - m_Id: 46054885070807040
+    m_Localized: 'I was obviously following the star and picking it up, but suddenly
+      I lost consciousness and ended up in an unknown location.
+
+      First of
+      all, I have to keep following the star and picking it up.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46054890326269952
+    m_Localized: 'As I continued to pick up stars, I left the light and before I
+      knew it, my body was being eroded by darkness.
+
+      At a time when there
+      was no other way, a being engulfed in unknown darkness saved me.
+
+      I
+      couldn''t tell, but it felt like he was trying to help me.
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46054892033351680
+    m_Localized: "There were street lights along the way and a lever that turned
+      them on. I tried to keep the light on through that lever\r\n The lever was
+      already engulfed in darkness. At that time, an unknown being appeared again
+      and helped me.\r\nA voice came from the darkness saying, \u201CTrust me and
+      move forward.\u201D\r\n'What exactly was that?'\r\nI promised myself that I
+      would be of help to him someday and moved forward again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46054894491213824
+    m_Localized: 'Now, the light comes on automatically on my way.
+
+      It may
+      have been a coincidence, but I unconsciously felt that the presence from earlier
+      was helping me.
+
+      Why does it help me and what is it?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46055198829912064
+    m_Localized: 'As I was walking down the street, I came across a structure that
+      was automatically rotating and emitting light.
+
+      The structure had already
+      eroded and I could not do anything about it.
+
+      As I passed by, this structure
+      automatically changed direction, shooting light at me.
+
+      That might be
+      helping me.
+
+      Why do you keep helping me?
+
+      I feel like I''m getting
+      scared of something'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46055223286898688
+    m_Localized: "Is that unknown being walking the same path as me?\r\nI don't know,
+      but just as I am being eroded by darkness, to him too\r\n Could there be some
+      kind of problem?\r\nIf there is such a thing, I might be able to help.\r\nAnd
+      if there is, we will help you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46055243679604736
+    m_Localized: 'It seems like the road gets more and more complicated as we move
+      forward.
+
+      I don''t know if I can keep going.
+
+      At least if I am
+      not eroded by darkness, I will continue to move forward to pick up stars.
+
+      But..
+      what if.. I am eroded by darkness?'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -165,12 +165,15 @@ public class InGameManager : MonoBehaviour
     {
         if(!moveBlock)
             OnlyPlayerReplay();
+
+        
     }
 
     public void OnlyPlayerReplay(bool lightFinished = false)
     {
         if (RePlay.Inst.isReplayMode)
         {
+            if (isAnswering) AnswerManager.Inst.PapaTile();
             isInteractionDetect = true;
             if(!lightFinished)TileMoveScript.Inst.TurnAction();
             RePlay.Inst.ReMove();

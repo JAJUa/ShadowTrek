@@ -22,7 +22,7 @@ public class AnswerManager : MonoBehaviour
     [Serializable]
     public struct AnswerData
     {
-        public enum AnswerType { tileTurn, interaction };
+        public enum AnswerType { tileTurn, interaction,stay };
         public AnswerType answerType;
         public Collider tile;
         public Dialouge dialogue;
@@ -51,7 +51,6 @@ public class AnswerManager : MonoBehaviour
         for(int i = 0; i < tilesParent.childCount; i++)
         {
             Collider col = tilesParent.GetChild(i).GetComponentInChildren<Collider>();
-            col.tag = "Untagged";
             allTiles.Add(col);
         }
     }
@@ -83,25 +82,33 @@ public class AnswerManager : MonoBehaviour
             }
             else
             {
-                if (papa_answerData[tileIndex - 1].answerType == AnswerData.AnswerType.tileTurn)
+                switch (papa_answerData[tileIndex - 1].answerType)
                 {
-                    if (Vector3.Distance(papa.position, papa_answerData[tileIndex - 1].tile.transform.position) < 2f && tileIndex <= papa_answerData.Length - 1)
-                    {
-                        papa.position = new Vector3(papa_answerData[tileIndex - 1].tile.transform.position.x, papa.position.y, papa_answerData[tileIndex - 1].tile.transform.position.z);
-                        PapaTile();
-                    }
+                    case AnswerData.AnswerType.tileTurn:
+                        if (Vector3.Distance(papa.position, papa_answerData[tileIndex - 1].tile.transform.position) < 2f && tileIndex <= papa_answerData.Length - 1)
+                        {
+                            papa.position = new Vector3(papa_answerData[tileIndex - 1].tile.transform.position.x, papa.position.y, papa_answerData[tileIndex - 1].tile.transform.position.z);
+                            PapaTile();
+                        }
+                        break;
+                    case AnswerData.AnswerType.interaction:
+                        if (!isInteract)
+                        {
+                            isInteract = true;
+                            Debug.Log(tileIndex - 1);
+                            papa_answerData[tileIndex - 1].dialogue.AnswerDialogue();
+                        }
+                        break;
+                    case AnswerData.AnswerType.stay:
+                        if (!isInteract)
+                        {
+                            isInteract = true;
+                            
+                        }
+                        break;
                 }
-                else
-                {
-                    if (!isInteract)
-                    {
-                        isInteract = true;
-                        Debug.Log(tileIndex - 1);
-                        papa_answerData[tileIndex - 1].dialogue.AnswerDialogue();
-                    }
-                    
-                   
-                }
+
+               
               
             }
         }
@@ -117,8 +124,9 @@ public class AnswerManager : MonoBehaviour
     public void PapaTile()
     {
         if (tileIndex >= papa_answerData.Length) return;
-        TileColDisable(papa_answerData[tileIndex].tile, papa_answerData[tileIndex - 1].tile);
         isInteract = false;
+        TileColDisable(papa_answerData[tileIndex].tile, papa_answerData[tileIndex - 1].tile);
+     
         
     }
 
@@ -137,7 +145,8 @@ public class AnswerManager : MonoBehaviour
         // targetCol.enabled = true;
         targetCol.tag ="MoveTile";
         preCol.tag = "MoveTile";
-      //  preCol.enabled = true;
+        //  preCol.enabled = true;
+        Debug.Log("두번");
         tileIndex++;
     }
     public void LineRenderer()

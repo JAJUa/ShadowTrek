@@ -164,7 +164,7 @@ public class InGameBookManager : MonoBehaviour
 
     private void HandlePageFlip(bool isNext)
     {
-        float delay = .8f;
+        float delay = .6f;
         DOVirtual.DelayedCall(delay, () =>
         {
             if (isNext)

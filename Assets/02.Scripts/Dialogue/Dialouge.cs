@@ -146,6 +146,9 @@ public class Dialouge : MonoBehaviour
                     if (hit.collider.gameObject == findObject)
                     {
                         InterFade(false);
+                        if (InGameManager.Inst.isAnswering) AnswerManager.Inst.PapaTile();
+           
+
                         if (type == Type.text) DialoFade(true);
 
                         Interact();
@@ -229,8 +232,7 @@ public class Dialouge : MonoBehaviour
                 break;
 
         }*/
-        if (InGameManager.Inst.isAnswering)
-            AnswerManager.Inst.PapaTile();
+   
 
         if (isTutorial)
             TutorialManager.Inst.FinshTutorial();
