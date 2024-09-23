@@ -34,6 +34,11 @@ public class SoundManager : MonoBehaviour
         sfxSlider = GameObject.Find("SoundEffectScrollBar").GetComponent<Scrollbar>();
         bgmAudioSource = GetComponent<AudioSource>();
 
+        SliderSetting();
+    }
+
+    public void SliderSetting()
+    {
         bgmSlider.value = GameData.Inst.bgmVolume;
         sfxSlider.value = GameData.Inst.soundEffectVolume;
 
@@ -63,6 +68,7 @@ public class SoundManager : MonoBehaviour
             audioMixer.SetFloat("BGMParam", Mathf.Log10(soundEffectScrollBar) * 20);
 
         GameData.Inst.bgmVolume = soundEffectScrollBar;
+        SaveSystem.Inst.SaveData();
     }
 
     public void ChangeSoundEffectVolume(float soundEffectScrollBar)
@@ -73,5 +79,6 @@ public class SoundManager : MonoBehaviour
             audioMixer.SetFloat("SFXParam", Mathf.Log10(soundEffectScrollBar) * 20);
 
         GameData.Inst.soundEffectVolume = soundEffectScrollBar;
+        SaveSystem.Inst.SaveData();
     }
 }

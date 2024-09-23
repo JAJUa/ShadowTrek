@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6412409093015276129}
   - component: {fileID: 1334579744605926546}
   - component: {fileID: 6412409093015276128}
+  - component: {fileID: 1890090898265794246}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -246,3 +247,21 @@ MonoBehaviour:
   effectAudioClip:
   - {fileID: 8300000, guid: afc445e9d82be28408e0437efa08e38a, type: 3}
   - {fileID: 8300000, guid: 09a83fcda9a8ff74db1947d95297dace, type: 3}
+--- !u!114 &1890090898265794246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6412409093015276135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d041a6e5320d2b74e9bffe2af30aa981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundMusic: []
+  soundEffect: []
+  bgmSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  bgmAudioSource: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 683acb83eef4a324ca272094a76ffc23, type: 2}

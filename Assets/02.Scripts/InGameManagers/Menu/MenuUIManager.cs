@@ -71,8 +71,6 @@ public class MenuUIManager : MonoBehaviour
             Vector3 dir = Camera.main.transform.position - icon.transform.position;
             icon.transform.LookAt(dir);
         }
-        bgmScrollBar.value = SoundManager.Inst.bgmAudioSource.volume;
-        
     }
 
     #region 아이콘 관련
