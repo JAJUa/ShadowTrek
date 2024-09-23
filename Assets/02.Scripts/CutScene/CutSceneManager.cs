@@ -33,7 +33,8 @@ public class CutSceneManager : MonoBehaviour
     [TextArea][SerializeField] string[] dialogueDetail;
     [SerializeField] int dialogueIndex = 0;
     [SerializeField] Image[] dialogueImage;
-    [SerializeField] TypewriterByCharacter[] dialogueText;
+    [SerializeField] TypewriterByCharacter[] dialogueTypeWriter;
+    [SerializeField] TextMeshProUGUI[] dialogueText;
     [SerializeField] float dialogueTextCloseCool;
      Tween[] dialogueFadeTween = new Tween[2];
      Tween[] dialogueTextTween = new Tween[2];
@@ -58,10 +59,10 @@ public class CutSceneManager : MonoBehaviour
         
         dialogueImage[dialogueIndex].DOFade(1, 0.5f);
         localizeStringEvent[dialogueIndex].StringReference = localizeName[this.dialogueIndex];
-        dialogueText[dialogueIndex].ShowText(localizeName[this.dialogueIndex].GetLocalizedString());
+        dialogueTypeWriter[dialogueIndex].ShowText(localizeName[this.dialogueIndex].GetLocalizedString());
      
 
-        dialogueTextTween[dialogueIndex] =  DOVirtual.DelayedCall(dialogueTextCloseCool , () => dialogueText[dialogueIndex].StartDisappearingText());
+        dialogueTextTween[dialogueIndex] =  DOVirtual.DelayedCall(dialogueTextCloseCool , () => dialogueTypeWriter[dialogueIndex].StartDisappearingText());
         dialogueFadeTween[dialogueIndex] = DOVirtual.DelayedCall(dialogueTextCloseCool+1.5f , () => {
             dialogueImage[dialogueIndex].DOFade(0, 0.5f) ;      
             });
@@ -100,6 +101,12 @@ public class CutSceneManager : MonoBehaviour
             {
                 image.DOFade(0,0.5f);
             }
+
+            foreach(TextMeshProUGUI text in dialogueText)
+            {
+                text.DOFade(0, 0.3f);
+            }
+
             InGameManager.Inst.isCutsceneIn =false;
             MoveBlock(false);
             up.DOAnchorPosY(50, 0.7f);

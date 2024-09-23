@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
         sfxSlider = GameObject.Find("SoundEffectScrollBar").GetComponent<Scrollbar>();
         bgmAudioSource = GetComponent<AudioSource>();
 
-        SliderSetting();
+       // SliderSetting();
     }
 
     public void SliderSetting()

@@ -3302,7 +3302,7 @@ PrefabInstance:
     - target: {fileID: 8634817447383595469, guid: 03abe70816a3523419fcf1e2269599e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3385,6 +3385,7 @@ MonoBehaviour:
   dialogueDetail: []
   dialogueIndex: 0
   dialogueImage: []
+  dialogueTypeWriter: []
   dialogueText: []
   dialogueTextCloseCool: 5
   references:
@@ -5257,6 +5258,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe73920272189642908eb2885b2f33d, type: 3}
+--- !u!114 &732984658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712356341460595390, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 732984657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &739985204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7406,9 +7419,10 @@ MonoBehaviour:
   dialogueImage:
   - {fileID: 582497950}
   - {fileID: 667279442}
+  dialogueTypeWriter: []
   dialogueText:
-  - {fileID: 720860188}
-  - {fileID: 1880317679}
+  - {fileID: 0}
+  - {fileID: 0}
   dialogueTextCloseCool: 2.8
   references:
     version: 2
@@ -8048,6 +8062,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe73920272189642908eb2885b2f33d, type: 3}
+--- !u!114 &1079578356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712356341460595390, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079578355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1081720527 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2057592972578812469, guid: bbe73920272189642908eb2885b2f33d,
@@ -8563,6 +8589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412409093015276135, guid: 10b6e96ca89591f46b58a8848d7a2d49,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9483,8 +9514,10 @@ MonoBehaviour:
   dialogueIndex: 0
   dialogueImage:
   - {fileID: 582497950}
-  dialogueText:
+  dialogueTypeWriter:
   - {fileID: 720860188}
+  dialogueText:
+  - {fileID: 1079578356}
   dialogueTextCloseCool: 4.5
   references:
     version: 2
@@ -11932,9 +11965,12 @@ MonoBehaviour:
   dialogueImage:
   - {fileID: 582497950}
   - {fileID: 667279442}
-  dialogueText:
+  dialogueTypeWriter:
   - {fileID: 720860188}
   - {fileID: 1880317679}
+  dialogueText:
+  - {fileID: 1079578356}
+  - {fileID: 732984658}
   dialogueTextCloseCool: 2.8
   references:
     version: 2

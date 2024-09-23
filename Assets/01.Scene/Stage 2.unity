@@ -21632,6 +21632,7 @@ MonoBehaviour:
   dialogueIndex: 0
   dialogueImage:
   - {fileID: 0}
+  dialogueTypeWriter: []
   dialogueText:
   - {fileID: 0}
   dialogueTextCloseCool: 0
@@ -28625,7 +28626,7 @@ PrefabInstance:
     - target: {fileID: 8634817447383595469, guid: 03abe70816a3523419fcf1e2269599e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
