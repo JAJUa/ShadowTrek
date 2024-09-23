@@ -57,7 +57,8 @@ public class CutSceneManager : MonoBehaviour
         if(dialogueTextTween != null) dialogueTextTween[dialogueIndex].Kill();
         dialogueImage[dialogueIndex].gameObject.SetActive(true);
         
-        dialogueImage[dialogueIndex].DOFade(1, 0.5f);
+        dialogueImage[dialogueIndex].DOFade(1, 0.3f);
+        dialogueText[dialogueIndex].DOFade(1, 0.5f);
         localizeStringEvent[dialogueIndex].StringReference = localizeName[this.dialogueIndex];
         dialogueTypeWriter[dialogueIndex].ShowText(localizeName[this.dialogueIndex].GetLocalizedString());
      
@@ -67,6 +68,12 @@ public class CutSceneManager : MonoBehaviour
             dialogueImage[dialogueIndex].DOFade(0, 0.5f) ;      
             });
         this.dialogueIndex++;
+    }
+
+    public void CloseText(int dialogueIndex)
+    {
+        dialogueImage[dialogueIndex].DOFade(0, 0.5f);
+        dialogueText[dialogueIndex].DOFade(0, 0.3f);
     }
 
     private void LateUpdate()

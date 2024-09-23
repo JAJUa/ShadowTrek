@@ -3322,7 +3322,7 @@ PrefabInstance:
     - target: {fileID: 8634817447383595469, guid: 03abe70816a3523419fcf1e2269599e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6461,10 +6461,12 @@ MonoBehaviour:
   dialogueImage:
   - {fileID: 1514357017}
   - {fileID: 680173264}
-  dialogueTypeWriter: []
+  dialogueTypeWriter:
+  - {fileID: 1545478474}
+  - {fileID: 1753293094}
   dialogueText:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1545478476}
+  - {fileID: 1753293096}
   dialogueTextCloseCool: 3
   references:
     version: 2
@@ -7373,9 +7375,10 @@ MonoBehaviour:
   dialogueIndex: 0
   dialogueImage:
   - {fileID: 1514357017}
-  dialogueTypeWriter: []
+  dialogueTypeWriter:
+  - {fileID: 1545478474}
   dialogueText:
-  - {fileID: 0}
+  - {fileID: 1545478476}
   dialogueTextCloseCool: 3
   references:
     version: 2
@@ -9504,6 +9507,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1545478474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6919393026013025655, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2090584322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1545478476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712356341460595390, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2090584322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545553477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10705,6 +10732,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1753293094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6919393026013025655, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 202531395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1753293096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4712356341460595390, guid: bbe73920272189642908eb2885b2f33d,
+    type: 3}
+  m_PrefabInstance: {fileID: 202531395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758458246
 GameObject:
   m_ObjectHideFlags: 0
@@ -11138,7 +11189,7 @@ PrefabInstance:
         type: 3}
       propertyPath: stayBtn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 786027969}
     - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: titleName
@@ -13676,10 +13727,12 @@ MonoBehaviour:
   dialogueImage:
   - {fileID: 1514357017}
   - {fileID: 680173264}
-  dialogueTypeWriter: []
+  dialogueTypeWriter:
+  - {fileID: 1545478474}
+  - {fileID: 1753293094}
   dialogueText:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1545478476}
+  - {fileID: 1753293096}
   dialogueTextCloseCool: 3
   references:
     version: 2

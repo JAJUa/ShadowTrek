@@ -130,8 +130,13 @@ public class InteractiveLights : MonoBehaviour
                         length = Vector3.Distance(transform.position, target.transform.position);
                         if (!Physics.Raycast(transform.position, target.transform.position - transform.position, Vector3.Distance(transform.position, target.transform.position), LayerMask.GetMask("Wall")))
                         {
-                            tiles.Add(target);
                             Renderer renderer = target.GetComponent<Renderer>();
+                            if (renderer.material.color != tileLightColor.color) //나중에 수정 예정
+                            {
+                                tiles.Add(target);
+                            }
+                           
+                           
                             renderer.material = tileLightColor;
                         }
                         //Debug.DrawLine(spotlight.transform.position, target.transform.position, Color.red);
