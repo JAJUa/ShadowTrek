@@ -73,6 +73,8 @@ public class SaveSystem : MonoBehaviour
         playerData.relicsMaxCount = GameData.Inst.relicsMaxCount;
         playerData.localizationNum= GameData.Inst.localizationNum;
         playerData.bgmVolume = GameData.Inst.bgmVolume;
+        Debug.Log("볼륨저장: " + GameData.Inst.bgmVolume);
+
         playerData.soundEffectVolume= GameData.Inst.soundEffectVolume;
 
        
@@ -116,6 +118,8 @@ public class SaveSystem : MonoBehaviour
                 GameData.Inst.relicsMaxCount= playerData.relicsMaxCount;
                 GameData.Inst.localizationNum= playerData.localizationNum;
                 GameData.Inst.bgmVolume= playerData.bgmVolume;
+                Debug.Log("볼륨로드: " + playerData.bgmVolume);
+
                 Debug.Log(GameData.Inst.relicsBool[0][0]);
                 GameData.Inst.soundEffectVolume= playerData.soundEffectVolume;
             }

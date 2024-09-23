@@ -36,6 +36,11 @@ public class shootLight : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        ShootDir();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

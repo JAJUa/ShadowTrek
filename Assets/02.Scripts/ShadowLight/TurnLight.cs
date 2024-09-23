@@ -81,12 +81,10 @@ public class TurnLight : InteractiveObject
 
 
 
-    public void TurnReverse(Dialouge dia = null)
+    public void TurnReverse()
     {
         turnAngle = -turnAngle;
         Turning(transform.eulerAngles.y + turnAngle,false,true);
-        if (!InGameManager.Inst.isAnswering) 
-            DOVirtual.DelayedCall(0.5f,()=> dia.InterFade(true));
     }
 
     /*

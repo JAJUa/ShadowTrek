@@ -9,21 +9,24 @@ public class TitleSceneFade : MonoBehaviour
     [SerializeField] private Button startBtn;
     [SerializeField] private Button settingBtn;
     [SerializeField] private Button quitBtn;
+    [SerializeField] private Button settingBackBtn;
 
-    [SerializeField] Animator anim;
+    [SerializeField] Animator titleAnim;
+    [SerializeField] Animator settingAnim;
 
     private void Start()
     {
         startBtn.onClick.AddListener(() => StartBtn());
-        settingBtn.onClick.AddListener(() => SettingBtn());
         quitBtn.onClick.AddListener(() => QuitBtn());
+        settingBtn.onClick.AddListener(() => SettingBtn(true));
+        settingBackBtn.onClick.AddListener(() => SettingBtn(false));
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            anim.SetTrigger("Skip");
+            titleAnim.SetTrigger("Skip");
         }
     }
 
@@ -35,9 +38,24 @@ public class TitleSceneFade : MonoBehaviour
         });
     }
 
-    public void SettingBtn()
+    public void SettingBtn(bool fade)
     {
-        settingBtn.GetComponent<Image>().DOFade(1, 1f);
+        settingBtn.GetComponent<Image>().DOFade(fade ? 1f : 0f, 1f);
+
+        settingAnim.SetBool("ActiveExcute", fade);
+
+        if (fade)
+        {
+            settingBackBtn.gameObject.SetActive(fade);
+            settingBackBtn.GetComponent<Image>().DOFade(0.6f, 1f);
+         }
+        else
+        {
+            settingBackBtn.GetComponent<Image>().DOFade(0, 1f).OnComplete(() =>
+            {
+                settingBackBtn.gameObject.SetActive(false);
+            });
+        }
     }
 
     public void QuitBtn()

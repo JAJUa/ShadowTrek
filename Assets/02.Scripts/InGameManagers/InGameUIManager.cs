@@ -14,6 +14,7 @@ public class InGameUIManager : MonoBehaviour
     public GameObject seraSprite, papaSprite;
     public GameObject optionCanvas,inGameCanvas,helpBookCanvas,cutSceneSpeed;
     public Animator menuAnim;
+    public Animator optionAnim;
     [SerializeField] TypewriterByCharacter titleText;
     [SerializeField] Image titleTextBox;
     [SerializeField] string titleName;
@@ -116,5 +117,10 @@ public class InGameUIManager : MonoBehaviour
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name);
         });
+    }
+
+    public void OptionFade(bool fade)
+    {
+        optionAnim.SetBool("OptionFade", fade);
     }
 }

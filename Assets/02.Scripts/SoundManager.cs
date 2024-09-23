@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class SoundManager : MonoBehaviour
 {
@@ -10,8 +10,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] backGroundMusic;
     public AudioClip[] soundEffect;
 
+    public Scrollbar bgmSlider;
+    public Scrollbar sfxSlider;
+
     public AudioSource bgmAudioSource;
-    public float soundEffectVolume;
+    public AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -23,22 +26,22 @@ public class SoundManager : MonoBehaviour
         {
             Inst = this;
         }
-       
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-
+        bgmSlider = GameObject.Find("BGMScrollbar").GetComponent<Scrollbar>();
+        sfxSlider = GameObject.Find("SoundEffectScrollBar").GetComponent<Scrollbar>();
         bgmAudioSource = GetComponent<AudioSource>();
-        bgmAudioSource.volume = GameData.Inst.bgmVolume;
 
-    }
+        bgmSlider.value = GameData.Inst.bgmVolume;
+        sfxSlider.value = GameData.Inst.soundEffectVolume;
 
-   
-    // Update is called once per frame
-    void Update()
-    {
-        
+        bgmSlider.onValueChanged.AddListener(ChangeBackGroundAudio);
+        sfxSlider.onValueChanged.AddListener(ChangeSoundEffectVolume);
+
+        ChangeBackGroundAudio(bgmSlider.value);
+        ChangeSoundEffectVolume(sfxSlider.value);
     }
 
     public void SummonSoundEffect(string effectName)
@@ -52,14 +55,23 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void ChangeSoundEffectVolume(Scrollbar soundEffectScrollBar)
+    public void ChangeBackGroundAudio(float soundEffectScrollBar)
     {
-        soundEffectVolume = soundEffectScrollBar.value;
-        GameData.Inst.soundEffectVolume = soundEffectVolume;
+        if (soundEffectScrollBar == 0)
+            audioMixer.SetFloat("BGMParam", -80f);
+        else
+            audioMixer.SetFloat("BGMParam", Mathf.Log10(soundEffectScrollBar) * 20);
+
+        GameData.Inst.bgmVolume = soundEffectScrollBar;
     }
 
-    public void ChangeBackGroundAudio()
+    public void ChangeSoundEffectVolume(float soundEffectScrollBar)
     {
-        GameData.Inst.bgmVolume = bgmAudioSource.volume;
+        if (soundEffectScrollBar == 0)
+            audioMixer.SetFloat("SFXParam", -80f);
+        else
+            audioMixer.SetFloat("SFXParam", Mathf.Log10(soundEffectScrollBar) * 20);
+
+        GameData.Inst.soundEffectVolume = soundEffectScrollBar;
     }
 }
