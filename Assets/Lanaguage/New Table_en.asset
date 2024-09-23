@@ -94,8 +94,8 @@ MonoBehaviour:
     m_Localized: 'I was obviously following the star and picking it up, but suddenly
       I lost consciousness and ended up in an unknown location.
 
-      First of
-      all, I have to keep following the star and picking it up.'
+      First of all,
+      I have to keep following the star and picking it up.'
     m_Metadata:
       m_Items: []
   - m_Id: 46054890326269952
@@ -105,19 +105,17 @@ MonoBehaviour:
       At a time when there
       was no other way, a being engulfed in unknown darkness saved me.
 
-      I
-      couldn''t tell, but it felt like he was trying to help me.
+      I couldn''t
+      tell, but it felt like he was trying to help me.
 
 '
     m_Metadata:
       m_Items: []
   - m_Id: 46054892033351680
-    m_Localized: "There were street lights along the way and a lever that turned
-      them on. I tried to keep the light on through that lever\r\n The lever was
-      already engulfed in darkness. At that time, an unknown being appeared again
-      and helped me.\r\nA voice came from the darkness saying, \u201CTrust me and
-      move forward.\u201D\r\n'What exactly was that?'\r\nI promised myself that I
-      would be of help to him someday and moved forward again."
+    m_Localized: "I tried to turn on the street lamp, but the lever was already consumed
+      by darkness. I couldn\u2019t do it alone.\nAs I was about to be engulfed by
+      the darkness, an unknown figure reappeared and saved me.\nHe vanished again,
+      leaving only the words, \"Trust yourself and keep going.\""
     m_Metadata:
       m_Items: []
   - m_Id: 46054894491213824
@@ -131,22 +129,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 46055198829912064
-    m_Localized: 'As I was walking down the street, I came across a structure that
-      was automatically rotating and emitting light.
+    m_Localized: 'Walking down that street, there was a structure that turned automatically.
 
-      The structure had already
-      eroded and I could not do anything about it.
+      The
+      structure had already been eroded and I could not do anything about it,
 
-      As I passed by, this structure
-      automatically changed direction, shooting light at me.
+      As
+      I walked by, this structure shot light at me and changed direction automatically.
 
-      That might be
-      helping me.
-
-      Why do you keep helping me?
-
-      I feel like I''m getting
-      scared of something'
+      That''s
+      what helps me..'
     m_Metadata:
       m_Items: []
   - m_Id: 46055223286898688

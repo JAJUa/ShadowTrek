@@ -96,6 +96,10 @@ public class CutSceneManager : MonoBehaviour
         }
         else
         {
+            foreach(Image image in dialogueImage)
+            {
+                image.DOFade(0,0.5f);
+            }
             InGameManager.Inst.isCutsceneIn =false;
             MoveBlock(false);
             up.DOAnchorPosY(50, 0.7f);

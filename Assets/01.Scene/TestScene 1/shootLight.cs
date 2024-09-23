@@ -5,10 +5,17 @@ using VInspector;
 
 public class shootLight : MonoBehaviour
 {
-
+    [SerializeField] Vector3 shootDir;
+    LineRenderer lineRenderer;
     private void OnValidate()
     {
         
+    }
+
+    private void Awake()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = 3;
     }
     // Start is called before the first frame update
     void Start()
@@ -20,13 +27,11 @@ public class shootLight : MonoBehaviour
     public void ShootDir()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
+        if (Physics.Raycast(transform.position, shootDir.normalized, out hit, 100))
         {
-          //  Debug.Log("mirrr");
-            Vector3 hitPoint = hit.point;
-            Vector3 dir = transform.forward;
-            Vector3 reflectDir = Vector3.Reflect(dir, hit.normal);
-            hit.transform.GetComponent<ReciveLight>().GetLight();
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+            hit.transform.GetComponentInParent<ReciveLight>().GetLight(lineRenderer);
         }
     }
 
@@ -44,6 +49,6 @@ public class shootLight : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward*100);  
+        Gizmos.DrawRay(transform.position, shootDir.normalized*100);  
     }
 }

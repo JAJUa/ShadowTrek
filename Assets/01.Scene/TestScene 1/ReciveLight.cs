@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UIElements;
@@ -13,6 +15,8 @@ public class ReciveLight : MonoBehaviour
     [SerializeField] Vector3[] rotDirs;
     [SerializeField] Transform point;
     [SerializeField] Material tileLightColor, defaultTileMaterial;
+    [SerializeField] float turnSpeed, turnAngle;
+    [SerializeField] Transform rotatingObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +25,19 @@ public class ReciveLight : MonoBehaviour
 
     private void OnValidate()
     {
+        float angle = rotIndex * 45;
+        Vector3 newRotation = rotatingObj.eulerAngles;
+        newRotation.y = angle; // ì›í•˜ëŠ” ê°ë„ ê°’ìœ¼ë¡œ ëŒ€ì²´
+        rotatingObj.eulerAngles = newRotation;
+        Vector3 target = new Vector3(rotatingObj.eulerAngles.x, angle, rotatingObj.eulerAngles.z);
+       
         if ( rotDirs[rotIndex] != Vector3.zero)
         {
             RaycastHit hit;
             if (Physics.Raycast(point.position, rotDirs[rotIndex], out hit, 100, groundMask))
             {
                 gPos = hit.point;
-                // Debug.Log("¶¥¿¡ ´êÀ½");
+                // Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
             }
         }
@@ -40,7 +50,7 @@ public class ReciveLight : MonoBehaviour
        
     }
 
-    public void CheckLight()
+    public void CheckLight(LineRenderer laser)
     {
         if (rotDirs[rotIndex] != Vector3.zero)
         {
@@ -48,12 +58,10 @@ public class ReciveLight : MonoBehaviour
             if (Physics.Raycast(point.position, rotDirs[rotIndex], out hit, 100, groundMask))
             {
                 gPos = hit.point;
-                Debug.Log("¶¥¿¡ ´êÀ½");
                 Collider[] colliders = Physics.OverlapSphere(gPos, 5, tileMask);
-
+                laser.SetPosition(2,gPos);
                 if (colliders.Length > 0)
                 {
-                    Debug.Log("°¨ÁöÇÔ");
                     foreach (Collider target in colliders)
                     {
                         Renderer renderer = target.GetComponent<Renderer>();
@@ -67,9 +75,9 @@ public class ReciveLight : MonoBehaviour
 
 
    
-    public void GetLight()
+    public void GetLight(LineRenderer laser)
     {
-        CheckLight();
+        CheckLight(laser);
     }
 
     private void OnDrawGizmos()
