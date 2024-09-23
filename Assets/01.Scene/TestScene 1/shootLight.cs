@@ -20,13 +20,13 @@ public class shootLight : MonoBehaviour
     public void ShootDir()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 10))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100))
         {
-            Debug.Log("mirrr");
+          //  Debug.Log("mirrr");
             Vector3 hitPoint = hit.point;
             Vector3 dir = transform.forward;
             Vector3 reflectDir = Vector3.Reflect(dir, hit.normal);
-            hit.transform.GetComponent<ReciveLight>().GetPosDir(hitPoint, reflectDir);
+            hit.transform.GetComponent<ReciveLight>().GetLight();
         }
     }
 
@@ -38,12 +38,12 @@ public class shootLight : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ShootDir();
+        //ShootDir();
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward*10);  
+        Gizmos.DrawRay(transform.position, transform.forward*100);  
     }
 }
