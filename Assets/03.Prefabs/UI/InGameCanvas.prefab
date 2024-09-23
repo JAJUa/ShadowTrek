@@ -3963,7 +3963,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: 743, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2721817086100691074
 CanvasRenderer:
@@ -6800,6 +6800,7 @@ MonoBehaviour:
   menuAnim: {fileID: 5278440869657361736}
   optionAnim: {fileID: 3274803889507034268}
   titleText: {fileID: 3360244214773090867}
+  stayBtn: {fileID: 8909043406665502010}
   titleTextBox: {fileID: 6856487763158230931}
   titleName: "-\uBCC4\uC744 \uCC3E\uC544\uC11C-"
   startTitleAnim: 1
@@ -6900,7 +6901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2866564398414519445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6977,7 +6978,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7001,19 +7002,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6505560863089633547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8827323556222529473}
-        m_TargetAssemblyTypeName: InGameManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &6957951698424362234
 PrefabInstance:
   m_ObjectHideFlags: 0

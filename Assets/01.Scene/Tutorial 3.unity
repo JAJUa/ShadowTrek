@@ -11157,6 +11157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
+      propertyPath: stayBtn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
       propertyPath: titleName
       value: "-\uBE5B\uC744 \uD5A5\uD558\uC5EC-"
       objectReference: {fileID: 0}
@@ -11289,6 +11294,16 @@ PrefabInstance:
         type: 3}
       propertyPath: bookPageMaxIndex
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056381937504748508, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056381937504748508, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148496638460921846, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
@@ -11454,6 +11469,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012341546076374861, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012341546076374861, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8507307115529711703, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}

@@ -16,6 +16,7 @@ public class InGameUIManager : MonoBehaviour
     public Animator menuAnim;
     public Animator optionAnim;
     [SerializeField] TypewriterByCharacter titleText;
+    [SerializeField] Button stayBtn;
     [SerializeField] Image titleTextBox;
     [SerializeField] string titleName;
     [SerializeField] bool startTitleAnim;
@@ -32,15 +33,7 @@ public class InGameUIManager : MonoBehaviour
     void Start()
     {
         if (startTitleAnim) ShowTitleText(0.2f);
-    }
-
- 
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-       
+        stayBtn.onClick.AddListener(OnStayBtn);
     }
 
     public void OpenOption(bool isOpen)
@@ -83,10 +76,29 @@ public class InGameUIManager : MonoBehaviour
 
     public void SpriteChange(bool isSera) 
     {
-       
         seraSprite.SetActive(isSera);
         papaSprite.SetActive(!isSera);
-       
+    }
+
+    public void StayBtnActive(bool isSera)
+    {
+        if (stayBtn != null)
+            stayBtn.gameObject.SetActive(!isSera);
+    }
+
+    public void OnStayBtn()
+    {
+        stayBtn.interactable = false;
+        stayBtn.gameObject.GetComponent<Image>().DOFade(0.2f, 0);
+        InGameManager.Inst.OnlyPlayerReplay();
+
+        DOVirtual.DelayedCall(0.35f, () =>
+        {
+            stayBtn.gameObject.GetComponent<Image>().DOFade(1f, 0.5f).OnComplete(() =>
+            {
+                stayBtn.interactable = true;
+            });
+        });
     }
 
     public void MenuFade()
