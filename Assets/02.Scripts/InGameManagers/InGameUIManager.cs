@@ -57,13 +57,14 @@ public class InGameUIManager : MonoBehaviour
 
     public void ShowTitleText(float delay = 0)
     {
+        InGameManager.Inst.moveBlock = true;
         titleTextBox.DOFade(0.5f, 0.5f);
         DOVirtual.DelayedCall(delay, () =>
         {
             titleText.ShowText(titleName);
             DOVirtual.DelayedCall(2f, () => {
                 titleText.StartDisappearingText();
-                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false; titleTextBox.DOFade(0, 0.5f); }); 
+                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false; titleTextBox.DOFade(0, 0.5f); InGameManager.Inst.moveBlock = false; }); 
                 });
         });
        
@@ -71,10 +72,7 @@ public class InGameUIManager : MonoBehaviour
     }
 
 
-
-  
-
-    public void SpriteChange(bool isSera) 
+public void SpriteChange(bool isSera) 
     {
         seraSprite.SetActive(isSera);
         papaSprite.SetActive(!isSera);

@@ -77,56 +77,6 @@ public class RePlay : MonoBehaviour
         pointsInTime.RemoveAt(0);
     }
 
-    /*
-    public IEnumerator back()
-    {
-        Time.timeScale = 2;
-        isBacking = true;
-        List<PointInTime> reverse =  savedPointsInTime.ToList();
-        reverse.Reverse();
-        for(int i = 0; i < reverse.Count-1; i++)
-        {
-            yield return StartCoroutine(m(reverse[i+1]));
-        }
-        Time.timeScale = 1;
-        InGameManager.Inst.moveBlock = false;
-        isBacking = false;
-    }
-
-    public IEnumerator m(PointInTime pointInTime)
-    {
-        InGameManager.Inst.moveBlock = true;
-        Vector3 targetPosition = pointInTime.position;
-        animCharacter.SetBool("isWalk", true);
-        // Position
-        Vector3 startPosition = character.transform.position;
-        float distance = Vector3.Distance(startPosition, targetPosition);
-        float timeToMove = distance / 30;
-
-
-        character.transform.rotation = pointInTime.rotation;
-
-        float elapsedTime = 0;
-
-        // Walking
-        while (elapsedTime < timeToMove)
-        {
-            character.transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / timeToMove));
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        character.transform.position = targetPosition;
-        animCharacter.SetBool("isWalk", false);
-        if (InGameManager.Inst.isInteractionDetect)
-        {
-            TileMoveScript.Inst.DetectLight();
-            InGameManager.Inst.isInteractionDetect = false;
-            InGameManager.Inst.moveBlock = false;
-        }
-        player.CheckReplay();
-    }*/
 
     public IEnumerator MoveToFrontTile()
     {

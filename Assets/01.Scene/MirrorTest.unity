@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46602172, g: 0.5960813, b: 0.7371453, a: 1}
+  m_IndirectSpecularColor: {r: 0.43055704, g: 0.5636739, b: 0.7119701, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
-  gPos: {x: 8.727179, y: 1.57, z: -1.9105945}
+  gPos: {x: 9.859026, y: 1.57, z: -6.5811553}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -10693,7 +10693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
-  gPos: {x: 8.729696, y: 1.57, z: -1.9151978}
+  gPos: {x: -59.741707, y: 1.57, z: -9.47434}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -14450,7 +14450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoint: {x: 0, y: 0, z: 0}
   dir: {x: 0, y: 0, z: 0}
-  gPos: {x: -63.872818, y: 1.57, z: -9.810595}
+  gPos: {x: 7.2405033, y: 1.57, z: -17.146122}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
