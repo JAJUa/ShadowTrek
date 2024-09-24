@@ -16,6 +16,8 @@ public class GameData : MonoBehaviour
     public List<int> relicsCurCount = new List<int> { 0,0,0,0};
     public float bgmVolume, soundEffectVolume;
 
+
+
     private IEnumerator Start()
     {
         
@@ -36,13 +38,13 @@ public class GameData : MonoBehaviour
                     relicsBool[i].Add(false);
                 }
             }
+            Debug.Log(relicsMaxCount.Count);
 
+            Debug.Log("relicsBool 초기화 완료");
         }
 
 
-        Debug.Log(relicsMaxCount.Count);
-
-        Debug.Log("relicsBool 초기화 완료");
+     
       // Debug.Log("relicsBool[0] 리스트 크기: " + relicsBool[0].Count);
       //  Debug.Log("relicsBool[0][0] 값: " + relicsBool[0][0]);
 

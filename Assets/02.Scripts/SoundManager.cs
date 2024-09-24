@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     public void SliderSetting()
     {
-        Debug.Log("½ÃÀÛ°ª" + GameData.Inst.bgmVolume);
+        Debug.Log("ï¿½ï¿½ï¿½Û°ï¿½" + GameData.Inst.bgmVolume);
         Invoke("Test", 0.1f);
         bgmSlider.value = GameData.Inst.bgmVolume;
         sfxSlider.value = GameData.Inst.soundEffectVolume;
@@ -55,7 +55,7 @@ public class SoundManager : MonoBehaviour
 
     void Test()
     {
-        Debug.Log("0.1ÃÊÈÄ °ª" + GameData.Inst.bgmVolume);
+        Debug.Log("0.1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½" + GameData.Inst.bgmVolume);
     }
     public void SummonSoundEffect(string effectName)
     {

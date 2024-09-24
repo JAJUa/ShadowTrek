@@ -39,6 +39,7 @@ public class SaveSystem : MonoBehaviour
         yield return new WaitUntil(() => GameData.Inst);
 
         path = Path.Combine(Application.persistentDataPath + fileName);
+        yield return new WaitUntil(() => GameData.Inst.relicsBool!=null); 
         LoadData();
     }
 
