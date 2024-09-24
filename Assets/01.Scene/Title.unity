@@ -3716,7 +3716,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 793903967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1386432403}
+        m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
+        m_MethodName: SaveData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &793903967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6673,6 +6685,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377584771}
   m_CullTransparentMesh: 1
+--- !u!114 &1386432403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8634817447383595466, guid: 03abe70816a3523419fcf1e2269599e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1837392581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec87c42b8096b48893668aed87a143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1391057138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f45f156a968a7d64e990b91ba5f6ea48,

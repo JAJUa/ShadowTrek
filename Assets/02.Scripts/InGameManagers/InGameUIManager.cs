@@ -134,5 +134,6 @@ public class InGameUIManager : MonoBehaviour
     public void OptionFade(bool fade)
     {
         optionAnim.SetBool("OptionFade", fade);
+        if (!fade) SaveSystem.Inst.SaveData();
     }
 }

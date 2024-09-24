@@ -5,6 +5,7 @@ using System;
 using Unity.VisualScripting;
 using Newtonsoft.Json;
 using System.Text;
+using System.Collections;
 
 [System.Serializable]
 public class PlayerDatas
@@ -31,27 +32,20 @@ public class SaveSystem : MonoBehaviour
     string path;
     string fileName = "/save";
 
-    private void Awake()
+    private IEnumerator Start()
     {
         Inst = this;
 
+        yield return new WaitUntil(() => GameData.Inst);
 
         path = Path.Combine(Application.persistentDataPath + fileName);
-        Debug.Log(path);
-    }
-    void Start()
-    {
         LoadData();
     }
 
-    /*private void Reset()
-    {
-        LoadData();
-    }*/
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F12))
-        {
+        {   
             File.Delete(path);
             Debug.Log("Save file deleted.");
         }

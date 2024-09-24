@@ -32,6 +32,8 @@ public class TitleSceneFade : MonoBehaviour
 
     public void StartBtn()
     {
+        AllBtnFalse();
+
         startBtn.GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
         {
             FadeInFadeOut.Inst.NextScene();
@@ -60,6 +62,8 @@ public class TitleSceneFade : MonoBehaviour
 
     public void QuitBtn()
     {
+        AllBtnFalse();
+
         quitBtn.GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
         {
             FadeInFadeOut.Inst.FadeIn();
@@ -72,5 +76,13 @@ public class TitleSceneFade : MonoBehaviour
                 #endif
             });
         });
+    }
+
+    public void AllBtnFalse()
+    {
+        startBtn.interactable = false;
+        quitBtn.interactable = false;
+        settingBtn.interactable = false;
+        settingBackBtn.interactable = false;
     }
 }

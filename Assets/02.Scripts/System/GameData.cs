@@ -16,10 +16,13 @@ public class GameData : MonoBehaviour
     public List<int> relicsCurCount = new List<int> { 0,0,0,0};
     public float bgmVolume, soundEffectVolume;
 
-    private void Awake()
+    private IEnumerator Start()
     {
         
         Inst= this;
+
+        yield return new WaitUntil(() => SaveSystem.Inst);
+
         if (SaveSystem.Inst.IsNewFile())
         {
             for (int i = 0; i < relicsMaxCount.Count; i++)

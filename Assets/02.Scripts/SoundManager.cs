@@ -28,17 +28,21 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private IEnumerator Start()
     {
         bgmSlider = GameObject.Find("BGMScrollbar").GetComponent<Scrollbar>();
         sfxSlider = GameObject.Find("SoundEffectScrollBar").GetComponent<Scrollbar>();
         bgmAudioSource = GetComponent<AudioSource>();
 
-       // SliderSetting();
+        yield return new WaitUntil(() => SaveSystem.Inst.playerDatas != null);
+
+        SliderSetting();
     }
 
     public void SliderSetting()
     {
+        Debug.Log("시작값" + GameData.Inst.bgmVolume);
+        Invoke("Test", 0.1f);
         bgmSlider.value = GameData.Inst.bgmVolume;
         sfxSlider.value = GameData.Inst.soundEffectVolume;
 
@@ -49,6 +53,10 @@ public class SoundManager : MonoBehaviour
         ChangeSoundEffectVolume(sfxSlider.value);
     }
 
+    void Test()
+    {
+        Debug.Log("0.1초후 값" + GameData.Inst.bgmVolume);
+    }
     public void SummonSoundEffect(string effectName)
     {
         foreach(AudioClip sound in soundEffect)
@@ -68,7 +76,6 @@ public class SoundManager : MonoBehaviour
             audioMixer.SetFloat("BGMParam", Mathf.Log10(soundEffectScrollBar) * 20);
 
         GameData.Inst.bgmVolume = soundEffectScrollBar;
-        SaveSystem.Inst.SaveData();
     }
 
     public void ChangeSoundEffectVolume(float soundEffectScrollBar)
@@ -79,6 +86,5 @@ public class SoundManager : MonoBehaviour
             audioMixer.SetFloat("SFXParam", Mathf.Log10(soundEffectScrollBar) * 20);
 
         GameData.Inst.soundEffectVolume = soundEffectScrollBar;
-        SaveSystem.Inst.SaveData();
     }
 }
