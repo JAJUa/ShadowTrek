@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46602172, g: 0.5960813, b: 0.7371453, a: 1}
+  m_IndirectSpecularColor: {r: 0.43055704, g: 0.5636739, b: 0.7119701, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6467,7 +6467,7 @@ MonoBehaviour:
   dialogueText:
   - {fileID: 1545478476}
   - {fileID: 1753293096}
-  dialogueTextCloseCool: 3
+  dialogueTextCloseCool: 2.5
   references:
     version: 2
     RefIds: []
@@ -6509,6 +6509,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3fb8a2c1b64787d43875b007fcc94e53, type: 2}
     - {fileID: 11400000, guid: 02c978913a5f6754f9bc3cc3986e86e1, type: 2}
     - {fileID: 11400000, guid: dc7d2d6406e3a224aae20dfe7872035d, type: 2}
+    - {fileID: 11400000, guid: 2600032f511320341a27673cf8a3ca4c, type: 2}
+    - {fileID: 11400000, guid: bc69e1015952c3d43819ac864542ef77, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6632,6 +6634,34 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1073131972}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: CloseText
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1073131972}
+          m_TargetAssemblyTypeName: CutSceneManager, Assembly-CSharp
+          m_MethodName: CloseText
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -8071,6 +8101,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: d69ac9dc64a6e9b4b84a902602610740, type: 2}
+    - target: {fileID: -5754084199372789682, guid: d97e9bfc30050964a88e0db5a6ee06b9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4493585093827132993, guid: 148b890aa9062b543977d2a1fcc8aba8,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: d97e9bfc30050964a88e0db5a6ee06b9,
         type: 3}
       propertyPath: m_Name
@@ -8271,6 +8307,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: d69ac9dc64a6e9b4b84a902602610740, type: 2}
+    - target: {fileID: -5754084199372789682, guid: d97e9bfc30050964a88e0db5a6ee06b9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4493585093827132993, guid: 148b890aa9062b543977d2a1fcc8aba8,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: d97e9bfc30050964a88e0db5a6ee06b9,
         type: 3}
       propertyPath: m_Name
@@ -10696,6 +10738,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
+      propertyPath: autoLight.x
+      value: 34.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLight.y
+      value: -11.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLight.z
+      value: 10.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.y
+      value: -0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.z
+      value: -7.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
       propertyPath: interactiveLight
       value: 
       objectReference: {fileID: 1126307506}
@@ -10708,6 +10780,16 @@ PrefabInstance:
         type: 3}
       propertyPath: isTutorial
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659558571723040797, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: colliderSize.x
+      value: 6.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659558571723040797, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: colliderSize.z
+      value: 9.92
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13097,6 +13179,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lanton (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730745438810653255, guid: 51c7b515a66351140b0d3fe3901d5262,
+        type: 3}
+      propertyPath: m_Range
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730745438810653255, guid: 51c7b515a66351140b0d3fe3901d5262,
+        type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 52.54987
       objectReference: {fileID: 0}
     - target: {fileID: 8730745438810653257, guid: 51c7b515a66351140b0d3fe3901d5262,
         type: 3}
