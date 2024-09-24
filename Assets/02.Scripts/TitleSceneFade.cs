@@ -55,6 +55,7 @@ public class TitleSceneFade : MonoBehaviour
         {
             settingBackBtn.GetComponent<Image>().DOFade(0, 1f).OnComplete(() =>
             {
+                SaveSystem.Inst.SaveData();
                 settingBackBtn.gameObject.SetActive(false);
             });
         }

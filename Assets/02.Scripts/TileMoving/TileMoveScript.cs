@@ -127,14 +127,12 @@ public class TileMoveScript : MonoBehaviour
         animator.SetBool("isWalk", true);
         for (int passtile = 0; passtile < FinalNodeList.Count - 1; passtile++)
         {
-            
             // RePlay 리플레이 모드면 실행
             if (RePlay.Inst.isReplayMode)
             {
                 RePlay.Inst.ReMove();
                 Debug.Log("Replay");
             }
-
 
             if (characterRole == CurCharacter.Papa)
             {

@@ -27,7 +27,7 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Inst;
     public PlayerDatas playerDatas = new();
-   
+    public bool dataSuccess;
 
     string path;
     string fileName = "/save";
@@ -39,7 +39,7 @@ public class SaveSystem : MonoBehaviour
         yield return new WaitUntil(() => GameData.Inst);
 
         path = Path.Combine(Application.persistentDataPath + fileName);
-        yield return new WaitUntil(() => GameData.Inst.relicsBool!=null); 
+        yield return new WaitUntil(() => GameData.Inst.relicSaveSuccess);
         LoadData();
     }
 
@@ -113,6 +113,10 @@ public class SaveSystem : MonoBehaviour
 
                 Debug.Log(GameData.Inst.relicsBool[0][0]);
                 GameData.Inst.soundEffectVolume= playerData.soundEffectVolume;
+
+
+
+                dataSuccess = true;
             }
         }
       

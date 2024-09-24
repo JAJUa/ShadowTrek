@@ -10,19 +10,18 @@ public class RelicInformation : MonoBehaviour
     [Tooltip("유물의 종류 n번째")]
     public int relicNum;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        DOVirtual.DelayedCall(0.1f, () =>
-        {
-            Debug.Log("야");
-            if (GameData.Inst.relicsBool[relicType][relicNum])
-            {
+        yield return new WaitUntil(() => SaveSystem.Inst.dataSuccess);
 
-                gameObject.SetActive(false);
-            }
-            else
-                gameObject.SetActive(true);
-        });
+        Debug.Log("야");
+        if (GameData.Inst.relicsBool[relicType][relicNum])
+        {
+
+            gameObject.SetActive(false);
+        }
+        else
+            gameObject.SetActive(true);
         Debug.Log(GameData.Inst.relicsBool[relicType][relicNum]);
     }
 
