@@ -20,8 +20,8 @@ public class StartBookManager : MonoBehaviour
     [SerializeField] Button sceneStartBtn;
 
     [Tab("내용")]
-    [SerializeField] LocalizeStringEvent story_SE;
-    [SerializeField] LocalizedString[] story_LS;
+    [SerializeField] LocalizeStringEvent story_SE,chapterName_SE;
+    [SerializeField] LocalizedString[] story_LS,chapterName_LS;
    
     [TextArea][SerializeField] private string[] chapterSceneName;
     [TextArea][SerializeField] private string[] chapterText;
@@ -45,8 +45,9 @@ public class StartBookManager : MonoBehaviour
     public void ShowTextAnimations()
     {
         story_SE.StringReference = story_LS[bookPageIndex];
+        chapterName_SE.StringReference = chapterName_LS[bookPageIndex];
         sceneStartBtn.enabled = true;
-        chapterSceneName_TA.ShowText(chapterSceneName[bookPageIndex].ToString());
+        chapterSceneName_TA.ShowText(chapterName_LS[bookPageIndex].GetLocalizedString());
         chapterText_TA.ShowText(chapterText[bookPageIndex].ToString());
         bgmText_TA.ShowText(bgmText[bookPageIndex].ToString());
         bgmInforText_TA.ShowText(bgmInforText[bookPageIndex].ToString());
