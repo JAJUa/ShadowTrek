@@ -35,26 +35,5 @@ public class LampClickTile : MonoBehaviour
         turnLight.Turning(lampRot);
     }
 
-    public void AppearTile(bool appear, Dialouge dia)
-    {
-       
-        Debug.Log(dia);
-        dialouge = dia;
-        if (appear)
-        {
-            gameObject.SetActive(true);
-            InGameManager.Inst.moveBlock = true;
-        }
-        
-        float fadeSpeed = 0.5f;
-        
-        float value = appear? 1 : 0;    
-        meshRenderer.material.DOFade(value, fadeSpeed);
-        if (!appear) DOVirtual.DelayedCall(fadeSpeed, () =>
-        {
-            gameObject.SetActive(false);
-            InGameManager.Inst.moveBlock = false ;
-
-        });
-    }
+  
 }

@@ -90,7 +90,7 @@ public class InGameUIManager : MonoBehaviour
     {
         stayBtn.interactable = false;
         stayBtn.gameObject.GetComponent<Image>().DOFade(0.2f, 0);
-        InGameManager.Inst.OnlyPlayerReplay();
+        InGameManager.Inst.OnlyPlayerReplay(true);
 
         DOVirtual.DelayedCall(0.35f, () =>
         {

@@ -26157,6 +26157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6099063282776132937, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
+      propertyPath: endCutScene
+      value: 
+      objectReference: {fileID: 1793641736}
+    - target: {fileID: 6099063282776132937, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
       propertyPath: answerVolume
       value: 
       objectReference: {fileID: 11400000, guid: e0a107fdbb47ee34ab39feec6ad8b0eb,

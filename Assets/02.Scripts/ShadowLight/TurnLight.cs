@@ -55,7 +55,7 @@ public class TurnLight : InteractiveObject
     [Button]
     public override void TurnAction()
     {
-
+        Debug.Log("턴");
         Turning(transform.eulerAngles.y + turnAngle, true);
     }
 
@@ -63,6 +63,7 @@ public class TurnLight : InteractiveObject
     [Button]
     public override void ResetObj()
     {
+        Debug.Log("리셋");
         turnAngle = Mathf.Abs(turnAngle); 
         Turning(firstRot.eulerAngles.y,true);
     }
@@ -70,11 +71,12 @@ public class TurnLight : InteractiveObject
 
     public void Turning(float angle, bool isResetLight = false,bool lightFinished = false)
     {
+        Debug.Log("돌이감");
          Vector3 target = new Vector3(transform.eulerAngles.x,angle , transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
              interactiveLight.ChangeTileColor();
-             if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay(lightFinished);
+             if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay(false,lightFinished);
              });
     }
 

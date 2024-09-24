@@ -5,6 +5,7 @@ using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Playables;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,14 +24,15 @@ public class InGameManager : MonoBehaviour
     [Tab("InGame")]
     public bool moveBlock = false;
     public bool isInteractionDetect;
-    public bool inRelpayMode;
+    [HideInInspector]public bool inRelpayMode;
     public bool noPapaButDetect;
-    public bool isAnswering;
+    [HideInInspector]public bool isAnswering;
     public CurCharacter curCharacter;
     public int curStageNum;
     [SerializeField]Player player;
     [SerializeField]ShadowModePapa papa;
     [SerializeField] bool onlyPlayer;
+    [SerializeField] CutSceneManager endCutScene;
    
 
     
@@ -103,6 +105,8 @@ public class InGameManager : MonoBehaviour
 
     public void PapaRestart()
     {
+        endCutScene.StopCutScene();
+        Debug.Log("papaReset");
         StopAllCoroutines();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();
@@ -131,7 +135,6 @@ public class InGameManager : MonoBehaviour
         DOVirtual.DelayedCall(0.1f, () => player.lineRenderer.positionCount = 0); 
         moveBlock = true;
       
-        //player.lineRenderer.enabled = false;
         player.animator.SetBool("isWalk", false);
         Debug.Log(player.lineRenderer.positionCount);
 
@@ -169,14 +172,14 @@ public class InGameManager : MonoBehaviour
         
     }
 
-    public void OnlyPlayerReplay(bool lightFinished = false)
+    public void OnlyPlayerReplay(bool isPapaStay = false,bool lightFinished = false)
     {
         if (RePlay.Inst.isReplayMode)
         {
             if (isAnswering) AnswerManager.Inst.PapaTile();
             isInteractionDetect = true;
             if(!lightFinished)TileMoveScript.Inst.TurnAction();
-            RePlay.Inst.ReMove();
+            RePlay.Inst.ReMove(isPapaStay);
           
         }
     }

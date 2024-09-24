@@ -96,6 +96,7 @@ public class InteractiveLights : MonoBehaviour
     {
         if (tiles.Count > 0)
         {
+            Debug.Log("타일 정상화");
             foreach (Collider tile in tiles)
             {
                 Renderer renderer = tile.GetComponent<Renderer>();
@@ -161,6 +162,7 @@ public class InteractiveLights : MonoBehaviour
                         renderer.material = tileLightColor;
                         i++;
                     }
+                    Debug.Log("켜짐");
                 }
             }
             else

@@ -12,7 +12,7 @@ public class Player : Character
     [SerializeField] Transform endObj;
     [SerializeField] bool isReplay; //목표 지점에 도착하면 다시 돌아갈 것인가
     [SerializeField] Transform bwShaderSphere;
-    [SerializeField] PlayableDirector endPlayableDirector;
+    public PlayableDirector endPlayableDirector;
     public int shadowIndex = 3;
 
 

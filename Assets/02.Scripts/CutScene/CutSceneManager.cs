@@ -15,7 +15,7 @@ using UnityEngine.Localization;
 
 public class CutSceneManager : MonoBehaviour
 {
-    public static CutSceneManager Inst;
+
     [SerializeField] PlayableDirector playableDirector;
     public enum CutSceneType { startCutScene, middleCutScene }
     [SerializeField] CutSceneType cutSceneType;
@@ -40,10 +40,7 @@ public class CutSceneManager : MonoBehaviour
      Tween[] dialogueTextTween = new Tween[2];
     Coroutine textCloseCor;
 
-    private void Awake()
-    {
-        Inst = this;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +88,19 @@ public class CutSceneManager : MonoBehaviour
 
     }
 
+    public void StopCutScene()
+    {
+        InGameManager.Inst.isCutsceneIn = false;
+        if (up != null)
+        {
+            up.DOAnchorPosY(50, 0.7f);
+            down.DOAnchorPosY(-50, 0.7f);
+        }
+       
+        playableDirector.Stop();
+      
+    }
+
     public void StartCutScene() => playableDirector.Play();
 
     public void CutSceneIn(bool cutSceneIn)
@@ -124,6 +134,12 @@ public class CutSceneManager : MonoBehaviour
     public void MoveBlock(bool isBlock)
     {
         InGameManager.Inst.moveBlock = isBlock;
+    }
+
+    public void GoTitle()
+    {
+
+        FadeInFadeOut.Inst.NextScene(0);
     }
 
 }

@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: ko
   m_SharedData: {fileID: 11400000, guid: 1455de9d918f0224ba34b2da175b3628, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 7878890871852367879
   m_TableData:
   - m_Id: 76155236352
     m_Localized: "\uC74C\uC545"
@@ -140,14 +141,15 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 46055223286898688
     m_Localized: "\uC800 \uC54C \uC218 \uC5C6\uB294 \uC874\uC7AC\uB294 \uB098\uC640
-      \uAC19\uC740 \uAE38\uC744 \uAC77\uACE0 \uC788\uC744\uAE4C?\r\n\uC54C \uC218\uB294
+      \uAC19\uC740 \uAE38\uC744 \uAC77\uACE0 \uC788\uC744\uAE4C? \uC54C \uC218\uB294
       \uC5C6\uC9C0\uB9CC \uADF8\uC5D0\uAC8C\uB3C4 \uB0B4\uAC00 \uC5B4\uB460\uC5D0
-      \uCE68\uC2DD\uB418\uB294 \uAC83\uCC98\uB7FC\r \uC5B4\uB5A0\uD55C \uBB38\uC81C\uAC00
-      \uC788\uC9C0 \uC54A\uC744\uAE4C?\r\n\uADF8\uB7F0 \uAC8C \uC788\uB2E4\uBA74
-      \uB0B4\uAC00 \uB3C4\uC640\uC904 \uC218 \uC788\uC744 \uAC83\uC774\uB2E4.\r\n\uADF8\uB9AC\uACE0
+      \uCE68\uC2DD\uB418\uB294 \uAC83\uCC98\uB7FC \uC5B4\uB5A0\uD55C \uBB38\uC81C\uAC00
+      \uC788\uC9C0 \uC54A\uC744\uAE4C? \uADF8\uB7F0\uAC8C \uC788\uB2E4\uBA74 \uB0B4\uAC00
+      \uB3C4\uC640\uC904 \uC218 \uC788\uC744 \uAC83\uC774\uB2E4. \uADF8\uB9AC\uACE0
       \uC788\uB2E4\uBA74 \uB3C4\uC640\uC904 \uAC83\uC774\uB2E4."
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 7878890871852367879
   - m_Id: 46055243679604736
     m_Localized: "\uC810\uC810 \uC55E\uC73C\uB85C \uAC08\uC218\uB85D \uAE38\uC774
       \uBCF5\uC7A1\uD574\uC9C0\uB294 \uAC70 \uAC19\uB2E4.\r\n\uB0B4\uAC00 \uACC4\uC18D
@@ -160,4 +162,8 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7878890871852367879
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00201148fb9ea300

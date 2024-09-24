@@ -56,12 +56,22 @@ public class Lever : InteractiveObject
         TurnLight(turnOn);
     }
 
-    [Button]
+    public void TurnLight(bool isResetLight = false)
+    {
+      OnOff(!isTurnOn, isResetLight);  
+      
+    }
     public void TurnLight(bool turnOn,bool isResetLight = false)
     {
+        OnOff(turnOn, isResetLight);
+
+    }
+
+    public void OnOff(bool turnOn, bool isResetLight = false)
+    {
         AudioManager.Inst.AudioEffectPlay(1);
-        if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay();
-        foreach (GameObject light in turnOnOffLights)  light.gameObject.SetActive(true); 
+        if (!isResetLight) InGameManager.Inst.OnlyPlayerReplay();
+        foreach (GameObject light in turnOnOffLights) light.gameObject.SetActive(true);
         isTurnOn = turnOn;
 
         if (isTurnOn) animator.SetTrigger("Right");
@@ -71,18 +81,17 @@ public class Lever : InteractiveObject
         {
             foreach (GameObject light in turnOnOffLights)
             {
-                light.GetComponent<Light>().DOIntensity(intensity,0.5f);
+                light.GetComponent<Light>().DOIntensity(intensity, 0.5f);
                 Debug.Log(intensity);
                 if (!turnOn) interactiveLight.TileColorDefault();
-                DOVirtual.DelayedCall( 0.5f,()=>
+                DOVirtual.DelayedCall(0.2f, () =>
                 {
                     light.SetActive(isTurnOn);
                     if (turnOn) interactiveLight.ChangeTileColor();
-                   
+
                 });
 
             }
         });
-      
     }
 }

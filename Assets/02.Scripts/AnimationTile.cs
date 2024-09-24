@@ -18,7 +18,7 @@ public class AnimationTile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CutSceneManager.Inst.StartCutScene();
+ 
     }
 
     // Update is called once per frame

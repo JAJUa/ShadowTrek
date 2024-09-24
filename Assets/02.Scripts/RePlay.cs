@@ -53,7 +53,6 @@ public class RePlay : MonoBehaviour
         character.transform.rotation = this.pointsInTime[0].rotation;
         this.pointsInTime.RemoveAt(0);
         pointsInLine.RemoveAt(0);
-       // StartCoroutine(back());
     }
 
     public void ResetReplayMode()
@@ -70,10 +69,10 @@ public class RePlay : MonoBehaviour
 
 
 
-    public void ReMove()
+    public void ReMove(bool isPapaStay = false)
     {
         if (pointsInTime.Count <= 0) return;
-        StartCoroutine(MoveToFrontTile());
+        StartCoroutine(MoveToFrontTile(isPapaStay));
         pointsInTime.RemoveAt(0);
     }
 
@@ -128,7 +127,7 @@ public class RePlay : MonoBehaviour
         player.CheckReplay();
     }*/
 
-    public IEnumerator MoveToFrontTile()
+    public IEnumerator MoveToFrontTile( bool isPapaStay = false)
     {
       
         InGameManager.Inst.moveBlock = true;
@@ -163,8 +162,8 @@ public class RePlay : MonoBehaviour
             InGameManager.Inst.isInteractionDetect = false;
             InGameManager.Inst.moveBlock = false;
         }
-        player.CheckReplay();
        
+        if(isPapaStay) InGameManager.Inst.CheckReplay();
     }
 
     // LineRenderer

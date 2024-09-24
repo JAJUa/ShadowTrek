@@ -11,7 +11,7 @@ public class LeverDialogue : Dialouge
     public override void Interact()
     {
         Debug.Log("인터렉트");
-        levera.TurnLight(true);
+        levera.TurnLight();
         base.Interact();
     }
 }

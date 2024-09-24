@@ -59,7 +59,6 @@ public class Dialouge : MonoBehaviour
     [SerializeField] LayerMask layerMask;
 
     [SerializeField] private RectTransform interTransform, dialoTransform;
-    [SerializeField] private bool recallInter;
     private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
 
 
@@ -237,7 +236,7 @@ public class Dialouge : MonoBehaviour
         if (isTutorial)
             TutorialManager.Inst.FinshTutorial();
 
-        if (!InGameManager.Inst.isAnswering && recallInter)
+        if (!InGameManager.Inst.isAnswering)
             DOVirtual.DelayedCall(0.8f, () => InterFade(true));
 
     }
@@ -266,6 +265,7 @@ public class Dialouge : MonoBehaviour
         pictureCanvas.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = message;
         pictureCanvas.enabled = true;
     }*/
+
 
   
 }
