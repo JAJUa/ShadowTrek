@@ -161,6 +161,34 @@ MonoBehaviour:
       what if.. I am eroded by darkness?'
     m_Metadata:
       m_Items: []
+  - m_Id: 46864041000378368
+    m_Localized: following Stars
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864165357297664
+    m_Localized: Unknown Shadow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864168146509824
+    m_Localized: Towards the Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864169677430784
+    m_Localized: Crisis and Aid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864229836333056
+    m_Localized: The Light That Follows Me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864231182704640
+    m_Localized: Curiosity about that
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864232277417984
+    m_Localized: An Increasingly Complex Path
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

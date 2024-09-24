@@ -117,6 +117,38 @@ MonoBehaviour:
     m_Key: story7
     m_Metadata:
       m_Items: []
+  - m_Id: 46864041000378368
+    m_Key: ChapterName0-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864165357297664
+    m_Key: ChapterName0-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864168146509824
+    m_Key: ChapterName0-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864169677430784
+    m_Key: ChapterName0-4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864229836333056
+    m_Key: ChapterName1-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864231182704640
+    m_Key: ChapterName1-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864232277417984
+    m_Key: ChapterName1-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864322568200192
+    m_Key: ChapterName1-4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

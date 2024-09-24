@@ -661,6 +661,7 @@ GameObject:
   - component: {fileID: 166708837}
   - component: {fileID: 166708839}
   - component: {fileID: 166708838}
+  - component: {fileID: 166708840}
   m_Layer: 5
   m_Name: ChapterSceneName
   m_TagString: Untagged
@@ -862,6 +863,46 @@ MonoBehaviour:
   - fade
   defaultBehaviorsTags: []
   defaultTagsMode: 0
+--- !u!114 &166708840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166708833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 166708837}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &192272081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5503469690246925421, guid: f896946cc46b2ef4a82419d5e07586c7,
@@ -20434,17 +20475,17 @@ MonoBehaviour:
   iconUpDownSpeed: 2.3
   iconExcuteBackButton: {fileID: 614971241}
   clickIcon: {fileID: 1639757433}
-  excuteIconActive: 0100000001
+  excuteIconActive: 0001000001
   iconNameTxt: {fileID: 1727614196}
   iconsObj:
-  - {fileID: 8723234894050909718, guid: 8082933f1c0ddfa4e86d8086d69120ca, type: 3}
   - {fileID: 3123144786975454611, guid: 79df55761cf92614ca298fa551e611f0, type: 3}
+  - {fileID: 8723234894050909718, guid: 8082933f1c0ddfa4e86d8086d69120ca, type: 3}
   - {fileID: 3000125807961579694, guid: de00b723124ebde45a75c27b67c795d7, type: 3}
   - {fileID: 2878300505045817977, guid: c46a783376d984c44a2a73b36ad53aad, type: 3}
   - {fileID: 4109046542291204486, guid: eaf7f23d9e2b63940a65d91ef410b42f, type: 3}
   excuteObj:
-  - {fileID: 1242142918}
   - {fileID: 268418833}
+  - {fileID: 1242142918}
   - {fileID: 1357112519}
   - {fileID: 562957377}
   - {fileID: 0}
@@ -20466,7 +20507,7 @@ MonoBehaviour:
   - m_TableReference:
       m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
     m_TableEntryReference:
-      m_KeyId: 8403151979065344
+      m_KeyId: 46007989090459648
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -20474,7 +20515,7 @@ MonoBehaviour:
   - m_TableReference:
       m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
     m_TableEntryReference:
-      m_KeyId: 46007989090459648
+      m_KeyId: 8403151979065344
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -20563,6 +20604,7 @@ MonoBehaviour:
   bookScript: {fileID: 1637143309}
   sceneStartBtn: {fileID: 1953251712}
   story_SE: {fileID: 1651062301}
+  chapterName_SE: {fileID: 166708840}
   story_LS:
   - m_TableReference:
       m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
@@ -20616,6 +20658,63 @@ MonoBehaviour:
       m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
     m_TableEntryReference:
       m_KeyId: 46055243679604736
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  chapterName_LS:
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864041000378368
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864165357297664
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864168146509824
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864169677430784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864229836333056
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864231182704640
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:1455de9d918f0224ba34b2da175b3628
+    m_TableEntryReference:
+      m_KeyId: 46864232277417984
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
