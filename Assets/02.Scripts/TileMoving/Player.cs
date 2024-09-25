@@ -76,7 +76,8 @@ public class Player : Character
 
         InGameManager.Inst.CameraPosReset();
         InGameUIManager.Inst.SpriteChange(false);
-        InGameUIManager.Inst.StayBtnActive(false);
+        if(!InGameManager.Inst.isAnswering)
+            InGameUIManager.Inst.StayBtnActive(true);
 
         if (InGameManager.Inst.isAnswering)
             AnswerManager.Inst.ChangeChracter(false);

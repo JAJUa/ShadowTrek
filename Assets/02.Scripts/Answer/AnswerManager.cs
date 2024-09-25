@@ -103,7 +103,7 @@ public class AnswerManager : MonoBehaviour
                         if (!isInteract)
                         {
                             isInteract = true;
-                            
+                            InGameUIManager.Inst.StayBtnActive(true);
                         }
                         break;
                 }
@@ -139,13 +139,10 @@ public class AnswerManager : MonoBehaviour
         
         foreach (Collider col in allTiles)
         {
-            //col.enabled = false;
             col.tag = "Untagged";
         }
-        // targetCol.enabled = true;
         targetCol.tag ="MoveTile";
         preCol.tag = "MoveTile";
-        //  preCol.enabled = true;
         Debug.Log("두번");
         tileIndex++;
     }

@@ -75,7 +75,7 @@ public class InGameManager : MonoBehaviour
         if (Inst != null && Inst != this)
         {
             Destroy(Inst.gameObject);
-            Inst = this;
+            return;
         }
         else
         {
@@ -117,6 +117,7 @@ public class InGameManager : MonoBehaviour
         DOVirtual.DelayedCall(0.8f, () => { papa.ResetPos();player.ResetPos(); inRelpayMode = false;  isAnswering = false; 
                                             player.pointInTime = new List<PointInTime>();
         });
+
         papa.gameObject.SetActive(false);
         player.playerInLight();
         TileMoveScript.Inst.ResetLight();

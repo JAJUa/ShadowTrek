@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43055704, g: 0.5636739, b: 0.7119701, a: 1}
+  m_IndirectSpecularColor: {r: 0.46602172, g: 0.5960813, b: 0.7371453, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2327,6 +2327,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: d69ac9dc64a6e9b4b84a902602610740, type: 2}
+    - target: {fileID: -5754084199372789682, guid: d97e9bfc30050964a88e0db5a6ee06b9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4493585093827132993, guid: 148b890aa9062b543977d2a1fcc8aba8,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: d97e9bfc30050964a88e0db5a6ee06b9,
         type: 3}
       propertyPath: m_Name
@@ -3322,7 +3328,7 @@ PrefabInstance:
     - target: {fileID: 8634817447383595469, guid: 03abe70816a3523419fcf1e2269599e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11452,6 +11458,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5309384187025442210, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6099063282776132937, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: noPapaButDetect
@@ -11600,6 +11611,11 @@ PrefabInstance:
     - target: {fileID: 8881047790457688523, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9098795177798427013, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

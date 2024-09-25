@@ -14,9 +14,10 @@ public class InGameUIManager : MonoBehaviour
 
     [Tab("Setting")]
     public GameObject seraSprite, papaSprite;
-    public GameObject helpBookCanvas,cutSceneSpeed;
+    public GameObject helpBookCanvas, cutSceneSpeed, menuBtn;
     public Button stayBtn;
     public bool openUI, ableMenuBtn;
+    [SerializeField] Color stayBtnDefault_Color, stayBtnAns_Color;
 
     [Tab("Menu")]
     public Animator menuAnim;
@@ -35,8 +36,19 @@ public class InGameUIManager : MonoBehaviour
 
     private void Awake()
     {
-        Inst = this;
+        //Dont Create 2 GameManager
+        if (Inst != null && Inst != this)
+        {
+            Destroy(Inst.gameObject);
+            return;
+        }
+        else
+        {
+            Inst = this;
+        }
         ableMenuBtn = true;
+        if (stayBtn != null)
+            stayBtnDefault_Color = stayBtn.GetComponent<Image>().color;
     }
     // Start is called before the first frame update
     void Start()
@@ -50,7 +62,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void OpenOption(bool isOpen)
     {
-        openUI= isOpen;
+        openUI = isOpen;
     }
 
     public void OpenBook()
@@ -58,7 +70,7 @@ public class InGameUIManager : MonoBehaviour
         openUI = !openUI;
         InGameManager.Inst.moveBlock = openUI;
         helpBookCanvas.SetActive(openUI);
-        if (openUI == false) MenuFade(); 
+        if (openUI == false) MenuFade();
     }
 
     public void CutSceneSpeedUp(bool active)
@@ -76,45 +88,55 @@ public class InGameUIManager : MonoBehaviour
             titleText.ShowText(titleName);
             DOVirtual.DelayedCall(2f, () => {
                 titleText.StartDisappearingText();
-                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false; 
-                    titleTextBox.DOFade(0, 0.5f); InGameManager.Inst.moveBlock = false; titleTexting = false; }); 
-                });
+                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false;
+                    titleTextBox.DOFade(0, 0.5f); InGameManager.Inst.moveBlock = false; titleTexting = false; });
+            });
         });
-       
+
 
     }
 
 
-public void SpriteChange(bool isSera) 
+    public void SpriteChange(bool isSera)
     {
         seraSprite.SetActive(isSera);
         papaSprite.SetActive(!isSera);
     }
 
-    public void StayBtnActive(bool isSera)
+    public void StayBtnActive(bool active)
     {
         if (stayBtn != null)
-            stayBtn.gameObject.SetActive(!isSera);
+        {
+            stayBtn.GetComponent<Image>().color = InGameManager.Inst.isAnswering ? stayBtnAns_Color : stayBtnDefault_Color;
+            stayBtn.interactable = active;
+            float alpha = active ? 1 : 0;
+            stayBtn.gameObject.GetComponent<Image>().DOFade(alpha, 0.3f).OnComplete(() => stayBtn.gameObject.SetActive(active));
+        }
+
     }
 
     public void OnStayBtn()
     {
         stayBtn.interactable = false;
         stayBtn.gameObject.GetComponent<Image>().DOFade(0.2f, 0);
-        InGameManager.Inst.OnlyPlayerReplay(true,false);
+        InGameManager.Inst.OnlyPlayerReplay(true, false);
 
-        DOVirtual.DelayedCall(0.35f, () =>
+        if (!InGameManager.Inst.isAnswering)
         {
-            stayBtn.gameObject.GetComponent<Image>().DOFade(1f, 0.5f).OnComplete(() =>
+            DOVirtual.DelayedCall(0.35f, () =>
             {
-                stayBtn.interactable = true;
+                stayBtn.gameObject.GetComponent<Image>().DOFade(1f, 0.5f).OnComplete(() =>
+                {
+                    stayBtn.interactable = true;
+                });
             });
-        });
+        }
+
     }
 
     public void MenuFade()
     {
-        if (ableMenuBtn)
+        if (ableMenuBtn && !titleTexting)
         {
             if (menuAnim.GetBool("MenuFade") == false)
                 menuAnim.SetBool("MenuFade", true);
@@ -123,7 +145,14 @@ public void SpriteChange(bool isSera)
 
             if (openUI == true) { helpBookCanvas.SetActive(false); openUI = false; InGameManager.Inst.moveBlock = false; }
         }
-        
+
+    }
+
+    public void MenuBtnActive(bool active)
+    {
+     
+        menuBtn.SetActive(active);
+        Debug.Log(active);
     }
 
     public void Hint()

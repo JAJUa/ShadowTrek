@@ -9,11 +9,9 @@ public class RelicInformation : MonoBehaviour
     public int relicType;  //relicType 은 호리병/호박/로봇 등 종류, relicNumber는 그 종류 중에서 몇번째 유물인지
     [Tooltip("유물의 종류 n번째")]
     public int relicNum;
-    Material material;
 
     private void Awake()
     {
-        material = GetComponent<Material>();
     }
 
     private IEnumerator Start()
@@ -34,9 +32,10 @@ public class RelicInformation : MonoBehaviour
 
     private void OnMouseDown()
     {
+
         CollectRelicManager.Inst.Collect(relicType);
         GameData.Inst.GetRelic(relicType, relicNum);
-        material.DOFade(0, 0.5f).OnComplete(()=>gameObject.SetActive(false));
+        gameObject.SetActive(false);
        
     }
 }

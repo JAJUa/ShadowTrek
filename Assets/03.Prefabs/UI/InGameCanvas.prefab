@@ -6080,8 +6080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e36e0a982eff641861a9f8b76c7ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookPageIndex: 1
-  bookPageMaxIndex: 2
+  bookPageIndex: 5
+  bookPageMaxIndex: 5
   autoFlip: {fileID: 5501859950889574051}
   bookScript: {fileID: 6957951698413738582}
   clipNameText:
@@ -6090,9 +6090,10 @@ MonoBehaviour:
   - "\uBE5B \uB098\uB294 \uD0C0\uC77C"
   - "\uADF8\uB9BC\uC790 \uC870\uC885"
   - "\uC804\uB4F1 \uB808\uBC84"
+  - "\uC18C\uBA78"
   - "\uB3CC\uC544\uAC00\uB294 \uC804\uB4F1"
   infoText:
-  - "\uD0C0\uC77C\uC744 \uD130\uCE58 \uD560 \uACBD\uC6B0 \uD574\uB2F9 \uD0C0\uC77C\uB85C
+  - "\uD0C0\uC77C\uC744 \uD130\uCE58\uD558\uBA74 \uD574\uB2F9 \uC704\uCE58\uB85C
     \uC774\uB3D9\uD569\uB2C8\uB2E4."
   - "\uC138\uB77C\uAC00 \uBE5B\uC744 \uBC1B\uC9C0 \uC54A\uACE0 2\uD134 \uC774\uB3D9
     \uC2DC \uD751\uBC31 \uD654\uBA74\uC73C\uB85C \uBCC0\uD558\uBA70, \uB2E4\uC74C
@@ -6111,10 +6112,13 @@ MonoBehaviour:
     \uC870\uC885\uD574\uC57C \uD569\uB2C8\uB2E4."
   - "\uB808\uBC84\uC5D0 \uB2E4\uAC00\uAC08 \uC2DC, \uC0C1\uD638\uC791\uC6A9\uC744
     \uD1B5\uD574 \uAC00\uB85C\uB4F1\uC744 \uCF1C\uAC70\uB098 \uB04C \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  - "\uADF8\uB9BC\uC790\uAC00 \uBE5B(\uBE5B\uB098\uB294 \uD0C0\uC77C)\uC5D0 \uB2FF\uC744
+    \uC2DC \uC18C\uBA78\uB429\uB2C8\uB2E4.\n(\uC18C\uBA78 \uC2DC \uADF8\uB9BC\uC790
+    \uC2DC\uC810 \uD50C\uB808\uC774\uAC00 \uB2E4\uC2DC \uC2DC\uC791\uB429\uB2C8\uB2E4)"
   - "\uD68C\uC804\uD558\uB294 \uC804\uB4F1\uC5D0 \uB2E4\uAC00\uAC08 \uC2DC, \uC0C1\uD638\uC791\uC6A9\uC744
     \uD1B5\uD574 \uBE5B\uC758 \uBC29\uD5A5\uC744 \uBC18\uB300\uB85C \uD68C\uC804\uC2DC\uD0AC
     \uC218 \uC788\uC2B5\uB2C8\uB2E4."
-  selectIcon: ffffffff02000000ffffffff010000000100000001000000
+  selectIcon: ffffffff02000000ffffffff01000000010000000100000001000000
   playerImage: {fileID: 8624048520936541124}
   papaImage: {fileID: 5229414435642172336}
   vidImage: {fileID: 581076978964880727}
@@ -8802,6 +8806,8 @@ MonoBehaviour:
   stayBtn: {fileID: 8909043406665502010}
   openUI: 0
   ableMenuBtn: 0
+  stayBtnDefault_Color: {r: 0, g: 0, b: 0, a: 0}
+  stayBtnAns_Color: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
   menuAnim: {fileID: 5278440869657361736}
   optionAnim: {fileID: 3274803889507034268}
   OptionChoiceText:

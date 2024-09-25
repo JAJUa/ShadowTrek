@@ -15,6 +15,7 @@ public class Lever : InteractiveObject
     // Start is called before the first frame update
     void Start()
     {
+        isTurnOn = false;
         layerMask += LayerMask.GetMask("Player");
         foreach (GameObject light in turnOnOffLights)
         {
@@ -36,7 +37,7 @@ public class Lever : InteractiveObject
     {
         if (autoBool)
         {
-            Collider[] colliders = Physics.OverlapBox(transform.position + autoLightPos, autoLight / 2, Quaternion.identity, layerMask);
+            Collider[] colliders = Physics.OverlapBox(transform.position + autoLightPos, autoLight /2, Quaternion.identity, layerMask);
             if (colliders.Length > 0)
             {
                 if (!isTurnOn)
@@ -50,6 +51,7 @@ public class Lever : InteractiveObject
         }
        
     }
+
 
     public void CutSceneTurnLight(bool turnOn)
     {
