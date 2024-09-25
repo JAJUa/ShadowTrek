@@ -9,8 +9,6 @@ public class RePlay : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
 
     public static RePlay Inst;
-    public bool isReplayMode;
-    bool isBacking;
 
     private GameObject character;
     private Animator animCharacter;
@@ -29,7 +27,7 @@ public class RePlay : MonoBehaviour
 
     private void Update()
     {
-        if (isReplayMode && !isBacking) { LineRenderer(); }
+        if (InGameManager.Inst.inRelpayMode ) {  LineRenderer(); }
 
     }
 
@@ -38,7 +36,7 @@ public class RePlay : MonoBehaviour
         FadeInFadeOut.Inst.FadeIn();
         DOVirtual.DelayedCall(1f, ()=>FadeInFadeOut.Inst.FadeOut());
         pointsInTime.Reverse();
-        isReplayMode = true;
+        InGameManager.Inst.inRelpayMode = true;
         InGameManager.Inst.curCharacter = CurCharacter.Papa;
         InGameManager.Inst.moveBlock = false;
 
@@ -55,7 +53,7 @@ public class RePlay : MonoBehaviour
         pointsInLine.RemoveAt(0);
     }
 
-    public void ResetReplayMode()
+    public void RestartReplayMode()
     {
         InGameManager.Inst.moveBlock = false;
 
@@ -67,9 +65,14 @@ public class RePlay : MonoBehaviour
         pointsInLine.RemoveAt(0);
     }
 
+    public void ResetReplayLine()
+    {
+        lineRenderer.positionCount = 0;
+    }
 
 
-    public void ReMove(bool isPapaStay = false)
+
+    public void ReMove(bool isPapaStay)
     {
         if (pointsInTime.Count <= 0) return;
         StartCoroutine(MoveToFrontTile(isPapaStay));
@@ -77,7 +80,7 @@ public class RePlay : MonoBehaviour
     }
 
 
-    public IEnumerator MoveToFrontTile( bool isPapaStay = false)
+    public IEnumerator MoveToFrontTile( bool isPapaStay )
     {
       
         InGameManager.Inst.moveBlock = true;

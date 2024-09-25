@@ -7791,7 +7791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97f2ca61bed214459aa088c8d4ca7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playableDirector: {fileID: 0}
+  playableDirector: {fileID: 1194615671}
   cutSceneType: 1
   up: {fileID: 1257410820}
   down: {fileID: 873008261}
@@ -12480,6 +12480,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5309384187025442210, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1798406542}
+    - target: {fileID: 5309384187025442210, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Hint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309384187025442210, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InGameUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309384187025442210, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099063282776132937, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: endCutScene
+      value: 
+      objectReference: {fileID: 1194615670}
     - target: {fileID: 6099063282776132937, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: answerVolume

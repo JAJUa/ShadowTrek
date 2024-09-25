@@ -24,16 +24,16 @@ public class InGameManager : MonoBehaviour
     [Tab("InGame")]
     public bool moveBlock = false;
     public bool isInteractionDetect;
-    [HideInInspector]public bool inRelpayMode;
+    public bool inRelpayMode;
     public bool noPapaButDetect;
-    [HideInInspector]public bool isAnswering;
+    public bool isAnswering;
     public CurCharacter curCharacter;
     public int curStageNum;
     [SerializeField]Player player;
     [SerializeField]ShadowModePapa papa;
     [SerializeField] bool onlyPlayer;
     [SerializeField] CutSceneManager endCutScene;
-   
+    AnswerManager answerManager;
 
     
     public bool changeRoom;
@@ -58,7 +58,7 @@ public class InGameManager : MonoBehaviour
     void Awake()
     {
        
-
+        answerManager = GetComponent<AnswerManager>();
         GameObject pl = GameObject.FindGameObjectWithTag("PlayerControl");
         player = pl.GetComponent<Player>();
         if (!onlyPlayer)
@@ -103,10 +103,30 @@ public class InGameManager : MonoBehaviour
         DOVirtual.DelayedCall(1.5f, () => SceneManager.LoadScene(index));
     }
 
+    public void HintReset()
+    {
+        endCutScene.StopCutScene();
+        StopAllCoroutines();
+        moveBlock = true;
+        FadeInFadeOut.Inst.FadeIn();
+
+        CameraPosReset();
+        StopMoving();
+        curCharacter = CurCharacter.Player;
+       
+        DOVirtual.DelayedCall(0.8f, () => { papa.ResetPos();player.ResetPos(); inRelpayMode = false;  isAnswering = false; 
+                                            player.pointInTime = new List<PointInTime>();
+        });
+        papa.gameObject.SetActive(false);
+        player.playerInLight();
+        TileMoveScript.Inst.ResetLight();
+        DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; RePlay.Inst.ResetReplayLine();
+            player.pointInTime.Insert(0, new PointInTime(player.transform.position, player.transform.rotation)); answerManager.SeraTile(); });
+    }
+
     public void PapaRestart()
     {
         endCutScene.StopCutScene();
-        Debug.Log("papaReset");
         StopAllCoroutines();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();
@@ -114,7 +134,7 @@ public class InGameManager : MonoBehaviour
         CameraPosReset();
         StopMoving();
         DOVirtual.DelayedCall(0.8f,()=> papa.ResetPos());
-        RePlay.Inst.ResetReplayMode();
+        RePlay.Inst.RestartReplayMode();
         player.playerInLight();
         TileMoveScript.Inst.ResetLight();
         DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; }) ;
@@ -137,8 +157,8 @@ public class InGameManager : MonoBehaviour
       
         player.animator.SetBool("isWalk", false);
         Debug.Log(player.lineRenderer.positionCount);
-
-        StopCoroutine(player.moveCoroutine);
+        if (player.moveCoroutine != null)
+            StopCoroutine(player.moveCoroutine);
 
       
     }
@@ -174,7 +194,7 @@ public class InGameManager : MonoBehaviour
 
     public void OnlyPlayerReplay(bool isPapaStay = false,bool lightFinished = false)
     {
-        if (RePlay.Inst.isReplayMode)
+        if (InGameManager.Inst.inRelpayMode)
         {
             if (isAnswering) AnswerManager.Inst.PapaTile();
             isInteractionDetect = true;

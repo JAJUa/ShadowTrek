@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -90,6 +91,12 @@ public class Character : MonoBehaviour
         if (InGameManager.Inst.noPapaButDetect)
             InGameManager.Inst.GameReStart();
         else InGameManager.Inst.PapaRestart();
+    }
+
+    public virtual void ResetPos()
+    {
+        DOVirtual.DelayedCall(0.1f, () => transform.position = startPos);
+        DOVirtual.DelayedCall(0.1f, () => transform.rotation = startRot);
     }
 
 

@@ -40,7 +40,7 @@ public class CollectRelicManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 uiCanvas.SetActive(false);
-                //InGameUIManager.Inst.inGameCanvas.SetActive(true);
+               
             }
         }
     }

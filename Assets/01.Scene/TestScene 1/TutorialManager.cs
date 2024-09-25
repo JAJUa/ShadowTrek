@@ -57,7 +57,7 @@ public class TutorialManager : MonoBehaviour
         if (tutorialNumber < tutorials.Length)
         {
             tutorials[tutorialNumber].gameObject.SetActive(true);
-            tutorials[tutorialNumber].Excute();
+           StartCoroutine( tutorials[tutorialNumber].Excute());
         }
         
 

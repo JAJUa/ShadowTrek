@@ -10,9 +10,8 @@ using Febucci.UI;
 public class InGameUIManager : MonoBehaviour
 {
     public static InGameUIManager Inst;
-    public Image modeChangeImage;
     public GameObject seraSprite, papaSprite;
-    public GameObject optionCanvas,inGameCanvas,helpBookCanvas,cutSceneSpeed;
+    public GameObject helpBookCanvas,cutSceneSpeed;
     public Animator menuAnim;
     public Animator optionAnim;
     [SerializeField] TypewriterByCharacter titleText;
@@ -20,6 +19,7 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] Image titleTextBox;
     [SerializeField] string titleName;
     [SerializeField] bool startTitleAnim;
+    public bool titleTexting;
     public bool openUI,ableMenuBtn;
 
 
@@ -32,13 +32,15 @@ public class InGameUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (startTitleAnim) ShowTitleText(0.2f);
+        if (startTitleAnim)
+        {
+            ShowTitleText(0.2f);
+        }
         stayBtn.onClick.AddListener(OnStayBtn);
     }
 
     public void OpenOption(bool isOpen)
     {
-        optionCanvas.SetActive(isOpen);
         openUI= isOpen;
     }
 
@@ -57,6 +59,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void ShowTitleText(float delay = 0)
     {
+        titleTexting = true;
         InGameManager.Inst.moveBlock = true;
         titleTextBox.DOFade(0.5f, 0.5f);
         DOVirtual.DelayedCall(delay, () =>
@@ -64,7 +67,8 @@ public class InGameUIManager : MonoBehaviour
             titleText.ShowText(titleName);
             DOVirtual.DelayedCall(2f, () => {
                 titleText.StartDisappearingText();
-                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false; titleTextBox.DOFade(0, 0.5f); InGameManager.Inst.moveBlock = false; }); 
+                DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false; 
+                    titleTextBox.DOFade(0, 0.5f); InGameManager.Inst.moveBlock = false; titleTexting = false; }); 
                 });
         });
        
@@ -88,7 +92,7 @@ public void SpriteChange(bool isSera)
     {
         stayBtn.interactable = false;
         stayBtn.gameObject.GetComponent<Image>().DOFade(0.2f, 0);
-        InGameManager.Inst.OnlyPlayerReplay(true);
+        InGameManager.Inst.OnlyPlayerReplay(true,false);
 
         DOVirtual.DelayedCall(0.35f, () =>
         {
@@ -111,6 +115,11 @@ public void SpriteChange(bool isSera)
             if (openUI == true) { helpBookCanvas.SetActive(false); openUI = false; InGameManager.Inst.moveBlock = false; }
         }
         
+    }
+
+    public void Hint()
+    {
+        InGameManager.Inst.HintReset();
     }
 
     public void AbleMenuBtn(bool able)

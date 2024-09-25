@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Playables;
+using VInspector;
 
 public class Player : Character
 {
@@ -67,7 +68,7 @@ public class Player : Character
         shadowPapa.SetActive(true);
         InGameManager.Inst.inRelpayMode = true;
 
-        RePlay.Inst.isReplayMode= true;
+        InGameManager.Inst.inRelpayMode = true;
         RePlay.Inst.RePlayMode(gameObject, animator, pointInTime);
         animator.SetBool("isWalk", false);
 
@@ -106,11 +107,14 @@ public class Player : Character
         }
     }
 
-    public void playerInLight()
+    [Button]
+    public void playerInLight() //플레이어 빛에 닿게
     {
         isLight = false;
         bwShaderSphere.DOScale(0, 0.5f);
         shadowIndex = 3;
     }
+
+
 }
 

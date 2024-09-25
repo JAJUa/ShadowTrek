@@ -128,9 +128,9 @@ public class TileMoveScript : MonoBehaviour
         for (int passtile = 0; passtile < FinalNodeList.Count - 1; passtile++)
         {
             // RePlay 리플레이 모드면 실행
-            if (RePlay.Inst.isReplayMode)
+            if (InGameManager.Inst.inRelpayMode)
             {
-                RePlay.Inst.ReMove();
+                RePlay.Inst.ReMove(false);
                 Debug.Log("Replay");
             }
 

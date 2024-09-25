@@ -30,12 +30,12 @@ public class ShadowModePapa : Character
    
     }
 
-   public void ResetPos()
+   public override void  ResetPos()
     {
+        base.ResetPos();
         Debug.Log("PapaReset");
         isLight= false;
-        DOVirtual.DelayedCall(0.1f, ()=>transform.position = startPos);
-        DOVirtual.DelayedCall(0.1f, () => transform.rotation = startRot);
+       
         DOVirtual.DelayedCall(1f, () => dissolve.DIssolvessad(false));
     }
     

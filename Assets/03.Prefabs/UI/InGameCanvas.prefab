@@ -3280,9 +3280,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2403639738786699907}
         m_TargetAssemblyTypeName: InGameUIManager, Assembly-CSharp
-        m_MethodName: OpenBook
+        m_MethodName: Hint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6911,11 +6911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e742c1ddbb2512d4b98e26ceb1530d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modeChangeImage: {fileID: 0}
   seraSprite: {fileID: 7911604769393927527}
   papaSprite: {fileID: 6337371335935639675}
-  optionCanvas: {fileID: 0}
-  inGameCanvas: {fileID: 0}
   helpBookCanvas: {fileID: 6547401463991984615}
   cutSceneSpeed: {fileID: 2446022252368357141}
   menuAnim: {fileID: 5278440869657361736}
@@ -6925,6 +6922,7 @@ MonoBehaviour:
   titleTextBox: {fileID: 6856487763158230931}
   titleName: "-\uBCC4\uC744 \uCC3E\uC544\uC11C-"
   startTitleAnim: 1
+  titleTexting: 0
   openUI: 0
   ableMenuBtn: 0
 --- !u!1 &9030708627482737300

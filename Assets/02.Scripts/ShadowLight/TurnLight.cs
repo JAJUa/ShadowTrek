@@ -69,14 +69,14 @@ public class TurnLight : InteractiveObject
     }
 
 
-    public void Turning(float angle, bool isResetLight = false,bool lightFinished = false)
+    public void Turning(float angle, bool isResetLight = false,bool lightFinished = false,bool isPapaStay = false)
     {
         Debug.Log("돌이감");
          Vector3 target = new Vector3(transform.eulerAngles.x,angle , transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
              interactiveLight.ChangeTileColor();
-             if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay(false,lightFinished);
+             if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay(isPapaStay,lightFinished);
              });
     }
 
@@ -86,7 +86,7 @@ public class TurnLight : InteractiveObject
     public void TurnReverse()
     {
         turnAngle = -turnAngle;
-        Turning(transform.eulerAngles.y + turnAngle,false,true);
+        Turning(transform.eulerAngles.y + turnAngle,false,true,true);
     }
 
     /*

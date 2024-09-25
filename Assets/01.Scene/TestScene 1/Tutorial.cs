@@ -78,8 +78,10 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    public void Excute()
+    public IEnumerator Excute()
     {
+        yield return new WaitUntil(()=>InGameUIManager.Inst.titleTexting == false);
+        Debug.Log("sss");
         foreach(Transform tile in activeTiles) tile.gameObject.SetActive(true);
         if (triggerObj != null) triggerObj.gameObject.SetActive(true);
         if (textExplain) TutorialDialogueText(true);
