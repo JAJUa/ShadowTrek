@@ -32,9 +32,22 @@ public class SaveSystem : MonoBehaviour
     string path;
     string fileName = "/save";
 
+    private void Awake()
+    {
+        if (Inst != null && Inst != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            Inst = this;
+        }
+    }
+
     private IEnumerator Start()
     {
-        Inst = this;
+        
 
         yield return new WaitUntil(() => GameData.Inst);
 

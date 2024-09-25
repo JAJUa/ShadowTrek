@@ -21,7 +21,17 @@ public class GameData : MonoBehaviour
     private IEnumerator Start()
     {
         
-        Inst= this;
+        if(Inst != null && Inst != this)
+        {
+            Destroy(gameObject);
+            yield break;
+        }
+        else
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
 
         yield return new WaitUntil(() => SaveSystem.Inst);
 

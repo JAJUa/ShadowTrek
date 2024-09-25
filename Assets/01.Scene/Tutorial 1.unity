@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46602172, g: 0.5960813, b: 0.7371453, a: 1}
+  m_IndirectSpecularColor: {r: 0.43055704, g: 0.5636739, b: 0.7119701, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10189,6 +10189,7 @@ MonoBehaviour:
     Item: 
     bgmVolume: 0.5
     soundEffectVolume: 0
+  dataSuccess: 0
 --- !u!114 &8634817446983121259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10209,6 +10210,7 @@ MonoBehaviour:
   relicsCurCount: 00000000000000000000000000000000
   bgmVolume: 0
   soundEffectVolume: 0
+  relicSaveSuccess: 0
 --- !u!1 &8634817446983121261
 GameObject:
   m_ObjectHideFlags: 0
@@ -10227,7 +10229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
