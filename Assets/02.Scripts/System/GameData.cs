@@ -38,10 +38,9 @@ public class GameData : MonoBehaviour
                     relicsBool[i].Add(false);
                 }
             }
-            Debug.Log(relicsMaxCount.Count);
-
             Debug.Log("relicsBool 초기화 완료");
         }
+
         relicSaveSuccess = true;
 
 

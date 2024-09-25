@@ -12,7 +12,7 @@ public class RelicInformation : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => SaveSystem.Inst.dataSuccess);
+        yield return new WaitUntil(() => SaveSystem.Inst && SaveSystem.Inst.dataSuccess);
 
         Debug.Log("야");
         if (GameData.Inst.relicsBool[relicType][relicNum])
