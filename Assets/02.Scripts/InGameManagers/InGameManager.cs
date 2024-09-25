@@ -57,7 +57,16 @@ public class InGameManager : MonoBehaviour
 
     void Awake()
     {
-       
+        //Dont Create 2 GameManager
+        if (Inst != null && Inst != this)
+        {
+            Destroy(Inst.gameObject);
+            return;
+        }
+        else
+        {
+            Inst = this;
+        }
         answerManager = GetComponent<AnswerManager>();
         GameObject pl = GameObject.FindGameObjectWithTag("PlayerControl");
         player = pl.GetComponent<Player>();
@@ -71,16 +80,7 @@ public class InGameManager : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMove>();
         camPos = new Vector3(cam.transform.position.x,cam.transform.position.y, cam.transform.position.z);
         camRot = cam.transform.eulerAngles;
-        //Dont Create 2 GameManager
-        if (Inst != null && Inst != this)
-        {
-            Destroy(Inst.gameObject);
-            return;
-        }
-        else
-        {
-            Inst = this;
-        }
+     
     }
 
     public void ChangeGlobalVolume(bool isAnswer)
