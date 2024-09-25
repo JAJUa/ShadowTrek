@@ -6,21 +6,30 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
 using Febucci.UI;
+using VInspector;
 
 public class InGameUIManager : MonoBehaviour
 {
     public static InGameUIManager Inst;
+
+    [Tab("Setting")]
     public GameObject seraSprite, papaSprite;
     public GameObject helpBookCanvas,cutSceneSpeed;
+    public Button stayBtn;
+    public bool openUI, ableMenuBtn;
+
+    [Tab("Menu")]
     public Animator menuAnim;
     public Animator optionAnim;
+    [SerializeField] GameObject[] OptionChoiceText;
+    private int OptionChoiceNum;
+
+    [Tab("Title")]
     [SerializeField] TypewriterByCharacter titleText;
-    [SerializeField] Button stayBtn;
     [SerializeField] Image titleTextBox;
     [SerializeField] string titleName;
     [SerializeField] bool startTitleAnim;
     public bool titleTexting;
-    public bool openUI,ableMenuBtn;
 
 
 
@@ -142,5 +151,48 @@ public void SpriteChange(bool isSera)
     {
         optionAnim.SetBool("OptionFade", fade);
         if (!fade) SaveSystem.Inst.SaveData();
+    }
+
+    public void OptionChoiceFade(bool fade)
+    {
+        optionAnim.SetBool("OptionChoice", fade);
+    }
+
+    public void OptionChoiceBtn(int value)
+    {
+        switch (value)
+        {
+            case 1:
+                OptionChoiceText[1].SetActive(false);
+                OptionChoiceText[0].SetActive(true);
+                OptionChoiceNum = 1;
+                break;
+            case 2:
+                OptionChoiceText[0].SetActive(false);
+                OptionChoiceText[1].SetActive(true);
+                OptionChoiceNum = 2;
+                break;
+            case 3:
+                if (OptionChoiceNum == 1)
+                {
+                    FadeInFadeOut.Inst.FadeIn();
+
+                    DOVirtual.DelayedCall(1f, () =>
+                    {
+                    #if UNITY_EDITOR
+                        UnityEditor.EditorApplication.isPlaying = false;
+                    #else
+                            Application.Quit();
+                    #endif
+                    });
+                }
+                else if (OptionChoiceNum == 2)
+                {
+                    FadeInFadeOut.Inst.NextScene(1);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
