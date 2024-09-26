@@ -18,6 +18,7 @@ public class StartBookManager : MonoBehaviour
     [SerializeField] AutoFlip autoFlip;
     [SerializeField] Book bookScript;
     [SerializeField] Button sceneStartBtn;
+    [SerializeField] Image bookHiglight;
 
     [Tab("내용")]
     [SerializeField] LocalizeStringEvent story_SE,chapterName_SE;
@@ -47,6 +48,7 @@ public class StartBookManager : MonoBehaviour
         story_SE.StringReference = story_LS[bookPageIndex];
         chapterName_SE.StringReference = chapterName_LS[bookPageIndex];
         sceneStartBtn.enabled = true;
+        bookHiglight.enabled = true;
         chapterSceneName_TA.ShowText(chapterName_LS[bookPageIndex].GetLocalizedString());
         chapterText_TA.ShowText(chapterText[bookPageIndex].ToString());
         bgmText_TA.ShowText(bgmText[bookPageIndex].ToString());
@@ -62,6 +64,7 @@ public class StartBookManager : MonoBehaviour
     public void HideText(bool isNext)
     {
         sceneStartBtn.enabled = false;
+        bookHiglight.enabled = false;
         if (isNext)
         {
             if (bookPageIndex + 1 >= maxPageIndex) return;
