@@ -13686,6 +13686,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
+      propertyPath: autoLight.x
+      value: 37.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
+      propertyPath: autoLightPos.x
+      value: 26.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+        type: 3}
       propertyPath: interactiveLight
       value: 
       objectReference: {fileID: 1880128330}
