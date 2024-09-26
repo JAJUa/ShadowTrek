@@ -1484,6 +1484,7 @@ GameObject:
   - component: {fileID: 174777051}
   - component: {fileID: 174777057}
   - component: {fileID: 174777058}
+  - component: {fileID: 174777059}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1558,7 +1559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174777050}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27781588, y: 0.36497167, z: -0.1150751, w: 0.8811196}
+  m_LocalRotation: {x: 0.27781585, y: 0.3649717, z: -0.11507508, w: 0.8811196}
   m_LocalPosition: {x: -120.2, y: 114.5, z: -113.5}
   m_LocalScale: {x: 1, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
@@ -1647,6 +1648,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_objBackScissor: {fileID: 3574266984379935870, guid: 3ee49e7d70281c342a4d258f0ca8169c,
     type: 3}
+--- !u!95 &174777059
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174777050}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &185140839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,6 +7764,9 @@ MonoBehaviour:
   moveTutoCutScene: 0
   replayPlayerPosChange: 0
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 4
   tutorialAnimator: {fileID: 1721497144}
   tutoIndex: 0
@@ -8383,6 +8408,9 @@ MonoBehaviour:
   moveTutoCutScene: 1
   replayPlayerPosChange: 0
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0
@@ -11336,7 +11364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 708.4, y: 271.5}
+  m_AnchoredPosition: {x: 708.4, y: 249}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408448773
@@ -11793,6 +11821,9 @@ MonoBehaviour:
   moveTutoCutScene: 1
   replayPlayerPosChange: 1
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0
@@ -12137,6 +12168,8 @@ PlayableDirector:
     value: {fileID: 2144106753}
   - key: {fileID: -2076544969027829236, guid: 3a0151e5768c59a48927be0f50d7dd85, type: 2}
     value: {fileID: 537864937}
+  - key: {fileID: 896227275248995018, guid: 3a0151e5768c59a48927be0f50d7dd85, type: 2}
+    value: {fileID: 174777059}
   m_ExposedReferences:
     m_References:
     - 9dbb416c79f448c4fa076b6a786f23e1: {fileID: 104092802}
@@ -12994,6 +13027,9 @@ MonoBehaviour:
   moveTutoCutScene: 1
   replayPlayerPosChange: 0
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0

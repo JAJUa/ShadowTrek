@@ -5669,6 +5669,8 @@ PlayableDirector:
     value: {fileID: 1194615671}
   - key: {fileID: 8752472722350574479, guid: cbe194a31a9564c408a42df22ccfc240, type: 2}
     value: {fileID: 196384026}
+  - key: {fileID: 5580688553239608790, guid: cbe194a31a9564c408a42df22ccfc240, type: 2}
+    value: {fileID: 1742993092}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1194615670
@@ -6181,6 +6183,9 @@ MonoBehaviour:
   moveTutoCutScene: 1
   replayPlayerPosChange: 0
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0
@@ -8400,6 +8405,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17095046f16bb3845929131578577316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1742993092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2272579102060072077, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742993089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1758458246
 GameObject:
   m_ObjectHideFlags: 0

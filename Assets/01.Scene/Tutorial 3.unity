@@ -706,7 +706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 640.6, y: 270}
+  m_AnchoredPosition: {x: 640.6, y: 249}
   m_SizeDelta: {x: 211.3, y: 16.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110320620
@@ -6335,7 +6335,7 @@ PrefabInstance:
     - target: {fileID: 5187600123218062455, guid: cce45a00a10d5944d8761256697e7392,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5527568755508328141, guid: cce45a00a10d5944d8761256697e7392,
         type: 3}
@@ -12779,14 +12779,14 @@ RectTransform:
   m_GameObject: {fileID: 1949883901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 929769599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 805.08, y: -389.06}
+  m_AnchoredPosition: {x: 682.02, y: -453.4}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1949883903
@@ -12850,8 +12850,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
