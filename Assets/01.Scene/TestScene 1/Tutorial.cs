@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using VInspector;
 
@@ -16,6 +17,7 @@ public class Tutorial : MonoBehaviour
     public bool textExplain,moveTutoCutScene,replayPlayerPosChange;
     public enum Character {Daughter,Papa}
     public Character character;
+    public UnityEvent specialEvent;
     public enum TutorialType { MoveTutorial, textTutorial, cutSceneClickTuto, ClickObj,TutorialAnimation}
     public TutorialType tutorialType;
     [SerializeField] Animator tutorialAnimator;
@@ -78,6 +80,12 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    public void ExcuteSpecialEvent()
+    {
+        if (specialEvent != null)   
+            specialEvent.Invoke();
+    }
+
     public IEnumerator Excute()
     {
         yield return new WaitUntil(()=>InGameUIManager.Inst.titleTexting == false);
@@ -94,6 +102,11 @@ public class Tutorial : MonoBehaviour
         {
             if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f, () =>
             { tutorialAnimator.SetTrigger(triggerName); InGameManager.Inst.moveBlock = true; }); ;
+        }
+
+        if(specialEvent != null)
+        {
+            ExcuteSpecialEvent();
         }
      
 

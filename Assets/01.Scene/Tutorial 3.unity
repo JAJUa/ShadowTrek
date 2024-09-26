@@ -1768,6 +1768,9 @@ MonoBehaviour:
   moveTutoCutScene: 0
   replayPlayerPosChange: 0
   character: 1
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 4
   tutorialAnimator: {fileID: 360507671}
   tutoIndex: 0
@@ -2348,6 +2351,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97e9bfc30050964a88e0db5a6ee06b9, type: 3}
+--- !u!1 &336212451 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2272579102060072077, guid: 8a05d9a889cb01c42af2333b2a0487dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1742993089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &356951337
 GameObject:
   m_ObjectHideFlags: 0
@@ -3732,6 +3741,9 @@ MonoBehaviour:
   moveTutoCutScene: 0
   replayPlayerPosChange: 0
   character: 1
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 3
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0
@@ -4172,6 +4184,9 @@ MonoBehaviour:
   moveTutoCutScene: 1
   replayPlayerPosChange: 0
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0
@@ -5841,6 +5856,21 @@ MonoBehaviour:
   moveTutoCutScene: 0
   replayPlayerPosChange: 0
   character: 1
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 336212451}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   tutorialType: 4
   tutorialAnimator: {fileID: 360507671}
   tutoIndex: 0
@@ -6302,6 +6332,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow_Relic
       objectReference: {fileID: 0}
+    - target: {fileID: 5187600123218062455, guid: cce45a00a10d5944d8761256697e7392,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5527568755508328141, guid: cce45a00a10d5944d8761256697e7392,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6399,6 +6434,10 @@ PlayableDirector:
     value: {fileID: 521617901}
   - key: {fileID: -2292107436730564713, guid: 7e1a0b5a42e9f40469c687cf32082153, type: 2}
     value: {fileID: 2050720445}
+  - key: {fileID: 6945608077867284712, guid: 7e1a0b5a42e9f40469c687cf32082153, type: 2}
+    value: {fileID: 2066241336}
+  - key: {fileID: -8524198083771553632, guid: 7e1a0b5a42e9f40469c687cf32082153, type: 2}
+    value: {fileID: 2066241332}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1073131972
@@ -7505,7 +7544,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0.6
+            m_FloatArgument: 0.4
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -7526,6 +7565,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 5536391794097207008, guid: 98bb2f020caa0fa459e1d633b4e769e1, type: 2}
     value: {fileID: 1139275803}
+  - key: {fileID: 6077556127505513390, guid: 98bb2f020caa0fa459e1d633b4e769e1, type: 2}
+    value: {fileID: 174777050}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1139473481
@@ -8373,6 +8414,9 @@ MonoBehaviour:
   moveTutoCutScene: 1
   replayPlayerPosChange: 0
   character: 0
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 0
   tutorialAnimator: {fileID: 0}
   tutoIndex: 0
@@ -9535,7 +9579,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2782131230776074978, guid: c1804bb24aabd7d45a8f28ca5c584612,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2066241336}
   m_SourcePrefab: {fileID: 100100000, guid: c1804bb24aabd7d45a8f28ca5c584612, type: 3}
 --- !u!4 &1521289039 stripped
 Transform:
@@ -10876,7 +10924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 1042430700}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5294118}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11069,6 +11117,9 @@ MonoBehaviour:
   moveTutoCutScene: 0
   replayPlayerPosChange: 0
   character: 1
+  specialEvent:
+    m_PersistentCalls:
+      m_Calls: []
   tutorialType: 4
   tutorialAnimator: {fileID: 360507671}
   tutoIndex: 0
@@ -13860,6 +13911,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 289604083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2066241332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2782131230776074978, guid: c1804bb24aabd7d45a8f28ca5c584612,
+    type: 3}
+  m_PrefabInstance: {fileID: 1521289038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2066241336
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066241332}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2077526057
 GameObject:
   m_ObjectHideFlags: 0
