@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
 
     public void AudioEffectPlay(int index)
     {
-
         audio_SFX.PlayOneShot(effectAudioClip[index]);
     }
 

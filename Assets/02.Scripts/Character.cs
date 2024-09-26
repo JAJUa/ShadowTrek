@@ -53,6 +53,7 @@ public class Character : MonoBehaviour
                         Vector3Int startPos = Vector3Int.RoundToInt(transform.position);
                         Vector3Int targetPos = Vector3Int.RoundToInt(tilePosition);
                         InGameFXManager.Inst.TileClickParticle(tilePosition);
+                        AudioManager.Inst.AudioEffectPlay(2);
                         pathFind.FindPath(startPos, targetPos);
                         moveCoroutine =  StartCoroutine(tileMove.MoveAlongPath(gameObject, animator, pathFind, moveSpeed, curCharacter, pointInTime)); 
                     }

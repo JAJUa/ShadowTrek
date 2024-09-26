@@ -72,7 +72,9 @@ public class TurnLight : InteractiveObject
     public void Turning(float angle, bool isResetLight = false,bool lightFinished = false,bool isPapaStay = false)
     {
         Debug.Log("돌이감");
-         Vector3 target = new Vector3(transform.eulerAngles.x,angle , transform.eulerAngles.z);
+        if (isPapaStay) AudioManager.Inst.AudioEffectPlay(4);
+        else AudioManager.Inst.AudioEffectPlay(3);
+        Vector3 target = new Vector3(transform.eulerAngles.x,angle , transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
              interactiveLight.ChangeTileColor();
