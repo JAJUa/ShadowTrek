@@ -71,7 +71,8 @@ public class Lever : InteractiveObject
 
     public void OnOff(bool turnOn, bool isResetLight = false)
     {
-        AudioManager.Inst.AudioEffectPlay(1);
+        if(AudioManager.Inst !=null)
+            AudioManager.Inst.AudioEffectPlay(1);
         if (!isResetLight) InGameManager.Inst.OnlyPlayerReplay(true,false);
         foreach (GameObject light in turnOnOffLights) light.gameObject.SetActive(true);
         isTurnOn = turnOn;

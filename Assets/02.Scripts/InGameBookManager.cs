@@ -183,5 +183,6 @@ public class InGameBookManager : MonoBehaviour
         bookScript.currentPage = (bookPage + 1) * 2;
         StartFadeIcon();
         ShowTextAnimations();
+        UpdateVideoPlayer();
     }
 }

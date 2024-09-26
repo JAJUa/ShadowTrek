@@ -21,8 +21,8 @@ public class GameData : MonoBehaviour
 
     private IEnumerator Start()
     {
-        
-        if(Inst != null && Inst != this)
+        Application.targetFrameRate = 60;
+        if (Inst != null && Inst != this)
         {
             Destroy(gameObject);
             yield break;

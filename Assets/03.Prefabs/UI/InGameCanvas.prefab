@@ -6130,9 +6130,10 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 1730b36a5b5b3a64bbf3584902b178a4, type: 3}
   - {fileID: 32900000, guid: faaa4b16cbf05d94a8db0f94673527e6, type: 3}
   - {fileID: 32900000, guid: 270e62a3aa4913542907ce452b30f3a0, type: 3}
-  - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
-  - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
-  - {fileID: 32900000, guid: d88c6702df760c443afd22c6fa9deea1, type: 3}
+  - {fileID: 32900000, guid: 553aa5ddd224e6846b18d7eb426e42ca, type: 3}
+  - {fileID: 32900000, guid: 0d0ab0fd3ebf8cb4f8ee019e7bda1237, type: 3}
+  - {fileID: 32900000, guid: a0de384e706ec6d4787a97bd7c5aeb11, type: 3}
+  - {fileID: 32900000, guid: 4a03a9f0db62a2a4f85531374f4606a9, type: 3}
   clipNameText_TA: {fileID: 3347648420273201845}
   infoText_TA: {fileID: 3753785511001288814}
   manualText_TA: {fileID: 6813626005917139525}

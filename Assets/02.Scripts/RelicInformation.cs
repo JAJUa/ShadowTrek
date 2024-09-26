@@ -12,6 +12,7 @@ public class RelicInformation : MonoBehaviour
 
     private void Awake()
     {
+        if(SaveSystem.Inst == null) gameObject.SetActive(false);
     }
 
     private IEnumerator Start()

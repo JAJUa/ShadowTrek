@@ -180,7 +180,8 @@ public class TileMoveScript : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(direction);
 
         float elapsedTime = 0;
-        AudioManager.Inst.AudioEffectPlay(0);
+        if(AudioManager.Inst != null)
+            AudioManager.Inst.AudioEffectPlay(0);
         // Walking
         while (elapsedTime < timeToMove)
         {

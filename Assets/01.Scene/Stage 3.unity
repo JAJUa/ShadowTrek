@@ -10279,6 +10279,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 6834764990300208572, guid: 5e823f07343978e4aae8f4a0041a819e,
+        type: 3}
+      propertyPath: m_Range
+      value: 36.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834764990300208572, guid: 5e823f07343978e4aae8f4a0041a819e,
+        type: 3}
+      propertyPath: m_SpotAngle
+      value: 66.374954
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834764990300208572, guid: 5e823f07343978e4aae8f4a0041a819e,
+        type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 65.22446
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,7 +13,7 @@ using UnityEngine.Events;
 
 public class MenuUIManager : MonoBehaviour
 {
-
+    public static MenuUIManager Inst;
     [Tab("아이콘")]
     public float turnTimeRate, range;
     private float turnRate;
@@ -48,17 +48,31 @@ public class MenuUIManager : MonoBehaviour
 
     Vector2 startTouchPos, endTouchPos,swipeDelta;
     [SerializeField] private float touchInterval;
-    bool isSwiping;
+    public bool isSwiping,ableSwipe;
 
     [Tab("로컬라이즈")]
     [SerializeField] LocalizedString[] iconLocalizeName,clothSelectedLocalizeName;
     [SerializeField] LocalizeStringEvent iconLocalizeStringEvent;
     [SerializeField] LocalizeStringEvent[] clothSelectedLocalize_SE;
 
+    private void Awake()
+    {
+        if(Inst != null && Inst != this)
+        {
+            Destroy(Inst);
+            Inst = this;
+        }
+        else
+        {
+            Inst = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 60;
+        
+        ableSwipe = true;
         curLanguageNum = GameData.Inst.localizationNum;
         iconTween = new Tween[iconsObj.Length];
         Spawn();
@@ -286,22 +300,26 @@ public class MenuUIManager : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (ableSwipe)
         {
-            startTouchPos= Input.mousePosition;
-            isSwiping= true;
-        }
-
-        if(Input.GetMouseButtonUp(0) && isSwiping)
-        {
-            endTouchPos = Input.mousePosition;
-            swipeDelta = startTouchPos- endTouchPos;
-            if (swipeDelta.magnitude > touchInterval) // 최소 스와이프 길이 설정
+            if (Input.GetMouseButtonDown(0))
             {
-                DetectSwipe(swipeDelta);
+                startTouchPos = Input.mousePosition;
+                isSwiping = true;
             }
 
-            isSwiping = false; // 스와이프 동작 끝
+            if (Input.GetMouseButtonUp(0) && isSwiping)
+            {
+                endTouchPos = Input.mousePosition;
+                swipeDelta = startTouchPos - endTouchPos;
+                if (swipeDelta.magnitude > touchInterval) // 최소 스와이프 길이 설정
+                {
+                    DetectSwipe(swipeDelta);
+                }
+
+                isSwiping = false; // 스와이프 동작 끝
+            }
+
         }
 
     }
