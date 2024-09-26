@@ -12,7 +12,16 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        Inst = this;
+        if (Inst != null && Inst != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            Inst = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void AudioPlay(int index)

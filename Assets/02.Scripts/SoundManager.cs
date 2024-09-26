@@ -32,6 +32,7 @@ public class SoundManager : MonoBehaviour
     {
         bgmSlider = GameObject.Find("BGMScrollbar").GetComponent<Scrollbar>();
         sfxSlider = GameObject.Find("SoundEffectScrollBar").GetComponent<Scrollbar>();
+
         bgmAudioSource = GetComponent<AudioSource>();
 
         yield return new WaitUntil(() => SaveSystem.Inst && SaveSystem.Inst.dataSuccess);
@@ -41,8 +42,6 @@ public class SoundManager : MonoBehaviour
 
     public void SliderSetting()
     {
-        Debug.Log("���۰�" + GameData.Inst.bgmVolume);
-        Invoke("Test", 0.1f);
         bgmSlider.value = GameData.Inst.bgmVolume;
         sfxSlider.value = GameData.Inst.soundEffectVolume;
 
@@ -53,10 +52,6 @@ public class SoundManager : MonoBehaviour
         ChangeSoundEffectVolume(sfxSlider.value);
     }
 
-    void Test()
-    {
-        Debug.Log("0.1���� ��" + GameData.Inst.bgmVolume);
-    }
     public void SummonSoundEffect(string effectName)
     {
         foreach(AudioClip sound in soundEffect)
