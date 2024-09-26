@@ -9,6 +9,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using VInspector;
+using UnityEngine.Events;
 
 public class MenuUIManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MenuUIManager : MonoBehaviour
     public float iconUpDownSpeed;
     [SerializeField] GameObject iconExcuteBackButton, clickIcon;
     [SerializeField] private bool[] excuteIconActive;
+    public UnityEvent tutorial;
     [Header("아이콘 관련")]
     public TMP_Text iconNameTxt;
     public GameObject[] iconsObj;
@@ -185,8 +187,21 @@ public class MenuUIManager : MonoBehaviour
                 }
             }
             isSelected = true;
+            if(curIconNum -1 == 0)
+            {
+                if (!GameData.Inst.selectionTuto2)
+                {
+                    DOVirtual.DelayedCall(0.3f,()=> ExcuteSpecialEvent());
+                }
+            }
         }
        
+    }
+
+    public void ExcuteSpecialEvent()
+    {
+        if (tutorial != null)
+            tutorial.Invoke();
     }
 
     IEnumerator waitTimeForIconAnim()

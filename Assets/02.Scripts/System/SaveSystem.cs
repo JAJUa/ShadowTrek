@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using Newtonsoft.Json;
 using System.Text;
 using System.Collections;
+using VInspector;
 
 [System.Serializable]
 public class PlayerDatas
@@ -18,6 +19,7 @@ public class PlayerDatas
     public int localizationNum=2;
     public int[] Item = { 0, 0, 0 };
     public float bgmVolume = 0.5f, soundEffectVolume;
+    public bool selectionTuto1,selectionTuto2;
 }
 
 
@@ -59,13 +61,22 @@ public class SaveSystem : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F12))
-        {   
-            File.Delete(path);
-            Debug.Log("Save file deleted.");
+        {
+            FileDelete();
         }
     
 
 
+    }
+
+
+    [Button]
+    public void FileDelete()
+    {
+        File.Delete(path);
+        Debug.Log("Save file deleted.");
+   
+  
     }
 
     public void SaveData()
@@ -79,21 +90,13 @@ public class SaveSystem : MonoBehaviour
         playerData.relicsMaxCount = GameData.Inst.relicsMaxCount;
         playerData.localizationNum= GameData.Inst.localizationNum;
         playerData.bgmVolume = GameData.Inst.bgmVolume;
-
-        playerData.soundEffectVolume= GameData.Inst.soundEffectVolume;
-
-       
-        
+        playerData.selectionTuto1 = GameData.Inst.selectionTuto1;
+        playerData.selectionTuto2 = GameData.Inst.selectionTuto2;
+        playerData.soundEffectVolume= GameData.Inst.soundEffectVolume;  
         playerData.relicsBool = GameData.Inst.relicsBool;
 
-   
-
         string json = JsonConvert.SerializeObject(playerData);
-
-        //string Data = JsonUtility.ToJson(playerData,true);
-
         System.IO.File.WriteAllText(path, json);
-       // File.WriteAllText(path, Data);
         Debug.Log($"JSON saved to {path}");
     }
 
@@ -123,6 +126,8 @@ public class SaveSystem : MonoBehaviour
                 GameData.Inst.relicsMaxCount= playerData.relicsMaxCount;
                 GameData.Inst.localizationNum= playerData.localizationNum;
                 GameData.Inst.bgmVolume= playerData.bgmVolume;
+                GameData.Inst.selectionTuto1 = playerData.selectionTuto1;
+                GameData.Inst.selectionTuto2 = playerData.selectionTuto2;
 
                 Debug.Log(GameData.Inst.relicsBool[0][0]);
                 GameData.Inst.soundEffectVolume= playerData.soundEffectVolume;

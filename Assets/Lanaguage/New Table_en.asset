@@ -189,6 +189,16 @@ MonoBehaviour:
     m_Localized: An Increasingly Complex Path
     m_Metadata:
       m_Items: []
+  - m_Id: 47458976129712128
+    m_Localized: It felt like I had gotten used to picking up stars before I knew
+      it. I started to feel uneasy. How nice would it be if things could stay this
+      peaceful forever...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46864322568200192
+    m_Localized: A needless sense of unease
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

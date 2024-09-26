@@ -9,7 +9,7 @@ public class GameData : MonoBehaviour
 
     public int clearLevel;
     public int lastClearStage;
-    public int localizationNum = 1;
+    public int localizationNum = 2;
     public int skinNum = 10 ;
     public List<List<bool>> relicsBool = new List<List<bool>>();
     public List<int> relicsMaxCount = new List<int> { 14, 12, 8, 4 };
@@ -17,6 +17,7 @@ public class GameData : MonoBehaviour
     public float bgmVolume, soundEffectVolume;
 
     public bool relicSaveSuccess;
+    public bool selectionTuto1 = false,selectionTuto2 = false;
 
     private IEnumerator Start()
     {
@@ -72,29 +73,6 @@ public class GameData : MonoBehaviour
         SaveSystem.Inst.SaveData();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F10))
-        {
-            /*
-            for (int i = 0; i < relicsCurCount.Count; i++)
-            {
-                relicsBool.Add(new List<bool>());
-                for (int j = 0; j < relicsMaxCount[i]; j++)
-                {
-                    relicsBool[i].Add(false);
-                }
-            }*/
-
-            SaveSystem.Inst.SaveData();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F11))
-        {
-            ResetData();
-        }
-
-    }
 
     public void ResetData()
     {
