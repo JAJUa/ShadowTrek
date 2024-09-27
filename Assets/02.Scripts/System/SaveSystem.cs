@@ -131,13 +131,9 @@ public class SaveSystem : MonoBehaviour
 
                 Debug.Log(GameData.Inst.relicsBool[0][0]);
                 GameData.Inst.soundEffectVolume= playerData.soundEffectVolume;
-
-
-
-                dataSuccess = true;
             }
         }
-      
+        dataSuccess = true;
     }
 
     public bool IsNewFile()
