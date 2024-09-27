@@ -106,6 +106,18 @@ MonoBehaviour:
     m_Localized: You can skip the Shadow's turn
     m_Metadata:
       m_Items: []
+  - m_Id: 205590841335808
+    m_Localized: Clicking the photo will start the corresponding stage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 205646172594176
+    m_Localized: ou can interact by clicking the object in the center
+    m_Metadata:
+      m_Items: []
+  - m_Id: 205595408932864
+    m_Localized: You can select an object by swiping left or right
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
