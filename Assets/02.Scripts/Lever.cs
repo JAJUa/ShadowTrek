@@ -85,12 +85,12 @@ public class Lever : InteractiveObject
             foreach (GameObject light in turnOnOffLights)
             {
                 light.GetComponent<Light>().DOIntensity(intensity, 0.5f);
-                Debug.Log(intensity);
-                if (!turnOn) interactiveLight.TileColorDefault();
+                Debug.Log(isTurnOn);
+                if (!isTurnOn) interactiveLight.TileColorDefault();
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
                     light.SetActive(isTurnOn);
-                    if (turnOn) interactiveLight.ChangeTileColor();
+                    if (isTurnOn == true) interactiveLight.ChangeTileColor();
 
                 });
 

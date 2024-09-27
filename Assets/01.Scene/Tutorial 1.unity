@@ -1646,6 +1646,11 @@ PrefabInstance:
       propertyPath: colliderSize.y
       value: 3.9
       objectReference: {fileID: 0}
+    - target: {fileID: 8730745438810653259, guid: 51c7b515a66351140b0d3fe3901d5262,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9125260163180328418, guid: 51c7b515a66351140b0d3fe3901d5262,
         type: 3}
       propertyPath: m_RootOrder
@@ -2320,6 +2325,7 @@ GameObject:
   - component: {fileID: 174777051}
   - component: {fileID: 174777057}
   - component: {fileID: 174777058}
+  - component: {fileID: 174777059}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2483,6 +2489,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_objBackScissor: {fileID: 3574266984379935870, guid: 3ee49e7d70281c342a4d258f0ca8169c,
     type: 3}
+--- !u!95 &174777059
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174777050}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &176977305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d97e9bfc30050964a88e0db5a6ee06b9,
@@ -5912,6 +5939,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanton (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8730745438810653259, guid: 51c7b515a66351140b0d3fe3901d5262,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9125260163180328418, guid: 51c7b515a66351140b0d3fe3901d5262,
         type: 3}
       propertyPath: m_RootOrder
@@ -5967,7 +5999,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8730745438810653257, guid: 51c7b515a66351140b0d3fe3901d5262, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8645,6 +8678,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanton (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8730745438810653259, guid: 51c7b515a66351140b0d3fe3901d5262,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9125260163180328418, guid: 51c7b515a66351140b0d3fe3901d5262,
         type: 3}
       propertyPath: m_RootOrder
@@ -8700,7 +8738,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8730745438810653257, guid: 51c7b515a66351140b0d3fe3901d5262, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8823,6 +8862,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lanton (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8730745438810653259, guid: 51c7b515a66351140b0d3fe3901d5262,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9125260163180328418, guid: 51c7b515a66351140b0d3fe3901d5262,
         type: 3}
       propertyPath: m_RootOrder
@@ -8878,7 +8922,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8730745438810653257, guid: 51c7b515a66351140b0d3fe3901d5262, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11442,6 +11487,8 @@ PlayableDirector:
     value: {fileID: 1127533167}
   - key: {fileID: 2478352727147349277, guid: c4e9ee9f07ae98e45b83abbbf90b945c, type: 2}
     value: {fileID: 44474989}
+  - key: {fileID: 6611118147153427231, guid: c4e9ee9f07ae98e45b83abbbf90b945c, type: 2}
+    value: {fileID: 174777059}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1426184009

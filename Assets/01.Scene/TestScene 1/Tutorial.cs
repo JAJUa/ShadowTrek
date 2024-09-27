@@ -100,8 +100,13 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
-            if (tutorialType == TutorialType.TutorialAnimation) DOVirtual.DelayedCall(0.5f, () =>
-            { tutorialAnimator.SetTrigger(triggerName); InGameManager.Inst.moveBlock = true; }); ;
+            if (tutorialType == TutorialType.TutorialAnimation)
+            {
+                InGameManager.Inst.moveBlock = true;
+                DOVirtual.DelayedCall(0.5f, () =>
+            { tutorialAnimator.SetTrigger(triggerName); });
+
+            }
         }
 
         if(specialEvent != null)

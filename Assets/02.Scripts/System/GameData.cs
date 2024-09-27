@@ -88,6 +88,7 @@ public class GameData : MonoBehaviour
     public void GetRelic(int relicType,int relicNumber)  //relicType 은 호리병/호박/로봇 등 종류, relicNumber는 그 종류 중에서 몇번째 유물인지
     {
         relicsBool[relicType][relicNumber] = true;
+        Debug.Log(relicsBool[relicType][relicNumber]);
         relicsCurCount[relicType]++;
         SaveSystem.Inst.SaveData();
     }

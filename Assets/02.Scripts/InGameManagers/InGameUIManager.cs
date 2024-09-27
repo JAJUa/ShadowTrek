@@ -39,7 +39,7 @@ public class InGameUIManager : MonoBehaviour
         //Dont Create 2 GameManager
         if (Inst != null && Inst != this)
         {
-            Destroy(Inst.gameObject);
+            Destroy(InGameUIManager.Inst);
             return;
         }
         else
@@ -178,8 +178,14 @@ public class InGameUIManager : MonoBehaviour
 
     public void OptionFade(bool fade)
     {
+        if (fade) InGameManager.Inst.moveBlock = true;
         optionAnim.SetBool("OptionFade", fade);
-        if (!fade) SaveSystem.Inst.SaveData();
+        if (!fade)
+        {
+            InGameManager.Inst.moveBlock = false;
+            if(SaveSystem.Inst != null)
+                SaveSystem.Inst.SaveData();
+        }
     }
 
     public void OptionChoiceFade(bool fade)

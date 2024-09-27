@@ -60,7 +60,7 @@ public class InGameManager : MonoBehaviour
         //Dont Create 2 GameManager
         if (Inst != null && Inst != this)
         {
-            Destroy(Inst.gameObject);
+            Destroy(InGameManager.Inst);
             return;
         }
         else

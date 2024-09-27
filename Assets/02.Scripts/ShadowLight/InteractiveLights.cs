@@ -71,6 +71,7 @@ public class InteractiveLights : MonoBehaviour
                         }
                     }
                 }
+                ChangeTileColor();
 
             }
             else
@@ -87,7 +88,8 @@ public class InteractiveLights : MonoBehaviour
                     }
                 }
             }
-            ChangeTileColor();
+            //ChangeTileColor();
+
         }
     
     }
