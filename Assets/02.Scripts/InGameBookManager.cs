@@ -29,7 +29,7 @@ public class InGameBookManager : MonoBehaviour
     [SerializeField] private Image vidImage;
     [SerializeField] private Image vidmaskImage;
     [SerializeField] private RawImage vidraw;
-    [SerializeField] private Image nextBtn, preBtn;
+    [SerializeField] private Button nextBtn, prevBtn;
     [SerializeField] private VideoClip[] videos;
 
     [Tab("TypeWriterAnim")]
@@ -49,6 +49,8 @@ public class InGameBookManager : MonoBehaviour
     private void Start()
     {
         SettingBook(bookPageIndex);
+        nextBtn.onClick.AddListener(() => CloseText(true));
+        prevBtn.onClick.AddListener(() => CloseText(false));
     }
 
     public void NextPage()
@@ -67,6 +69,8 @@ public class InGameBookManager : MonoBehaviour
     {
         if (bookPageMaxIndex <= bookPageIndex && isNext) return;
         if (bookPageIndex <= 0 && !isNext) return;
+        prevBtn.interactable = false;
+        nextBtn.interactable = false;
 
         // Stop text animation
         HideTextAnimations();
@@ -90,6 +94,9 @@ public class InGameBookManager : MonoBehaviour
         manualText_TA.StartShowingText();
         manualInfoText_TA.StartShowingText();
         selectInfoText_TA.StartShowingText();
+
+        prevBtn.interactable = true;
+        nextBtn.interactable = true;
     }
 
     private void HideTextAnimations()
@@ -165,8 +172,8 @@ public class InGameBookManager : MonoBehaviour
        // float preFade = bookPageIndex >0? 1f : 0f;
         //  nextBtn.DOFade(nextFade, 0.5f);
         //  preBtn.DOFade(preFade, 0.5f);
-        nextBtn.enabled = bookPageIndex < bookPageMaxIndex;
-        preBtn.enabled = bookPageIndex > 0;
+        nextBtn.GetComponent<Image>().enabled = bookPageIndex < bookPageMaxIndex;
+        prevBtn.GetComponent<Image>().enabled = bookPageIndex > 0;
     }
 
     private void HandlePageFlip(bool isNext)

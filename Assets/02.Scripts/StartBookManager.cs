@@ -18,6 +18,7 @@ public class StartBookManager : MonoBehaviour
     [SerializeField] AutoFlip autoFlip;
     [SerializeField] Book bookScript;
     [SerializeField] Button sceneStartBtn;
+    [SerializeField] Button nextBtn, prevBtn;
     [SerializeField] Image bookHiglight;
 
     [Tab("내용")]
@@ -41,6 +42,8 @@ public class StartBookManager : MonoBehaviour
     {
         sceneStartBtn.enabled = true;
         SettingBook(bookPageIndex);
+        nextBtn.onClick.AddListener(() => HideText(true));
+        prevBtn.onClick.AddListener(() => HideText(false));
     }
 
     public void ShowTextAnimations()
@@ -54,6 +57,14 @@ public class StartBookManager : MonoBehaviour
         bgmText_TA.ShowText(bgmText[bookPageIndex].ToString());
         bgmInforText_TA.ShowText(bgmInforText[bookPageIndex].ToString());
         chapterStory_TA.ShowText(story_LS[bookPageIndex].GetLocalizedString());
+
+        if (bookPageIndex + 1 >= maxPageIndex) nextBtn.gameObject.SetActive(false);
+        else nextBtn.gameObject.SetActive(true);
+        if (bookPageIndex - 1 < 0) prevBtn.gameObject.SetActive(false);
+        else prevBtn.gameObject.SetActive(true);
+
+        prevBtn.interactable = true;
+        nextBtn.interactable = true;
     }
 
     public void EnterScene()
@@ -65,6 +76,9 @@ public class StartBookManager : MonoBehaviour
     {
         sceneStartBtn.enabled = false;
         bookHiglight.enabled = false;
+        prevBtn.interactable = false;
+        nextBtn.interactable = false;
+
         if (isNext)
         {
             if (bookPageIndex + 1 >= maxPageIndex) return;
