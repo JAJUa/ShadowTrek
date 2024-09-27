@@ -2,6 +2,8 @@ using DG.Tweening;
 using Febucci.UI;
 using System;
 using UnityEngine;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using VInspector;
@@ -17,6 +19,9 @@ public class InGameBookManager : MonoBehaviour
     [Tab("Modify")]
     [TextArea] [SerializeField] private string[] clipNameText;
     [TextArea] [SerializeField] private string[] infoText;
+
+    [SerializeField] LocalizeStringEvent clipName_SE, info_SE;
+    [SerializeField] LocalizedString[] clipName_LS, info_LS;
 
     [SerializeField] private PlayerIcon[] selectIcon;
     [SerializeField] private Image playerImage;
@@ -78,8 +83,10 @@ public class InGameBookManager : MonoBehaviour
 
     private void ShowTextAnimations()
     {
-        clipNameText_TA.ShowText(clipNameText[bookPageIndex]);
-        infoText_TA.ShowText(infoText[bookPageIndex]);
+        clipName_SE.StringReference = clipName_LS[bookPageIndex];
+        info_SE.StringReference = info_LS[bookPageIndex];
+        clipNameText_TA.ShowText(clipName_LS[bookPageIndex].GetLocalizedString());
+        infoText_TA.ShowText(info_LS[bookPageIndex].GetLocalizedString());
         manualText_TA.StartShowingText();
         manualInfoText_TA.StartShowingText();
         selectInfoText_TA.StartShowingText();

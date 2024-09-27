@@ -188,14 +188,14 @@ public class InGameManager : MonoBehaviour
     public void StayPapa()
     {
         if(!moveBlock)
-            OnlyPlayerReplay();
+            OnlyPlayerReplay(true,false);
 
         
     }
 
     public void OnlyPlayerReplay(bool isPapaStay = false,bool lightFinished = false)
     {
-        if (InGameManager.Inst.inRelpayMode)
+        if (inRelpayMode)
         {
             if (isAnswering) AnswerManager.Inst.PapaTile();
             isInteractionDetect = true;

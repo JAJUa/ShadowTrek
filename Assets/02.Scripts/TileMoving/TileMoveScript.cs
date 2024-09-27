@@ -241,6 +241,7 @@ public class TileMoveScript : MonoBehaviour
                     light.GetComponent<InteractiveObject>().TurnAction();
                 }
             }
+         
         }
         else
         {

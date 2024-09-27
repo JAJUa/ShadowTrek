@@ -84,6 +84,30 @@ MonoBehaviour:
       reverse the direction of the light's rotation
     m_Metadata:
       m_Items: []
+  - m_Id: 143084030599168
+    m_Localized: relevant character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143415498055680
+    m_Localized: Game Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144009923207168
+    m_Localized: How to Use
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144321098620928
+    m_Localized: Click the menu icon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144375603601408
+    m_Localized: Click the book icon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144950768508928
+    m_Localized: You can skip the Shadow's turn
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
