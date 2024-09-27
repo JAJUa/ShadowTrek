@@ -11589,6 +11589,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2f10956560c6f184493c73d4cedb1146, type: 2}
     - {fileID: 11400000, guid: 3fb8a2c1b64787d43875b007fcc94e53, type: 2}
     - {fileID: 11400000, guid: 042e6c81264cb9445a7592abc61ace46, type: 2}
+    - {fileID: 11400000, guid: df0d46506098df943841857171942b60, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -11671,6 +11672,20 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0.6
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1798406541}
+          m_TargetAssemblyTypeName: InGameUIManager, Assembly-CSharp
+          m_MethodName: ShowTitleText
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0.1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -14045,6 +14060,26 @@ PrefabInstance:
       propertyPath: startTitleAnim
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: title_LS.m_TableEntryReference.m_KeyId
+      value: 46864041000378368
+      objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: titleLocalized.m_TableEntryReference.m_KeyId
+      value: 46864041000378368
+      objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: title_LS.m_TableReference.m_TableCollectionName
+      value: GUID:1455de9d918f0224ba34b2da175b3628
+      objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: titleLocalized.m_TableReference.m_TableCollectionName
+      value: GUID:1455de9d918f0224ba34b2da175b3628
+      objectReference: {fileID: 0}
     - target: {fileID: 381345396758096923, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_VideoClip
@@ -14080,6 +14115,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -540
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089181470350784780, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089181470350784780, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2315753729086708950, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}

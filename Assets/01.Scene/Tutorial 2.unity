@@ -23001,6 +23001,16 @@ PrefabInstance:
       propertyPath: ableMenuBtn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2403639738786699907, guid: 1de2b4ab231d06148902c5296fdc631c,
+        type: 3}
+      propertyPath: title_LS.m_TableEntryReference.m_KeyId
+      value: 46864165357297664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403639738786699907, guid: 1de2b4ab231d06148902c5296fdc631c,
+        type: 3}
+      propertyPath: title_LS.m_TableReference.m_TableCollectionName
+      value: GUID:1455de9d918f0224ba34b2da175b3628
+      objectReference: {fileID: 0}
     - target: {fileID: 2589023536710921281, guid: 1de2b4ab231d06148902c5296fdc631c,
         type: 3}
       propertyPath: m_IsActive

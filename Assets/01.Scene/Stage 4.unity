@@ -12287,6 +12287,16 @@ PrefabInstance:
       propertyPath: titleName
       value: "-\uC810\uC810 \uBCF5\uC7A1\uD574\uC9C0\uB294 \uAE38-"
       objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: title_LS.m_TableEntryReference.m_KeyId
+      value: 46864232277417984
+      objectReference: {fileID: 0}
+    - target: {fileID: 52260351349500591, guid: 7c3cda88157e9334994a06a2f6e521ab,
+        type: 3}
+      propertyPath: title_LS.m_TableReference.m_TableCollectionName
+      value: GUID:1455de9d918f0224ba34b2da175b3628
+      objectReference: {fileID: 0}
     - target: {fileID: 703686781967586863, guid: 7c3cda88157e9334994a06a2f6e521ab,
         type: 3}
       propertyPath: m_IsActive

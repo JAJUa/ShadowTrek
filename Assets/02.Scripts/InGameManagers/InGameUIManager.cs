@@ -7,6 +7,8 @@ using TMPro;
 using DG.Tweening;
 using Febucci.UI;
 using VInspector;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 public class InGameUIManager : MonoBehaviour
 {
@@ -29,6 +31,8 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] TypewriterByCharacter titleText;
     [SerializeField] Image titleTextBox;
     [SerializeField] string titleName;
+    [SerializeField] LocalizedString title_LS;
+    [SerializeField] LocalizeStringEvent title_SE;
     [SerializeField] bool startTitleAnim;
     public bool titleTexting;
 
@@ -85,7 +89,8 @@ public class InGameUIManager : MonoBehaviour
         titleTextBox.DOFade(0.5f, 0.5f);
         DOVirtual.DelayedCall(delay, () =>
         {
-            titleText.ShowText(titleName);
+            title_SE.StringReference = title_LS;
+            titleText.ShowText(title_LS.GetLocalizedString());
             DOVirtual.DelayedCall(2f, () => {
                 titleText.StartDisappearingText();
                 DOVirtual.DelayedCall(1f, () => { titleText.GetComponent<TextMeshProUGUI>().enabled = false;
