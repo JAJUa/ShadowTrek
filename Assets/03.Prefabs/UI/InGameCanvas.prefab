@@ -2215,19 +2215,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16063388656954593}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1490107713371489886}
-        m_TargetAssemblyTypeName: InGameBookManager, Assembly-CSharp
-        m_MethodName: CloseText
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2589023536710921281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,19 +3931,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3439917753157342990}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1490107713371489886}
-        m_TargetAssemblyTypeName: InGameBookManager, Assembly-CSharp
-        m_MethodName: CloseText
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4023694736457264525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,8 +6380,8 @@ MonoBehaviour:
   vidImage: {fileID: 581076978964880727}
   vidmaskImage: {fileID: 5328164827346774349}
   vidraw: {fileID: 6313538986920955444}
-  nextBtn: {fileID: 3439917753157342990}
-  preBtn: {fileID: 16063388656954593}
+  nextBtn: {fileID: 3519659602133524241}
+  prevBtn: {fileID: 4088133835650165162}
   videos:
   - {fileID: 32900000, guid: 1730b36a5b5b3a64bbf3584902b178a4, type: 3}
   - {fileID: 32900000, guid: faaa4b16cbf05d94a8db0f94673527e6, type: 3}

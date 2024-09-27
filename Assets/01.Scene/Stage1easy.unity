@@ -7495,17 +7495,17 @@ PrefabInstance:
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
       propertyPath: autoLight.x
-      value: 37.1
+      value: 41.9
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
       propertyPath: autoLight.z
-      value: 6.19
+      value: 13.1
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}
       propertyPath: autoLightPos.x
-      value: 23.99
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
         type: 3}

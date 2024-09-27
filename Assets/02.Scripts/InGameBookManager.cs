@@ -95,8 +95,10 @@ public class InGameBookManager : MonoBehaviour
         manualInfoText_TA.StartShowingText();
         selectInfoText_TA.StartShowingText();
 
-        prevBtn.interactable = true;
-        nextBtn.interactable = true;
+        DOVirtual.DelayedCall(1f, () => {
+            prevBtn.interactable = true;
+            nextBtn.interactable = true;
+        });
     }
 
     private void HideTextAnimations()
@@ -195,6 +197,8 @@ public class InGameBookManager : MonoBehaviour
         bookPageIndex = bookPage;
 
         bookScript.currentPage = (bookPage + 1) * 2;
+        nextBtn.GetComponent<Image>().enabled = bookPageIndex < bookPageMaxIndex;
+        prevBtn.GetComponent<Image>().enabled = bookPageIndex > 0;
         StartFadeIcon();
         ShowTextAnimations();
         UpdateVideoPlayer();

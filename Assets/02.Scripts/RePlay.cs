@@ -96,6 +96,8 @@ public class RePlay : MonoBehaviour
         character.transform.rotation = pointInTime.rotation;
 
         float elapsedTime = 0;
+        if (AudioManager.Inst != null)
+            AudioManager.Inst.AudioEffectPlay(0);
 
         // Walking
         while (elapsedTime < timeToMove)
