@@ -37,7 +37,7 @@ public class InGameManager : MonoBehaviour
 
     
     public bool changeRoom;
-    public CameraMove cam;
+    public Transform cam;
     private Vector3 camPos, camRot;
     [HideInInspector] public bool isCutsceneIn;
 
@@ -76,8 +76,8 @@ public class InGameManager : MonoBehaviour
             papa = pa.GetComponent<ShadowModePapa>();
         }
 
-        curCharacter = CurCharacter.Player;      
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMove>();
+        curCharacter = CurCharacter.Player;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         camPos = new Vector3(cam.transform.position.x,cam.transform.position.y, cam.transform.position.z);
         camRot = cam.transform.eulerAngles;
      
@@ -148,8 +148,6 @@ public class InGameManager : MonoBehaviour
         {
             if (papa.moveCoroutine != null)
                 StopCoroutine(papa.moveCoroutine);
-
-            Debug.Log("213123");
             DOVirtual.DelayedCall(0f, () => papa.lineRenderer.positionCount = 0);
         }
 
@@ -157,7 +155,6 @@ public class InGameManager : MonoBehaviour
         moveBlock = true;
       
         player.animator.SetBool("isWalk", false);
-        Debug.Log(player.lineRenderer.positionCount);
         if (player.moveCoroutine != null)
             StopCoroutine(player.moveCoroutine);
 
@@ -223,11 +220,11 @@ public class InGameManager : MonoBehaviour
     }
 
 
-
+/*
     public void CameraSetting(bool PlayerFollow, Vector3 CameraPosition = default(Vector3), float cameraSize = 45)
     {
         cam.CameraSetting(PlayerFollow, CameraPosition, cameraSize);
-    }
+    }*/
 
 
 }

@@ -50,7 +50,6 @@ public class Player : Character
         }
         else if (InGameManager.Inst.inRelpayMode || !isReplay)
         {
-            Debug.Log(Vector3.Distance(transform.position, endObj.position));
             if (Vector3.Distance(transform.position, endObj.position) <2f)
             {
                 InGameManager.Inst.StopMoving();

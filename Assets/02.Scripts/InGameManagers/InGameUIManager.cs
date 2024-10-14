@@ -53,10 +53,12 @@ public class InGameUIManager : MonoBehaviour
         ableMenuBtn = true;
         if (stayBtn != null)
             stayBtnDefault_Color = stayBtn.GetComponent<Image>().color;
+        titleTexting = true;
     }
     // Start is called before the first frame update
     void Start()
     {
+        
         if (startTitleAnim)
         {
             ShowTitleText(0.2f);

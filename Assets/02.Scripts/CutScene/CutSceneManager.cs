@@ -45,7 +45,14 @@ public class CutSceneManager : MonoBehaviour
     void Start()
     {
         if (cutSceneType == CutSceneType.startCutScene) StartCutScene();
-
+        else playableDirector.stopped += OnTimelineStopped;
+    }
+    
+    void OnTimelineStopped(PlayableDirector director)
+    {
+        Debug.Log("타임라인 재생이 끝났습니다.");
+        TutorialManager.Inst.FinshTutorial();
+        transform.gameObject.SetActive(false);
     }
 
     public void DialogueImage(int dialogueIndex)
@@ -66,6 +73,11 @@ public class CutSceneManager : MonoBehaviour
             });
         this.dialogueIndex++;
     }
+    
+
+    
+    
+
 
     public void CloseText(int dialogueIndex)
     {
@@ -128,7 +140,7 @@ public class CutSceneManager : MonoBehaviour
             MoveBlock(false);
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);
-            transform.gameObject.SetActive(false);
+            
         }
     }
     public void MoveBlock(bool isBlock)

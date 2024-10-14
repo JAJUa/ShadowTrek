@@ -23,7 +23,7 @@ public class RoomChange : MonoBehaviour
     {
         def_roomNum = RoomNum;
     }
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("PlayerControl"))
@@ -31,8 +31,8 @@ public class RoomChange : MonoBehaviour
             StartCoroutine(roomChange());
         }
         
-    }
-
+    }*/
+/*
     IEnumerator roomChange()
     {
         InGameFXManager.Inst.CircleTransition(1, 1, 0);
@@ -60,5 +60,5 @@ public class RoomChange : MonoBehaviour
             RoomNum = def_roomNum;
         //TileMoveScript.Inst.TileResearch();
         yield return null;
-    }
+    }*/
 }

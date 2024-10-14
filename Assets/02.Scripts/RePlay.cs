@@ -4,6 +4,24 @@ using UnityEngine;
 using System.Linq;
 using DG.Tweening;
 
+[System.Serializable]
+public class PointInTime
+{
+    public static PointInTime Inst;
+
+    public Vector3 position;
+    public Quaternion rotation;
+    public List<PointInTime> pointsInTime;
+
+    public PointInTime(Vector3 _position, Quaternion _rotation)
+    {
+        position = _position;
+        rotation = _rotation;
+    }
+
+
+}
+
 public class RePlay : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
