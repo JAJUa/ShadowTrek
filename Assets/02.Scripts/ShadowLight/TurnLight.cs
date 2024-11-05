@@ -77,7 +77,7 @@ public class TurnLight : InteractiveObject
         Vector3 target = new Vector3(transform.eulerAngles.x,angle , transform.eulerAngles.z);
          transform.DORotate(target, turnSpeed, RotateMode.FastBeyond360).OnComplete(()=>
          {
-             interactiveLight.ChangeTileColor();
+             //interactiveLight.ChangeTileColor();
              if(!isResetLight)InGameManager.Inst.OnlyPlayerReplay(isPapaStay,lightFinished);
              });
     }

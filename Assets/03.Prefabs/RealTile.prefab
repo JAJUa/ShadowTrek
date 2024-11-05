@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274271051398804464}
-  m_Layer: 0
+  - component: {fileID: 2436796978057609284}
+  m_Layer: 16
   m_Name: RealTile
-  m_TagString: Untagged
+  m_TagString: MoveTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +34,22 @@ Transform:
   - {fileID: 2911484277161845385}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2436796978057609284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867899243783897239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb21dc0e80c5a74c90e92f3d7590c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLight: 0
+  character: {fileID: 0}
+  isEndTile: 0
+  lightMat: {fileID: 2100000, guid: ac8354f5380d3ef4fbc92673bccb9087, type: 2}
 --- !u!1 &2266550493707774999
 GameObject:
   m_ObjectHideFlags: 0

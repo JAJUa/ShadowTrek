@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
-    public Vector3 autoLight, autoLightPos;
-    public InteractiveLights interactiveLight;
 
     public virtual void AutoLight() { }
 
@@ -16,10 +14,5 @@ public class InteractiveObject : MonoBehaviour
 
     public virtual void TurnAction() { }
 
-    private void OnDrawGizmos()
-    {  
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position + autoLightPos, autoLight);
-        
-    }
+  
 }

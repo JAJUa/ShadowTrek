@@ -51,6 +51,7 @@ public class CutSceneManager : MonoBehaviour
     void OnTimelineStopped(PlayableDirector director)
     {
         Debug.Log("타임라인 재생이 끝났습니다.");
+        
         TutorialManager.Inst.FinshTutorial();
         transform.gameObject.SetActive(false);
     }
@@ -103,7 +104,7 @@ public class CutSceneManager : MonoBehaviour
     public void StopCutScene()
     {
         InGameManager.Inst.isCutsceneIn = false;
-        if (up != null)
+        if (up)
         {
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);

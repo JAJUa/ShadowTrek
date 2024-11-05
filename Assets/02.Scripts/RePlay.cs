@@ -135,8 +135,7 @@ public class RePlay : MonoBehaviour
             InGameManager.Inst.isInteractionDetect = false;
             InGameManager.Inst.moveBlock = false;
         }
-       
-        if(isPapaStay) InGameManager.Inst.CheckReplay();
+        
     }
 
     // LineRenderer

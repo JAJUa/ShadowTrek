@@ -13,7 +13,7 @@ public class MoveTutorial : Tutorial
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(haveCutScene + "움직임");
     }
 
     // Update is called once per frame
@@ -32,6 +32,8 @@ public class MoveTutorial : Tutorial
                 }
                 else
                 {
+
+                    Debug.Log("컷씬 없음");
                     TutorialManager.Inst.FinshTutorial();
                 }
             }

@@ -6,9 +6,11 @@ using VInspector;
 
 public class Lever : InteractiveObject
 {
-    [SerializeField] GameObject[] turnOnOffLights;
+    
+
+    [SerializeField] private Lamp lamp;
+    
     [SerializeField] bool isTurnOn = false;
-    [SerializeField] LayerMask layerMask;
     [SerializeField] bool autoBool;
     Animator animator;
     
@@ -16,13 +18,7 @@ public class Lever : InteractiveObject
     void Start()
     {
         isTurnOn = false;
-        layerMask += LayerMask.GetMask("Player");
-        foreach (GameObject light in turnOnOffLights)
-        {
-            light.gameObject.SetActive(isTurnOn);
-            float intensity = isTurnOn ? 1000 : 0;
-            light.GetComponent<Light>().intensity = intensity;
-        }
+      
         
         animator = GetComponent<Animator>();
     }
@@ -32,26 +28,7 @@ public class Lever : InteractiveObject
     {
         TurnLight(false,true);
     }
-
-    public override void AutoLight()
-    {
-        if (autoBool)
-        {
-            Collider[] colliders = Physics.OverlapBox(transform.position + autoLightPos, autoLight /2, Quaternion.identity, layerMask);
-            if (colliders.Length > 0)
-            {
-                if (!isTurnOn)
-                    TurnLight(true);
-            }
-            else
-            {
-                if (isTurnOn)
-                    TurnLight(false);
-            }
-        }
-       
-    }
-
+    
 
     public void CutSceneTurnLight(bool turnOn)
     {
@@ -60,7 +37,8 @@ public class Lever : InteractiveObject
 
     public void TurnLight(bool isResetLight = false)
     {
-      OnOff(!isTurnOn, isResetLight);  
+        isTurnOn = !isTurnOn;
+        OnOff(isTurnOn, isResetLight);  
       
     }
     public void TurnLight(bool turnOn,bool isResetLight = false)
@@ -69,16 +47,21 @@ public class Lever : InteractiveObject
 
     }
 
-    public void OnOff(bool turnOn, bool isResetLight = false)
+    public void OnOff(bool turnOn, bool isResetLight = false) //isResetLight 없앨 예정
     {
         if(AudioManager.Inst !=null)
             AudioManager.Inst.AudioEffectPlay(1);
+        lamp.TargetTileLighting(turnOn);
+        if (isTurnOn) animator.SetTrigger("Right");
+        else animator.SetTrigger("Left");
+        
+        /*
+       
         if (!isResetLight) InGameManager.Inst.OnlyPlayerReplay(true,false);
         foreach (GameObject light in turnOnOffLights) light.gameObject.SetActive(true);
         isTurnOn = turnOn;
 
-        if (isTurnOn) animator.SetTrigger("Right");
-        else animator.SetTrigger("Left");
+      
         float intensity = isTurnOn ? 1000 : 0;
         DOVirtual.DelayedCall(0.3f, () =>
         {
@@ -86,15 +69,16 @@ public class Lever : InteractiveObject
             {
                 light.GetComponent<Light>().DOIntensity(intensity, 0.5f);
                 Debug.Log(isTurnOn);
-                if (!isTurnOn) interactiveLight.TileColorDefault();
+               // if (!isTurnOn) interactiveLight.TileColorDefault();
                 DOVirtual.DelayedCall(0.2f, () =>
                 {
                     light.SetActive(isTurnOn);
-                    if (isTurnOn == true) interactiveLight.ChangeTileColor();
+                 //   if (isTurnOn == true) interactiveLight.ChangeTileColor();
 
                 });
 
             }
         });
+        */
     }
 }

@@ -5,12 +5,21 @@ using UnityEngine.Events;
 
 public class InteractTutorial : Tutorial
 {
-    public UnityEvent specialEvent;
-    // Start is called before the first frame update
-    void Start()
+   
+    [SerializeField] Transform dialougeObj;
+    Dialouge dialogue;
+
+    private void Awake()
     {
-        
+        dialogue = dialougeObj.GetComponentInChildren<Dialouge>();
     }
+
+    public override IEnumerator Excute()
+    {
+        yield return base.Excute();
+        dialogue.isTutorial = true;
+    }
+
 
     public void ExcuteSpecialEvent()
     {
@@ -18,9 +27,5 @@ public class InteractTutorial : Tutorial
             specialEvent.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

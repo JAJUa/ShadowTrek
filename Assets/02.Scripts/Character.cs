@@ -4,8 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum CharacterRole
+{
+    Sera,
+    Papa
+};
 public class Character : MonoBehaviour
 {
+    public CharacterRole role;
     [HideInInspector] public PathFind pathFind;
     public List<PointInTime> pointInTime;
     public Animator animator;
@@ -47,7 +53,8 @@ public class Character : MonoBehaviour
                     {
                         Debug.Log("ClickTile");
                         InGameManager.Inst.moveBlock = true;
-
+                        Tile tile = TileFinding.GetOneTile(transform.position);
+                        tile.character = null;
                         Vector3 tilePosition = hit.collider.transform.position;
 
                         Vector3Int startPos = Vector3Int.RoundToInt(transform.position);

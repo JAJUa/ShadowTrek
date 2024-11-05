@@ -94,6 +94,10 @@ public class InGameManager : MonoBehaviour
             papa.gameObject.SetActive(false);
     }
 
+    public void PapaActive(bool isActive) => papa.gameObject.SetActive(isActive);
+      
+    
+
 
     public void GameReStart()
     {
@@ -120,7 +124,7 @@ public class InGameManager : MonoBehaviour
 
         papa.gameObject.SetActive(false);
         player.playerInLight();
-        TileMoveScript.Inst.ResetLight();
+       // TileMoveScript.Inst.ResetLight();
         DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; RePlay.Inst.ResetReplayLine();
             player.pointInTime.Insert(0, new PointInTime(player.transform.position, player.transform.rotation)); answerManager.SeraTile(); });
     }
@@ -137,7 +141,7 @@ public class InGameManager : MonoBehaviour
         DOVirtual.DelayedCall(0.8f,()=> papa.ResetPos());
         RePlay.Inst.RestartReplayMode();
         player.playerInLight();
-        TileMoveScript.Inst.ResetLight();
+       // TileMoveScript.Inst.ResetLight();
         DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; }) ;
         
     }
@@ -196,7 +200,7 @@ public class InGameManager : MonoBehaviour
         {
             if (isAnswering) AnswerManager.Inst.PapaTile();
             isInteractionDetect = true;
-            if(!lightFinished)TileMoveScript.Inst.TurnAction();
+           // if(!lightFinished)TileMoveScript.Inst.TurnAction();
             RePlay.Inst.ReMove(isPapaStay);
           
         }
@@ -208,10 +212,7 @@ public class InGameManager : MonoBehaviour
         cam.transform.DORotate(new Vector3(camRot.x, camRot.y, camRot.z), 1f);
     }
 
-    public void CheckReplay()
-    {
-        player.CheckReplay();
-    }
+
 
     public void DetectCharacterLight()
     {

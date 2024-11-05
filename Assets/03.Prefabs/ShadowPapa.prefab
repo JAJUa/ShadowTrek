@@ -476,6 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efda3af72aeed134a914b0072900fd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  role: 1
   pathFind: {fileID: 0}
   pointInTime: []
   animator: {fileID: 4007636592554320458}

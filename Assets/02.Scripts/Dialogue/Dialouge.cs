@@ -1,21 +1,24 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.Serialization;
 using VInspector;
 
 public class Dialouge : MonoBehaviour
 {
+    [SerializeField] private List<Tile> interactPosTiles = new List<Tile>();
     [Space(10)]
     [Header("-- Dialouge System --")]   
-    public float duration = 0.7f;
-    public Canvas pictureCanvas;
+    private float duration = 0.7f;
     public bool isTutorial;
+    public CharacterRole interactRole;
 
-    public enum Type { text, takeObj, picture, ClickCutScene, ClickLever, LampRotation };
-    public enum ObjType { key };
+    public enum Type { text, ClickLever, LampRotation };
     public Type type;
 
     [SerializeField] Color defaultColor, answerColor;
@@ -24,39 +27,14 @@ public class Dialouge : MonoBehaviour
     [ShowIfEnum("type", (int)Type.text)]
     public Image dialougeBox; 
 
-    /*
-    [Foldout("Take key")]
-    [ShowIfEnum("type", (int)Type.takeObj)]
-    public ObjType objType;
-    [ShowIfEnum("objType", (int)ObjType.key)]
-    [SerializeField] int keyIndex;
-
-    [Foldout("Picture")]
-    [ShowIfEnum("type", (int)Type.picture)]
-    [SerializeField] Sprite picture;
-    [ShowIfEnum("type", (int)Type.picture)]
-    [SerializeField][TextArea] string message;
-    TextMeshProUGUI inforText;
-
-    [Foldout("ClickCutScene")]
-    [ShowIfEnum("type", (int)Type.ClickCutScene)]
-    [SerializeField] GameObject cutSceneObj;
-
-    [Foldout("ClickLever")]
-    [ShowIfEnum("type", (int)Type.ClickLever)]
-    [SerializeField] GameObject lever;
-
-    [Foldout("RampRot")]
-    [ShowIfEnum("type", (int)Type.LampRotation)]
-    [SerializeField] GameObject lamp;
-    */
+  
 
     [Space(10)]
     [Header("-- Collider --")]
 
     [SerializeField] Vector3 colliderTrans;
     [SerializeField] Vector3 colliderSize;
-    [SerializeField] LayerMask layerMask;
+     [SerializeField]LayerMask tileLayerMask;
 
     [SerializeField] private RectTransform interTransform, dialoTransform;
     private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
@@ -67,6 +45,27 @@ public class Dialouge : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + colliderTrans, colliderSize * 2);
     }
+
+    private void Awake()
+    {
+       GetInteractPosTile();
+       int layer = LayerMask.NameToLayer("MoveTile"); // 레이어 번호 가져오기
+       tileLayerMask = 1 << layer; //레이어는 비트마스크 형식
+    }
+
+    private void GetInteractPosTile() //감지할 타일 가져옴
+    {
+        Collider[] hit = Physics.OverlapBox(transform.position + colliderTrans, colliderSize, Quaternion.identity, tileLayerMask);
+        if (hit.Length > 0)
+        {
+            foreach (var tile in (hit))
+            {
+                if(tile.transform.parent.TryGetComponent(out Tile tileCs))
+                    interactPosTiles.Add(tileCs);
+            }
+        }
+    }
+
     private void Start()
     {
        // layerMask += LayerMask.GetMask("Papa");
@@ -98,7 +97,6 @@ public class Dialouge : MonoBehaviour
             {
                 InterFade(true);
                 if (type == Type.text) DialoFade(false);
-
                 return;
             }
             else
@@ -109,94 +107,61 @@ public class Dialouge : MonoBehaviour
                 List<RaycastResult> results = new List<RaycastResult>();
                 EventSystem.current.RaycastAll(pointerEventData, results);
 
-                foreach (RaycastResult result in results)
+                if(results.Any(result => result.gameObject == interBox.gameObject))
                 {
-                    if (result.gameObject == interBox.gameObject)//InterBox 클릭 했을 때
-                    {
-                        InterFade(false);
-                        if (type == Type.text) DialoFade(true);
-                       
-                        Interact();
-
-                        return;
-                    }
+                    InterFade(false);
+                    if (type == Type.text) DialoFade(true);
+                    Interact();
+                    return;
                 }
 
                 // Inter Object Click
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                Transform current = transform;
-                GameObject findObject = null;
-
-                while (current != null)
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                    if (current.CompareTag("AutoLight"))
-                    {
-                        findObject = current.gameObject;
-                        break;
-                    }
-                    current = current.parent;
-                }
-
-                if (Physics.Raycast(ray, out hit) && current != null)
-                {
-                    if (hit.collider.gameObject == findObject)
+                    if (hit.transform.TryGetComponent(out InteractiveObject interactObj) && hit.transform == transform.parent)
                     {
                         InterFade(false);
-                        if (InGameManager.Inst.isAnswering) AnswerManager.Inst.PapaTile();
-           
-
                         if (type == Type.text) DialoFade(true);
-
                         Interact();
-
                         return;
                     }
                 }
+
             }
         }
     }
 
-    private void FixedUpdate() // 클릭했을 때로 바꾸기
+
+    [Button]
+    public void CharacterInInteractPos()
     {
-        if (!InGameManager.Inst.isAnswering)
+        Debug.Log("감지해야함");
+        foreach (var tile in interactPosTiles)
         {
-            Collider[] hit = Physics.OverlapBox(transform.position + colliderTrans, colliderSize, Quaternion.identity, layerMask);
-            if (hit.Length > 0)
+            if (tile.character && tile.character.role ==interactRole )
             {
-                //Debug.Log("올라가-1");
-                if (!isInterActiveing && !onColider)
-                {
-                    //Debug.Log("올라가");
-                    InterFade(true);
-                    onColider = true;
-                }
+                InterFade(true); 
+                Debug.Log("캐릭터 있음"); 
+                return;
             }
-            else if (onColider)
-            {
-                InterFade(false);
-                onColider = false;
-            }
+            else InterFade(false);
         }
-       
     }
+
 
     public void InterFade(bool isFadeIn)
     {
         interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
 
         int posY = isFadeIn ? 1 : -1;
-        interBox.transform.rotation = Camera.main.transform.rotation;
-        if (isFadeIn)
-        {
-            interBox.gameObject.SetActive(true);
-        }
+        Debug.Log(posY);
+        if (isFadeIn) interBox.gameObject.SetActive(isFadeIn);
+
         isAnimating = true;
         isInterActiveing = isFadeIn;
         interBox.DOFade(isFadeIn ? 1f : 0f, duration);
-        Debug.Log(interTransform);
         interTransform.DOAnchorPosY(interTransform.anchoredPosition.y + posY, duration).SetEase(Ease.InOutSine).OnComplete(() =>
         { isAnimating = false; interBox.gameObject.SetActive(isFadeIn); });
     }
@@ -209,36 +174,20 @@ public class Dialouge : MonoBehaviour
 
     public virtual void Interact()
     {
-        /*
-        switch (type)
-        {
-            case Type.takeObj:
-                transform.parent.gameObject.SetActive(false);
-                ObjInterect();
-                break;
-            case Type.picture:
-                PictureInteract();
-                break;
-            case Type.ClickCutScene:
-                cutSceneObj.GetComponent<CutSceneManager>().StartCutScene();
-                break;
-            case Type.ClickLever:
-                lever.GetComponent<Lever>().TurnLight(true);
-                break;
-            case Type.LampRotation:
-                //lamp.GetComponent<TurnLight>().GeneralTileAppear(true, this);
-                lamp.GetComponent<TurnLight>().TurnReverse(this);
-                break;
-
-        }*/
-   
+      
 
         if (isTutorial)
             TutorialManager.Inst.FinshTutorial();
+        InGameManager.Inst.OnlyPlayerReplay();
 
         if (!InGameManager.Inst.isAnswering)
             DOVirtual.DelayedCall(0.8f, () => InterFade(true));
 
+    }
+
+    public virtual void InteractTutorial()
+    {
+        isTutorial= true;
     }
 
     public void AnswerDialogue()
@@ -258,13 +207,7 @@ public class Dialouge : MonoBehaviour
         dialoTransform.DOAnchorPos(new Vector2(dialoTransform.anchoredPosition.x + posX, dialoTransform.anchoredPosition.y + posY), duration).SetEase(Ease.InOutSine);
         dialoTransform.DOScale(isFadeIn? Vector3.one:Vector3.zero, duration).SetEase(Ease.InOutSine).OnComplete(() => { isAnimating = false; dialougeBox.gameObject.SetActive(isFadeIn); });
     }
-/*
-    void PictureInteract()
-    {
-        pictureCanvas.transform.GetChild(1).GetComponent<Image>().sprite = picture;
-        pictureCanvas.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = message;
-        pictureCanvas.enabled = true;
-    }*/
+
 
 
   

@@ -487,10 +487,6 @@ MonoBehaviour:
     m_Bits: 131072
   interTransform: {fileID: 2272579101868509866}
   dialoTransform: {fileID: 0}
-  isInterActiveing: 0
-  isdialoActiveing: 0
-  isAnimating: 0
-  onColider: 0
   levera: {fileID: 2272579102633413547}
 --- !u!1 &2272579102274783735
 GameObject:
@@ -798,7 +794,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1afa5ddc0a425f74785325e68c02049d, type: 2}
-  - {fileID: -3846018093981099296, guid: e44b35dd826cf474ca5af772d4c233e7, type: 3}
+  - {fileID: 2100000, guid: 5c411b6377616204ba9f17bf6e68a84f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

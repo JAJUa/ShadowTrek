@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 
 #region Node Class
@@ -26,31 +27,31 @@ public class TileMoveScript : MonoBehaviour
 {
     #region Variable settings
     public static TileMoveScript Inst;
+    [HideInInspector]public bool checkWall;
     PathFind pathfind;
-
-    [HideInInspector]public bool checkWall; //벽 피해서 가게 하는 체크
 
     [Space(10)]
     [Header("-- GridSetting --")]
-    public int gridDistance;
     public Vector3Int bottomLeft, topRight;
     private List<GameObject> tiles = new List<GameObject>();
 
-    public GameObject[] interactionLights,autoLights;
-
-    [HideInInspector] public bool allowDiagonal, dontCrossCorner;
+    [FormerlySerializedAs("interactions")] [SerializeField] private Transform interactionLight;
+    [SerializeField]private List<Dialouge> interactionDialogues;
 
     #endregion
     private void Awake()
     {
-
-        pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
         Inst = this;
-        interactionLights = GameObject.FindGameObjectsWithTag("InteractionLight");
+        pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
+        pathfind.FindPath(bottomLeft, topRight);
+
+        for (int i = 0; i < interactionLight.childCount; i++)
+        {
+            Dialouge _dialouge = interactionLight.GetChild(i).GetComponentInChildren<Dialouge>();
+            if (_dialouge)interactionDialogues.Add(_dialouge);
+        }
         
      
-        autoLights = GameObject.FindGameObjectsWithTag("AutoLight");
-        pathfind.FindPath(bottomLeft, topRight);
 
     }     
     
@@ -131,7 +132,6 @@ public class TileMoveScript : MonoBehaviour
             if (InGameManager.Inst.inRelpayMode)
             {
                 RePlay.Inst.ReMove(false);
-                Debug.Log("Replay");
             }
 
             if (characterRole == CurCharacter.Papa)
@@ -168,7 +168,7 @@ public class TileMoveScript : MonoBehaviour
 
     private IEnumerator MoveToPosition(GameObject character, Vector3 targetPosition, float moveSpeed, PathFind pathFind, int passtile,CurCharacter characterRole,List<PointInTime> pointsInTime)
     {
-        TurnAction();
+        //TurnAction();
         // Position
         Vector3 startPosition = character.transform.position;
         float distance = Vector3.Distance(startPosition, targetPosition);
@@ -193,43 +193,29 @@ public class TileMoveScript : MonoBehaviour
             yield return null;
         }
 
-       
-        if (characterRole == CurCharacter.Papa || characterRole == CurCharacter.Player)
-        {
-            pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
-
-            if (InGameManager.Inst.inRelpayMode||InGameManager.Inst.noPapaButDetect)
-            {
-
-                DetectLight();
-
-            }
-
-
-        }
-        
-        
         character.transform.position = targetPosition;
-        InGameManager.Inst.CheckReplay();
+        //이동이 끝났을 때
+       
+        pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
+        DetectLight();
+        foreach (var dialouge in interactionDialogues)
+        {
+            dialouge.CharacterInInteractPos();
+        }
+
+
+
+        
 
     }
     #endregion
 
     public void DetectLight()
     {
-      
-        if (interactionLights.Length > 0)
-        {
-            foreach (var light in interactionLights)
-            {
-                light.GetComponent<InteractiveLights>().Detect();
-
-            }
-        }
         InGameManager.Inst.DetectCharacterLight();
 
     }
-
+/*
     public void TurnAction()
     {
         if (InGameManager.Inst.inRelpayMode)
@@ -268,7 +254,7 @@ public class TileMoveScript : MonoBehaviour
         }
     }
 
-
+*/
 
 
 

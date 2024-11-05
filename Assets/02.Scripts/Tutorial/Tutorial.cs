@@ -14,9 +14,11 @@ public class Tutorial : MonoBehaviour
 {
     [HideInInspector] public Transform player;
     [SerializeField] List<Transform> activeTiles = new List<Transform>();
+    public bool haveEvent;
     public enum Character { Daughter, Papa }
     public Character character;
-    
+    [ShowIf("haveEvent")]public UnityEvent specialEvent;
+
     private void Awake()
     {
         if (player == null)

@@ -42,14 +42,15 @@ public class ShadowModePapa : Character
 
     public override void InLight()
     {
-        if (isLight)
+        Tile tile = TileFinding.GetOneTile(transform.position);
+        tile.character = this;
+        if (tile.isLight)
         {
             InGameManager.Inst.moveBlock = true;
             dissolve.DIssolvessad(true);
             DOVirtual.DelayedCall(0,()=> CharacterDead());
             DOVirtual.DelayedCall(0.5f, () => dissolve.DIssolvessad(false));
             return;
-
         }
     }
 }
