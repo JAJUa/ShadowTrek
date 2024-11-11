@@ -9,7 +9,7 @@ public class Lanton : illuminant
     void Start()
     {
         GetTargetTileVector(7.5f);
-        TargetTileLighting();
+        TargetTileLighting(true,false);
     }
 
 

@@ -2186,7 +2186,7 @@
             Returns a copy of the Rect resized so it fits proportionally within the given size limits
             </summary>
             <param name="w">Width to fit</param>
-            <param name="h">Height to fit</param>
+            <param name="LightShooter">Height to fit</param>
             <param name="shrinkOnly">If TRUE (default) only shrinks the rect if needed, if FALSE also enlarges it to fit</param>
             <returns></returns>
         </member>

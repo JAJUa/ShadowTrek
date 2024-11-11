@@ -217,7 +217,7 @@ public class InGameManager : MonoBehaviour
     public void DetectCharacterLight()
     {
         player.InLight();
-        if (papa != null) papa.InLight();
+        if (papa != null && papa.gameObject.activeSelf) papa.InLight();
     }
 
 

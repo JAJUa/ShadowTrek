@@ -129,9 +129,11 @@ public class RePlay : MonoBehaviour
         character.transform.position = targetPosition;
         animCharacter.SetBool("isWalk", false);
         pointsInLine.RemoveAt(0);
+        if(isPapaStay)TileMoveScript.Inst.DetectLight();
+        
         if (InGameManager.Inst.isInteractionDetect)
         {
-            TileMoveScript.Inst.DetectLight();
+            
             InGameManager.Inst.isInteractionDetect = false;
             InGameManager.Inst.moveBlock = false;
         }

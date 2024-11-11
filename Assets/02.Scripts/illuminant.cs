@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 public class illuminant : MonoBehaviour
 {
     private Light light;
+ 
     public List<Vector3> targetTileVector = new List<Vector3>();
 
     protected virtual void Awake()
@@ -20,7 +21,7 @@ public class illuminant : MonoBehaviour
         targetTileVector = TileFinding.TargetingTiles(transform, offset);
     }
 
-    public virtual void TargetTileLighting(bool isLight = true)
+    public virtual void TargetTileLighting(bool isLight = true,bool detect = true)  //detect 처음 한 번 켜질 때 인덱스 까이는 판정 할건지
     {
         List<Tile> lightTiles =  TileFinding.GetTiles(targetTileVector);
         if(lightTiles.Count==0) Debug.Log("타일이 없음");
@@ -31,7 +32,8 @@ public class illuminant : MonoBehaviour
             light.DOIntensity(intensity, 0.5f).OnComplete(() => 
             {  
                 foreach (var tile in lightTiles) tile.GetLight(isLight);
-                InGameManager.Inst.DetectCharacterLight();
+                if(detect)
+                    InGameManager.Inst.DetectCharacterLight();
             });
         });
         

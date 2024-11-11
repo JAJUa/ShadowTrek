@@ -12,6 +12,6 @@ public class Lamp : illuminant
     void Start()
     {
         GetTargetTileVector(15f);
-        TargetTileLighting(false);
+        TargetTileLighting(false,false);
     }
 }

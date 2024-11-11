@@ -68,7 +68,6 @@ public class Dialouge : MonoBehaviour
 
     private void Start()
     {
-       // layerMask += LayerMask.GetMask("Papa");
         defaultColor = interBox.color;
         interTransform = interBox.GetComponent<RectTransform>();
         interTransform.anchoredPosition = new Vector2(interTransform.anchoredPosition.x, interTransform.anchoredPosition.y - 1);

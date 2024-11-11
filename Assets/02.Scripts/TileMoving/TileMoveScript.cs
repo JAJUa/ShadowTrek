@@ -35,7 +35,7 @@ public class TileMoveScript : MonoBehaviour
     public Vector3Int bottomLeft, topRight;
     private List<GameObject> tiles = new List<GameObject>();
 
-    [FormerlySerializedAs("interactions")] [SerializeField] private Transform interactionLight;
+    [FormerlySerializedAs("interactionLight")] [FormerlySerializedAs("interactions")] [SerializeField] private Transform interactionGimic;
     [SerializeField]private List<Dialouge> interactionDialogues;
 
     #endregion
@@ -45,9 +45,9 @@ public class TileMoveScript : MonoBehaviour
         pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
         pathfind.FindPath(bottomLeft, topRight);
 
-        for (int i = 0; i < interactionLight.childCount; i++)
+        for (int i = 0; i < interactionGimic.childCount; i++)
         {
-            Dialouge _dialouge = interactionLight.GetChild(i).GetComponentInChildren<Dialouge>();
+            Dialouge _dialouge = interactionGimic.GetChild(i).GetComponentInChildren<Dialouge>();
             if (_dialouge)interactionDialogues.Add(_dialouge);
         }
         

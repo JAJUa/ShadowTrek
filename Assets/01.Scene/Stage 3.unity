@@ -441,9 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71ea6f88e52040499d74133b6ec64ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoLight: {x: 0, y: 0, z: 0}
-  autoLightPos: {x: 0, y: 0, z: 0}
-  interactiveLight: {fileID: 0}
   turnSpeed: 0.5
   turnAngle: 45
   lampClickTileParent: {fileID: 129554216}
@@ -1538,14 +1535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6b1fb5bf4514346b179c34627f6e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraCenter: {fileID: 711140589}
-  rotationSpeed: 500
-  zoomSpeed: 30
-  maxOthograpicSize: 60
-  minOthograpicSize: 45
-  shakeDuration: 0.5
-  shakeMagnitude: 0.1
-  dampingSpeed: 1
   PlayerFollow: 0
   Player: {fileID: 0}
   offset: {x: -112, y: 112, z: -112}

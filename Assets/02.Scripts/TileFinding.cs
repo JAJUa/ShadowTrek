@@ -9,7 +9,7 @@ public static class TileFinding
         List<Tile> returnTiles = new List<Tile>();
         foreach (var position in lightTiles)
         {
-            Vector2 pos = new Vector2Int((int)position.x, (int)position.z);
+            Vector2Int pos = new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
             if (TileManager.Inst.GetMapTiles().TryGetValue(pos, out var tile))
             {
                 returnTiles.Add(tile);
