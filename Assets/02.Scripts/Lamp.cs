@@ -9,8 +9,15 @@ public class Lamp : illuminant
         base.Awake();
     }
 
+
+    public override void ResetLight()
+    {
+        TargetTileLighting(false,false);
+    }
+
     void Start()
     {
+        illuminantType = IlluminantType.onAction;
         GetTargetTileVector(15f);
         TargetTileLighting(false,false);
     }

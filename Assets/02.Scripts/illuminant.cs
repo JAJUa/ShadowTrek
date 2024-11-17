@@ -5,9 +5,14 @@ using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
 
+public enum IlluminantType
+{
+    always,onAction
+}
 public class illuminant : MonoBehaviour
 {
     private Light light;
+    public IlluminantType illuminantType;
  
     public List<Vector3> targetTileVector = new List<Vector3>();
 
@@ -15,13 +20,17 @@ public class illuminant : MonoBehaviour
     {
         light = GetComponentInChildren<Light>();
     }
+    
+    public virtual void ResetLight(){}
 
     protected virtual void GetTargetTileVector(float offset) //빛 밝힐 타일을 받아옴
     {
         targetTileVector = TileFinding.TargetingTiles(transform, offset);
     }
 
-    public virtual void TargetTileLighting(bool isLight = true,bool detect = true)  //detect 처음 한 번 켜질 때 인덱스 까이는 판정 할건지
+    public virtual void TargetTileLighting(){}
+  
+    public virtual void TargetTileLighting(bool isLight = true,bool action = true)  //action 한 행동으로 판단 할건지
     {
         List<Tile> lightTiles =  TileFinding.GetTiles(targetTileVector);
         if(lightTiles.Count==0) Debug.Log("타일이 없음");
@@ -32,10 +41,19 @@ public class illuminant : MonoBehaviour
             light.DOIntensity(intensity, 0.5f).OnComplete(() => 
             {  
                 foreach (var tile in lightTiles) tile.GetLight(isLight);
-                if(detect)
-                    InGameManager.Inst.DetectCharacterLight();
+                if(action)
+                   LightManager.Inst.ActionFinish();
             });
         });
         
     }
+    
+
+    public virtual void AllWaysLighting()
+    {
+        if (illuminantType != IlluminantType.always) return;
+     
+        
+    }
+    
 }

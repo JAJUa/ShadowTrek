@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4955878176563752552}
   m_Layer: 0
   m_Name: Lanton(CS)
-  m_TagString: Untagged
+  m_TagString: illuminant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d6a04515047b44ca5e0561d6dc1d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  illuminantType: 0
   targetTileVector: []
 --- !u!1 &5564772334648727993
 GameObject:

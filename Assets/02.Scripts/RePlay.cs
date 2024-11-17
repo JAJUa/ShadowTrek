@@ -51,8 +51,7 @@ public class RePlay : MonoBehaviour
 
     public void RePlayMode(GameObject character, Animator animCharacter, List<PointInTime> pointsInTime)
     {
-        FadeInFadeOut.Inst.FadeIn();
-        DOVirtual.DelayedCall(1f, ()=>FadeInFadeOut.Inst.FadeOut());
+       
         pointsInTime.Reverse();
         InGameManager.Inst.inRelpayMode = true;
         InGameManager.Inst.curCharacter = CurCharacter.Papa;
@@ -73,7 +72,7 @@ public class RePlay : MonoBehaviour
 
     public void RestartReplayMode()
     {
-        InGameManager.Inst.moveBlock = false;
+       
 
         pointsInTime = savedPointsInTime.ToList();
         pointsInLine = savedPointsInLine.ToList();
@@ -93,6 +92,7 @@ public class RePlay : MonoBehaviour
     public void ReMove(bool isPapaStay)
     {
         if (pointsInTime.Count <= 0) return;
+        Debug.Log("Remove");
         StartCoroutine(MoveToFrontTile(isPapaStay));
         pointsInTime.RemoveAt(0);
     }
@@ -129,7 +129,7 @@ public class RePlay : MonoBehaviour
         character.transform.position = targetPosition;
         animCharacter.SetBool("isWalk", false);
         pointsInLine.RemoveAt(0);
-        if(isPapaStay)TileMoveScript.Inst.DetectLight();
+        if(isPapaStay) LightManager.Inst.ActionFinish();
         
         if (InGameManager.Inst.isInteractionDetect)
         {

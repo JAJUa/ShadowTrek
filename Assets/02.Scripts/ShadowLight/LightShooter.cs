@@ -11,25 +11,30 @@ public class LightShooter : illuminant
    [Serializable]
    public struct TargetTileStruct
    {
-       public TargetTileStruct(List<Vector3> targetTileVector,int rot)
+       public TargetTileStruct(List<Tile> targetTile,int rot)
        {
-           this.targetTileVector = targetTileVector;
+           this.targetTile = targetTile;
            this.rot = rot;
-       }
-       public List<Vector3> targetTileVector;
+       } 
+       public List<Tile> targetTile;
        public int rot;
    }
+   
    [SerializeField] private List<int> detectIndex = new List<int> { 1, 3, 3 };
 
    public List<TargetTileStruct> targetTileStruct = new List<TargetTileStruct>();
-
-   [SerializeField] private int testIndex;
+   
+   [SerializeField] private int curIndex;
+   private int beginIndex;
+   private bool clockWise = true;
     void Start()
     {
-        OTT();
+        beginIndex = curIndex;
+        illuminantType = IlluminantType.always;
+        Setting();
     }
 
-    public void OTT()
+    public void Setting()
     {
         int rot = 0;
         while (rot < 360)
@@ -82,7 +87,7 @@ public class LightShooter : illuminant
                     }
                 }
             }
-            targetTileStruct.Add(new TargetTileStruct(tileList, Mathf.RoundToInt(yRot)));
+            targetTileStruct.Add(new TargetTileStruct(TileFinding.GetTiles(tileList), Mathf.RoundToInt(yRot)));
             rot += 45;
         }
 
@@ -90,20 +95,61 @@ public class LightShooter : illuminant
     }
 
     [Button]
-    public void Test()
+    public void ChangeDir()
     {
-        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, targetTileStruct[testIndex].rot, transform.rotation.eulerAngles.z),0.3f).SetEase(Ease.Linear);
-        List<Tile> tiles = TileFinding.GetTiles(targetTileStruct[testIndex].targetTileVector);
-        Debug.Log(tiles.Count);
+        clockWise = !clockWise;
+        
+        LightManager.Inst.ActionFinish();
+       
+    }
+
+    [Button]
+    public override void TargetTileLighting()
+    {
+        if(clockWise)
+            curIndex = ++curIndex >= targetTileStruct.Count ? 0 : curIndex;
+        else
+            curIndex = --curIndex < 0 ? targetTileStruct.Count-1 : curIndex;
+        int lastIndex = 0;
+        if(clockWise) lastIndex =curIndex-1<0 ? targetTileStruct.Count-1:curIndex-1; //최근 인덱스
+        else  lastIndex =curIndex+1>=targetTileStruct.Count ? 0:curIndex +1;
+        
+        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, targetTileStruct[curIndex].rot, transform.rotation.eulerAngles.z),0.3f).SetEase(Ease.Linear);
+        List<Tile> lastTiles =  targetTileStruct[lastIndex].targetTile;
+        List<Tile> tiles = targetTileStruct[curIndex].targetTile;
+        foreach (var lastTile in lastTiles)
+        {
+            lastTile.GetLight(false);
+        }
+
         foreach (var tile in tiles)
         {
             tile.GetLight(true);
         }
+ 
+       // DetectLight();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ResetLight()
     {
-        
+        AllTileLightOff();
+        curIndex = beginIndex;
+    }
+
+    private void AllTileLightOff()
+    {
+        foreach (var _targetTileStruct in targetTileStruct)
+        {
+            foreach (var tile in _targetTileStruct.targetTile)
+            {
+                tile.GetLight(false);
+            }
+        }
+    }
+
+    public override void AllWaysLighting()
+    {
+        base.AllWaysLighting();
+        TargetTileLighting();
     }
 }

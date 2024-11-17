@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 186957547746455981}
   m_Layer: 0
   m_Name: LightShooter(CS)
-  m_TagString: Untagged
+  m_TagString: illuminant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea44054517cf6d641bec06cea80c6342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  illuminantType: 0
   targetTileVector: []
+  detectIndex: 010000000300000003000000
   targetTileStruct: []
+  curIndex: 0
 --- !u!1 &722604662746989048
 GameObject:
   m_ObjectHideFlags: 0

@@ -87,7 +87,7 @@ public class Player : Character
             if (isReplay && !InGameManager.Inst.inRelpayMode)
             {
                 InGameManager.Inst.StopMoving();
-                EnterReplayMode();
+                InGameManager.Inst.EnterReplayMode();
             }
             else if (InGameManager.Inst.inRelpayMode || !isReplay)
             {

@@ -14,6 +14,7 @@ TagManager:
   - Pet
   - SNS
   - Interaction
+  - illuminant
   layers:
   - Default
   - TransparentFX

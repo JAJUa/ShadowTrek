@@ -155,7 +155,6 @@ public class Dialouge : MonoBehaviour
         interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
 
         int posY = isFadeIn ? 1 : -1;
-        Debug.Log(posY);
         if (isFadeIn) interBox.gameObject.SetActive(isFadeIn);
 
         isAnimating = true;

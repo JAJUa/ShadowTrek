@@ -25,5 +25,22 @@ public  class TileManager:MonoBehaviour
     }
     public Dictionary<Vector2, Tile> GetMapTiles()=> new Dictionary<Vector2, Tile>(mapTiles);
 
+    public void SetLightsTile() //타일 빛 적용
+    {
+        foreach (var tile in mapTiles.Values)
+        {
+            tile.SetLight();
+        }
+    }
+
+    public void LightOffAllTiles()
+    {
+        foreach (var tile in mapTiles.Values)
+        {
+            tile.GetLight(false);
+            tile.SetLight();
+        }
+    }
+
 }
 

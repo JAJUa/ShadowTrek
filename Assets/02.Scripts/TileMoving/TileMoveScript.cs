@@ -33,7 +33,7 @@ public class TileMoveScript : MonoBehaviour
     [Space(10)]
     [Header("-- GridSetting --")]
     public Vector3Int bottomLeft, topRight;
-    private List<GameObject> tiles = new List<GameObject>();
+    private List<GameObject> tiles = new List<GameObject>(); //A* 타일임 
 
     [FormerlySerializedAs("interactionLight")] [FormerlySerializedAs("interactions")] [SerializeField] private Transform interactionGimic;
     [SerializeField]private List<Dialouge> interactionDialogues;
@@ -197,11 +197,8 @@ public class TileMoveScript : MonoBehaviour
         //이동이 끝났을 때
        
         pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
-        DetectLight();
-        foreach (var dialouge in interactionDialogues)
-        {
-            dialouge.CharacterInInteractPos();
-        }
+        
+        LightManager.Inst.ActionFinish();
 
 
 
@@ -210,51 +207,7 @@ public class TileMoveScript : MonoBehaviour
     }
     #endregion
 
-    public void DetectLight()
-    {
-        InGameManager.Inst.DetectCharacterLight();
-
-    }
-/*
-    public void TurnAction()
-    {
-        if (InGameManager.Inst.inRelpayMode)
-        {
-            if (autoLights.Length > 0)
-            {
-                foreach (var light in autoLights)
-                {
-                    light.GetComponent<InteractiveObject>().TurnAction();
-                }
-            }
-         
-        }
-        else
-        {
-            if (autoLights.Length > 0)
-            {
-                foreach (var light in autoLights)
-                {
-                    light.GetComponent<InteractiveObject>().AutoLight();
-                }
-            }
-        }
-    }
-
-
-
-    public void ResetLight()
-    {
-        if (autoLights.Length > 0)
-        {
-            foreach(var obj in autoLights)
-            {
-                obj.GetComponent<InteractiveObject>().ResetObj();
-            }
-        }
-    }
-
-*/
+    
 
 
 
