@@ -56,9 +56,9 @@ public class InGameUIManager : MonoBehaviour
         titleTexting = true;
     }
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        
+        yield return new WaitUntil(()=>InGameManager.Inst);
         if (startTitleAnim)
         {
             ShowTitleText(0.2f);

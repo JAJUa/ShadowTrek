@@ -7,22 +7,36 @@ using UnityEngine;
 public  class TileManager:MonoBehaviour
 {
     public static TileManager Inst;
-    private  Dictionary<Vector2, Tile> mapTiles = new Dictionary<Vector2, Tile>();
+    public  Dictionary<Vector2, Tile> mapTiles = new Dictionary<Vector2, Tile>();
     
     private  void Awake()
     {
+       
+        StartCoroutine(AwakeCor());
         Inst = this;
+
+    }
+
+    IEnumerator AwakeCor()
+    {
+        yield return new WaitUntil(() => DataManager.Inst);
         GameObject[] tileObj = GameObject.FindGameObjectsWithTag("MoveTile");
+        if(tileObj.Length ==0)Debug.Log("타일 감지 못함");
+        Debug.Log(tileObj.Length);
         foreach(var tile in tileObj)
         {
             if (tile.TryGetComponent(out Tile tileCs))
             {
                 Transform tileTrans = tile.transform;
-                mapTiles.Add(new Vector2((int)tileTrans.position.x,(int)tileTrans.position.z),tileCs);
+                Vector2 targetVector = new Vector2((int)tileTrans.position.x, (int)tileTrans.position.z);
+                Debug.Log(targetVector);
+                mapTiles.Add(targetVector,tileCs);
             }
         }
-    
     }
+
+  
+
     public Dictionary<Vector2, Tile> GetMapTiles()=> new Dictionary<Vector2, Tile>(mapTiles);
 
     public void SetLightsTile() //타일 빛 적용
@@ -38,6 +52,7 @@ public  class TileManager:MonoBehaviour
         foreach (var tile in mapTiles.Values)
         {
             tile.GetLight(false);
+            tile.character = null;
             tile.SetLight();
         }
     }

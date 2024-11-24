@@ -99,13 +99,15 @@ public class Character : MonoBehaviour
     {
         if (InGameManager.Inst.noPapaButDetect)
             InGameManager.Inst.GameReStart();
-        else InGameManager.Inst.PapaRestart();
+        else InGameManager.Inst.ReplayModeRestart();
     }
 
-    public virtual void ResetPos()
+    public virtual void ResetCharacter()
     {
         DOVirtual.DelayedCall(0.1f, () => transform.position = startPos);
         DOVirtual.DelayedCall(0.1f, () => transform.rotation = startRot);
+        Tile tile = TileFinding.GetOneTile(startPos);
+        tile.character = this;
     }
 
 

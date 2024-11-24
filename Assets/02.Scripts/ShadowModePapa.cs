@@ -30,9 +30,9 @@ public class ShadowModePapa : Character
    
     }
 
-   public override void  ResetPos()
+   public override void  ResetCharacter()
     {
-        base.ResetPos();
+        base.ResetCharacter();
         Debug.Log("PapaReset");
         isLight= false;
        

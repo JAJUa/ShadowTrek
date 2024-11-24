@@ -49,6 +49,7 @@ public class Lever : InteractiveObject
 
     public void OnOff(bool turnOn, bool isResetLight = false) //isResetLight 없앨 예정
     {
+        Debug.Log("Lever" + isTurnOn);
         if(AudioManager.Inst !=null)
             AudioManager.Inst.AudioEffectPlay(1);
         lamp.TargetTileLighting(turnOn);

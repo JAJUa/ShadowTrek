@@ -38,6 +38,8 @@ public class Dialouge : MonoBehaviour
 
     [SerializeField] private RectTransform interTransform, dialoTransform;
     private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
+    private Vector2 interAnchor;
+    
 
 
     private void OnDrawGizmos()
@@ -74,6 +76,7 @@ public class Dialouge : MonoBehaviour
         interBox.color = new Color(interBox.color.r, interBox.color.g, interBox.color.b, 0f);
         interBox.transform.rotation = Camera.main.transform.rotation;
         interBox.gameObject.SetActive(false);
+        interAnchor = interTransform.anchoredPosition;
 
         if (type == Type.text)
         {
@@ -141,6 +144,7 @@ public class Dialouge : MonoBehaviour
         {
             if (tile.character && tile.character.role ==interactRole )
             {
+                Debug.Log(tile.transform.position);
                 InterFade(true); 
                 Debug.Log("캐릭터 있음"); 
                 return;
@@ -153,15 +157,19 @@ public class Dialouge : MonoBehaviour
     public void InterFade(bool isFadeIn)
     {
         interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
-
-        int posY = isFadeIn ? 1 : -1;
+        
         if (isFadeIn) interBox.gameObject.SetActive(isFadeIn);
 
         isAnimating = true;
         isInterActiveing = isFadeIn;
         interBox.DOFade(isFadeIn ? 1f : 0f, duration);
-        interTransform.DOAnchorPosY(interTransform.anchoredPosition.y + posY, duration).SetEase(Ease.InOutSine).OnComplete(() =>
-        { isAnimating = false; interBox.gameObject.SetActive(isFadeIn); });
+        Vector2 targetAnchor = new Vector2(interAnchor.x,interAnchor.y + (isFadeIn?1:0));
+        interTransform.DOAnchorPosY(targetAnchor.y, duration).SetEase(Ease.InOutSine).OnComplete(() =>
+        { 
+            isAnimating = false; 
+            interBox.gameObject.SetActive(isFadeIn);
+            interTransform.anchoredPosition = targetAnchor;
+        });
     }
 
     //이거 수정 필요
@@ -176,7 +184,7 @@ public class Dialouge : MonoBehaviour
 
         if (isTutorial)
             TutorialManager.Inst.FinshTutorial();
-        InGameManager.Inst.OnlyPlayerReplay();
+        InGameManager.Inst.OnlyPlayerReplay(true);
 
         if (!InGameManager.Inst.isAnswering)
             DOVirtual.DelayedCall(0.8f, () => InterFade(true));

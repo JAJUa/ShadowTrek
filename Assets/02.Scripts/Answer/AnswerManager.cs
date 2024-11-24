@@ -38,14 +38,18 @@ public class AnswerManager : MonoBehaviour
     private void Awake()
     {
         Inst = this;
-        player = GameObject.FindGameObjectWithTag("PlayerControl").transform;
-        papa = GameObject.FindGameObjectWithTag("Papa").transform;
-        curCharacter = player;
+
+   
 
     }
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitUntil(()=>InGameManager.Inst.player || InGameManager.Inst.papa);
+        
+        player = InGameManager.Inst.player.transform;
+        papa = InGameManager.Inst.papa.transform;
+        curCharacter = player;
         tileIndex = 1;
        
         for(int i = 0; i < tilesParent.childCount; i++)

@@ -12,7 +12,6 @@ public class Player : Character
     [SerializeField] private bool isReplay; //목표 지점에 도착하면 다시 돌아갈 것인가
     [SerializeField] private Transform bwShaderSphere;
     [SerializeField] private bool seraInv;  //무적 기능 (테스트용)
-    [SerializeField] private PlayableDirector endPlayableDirector;
     [SerializeField] private int shadowIndex = 3;
 
 
@@ -65,16 +64,9 @@ public class Player : Character
         Debug.Log("판정");
         if (!tile.isLight && !seraInv)
         {
-            shadowIndex--;
-            if(shadowIndex == 1)
-            {
-                bwShaderSphere.DOScale(300, 1f);
-            }
-            if(shadowIndex == 0)
-            {
-                CharacterDead();
-                return;
-            }
+           
+            SetShadowIndex( --shadowIndex);
+         
         }
         else
         {
@@ -82,31 +74,54 @@ public class Player : Character
             
         }
 
+       
         if (tile.isEndTile)
         {
             if (isReplay && !InGameManager.Inst.inRelpayMode)
             {
                 InGameManager.Inst.StopMoving();
                 InGameManager.Inst.EnterReplayMode();
+                seraInv = false;
             }
             else if (InGameManager.Inst.inRelpayMode || !isReplay)
             {
                 InGameManager.Inst.StopMoving();
                 InGameManager.Inst.moveBlock = true;
-                endPlayableDirector.Play();
+                InGameManager.Inst.StartEndCutScene();
             }
            
         }
     }
+    
+    private void SetShadowIndex(int _shadowIndex)
+    {
+        shadowIndex = _shadowIndex;
+        
+        if(shadowIndex == 1)
+        {
+            bwShaderSphere.DOScale(300, 0.5f);
+        }
+        if(shadowIndex == 0)
+        {
+            CharacterDead();
+            return;
+        } 
+    }
+
 
     [Button]
     public void playerInLight() //플레이어 빛에 닿게
     {
         isLight = false;
         bwShaderSphere.DOScale(0, 0.5f);
-        shadowIndex = 3;
+        SetShadowIndex(3);
     }
 
-
+    public override void ResetCharacter()
+    {
+        base.ResetCharacter();
+        playerInLight();
+        
+    }
 }
 

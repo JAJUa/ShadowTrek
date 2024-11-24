@@ -27,8 +27,9 @@ public class LightShooter : illuminant
    [SerializeField] private int curIndex;
    private int beginIndex;
    private bool clockWise = true;
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitUntil(() => TileManager.Inst);
         beginIndex = curIndex;
         illuminantType = IlluminantType.always;
         Setting();
@@ -99,7 +100,7 @@ public class LightShooter : illuminant
     {
         clockWise = !clockWise;
         
-        LightManager.Inst.ActionFinish();
+       // LightManager.Inst.ActionFinish();
        
     }
 

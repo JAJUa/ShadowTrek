@@ -30,20 +30,17 @@ public class illuminant : MonoBehaviour
 
     public virtual void TargetTileLighting(){}
   
-    public virtual void TargetTileLighting(bool isLight = true,bool action = true)  //action 한 행동으로 판단 할건지
+    public virtual void TargetTileLighting(bool isLight ,bool action = true)  //action 한 행동으로 판단 할건지
     {
         List<Tile> lightTiles =  TileFinding.GetTiles(targetTileVector);
         if(lightTiles.Count==0) Debug.Log("타일이 없음");
+        Debug.Log("lamp"+ isLight);
         
         float intensity = isLight ? 1000 : 0;
+        foreach (var tile in lightTiles) tile.GetLight(isLight);
         DOVirtual.DelayedCall(0.3f, () =>
         {
-            light.DOIntensity(intensity, 0.5f).OnComplete(() => 
-            {  
-                foreach (var tile in lightTiles) tile.GetLight(isLight);
-                if(action)
-                   LightManager.Inst.ActionFinish();
-            });
+            light.DOIntensity(intensity, 0.5f);
         });
         
     }

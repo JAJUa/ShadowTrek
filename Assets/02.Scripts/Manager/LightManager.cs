@@ -17,12 +17,20 @@ public class LightManager : MonoBehaviour
         Inst = this;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(()=>InGameManager.Inst);
+        //수정예정
+        interactionGimic = GameObject.Find("InteractionGimic").transform; 
+        interactionLights = GameObject.Find("InteractionLight").transform;
+        interactionBoth = GameObject.Find("InteractionBoth").transform;
+        //
         CollectComponents(interactionGimic,interactionDialogues);
         CollectComponents(interactionBoth,interactionDialogues);
         CollectComponents(interactionLights,illuminants);
         CollectComponents(interactionBoth,illuminants);
+        yield return new WaitUntil(()=>TileManager.Inst.mapTiles.Count>0);
+        Debug.Log("빠른 액션");
         ActionFinish();
     }
     
@@ -55,22 +63,44 @@ public class LightManager : MonoBehaviour
     public void ActionFinish() //한 행동이 끝났을 때
     {
         Debug.Log("ActionFinish");
+        DetectCharacterLight();
+       CheckDialougePos();
+        
+       
+    }
+    
+    public void NonDetectActionFinish() //한 행동이 끝났을 때 하지만 캐릭터들 InLight 안시킴
+    {
+        Debug.Log("ActionFinish");
+        SetLights();
+        CheckDialougePos();
+        
+       
+    }
+
+
+    public void CheckDialougePos()
+    {
         foreach (var dialouge in interactionDialogues)
         {
             dialouge.CharacterInInteractPos();
         }
-        
-        DetectCharacterLight();
     }
-    
-    public void DetectCharacterLight()
+
+    private void SetLights()
     {
-        
+        Debug.Log("SetLights");
         foreach (var illuminant in illuminants)
         {
             illuminant.AllWaysLighting();
         }
         TileManager.Inst.SetLightsTile();
+    }
+    
+    public void DetectCharacterLight()
+    {
+        SetLights();
+      
         
         InGameManager.Inst.player.InLight();
         if ( InGameManager.Inst.papa != null &&  InGameManager.Inst.papa.gameObject.activeSelf)  InGameManager.Inst.papa.InLight();

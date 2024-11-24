@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +21,13 @@ namespace Collections.Shaders.CircleTransition
 
         private void Awake()
         {
-            player = GameObject.Find("BS_Transform").transform;
+           
             _canvas = GetComponent<Canvas>();
+        }
+
+        private void Start()
+        {
+           // player = GameObject.Find("BS_Transform").transform;
         }
 
         private void DrawBlackScreen()

@@ -34,31 +34,23 @@ public class TileMoveScript : MonoBehaviour
     [Header("-- GridSetting --")]
     public Vector3Int bottomLeft, topRight;
     private List<GameObject> tiles = new List<GameObject>(); //A* 타일임 
-
-    [FormerlySerializedAs("interactionLight")] [FormerlySerializedAs("interactions")] [SerializeField] private Transform interactionGimic;
-    [SerializeField]private List<Dialouge> interactionDialogues;
+    
 
     #endregion
     private void Awake()
     {
-        Inst = this;
-        pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
-        pathfind.FindPath(bottomLeft, topRight);
-
-        for (int i = 0; i < interactionGimic.childCount; i++)
-        {
-            Dialouge _dialouge = interactionGimic.GetChild(i).GetComponentInChildren<Dialouge>();
-            if (_dialouge)interactionDialogues.Add(_dialouge);
-        }
         
-     
-
     }     
     
 
-    private void Start()
+    private IEnumerator Start()
     {
-
+        yield return new WaitUntil(()=>DataManager.Inst);
+        Inst = this;
+        bottomLeft = DataManager.Inst.mapData[0].minMapSize;
+        topRight = DataManager.Inst.mapData[0].maxMapSize;
+        pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
+        pathfind.FindPath(bottomLeft, topRight);
         checkWall = true;
 
     }

@@ -15,7 +15,7 @@ public class Tile : MonoBehaviour
 
     private Transform clickTile;
     private Renderer renderer;
-    private List<bool> isLightArray = new List<bool>(); 
+    [SerializeField]private List<bool> isLightArray = new List<bool>(); 
 
 
     private void Awake()

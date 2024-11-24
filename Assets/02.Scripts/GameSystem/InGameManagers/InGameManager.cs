@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -47,7 +48,7 @@ public class InGameManager : MonoBehaviour
   
 
 
-    void Awake()
+    private void Awake()
     {
         //Dont Create 2 GameManager
         if (Inst != null && Inst != this)
@@ -59,27 +60,36 @@ public class InGameManager : MonoBehaviour
         {
             Inst = this;
         }
-        answerManager = GetComponent<AnswerManager>();
-        GameObject pl = GameObject.FindGameObjectWithTag("PlayerControl");
-        player = pl.GetComponent<Player>();
-        if (!onlyPlayer)
-        {
-            GameObject pa = GameObject.FindGameObjectWithTag("Papa");
-            papa = pa.GetComponent<ShadowModePapa>();
-        }
-
-        curCharacter = CurCharacter.Player;
-        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        camPos = new Vector3(cam.transform.position.x,cam.transform.position.y, cam.transform.position.z);
-        camRot = cam.transform.eulerAngles;
-     
     }
 
    
 
-    private void Start()
+    private IEnumerator Start()
     {
-        if (!onlyPlayer)
+        yield return new WaitUntil(()=>DataManager.Inst);
+    
+        answerManager = GetComponent<AnswerManager>();
+        
+        foreach (var spawnCharacter in DataManager.Inst.mapData[0].SpawnCharacters)
+        {
+            switch (spawnCharacter.characterRole)
+            {
+                case CharacterRole.Sera:
+                    player = Instantiate(Resources.Load<Player>("Prefab/RealPlayer"),spawnCharacter.spawnPos,quaternion.identity);
+                    break;
+                case CharacterRole.Papa:
+                    papa = Instantiate(Resources.Load<ShadowModePapa>("Prefab/ShadowPapa"),spawnCharacter.spawnPos,quaternion.identity);
+                    break;
+            }
+        }
+      
+        
+        curCharacter = CurCharacter.Player;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        camPos = new Vector3(cam.transform.position.x,cam.transform.position.y, cam.transform.position.z);
+        camRot = cam.transform.eulerAngles;
+
+        if (papa)
             papa.gameObject.SetActive(false);
     }
 
@@ -107,7 +117,7 @@ public class InGameManager : MonoBehaviour
         StopMoving();
         curCharacter = CurCharacter.Player;
        
-        DOVirtual.DelayedCall(0.8f, () => { papa.ResetPos();player.ResetPos(); inRelpayMode = false;  isAnswering = false; 
+        DOVirtual.DelayedCall(0.8f, () => { papa.ResetCharacter();player.ResetCharacter(); inRelpayMode = false;  isAnswering = false; 
                                             player.pointInTime = new List<PointInTime>();
         });
 
@@ -121,7 +131,7 @@ public class InGameManager : MonoBehaviour
     public void EnterReplayMode()
     {
         
-        Debug.Log("리플레이 모즈 진입");
+        Debug.Log("리플레이 모드 진입");
         StopMoving();
         moveBlock = true;
         TileManager.Inst.LightOffAllTiles();
@@ -136,14 +146,14 @@ public class InGameManager : MonoBehaviour
         if (isAnswering)
             AnswerManager.Inst.ChangeChracter(false);
         LightManager.Inst.ResetLights();
-        papa.ResetPos();
-        player.ResetPos();
+        papa.ResetCharacter();
+        player.ResetCharacter();
         papa.gameObject.SetActive(true);
         inRelpayMode = true;
-        DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.ActionFinish(); }) ;
+        DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.NonDetectActionFinish(); }) ;
     }
 
-    public void PapaRestart()
+    public void ReplayModeRestart()
     {
         endCutScene.StopCutScene();
         LightManager.Inst.ResetLights();
@@ -151,9 +161,10 @@ public class InGameManager : MonoBehaviour
         FadeInFadeOut.Inst.FadeIn();
         papa.gameObject.SetActive(true);
         StopMoving();
-        DOVirtual.DelayedCall(0.8f,()=> papa.ResetPos());
+        DOVirtual.DelayedCall(0.8f,()=> papa.ResetCharacter());
+        DOVirtual.DelayedCall(0.8f,()=> player.ResetCharacter());
         RePlay.Inst.RestartReplayMode();
-        DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.ActionFinish(); }) ;
+        DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.NonDetectActionFinish(); }) ;
         
     }
 
@@ -174,6 +185,11 @@ public class InGameManager : MonoBehaviour
             StopCoroutine(player.moveCoroutine);
 
       
+    }
+
+    public void StartEndCutScene()
+    {
+        endCutScene.StartCutScene();
     }
 
     private void Update()

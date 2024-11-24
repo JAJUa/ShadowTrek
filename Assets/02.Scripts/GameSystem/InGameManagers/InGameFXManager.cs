@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using Collections.Shaders.CircleTransition;
@@ -10,7 +11,7 @@ public class InGameFXManager : MonoBehaviour
 
     public float SphereSize = 230;
     public GameObject EndObjectBlackScreen, ChangerBlackScreen;
-    [ReadOnly] public Transform PlayerTransform;
+   // [ReadOnly] public Transform PlayerTransform;
     [SerializeField] Transform ShadowObjectTransform;
 
     bool On;
@@ -29,7 +30,7 @@ public class InGameFXManager : MonoBehaviour
     {
         Inst = this;
 
-        PlayerTransform = GameObject.Find("BS_Transform").transform;
+      
 
         if (tileClickParticle[0] != null)
         {
@@ -42,6 +43,10 @@ public class InGameFXManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
         if (On) { MoveToObject(); }
@@ -50,8 +55,8 @@ public class InGameFXManager : MonoBehaviour
     void MoveToObject()
     {
         if (Player)
-            EndObjectBlackScreen.transform.position = PlayerTransform.position;
-        else
+          //  EndObjectBlackScreen.transform.position = PlayerTransform.position;
+        //else
             EndObjectBlackScreen.transform.position = ShadowObjectTransform.position;
     }
 
