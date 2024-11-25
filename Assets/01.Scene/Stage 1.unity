@@ -8007,7 +8007,7 @@ PlayableDirector:
   - key: {fileID: -6629930579696310363, guid: b4c22f90ec0a3a84398601f4f4efe18e, type: 2}
     value: {fileID: 174777058}
   - key: {fileID: -5655849844618388232, guid: b4c22f90ec0a3a84398601f4f4efe18e, type: 2}
-    value: {fileID: 1303613891}
+    value: {fileID: 0}
   - key: {fileID: 6864423147955441877, guid: b4c22f90ec0a3a84398601f4f4efe18e, type: 2}
     value: {fileID: 2033191338}
   - key: {fileID: -3946127466095266302, guid: b4c22f90ec0a3a84398601f4f4efe18e, type: 2}
@@ -8015,7 +8015,7 @@ PlayableDirector:
   - key: {fileID: 6864423147955441877, guid: d0366c6931d5c994fbd1fb3b6785f423, type: 2}
     value: {fileID: 2033191338}
   - key: {fileID: -5655849844618388232, guid: d0366c6931d5c994fbd1fb3b6785f423, type: 2}
-    value: {fileID: 1303613891}
+    value: {fileID: 0}
   - key: {fileID: -6629930579696310363, guid: d0366c6931d5c994fbd1fb3b6785f423, type: 2}
     value: {fileID: 174777058}
   - key: {fileID: -3946127466095266302, guid: d0366c6931d5c994fbd1fb3b6785f423, type: 2}
@@ -8855,12 +8855,6 @@ BoxCollider:
 --- !u!1 &1303613889 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3674648245991064502, guid: 0c1873c5e90410c44815c106a012dea1,
-    type: 3}
-  m_PrefabInstance: {fileID: 2033191337}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1303613891 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7587430261220925480, guid: 0c1873c5e90410c44815c106a012dea1,
     type: 3}
   m_PrefabInstance: {fileID: 2033191337}
   m_PrefabAsset: {fileID: 0}

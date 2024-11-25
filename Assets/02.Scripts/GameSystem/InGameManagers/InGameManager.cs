@@ -70,7 +70,7 @@ public class InGameManager : MonoBehaviour
     
         answerManager = GetComponent<AnswerManager>();
         
-        foreach (var spawnCharacter in DataManager.Inst.mapData[0].SpawnCharacters)
+        foreach (var spawnCharacter in DataManager.Inst.mapData[DataManager.Inst.testMapIndex].SpawnCharacters)
         {
             switch (spawnCharacter.characterRole)
             {
@@ -155,7 +155,8 @@ public class InGameManager : MonoBehaviour
 
     public void ReplayModeRestart()
     {
-        endCutScene.StopCutScene();
+        Debug.Log("ReplayRestart");
+        //endCutScene.StopCutScene();
         LightManager.Inst.ResetLights();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();

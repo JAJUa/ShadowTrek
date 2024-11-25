@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using VInspector;
@@ -26,7 +28,12 @@ public class CameraMove : MonoBehaviour
        // Player = GameObject.Find("BS_Transform").transform;
     }
 
-
+    private IEnumerator Start()
+    {
+        yield return new WaitUntil(() => MapPrefabData.Inst);
+        transform.position = MapPrefabData.Inst.camPos;
+        transform.LookAt(MapPrefabData.Inst.camRot);
+    }
 
 
     private void FixedUpdate()

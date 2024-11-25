@@ -50,7 +50,7 @@ public class ShadowModePapa : Character
             Debug.Log("papaDead");
             InGameManager.Inst.moveBlock = true;
             dissolve.DIssolvessad(true);
-            DOVirtual.DelayedCall(0,()=> CharacterDead());
+            CharacterDead();
             DOVirtual.DelayedCall(0.5f, () => dissolve.DIssolvessad(false));
             return;
         }

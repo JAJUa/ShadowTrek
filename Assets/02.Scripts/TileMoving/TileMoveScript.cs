@@ -47,8 +47,8 @@ public class TileMoveScript : MonoBehaviour
     {
         yield return new WaitUntil(()=>DataManager.Inst);
         Inst = this;
-        bottomLeft = DataManager.Inst.mapData[0].minMapSize;
-        topRight = DataManager.Inst.mapData[0].maxMapSize;
+        bottomLeft = DataManager.Inst.mapData[DataManager.Inst.testMapIndex].minMapSize;
+        topRight = DataManager.Inst.mapData[DataManager.Inst.testMapIndex].maxMapSize;
         pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
         pathfind.FindPath(bottomLeft, topRight);
         checkWall = true;

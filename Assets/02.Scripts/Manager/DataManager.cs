@@ -8,7 +8,7 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Inst;
-    [SerializeField] private int testMapIndex;
+    public int testMapIndex;
     
     [Serializable]
     public struct MapData

@@ -21,20 +21,26 @@ public class Tutorial : MonoBehaviour
 
     private void Awake()
     {
+        
+
+       
+    }
+
+    private IEnumerator Start()
+    {
+        yield return new WaitUntil(() => InGameManager.Inst);
         if (player == null)
         {
             switch (character)
             {
                 case Character.Daughter:
-                    player = GameObject.FindGameObjectWithTag("PlayerControl").transform;
+                    player = InGameManager.Inst.player.transform;
                     break;
                 case Character.Papa:
-                    player = GameObject.FindGameObjectWithTag("Papa").transform;
+                    player =  InGameManager.Inst.papa.transform;
                     break;
             }
         }
-
-       
     }
 
     public virtual IEnumerator Excute()

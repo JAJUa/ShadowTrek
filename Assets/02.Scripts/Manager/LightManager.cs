@@ -19,12 +19,12 @@ public class LightManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(()=>InGameManager.Inst);
-        //수정예정
-        interactionGimic = GameObject.Find("InteractionGimic").transform; 
-        interactionLights = GameObject.Find("InteractionLight").transform;
-        interactionBoth = GameObject.Find("InteractionBoth").transform;
-        //
+        yield return new WaitUntil(()=>InGameManager.Inst && MapPrefabData.Inst);
+        MapPrefabData mapPrefabData = MapPrefabData.Inst;
+        interactionGimic = mapPrefabData.interactionGimic; 
+        interactionLights = mapPrefabData.interactionLights;
+        interactionBoth = mapPrefabData.interactionBoth;
+        
         CollectComponents(interactionGimic,interactionDialogues);
         CollectComponents(interactionBoth,interactionDialogues);
         CollectComponents(interactionLights,illuminants);
@@ -36,6 +36,8 @@ public class LightManager : MonoBehaviour
     
     void CollectComponents<T>(Transform parent, List<T> components) where T : Component
     {
+        if (parent.childCount == 0) return;
+        
         for (int i = 0; i < parent.childCount; i++)
         {
             var child = parent.GetChild(i);

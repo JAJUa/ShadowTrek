@@ -13,8 +13,8 @@ TagManager:
   - Papa
   - Pet
   - SNS
-  - Interaction
   - illuminant
+  - Interactions
   layers:
   - Default
   - TransparentFX
