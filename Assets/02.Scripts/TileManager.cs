@@ -11,15 +11,6 @@ public  class TileManager:MonoBehaviour
     
     private  void Awake()
     {
-       
-        StartCoroutine(AwakeCor());
-        Inst = this;
-
-    }
-
-    IEnumerator AwakeCor()
-    {
-        yield return new WaitUntil(() => DataManager.Inst);
         GameObject[] tileObj = GameObject.FindGameObjectsWithTag("MoveTile");
         if(tileObj.Length ==0)Debug.Log("타일 감지 못함");
         Debug.Log(tileObj.Length);
@@ -29,11 +20,18 @@ public  class TileManager:MonoBehaviour
             {
                 Transform tileTrans = tile.transform;
                 Vector2 targetVector = new Vector2((int)tileTrans.position.x, (int)tileTrans.position.z);
-                Debug.Log(targetVector);
+             //   Debug.Log(targetVector);
                 mapTiles.Add(targetVector,tileCs);
             }
         }
+        if(Inst != null && Inst!=this)
+            Debug.Log("타일매니저 있음");
+        
+        Inst = this;
+
     }
+
+
 
   
 

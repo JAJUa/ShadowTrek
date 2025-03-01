@@ -24,18 +24,20 @@ public class EnemyTileMove : MonoBehaviour
     {
         animator= GetComponent<Animator>();
     }
+    
     // Start is called before the first frame update
     void Start()
     {
+        /*
         pointInTime = new List<PointInTime>();
         tileMove = TileMoveScript.Inst;
-        pathFind = new PathFind(new Vector3Int(-80, 2, -70), new Vector3Int(65, 2, 25), 15, true, true, LayerMask.GetMask("Ground"));
+        pathFind = new PathFind(tileMove.pathfind);
         startPos = Vector3Int.RoundToInt(transform.position);
         targetPos = targetTile[index];
         pathFind.FindPath(startPos, targetPos);
         Debug.Log("적" + pathFind.FinalNodeList.Count);
         runCoroutine = StartCoroutine(tileMove.MoveAlongPath(gameObject,animator, pathFind, moveSpeed, character,pointInTime));
-        StartCoroutine(CheckCorutineFinished());
+        StartCoroutine(CheckCorutineFinished());*/
     }
 
     private void Update()
@@ -75,8 +77,10 @@ public class EnemyTileMove : MonoBehaviour
         }
     }
 
+    /*
     private IEnumerator CheckCorutineFinished()
     {
+        
         yield return runCoroutine;
 
         startPos = Vector3Int.RoundToInt(transform.position);
@@ -93,7 +97,7 @@ public class EnemyTileMove : MonoBehaviour
         pathFind.FindPath(startPos, targetPos);
         runCoroutine = StartCoroutine(tileMove.MoveAlongPath(gameObject,animator, pathFind, moveSpeed,character,pointInTime));
         StartCoroutine(CheckCorutineFinished());
-    }
+    }*/
 
     private void OnDrawGizmos()
     {

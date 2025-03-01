@@ -12,15 +12,25 @@ using VInspector;
 using Febucci.UI;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization;
+using UnityEngine.Serialization;
 
 public class CutSceneManager : MonoBehaviour
 {
+    
+    
+    [Serializable]
+    public class DialogueCharacter
+    {
+        public Character character;
+        public CharacterRole CharacterRole;
+    }
 
-    [SerializeField] PlayableDirector playableDirector;
+
+    PlayableDirector playableDirector;
     public enum CutSceneType { startCutScene, middleCutScene }
     [SerializeField] CutSceneType cutSceneType;
     [SerializeField] RectTransform up, down;
-    [SerializeField] GameObject[] character;
+    [SerializeField] List<DialogueCharacter> dialogueCharacter;
     [SerializeField] bool isDialogue;
 
     [SerializeField] LocalizedString[] localizeName;
@@ -42,8 +52,28 @@ public class CutSceneManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitUntil(() => InGameManager.Inst.player);
+
+        for (int i = 0; i < dialogueCharacter.Count; i++)
+        {
+            
+            switch (dialogueCharacter[i].CharacterRole)
+            {
+                case CharacterRole.Sera:
+                    dialogueCharacter[i].character = InGameManager.Inst.player;
+                    break;
+                case CharacterRole.Papa:
+                    dialogueCharacter[i].character = InGameManager.Inst.papa;
+                    break;
+                
+            }
+        }
+ 
+        
+        playableDirector = GetComponent<PlayableDirector>();
+        
         if (cutSceneType == CutSceneType.startCutScene) StartCutScene();
         else playableDirector.stopped += OnTimelineStopped;
     }
@@ -74,6 +104,22 @@ public class CutSceneManager : MonoBehaviour
             });
         this.dialogueIndex++;
     }
+
+    [Button]
+    public void DialogueTexting() //클릭해서 넘어가는 다이얼로그
+    {
+        if (dialogueIndex >= localizeName.Length)
+        {
+            CloseText(0);
+            return;
+        }
+        dialogueImage[0].DOFade(1, 0.3f);
+        dialogueText[0].DOFade(1, 0.5f);
+        localizeStringEvent[0].StringReference = localizeName[this.dialogueIndex];
+        dialogueTypeWriter[0].ShowText(localizeName[this.dialogueIndex].GetLocalizedString());
+        this.dialogueIndex++;
+    }
+    
     
 
     
@@ -90,9 +136,10 @@ public class CutSceneManager : MonoBehaviour
     {
         if (isDialogue)
         {
-            for(int i = 0; i<character.Length; i++)
+            for(int i = 0; i<dialogueCharacter.Count; i++)
             {
-                dialogueImage[i].transform.position = character[i].transform.position + new Vector3(0, 16, 0);
+                if(!dialogueCharacter[i].character) return;
+                dialogueImage[i].transform.position = dialogueCharacter[i].character.transform.position + new Vector3(0, 16, 0);
                 
                 dialogueImage[i].transform.rotation = Camera.main.transform.rotation;
             }

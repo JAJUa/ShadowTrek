@@ -1651,6 +1651,7 @@ GameObject:
   - component: {fileID: 6356770279524317024}
   - component: {fileID: 3674648245410727885}
   - component: {fileID: 9213480062671875019}
+  - component: {fileID: 1905694948731869494}
   m_Layer: 14
   m_Name: RealPlayer
   m_TagString: PlayerControl
@@ -1846,7 +1847,6 @@ MonoBehaviour:
   pathFind: {fileID: 0}
   pointInTime: []
   animator: {fileID: 3674648245351250542}
-  tileMove: {fileID: 0}
   moveSpeed: 20
   curCharacter: 0
   isLight: 0
@@ -1856,7 +1856,6 @@ MonoBehaviour:
   isReplay: 1
   bwShaderSphere: {fileID: 3674648246640385569}
   seraInv: 1
-  endPlayableDirector: {fileID: 0}
   shadowIndex: 3
 --- !u!114 &3674648245410727885
 MonoBehaviour:
@@ -1895,6 +1894,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1905694948731869494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674648245991064502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d96280d1adf554d9983c14b8d3b4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalNodeList: []
+  speed: 0
 --- !u!1 &3674648246640385570
 GameObject:
   m_ObjectHideFlags: 0

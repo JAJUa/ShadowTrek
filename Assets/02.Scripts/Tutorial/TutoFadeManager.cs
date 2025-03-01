@@ -22,14 +22,14 @@ public class TutoFadeManager : MonoBehaviour
     private IEnumerator Start()
     {
         tutorialFadeImage = tutorialFade.GetComponent<TutorialFadeImage>();
-        yield return new WaitUntil(() => GameData.Inst);
-        if (!GameData.Inst.selectionTuto1) Appear();
+        yield return new WaitUntil(() => DataManager.Inst);
+        if (!DataManager.Inst.Data.selectionTuto1) Appear();
     }
 
     [Button]
     public void Fade()
     {
-        if (!GameData.Inst.selectionTuto2)
+        if (!DataManager.Inst.Data.selectionTuto2)
         {
             Transform parent = tutoText.transform.parent;
             tutorialFade.gameObject.SetActive(true);
@@ -38,8 +38,7 @@ public class TutoFadeManager : MonoBehaviour
                 DOTween.To(() => tutorialFadeImage.Smoothness, x => tutorialFadeImage.Smoothness = x, 0.012f, .7f)
                 .OnComplete(() => { tutoText.gameObject.SetActive(true); tutoText.transform.DOScale(1, 0.5f); parent.gameObject.SetActive(true); parent.DOScale(1, 0.5f); }); ;
                 //������ ���̺� �� �ٽô� ���� �ȵǰ�
-                GameData.Inst.selectionTuto2 = true;
-                SaveSystem.Inst.SaveData();
+                DataManager.Inst.Data.selectionTuto2 = true;
             });
   
 
@@ -65,7 +64,7 @@ public class TutoFadeManager : MonoBehaviour
     [Button]
     public void Appear()
     {
-        if (!GameData.Inst.selectionTuto1)
+        if (!DataManager.Inst.Data.selectionTuto1)
         {
             MenuUIManager.Inst.ableSwipe = false;
             Disappear();
@@ -106,8 +105,7 @@ public class TutoFadeManager : MonoBehaviour
         if (swipeIndex >= t_Icon.Length)
         {
             MenuUIManager.Inst.ableSwipe = true;
-            GameData.Inst.selectionTuto1 = true;
-            SaveSystem.Inst.SaveData();
+            DataManager.Inst.Data.selectionTuto1 = true;
         }
     }
 }

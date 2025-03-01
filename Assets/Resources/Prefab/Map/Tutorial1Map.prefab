@@ -2107,12 +2107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97f2ca61bed214459aa088c8d4ca7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playableDirector: {fileID: 9035635160782991120}
   cutSceneType: 0
   up: {fileID: 9212069580047895544}
   down: {fileID: 4016026029677829384}
-  character:
-  - {fileID: 0}
+  dialogueCharacter:
+  - character: {fileID: 0}
+    CharacterRole: 0
   isDialogue: 1
   localizeName:
   - m_TableReference:
@@ -4296,11 +4296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97f2ca61bed214459aa088c8d4ca7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playableDirector: {fileID: 8809937936233768025}
   cutSceneType: 1
   up: {fileID: 9212069580047895544}
   down: {fileID: 4016026029677829384}
-  character: []
+  dialogueCharacter: []
   isDialogue: 0
   localizeName: []
   localizeStringEvent:
@@ -11718,6 +11717,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2436796978057609284, guid: 12cb42eceba9e2040922c253727bb79a,
+        type: 3}
+      propertyPath: isEndTile
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436796978057609284, guid: 12cb42eceba9e2040922c253727bb79a,
+        type: 3}
+      propertyPath: endCutScene
+      value: 
+      objectReference: {fileID: 7244798061404782807}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -8,12 +8,12 @@ public class MapPrefabData : MonoBehaviour
     public static MapPrefabData Inst;
     public Transform interactionGimic, interactionLights, interactionBoth;
     public Transform prefabCam;
-    public Vector3 camPos,camRot;
+    [HideInInspector]public Vector3 camPos,camRot;
 
     private void Awake()
     {
         camPos = prefabCam.position;
-        camRot = new Vector3(prefabCam.rotation.x, prefabCam.rotation.y, prefabCam.rotation.z);
+        camRot = new Vector3(prefabCam.rotation.eulerAngles.x, prefabCam.rotation.eulerAngles.y, prefabCam.rotation.eulerAngles.z);
         Inst = this;
     }
 }

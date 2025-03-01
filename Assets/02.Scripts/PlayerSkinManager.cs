@@ -21,7 +21,7 @@ public class PlayerSkinManager : MonoBehaviour
     IEnumerator WaitForChangeSkin()
     {
         yield return new WaitForSeconds(0.05f);
-        player.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = materials[GameData.Inst.skinNum];
+        player.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = materials[DataManager.Inst.Data.skinNum];
     }
 
     // Update is called once per frame

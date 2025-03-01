@@ -6,18 +6,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FadeInFadeOut : MonoBehaviour
+public class FadeInFadeOut : Singleton<FadeInFadeOut>
 {
-    public static FadeInFadeOut Inst;
+   
     [SerializeField] private Image fadeImage;
     [SerializeField] private string sceneName;
     // Start is called before the first frame update
     void Start()
     {
         fadeImage.enabled = true;
-        Inst = this;
-
-       
         LongFadeOut();
     }
 
@@ -52,7 +49,6 @@ public class FadeInFadeOut : MonoBehaviour
 
         fadeImage.DOFade(0, 0.15f).OnComplete(() =>
         {
-            Debug.Log("fadeOut");
             fadeImage.enabled = false;
         });
     }

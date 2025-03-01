@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 4007636592554320458}
   - component: {fileID: 4277458598106815696}
   - component: {fileID: 4277458598106815711}
+  - component: {fileID: 6699022769106411854}
   m_Layer: 17
   m_Name: ShadowPapa
   m_TagString: Papa
@@ -478,9 +479,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   role: 1
   pathFind: {fileID: 0}
+  pathFindAI: {fileID: 6699022769106411854}
   pointInTime: []
   animator: {fileID: 4007636592554320458}
-  tileMove: {fileID: 0}
   moveSpeed: 20
   curCharacter: 1
   isLight: 0
@@ -590,6 +591,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &6699022769106411854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277458598106815697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d96280d1adf554d9983c14b8d3b4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalNodeList: []
+  speed: 0
 --- !u!1 &4650507831883805258
 GameObject:
   m_ObjectHideFlags: 0

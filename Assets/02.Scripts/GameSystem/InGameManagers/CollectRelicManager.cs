@@ -47,11 +47,11 @@ public class CollectRelicManager : MonoBehaviour
 
     public void Collect(int itemType)
     {
-        Debug.Log("sss");
         uiCanvas.SetActive(true);
         StartCoroutine(Delay());
         relicName.text = chapterRelicName[itemType];
-        relicCount.text = (GameData.Inst.relicsCurCount[itemType]+1).ToString() + " / " + GameData.Inst.relicsMaxCount[itemType] + " Found";
+        var _data = DataManager.Inst.Data;
+        relicCount.text = (_data.relicsCurCount[itemType]+1).ToString() + " / " + _data.relicsMaxCount[itemType] + " Found";
         chapterRelicOBJ[itemType].transform.DOLocalRotate(new Vector3(0f, 540f, 0f), 1.5f, RotateMode.FastBeyond360);
        // InGameUIManager.Inst.inGameCanvas.SetActive(false);
     }

@@ -10,24 +10,18 @@ public class RelicInformation : MonoBehaviour
     [Tooltip("유물의 종류 n번째")]
     public int relicNum;
 
-    private void Awake()
-    {
-        if(SaveSystem.Inst == null) gameObject.SetActive(false);
-    }
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() =>  SaveSystem.Inst.dataSuccess);
-
-        Debug.Log("야");
-        if (GameData.Inst.relicsBool[relicType][relicNum])
+        yield return new WaitUntil(() =>  DataManager.Inst);
+        
+        if (DataManager.Inst.Data.relicsBool[relicType][relicNum])
         {
 
             gameObject.SetActive(false);
         }
         else
             gameObject.SetActive(true);
-        Debug.Log(GameData.Inst.relicsBool[relicType][relicNum]);
     }
 
 
@@ -35,7 +29,7 @@ public class RelicInformation : MonoBehaviour
     {
 
         CollectRelicManager.Inst.Collect(relicType);
-        GameData.Inst.GetRelic(relicType, relicNum);
+        DataManager.Inst.GetRelic(relicType, relicNum);
         gameObject.SetActive(false);
        
     }

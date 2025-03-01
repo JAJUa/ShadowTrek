@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VHierarchy.Libs;
 
 public static class TileFinding 
 {
@@ -9,7 +10,7 @@ public static class TileFinding
         List<Tile> returnTiles = new List<Tile>();
         foreach (var position in lightTiles)
         {
-            Vector2Int pos = new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
+            Vector2Int pos =new Vector2Int(position.x.RoundToInt(),position.z.RoundToInt());
             if (TileManager.Inst.GetMapTiles().TryGetValue(pos, out var tile))
             {
                 returnTiles.Add(tile);
@@ -20,7 +21,7 @@ public static class TileFinding
     
     public static  Tile GetOneTile(Vector3 position) //특정 위치의 타일 반환
     {
-        Vector2 pos = new Vector2Int((int)position.x, (int)position.z);
+        Vector2Int pos = new Vector2Int(position.x.RoundToInt(),position.z.RoundToInt());
         if (TileManager.Inst.GetMapTiles().TryGetValue(pos, out var tile))
         {
             return tile;

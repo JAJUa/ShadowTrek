@@ -32,7 +32,7 @@ public class CameraMove : MonoBehaviour
     {
         yield return new WaitUntil(() => MapPrefabData.Inst);
         transform.position = MapPrefabData.Inst.camPos;
-        transform.LookAt(MapPrefabData.Inst.camRot);
+        transform.rotation = Quaternion.Euler(MapPrefabData.Inst.camRot);
     }
 
 

@@ -35,15 +35,14 @@ public class SoundManager : MonoBehaviour
 
         bgmAudioSource = GetComponent<AudioSource>();
 
-        yield return new WaitUntil(() => SaveSystem.Inst && SaveSystem.Inst.dataSuccess);
-
+        yield return new WaitUntil(() => DataManager.Inst);
         SliderSetting();
     }
 
     public void SliderSetting()
     {
-        bgmSlider.value = GameData.Inst.bgmVolume;
-        sfxSlider.value = GameData.Inst.soundEffectVolume;
+        bgmSlider.value = DataManager.Inst.Data.bgmVolume;
+        sfxSlider.value = DataManager.Inst.Data.soundEffectVolume;
 
         bgmSlider.onValueChanged.AddListener(ChangeBackGroundAudio);
         sfxSlider.onValueChanged.AddListener(ChangeSoundEffectVolume);
@@ -70,7 +69,7 @@ public class SoundManager : MonoBehaviour
         else
             audioMixer.SetFloat("BGMParam", Mathf.Log10(soundEffectScrollBar) * 20);
 
-        GameData.Inst.bgmVolume = soundEffectScrollBar;
+        DataManager.Inst.Data.bgmVolume = soundEffectScrollBar;
     }
 
     public void ChangeSoundEffectVolume(float soundEffectScrollBar)
@@ -80,6 +79,6 @@ public class SoundManager : MonoBehaviour
         else
             audioMixer.SetFloat("SFXParam", Mathf.Log10(soundEffectScrollBar) * 20);
 
-        GameData.Inst.soundEffectVolume = soundEffectScrollBar;
+        DataManager.Inst.Data.soundEffectVolume = soundEffectScrollBar;
     }
 }

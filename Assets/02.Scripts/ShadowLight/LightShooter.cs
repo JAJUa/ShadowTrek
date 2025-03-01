@@ -27,9 +27,15 @@ public class LightShooter : illuminant
    [SerializeField] private int curIndex;
    private int beginIndex;
    private bool clockWise = true;
-    IEnumerator Start()
-    {
-        yield return new WaitUntil(() => TileManager.Inst);
+
+   protected override void Awake()
+   {
+       StartCoroutine(AwakeCor());
+   }
+
+   IEnumerator AwakeCor()
+   {
+       yield return new WaitUntil(() => TileManager.Inst);
         beginIndex = curIndex;
         illuminantType = IlluminantType.always;
         Setting();
@@ -37,6 +43,7 @@ public class LightShooter : illuminant
 
     public void Setting()
     {
+        if(TileManager.Inst.mapTiles.Count==0) Debug.Log("타일매니저에 타일이 없음");
         int rot = 0;
         while (rot < 360)
         {

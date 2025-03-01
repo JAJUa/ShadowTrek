@@ -501,8 +501,8 @@ MonoBehaviour:
   interactionLights: {fileID: 6646687176834337410}
   interactionBoth: {fileID: 8779495333550359298}
   prefabCam: {fileID: 3115369699240136931}
-  camPos: {x: 0, y: 0, z: 0}
-  camRot: {x: 0, y: 0, z: 0}
+  camPos: {x: 105, y: 115, z: -82}
+  camRot: {x: 35, y: -45, z: 0}
 --- !u!1 &399792848437524770
 GameObject:
   m_ObjectHideFlags: 0
@@ -9674,11 +9674,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97f2ca61bed214459aa088c8d4ca7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playableDirector: {fileID: 5781295585679935149}
   cutSceneType: 1
   up: {fileID: 219193533727075381}
   down: {fileID: 4243599653236605119}
-  character: []
+  dialogueCharacter: []
   isDialogue: 0
   localizeName: []
   localizeStringEvent: []
@@ -11250,11 +11249,7 @@ PrefabInstance:
     - {fileID: 4659558571723040797, guid: 8a05d9a889cb01c42af2333b2a0487dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2272579102274783735, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516419445849914503}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a05d9a889cb01c42af2333b2a0487dd, type: 3}
 --- !u!4 &1227014813926339156 stripped
 Transform:
@@ -11262,70 +11257,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 649732905725938130}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1625098000814424101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2272579102274783735, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 649732905725938130}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1516419445849914503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625098000814424101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86f2741cf93ff3f4b8b6967d3182a1a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactPosTiles: []
-  isTutorial: 0
-  interactRole: 1
-  type: 4
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  answerColor: {r: 1, g: 0.2784314, b: 0.2784314, a: 1}
-  interBox: {fileID: 1625098001463903097}
-  dialougeBox: {fileID: 0}
-  colliderTrans: {x: 0.4, y: -5, z: 0}
-  colliderSize: {x: 8.93, y: 7.09, z: 5.72}
-  tileLayerMask:
-    serializedVersion: 2
-    m_Bits: 65536
-  interTransform: {fileID: 1625098001463903096}
-  dialoTransform: {fileID: 0}
-  levera: {fileID: 1625098001168827001}
---- !u!114 &1625098001168827001 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2272579102633413547, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 649732905725938130}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17095046f16bb3845929131578577316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &1625098001463903096 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2272579101868509866, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 649732905725938130}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1625098001463903097 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2272579101868509867, guid: 8a05d9a889cb01c42af2333b2a0487dd,
-    type: 3}
-  m_PrefabInstance: {fileID: 649732905725938130}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &655274691437507368
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
     public bool isLight;
     public Character character;
     public bool isEndTile;
+    public CutSceneManager endCutScene;
 
     [SerializeField] private Material lightMat;
     private Material defaultMat;

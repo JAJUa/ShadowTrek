@@ -190,8 +190,6 @@ public class InGameUIManager : MonoBehaviour
         if (!fade)
         {
             InGameManager.Inst.moveBlock = false;
-            if(SaveSystem.Inst != null)
-                SaveSystem.Inst.SaveData();
         }
     }
 

@@ -1,8 +1,10 @@
+using System;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using VInspector.Libs;
 
 public enum CharacterRole
 {
@@ -11,11 +13,11 @@ public enum CharacterRole
 };
 public class Character : MonoBehaviour
 {
-    public CharacterRole role;
-    [HideInInspector] public PathFind pathFind;
+    public CharacterRole role; 
+    public PathFind pathFind;
+    [SerializeField]private PathFindAI pathFindAI;
     public List<PointInTime> pointInTime;
     public Animator animator;
-    [HideInInspector] public TileMoveScript tileMove;
     public float moveSpeed;
     public CurCharacter curCharacter;
     public bool isLight = false;
@@ -24,18 +26,21 @@ public class Character : MonoBehaviour
     public Quaternion startRot;
     public LineRenderer lineRenderer;
 
-    // Start is called before the first frame update
-    public virtual void Start()
+
+    protected virtual void Awake()
     {
-        lineRenderer = GetComponent<LineRenderer>();   
-        tileMove = TileMoveScript.Inst;
-        pathFind = new PathFind(TileMoveScript.Inst.bottomLeft, TileMoveScript.Inst.topRight, 15, true, true, LayerMask.GetMask("Ground"));
-        pathFind.FindPath(Vector3Int.FloorToInt(Vector3Int.RoundToInt(transform.position)), TileMoveScript.Inst.topRight);
+        lineRenderer = GetComponent<LineRenderer>();
+        pathFindAI = GetComponent<PathFindAI>();
         if (animator != null) animator.GetComponent<Animator>();
         pointInTime = new List<PointInTime>();
+    }
+    
+    protected virtual void Start()
+    {
+        pathFind = PathFind.Inst;
         startPos = transform.position;
-        startRot= transform.rotation;
-
+        startRot = transform.rotation;
+        pathFindAI.Init(moveSpeed,this,pointInTime);
     }
 
     public virtual void CharacterMove()
@@ -51,19 +56,18 @@ public class Character : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("MoveTile")) 
                     {
-                        Debug.Log("ClickTile");
                         InGameManager.Inst.moveBlock = true;
-                        Tile tile = TileFinding.GetOneTile(transform.position);
+                        Tile tile = TileFinding.GetOneTile( Vector3Int.RoundToInt(transform.position));
                         tile.character = null;
                         Vector3 tilePosition = hit.collider.transform.position;
-
-                        Vector3Int startPos = Vector3Int.RoundToInt(transform.position);
-                        Vector3Int targetPos = Vector3Int.RoundToInt(tilePosition);
+                        Vector3Int _startPos = Vector3Int.RoundToInt(transform.position);
+                        Vector3Int _targetPos = Vector3Int.RoundToInt(tilePosition);
                         InGameFXManager.Inst.TileClickParticle(tilePosition);
                         if(AudioManager.Inst != null)
                              AudioManager.Inst.AudioEffectPlay(2);
-                        pathFind.FindPath(startPos, targetPos);
-                        moveCoroutine =  StartCoroutine(tileMove.MoveAlongPath(gameObject, animator, pathFind, moveSpeed, curCharacter, pointInTime)); 
+                        var finalNodeList =  pathFind.PathFinding(_startPos, _targetPos);
+                        Debug.Log(finalNodeList.Count);
+                        moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(finalNodeList)); 
                     }
                 }
             }
@@ -87,6 +91,8 @@ public class Character : MonoBehaviour
 
     public virtual void InLight() { }
 
+    public virtual void EnterReplayMode(){}
+
     public bool IsCharacterTurn()//현재 캐릭터의 턴인가
     {
         if (InGameManager.Inst.curCharacter == curCharacter)
@@ -97,7 +103,7 @@ public class Character : MonoBehaviour
 
     public virtual void CharacterDead()
     {
-        if (InGameManager.Inst.noPapaButDetect)
+        if (!InGameManager.Inst.papa)
             InGameManager.Inst.GameReStart();
         else InGameManager.Inst.ReplayModeRestart();
     }

@@ -12,12 +12,13 @@ public class ShadowModePapa : Character
 
     // Start is called before the first frame update
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         startPos = transform.position;
     }
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
 
@@ -38,7 +39,12 @@ public class ShadowModePapa : Character
        
         DOVirtual.DelayedCall(1f, () => dissolve.DIssolvessad(false));
     }
-    
+
+    public override void EnterReplayMode()
+    {
+        ResetCharacter();
+        gameObject.SetActive(true);
+    }
 
     public override void InLight()
     {

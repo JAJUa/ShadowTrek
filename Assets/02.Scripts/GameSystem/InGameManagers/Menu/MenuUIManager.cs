@@ -73,7 +73,7 @@ public class MenuUIManager : MonoBehaviour
     {
         
         ableSwipe = true;
-        curLanguageNum = GameData.Inst.localizationNum;
+        curLanguageNum = DataManager.Inst.Data.localizationNum;
         iconTween = new Tween[iconsObj.Length];
         Spawn();
         ChangeIconName();
@@ -203,7 +203,7 @@ public class MenuUIManager : MonoBehaviour
             isSelected = true;
             if(curIconNum -1 == 0)
             {
-                if (!GameData.Inst.selectionTuto2)
+                if (!DataManager.Inst.Data.selectionTuto2)
                 {
                     DOVirtual.DelayedCall(0.3f,()=> ExcuteSpecialEvent());
                 }
@@ -340,7 +340,7 @@ public class MenuUIManager : MonoBehaviour
         for(int i = 1; i < skinScrollbarImage.Count - 1; i++)
         {
             Debug.Log(i);
-            if (i == GameData.Inst.skinNum + 1)
+            if (i == DataManager.Inst.Data.skinNum + 1)
                 clothSelectedLocalize_SE[i].StringReference = clothSelectedLocalizeName[0];     
             else
                 clothSelectedLocalize_SE[i].StringReference = clothSelectedLocalizeName[1];
@@ -353,16 +353,12 @@ public class MenuUIManager : MonoBehaviour
         {
             Debug.Log(relicScrollbarImage[i].gameObject.name);
             GameObject countTxt =  relicScrollbarImage[i].transform.Find("Count").gameObject;
-            countTxt.GetComponent<TextMeshProUGUI>().text = GameData.Inst.relicsCurCount[i-1].ToString() + " / " + GameData.Inst.relicsMaxCount[i-1].ToString() + " Found";
+            countTxt.GetComponent<TextMeshProUGUI>().text = DataManager.Inst.Data.relicsCurCount[i-1].ToString() + " / " +DataManager.Inst.Data.relicsMaxCount[i-1].ToString() + " Found";
         }
     }
 
    
     #region SettingCanvas
-    public void DataReset()
-    {
-        GameData.Inst.ResetData();
-    }
 
     public void ChangeLanguage(bool right)
     {
@@ -402,7 +398,7 @@ public class MenuUIManager : MonoBehaviour
     {
         //languageName_Text.text = languageText[curLanguageNum-1];
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[curLanguageNum-1];
-        GameData.Inst.ChangeLocalization(curLanguageNum);
+        DataManager.Inst.ChangeLocalization(curLanguageNum);
     }
     #endregion
 
@@ -410,7 +406,7 @@ public class MenuUIManager : MonoBehaviour
     IEnumerator waitLocalization()
     {
         yield return new WaitForSeconds(0.5f);
-        int localizedIndex = GameData.Inst.localizationNum > 0 ? GameData.Inst.localizationNum - 1 : GameData.Inst.localizationNum;
+        int localizedIndex = DataManager.Inst.Data.localizationNum > 0 ? DataManager.Inst.Data.localizationNum - 1 : DataManager.Inst.Data.localizationNum;
 
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localizedIndex];
     }

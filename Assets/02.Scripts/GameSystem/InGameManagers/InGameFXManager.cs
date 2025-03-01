@@ -8,9 +8,8 @@ public class InGameFXManager : MonoBehaviour
     public static InGameFXManager Inst;
 
     [Header("-- Shadow Camera Particle --")]
-
-    public float SphereSize = 230;
-    public GameObject EndObjectBlackScreen, ChangerBlackScreen;
+    
+    public GameObject EndObjectBlackScreen;
    // [ReadOnly] public Transform PlayerTransform;
     [SerializeField] Transform ShadowObjectTransform;
 
@@ -21,10 +20,8 @@ public class InGameFXManager : MonoBehaviour
 
     public GameObject[] tileClickParticle = new GameObject[3];
     public ParticleSystem[] tileclickSystem = new ParticleSystem[2];
-
-    [Space(10)] [Header("-- Screen Transition --")]
-
-    public CircleTransition circletransition;
+    
+    
 
     private void Awake()
     {
@@ -43,9 +40,6 @@ public class InGameFXManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-    }
 
     private void Update()
     {
@@ -60,21 +54,8 @@ public class InGameFXManager : MonoBehaviour
             EndObjectBlackScreen.transform.position = ShadowObjectTransform.position;
     }
 
-    public void BlackScreenON()
-    {
-        ChangerBlackScreen.transform.DOScale(SphereSize, 1f).SetEase(Ease.OutSine);
-    }
-
-    public void BlackScreenOFF(bool player)
-    {
-        Player = player;
-        On = true;
-        DOTween.Kill(ChangerBlackScreen.transform);
-        EndObjectBlackScreen.transform.localScale = new Vector3(SphereSize, SphereSize, SphereSize);
-        ChangerBlackScreen.transform.localScale = Vector3.zero;
-        EndObjectBlackScreen.transform.DOScale(0, 0.5f).SetEase(Ease.OutSine).OnComplete(() =>
-        On = false);
-    }
+   
+    
 
     public void TileClickParticle(Vector3 Tr)
     {
@@ -86,8 +67,5 @@ public class InGameFXManager : MonoBehaviour
         tileclickSystem[1].Play();
     }
 
-    public void CircleTransition(float duration, float beginRadius, float endRadius)
-    {
-        circletransition.Transition(duration, beginRadius, endRadius);
-    }
+
 }

@@ -28,7 +28,7 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => InGameManager.Inst);
+        yield return new WaitUntil(() => InGameManager.Inst && !InGameUIManager.Inst.titleTexting);
         if (player == null)
         {
             switch (character)

@@ -26,7 +26,6 @@ public class InGameManager : MonoBehaviour
     public bool moveBlock = false;
     public bool isInteractionDetect;
     public bool inRelpayMode;
-    public bool noPapaButDetect;
     public bool isAnswering;
     public CurCharacter curCharacter;
     public int curStageNum;
@@ -66,11 +65,11 @@ public class InGameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(()=>DataManager.Inst);
+        yield return new WaitUntil(()=>MapDataManager.Inst);
     
         answerManager = GetComponent<AnswerManager>();
         
-        foreach (var spawnCharacter in DataManager.Inst.mapData[DataManager.Inst.testMapIndex].SpawnCharacters)
+        foreach (var spawnCharacter in MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].spawnCharacters)
         {
             switch (spawnCharacter.characterRole)
             {
@@ -136,35 +135,36 @@ public class InGameManager : MonoBehaviour
         moveBlock = true;
         TileManager.Inst.LightOffAllTiles();
         FadeInFadeOut.Inst.FadeIn();
-        RePlay.Inst.RePlayMode(player.gameObject, player.animator, player.pointInTime);
-        RePlay.Inst.RestartReplayMode();
+        
+        player.EnterReplayMode();
+        papa.EnterReplayMode();
        
         InGameUIManager.Inst.SpriteChange(false);
-        if(!isAnswering)
-            InGameUIManager.Inst.StayBtnActive(true);
-
-        if (isAnswering)
-            AnswerManager.Inst.ChangeChracter(false);
+        if (!isAnswering)
+        {
+            InGameUIManager.Inst.StayBtnActive(!isAnswering);
+            AnswerManager.Inst.ChangeChracter(!isAnswering);
+        }
+      
         LightManager.Inst.ResetLights();
-        papa.ResetCharacter();
-        player.ResetCharacter();
-        papa.gameObject.SetActive(true);
         inRelpayMode = true;
+        curCharacter = CurCharacter.Papa;
         DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.NonDetectActionFinish(); }) ;
     }
 
     public void ReplayModeRestart()
     {
         Debug.Log("ReplayRestart");
-        //endCutScene.StopCutScene();
         LightManager.Inst.ResetLights();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();
-        papa.gameObject.SetActive(true);
         StopMoving();
-        DOVirtual.DelayedCall(0.8f,()=> papa.ResetCharacter());
-        DOVirtual.DelayedCall(0.8f,()=> player.ResetCharacter());
-        RePlay.Inst.RestartReplayMode();
+        DOVirtual.DelayedCall(0.8f,()=>
+        {
+            player.EnterReplayMode();
+            papa.EnterReplayMode();
+        });
+    
         DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.NonDetectActionFinish(); }) ;
         
     }

@@ -7,28 +7,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
 
-#region Node Class
-[System.Serializable]
-public class Nodee
+
+
+public class TileMoveScript : Singleton<TileMoveScript>
 {
-    public Nodee(bool _isWall, int _x, int _z) { isWall = _isWall; x = _x; z = _z; }
-
-    public bool isWall;
-    public bool isCliff;
-    public bool isPlayer;
-    public Nodee ParentNode;
-
-    public int x, z, G, H;
-    public int F { get { return G + H; } }
-}
-#endregion
-
-public class TileMoveScript : MonoBehaviour
-{
+    /*
     #region Variable settings
-    public static TileMoveScript Inst;
     [HideInInspector]public bool checkWall;
-    PathFind pathfind;
+    public PathFind pathfind;
 
     [Space(10)]
     [Header("-- GridSetting --")]
@@ -42,15 +28,14 @@ public class TileMoveScript : MonoBehaviour
         
     }     
     
-
     private IEnumerator Start()
     {
-        yield return new WaitUntil(()=>DataManager.Inst);
-        Inst = this;
-        bottomLeft = DataManager.Inst.mapData[DataManager.Inst.testMapIndex].minMapSize;
-        topRight = DataManager.Inst.mapData[DataManager.Inst.testMapIndex].maxMapSize;
-        pathfind = new PathFind(bottomLeft, topRight, 15, true, true, LayerMask.GetMask("Ground"));
-        pathfind.FindPath(bottomLeft, topRight);
+        yield return new WaitUntil(()=>MapDataManager.Inst);
+       
+        
+        var curMapData = MapDataManager.Inst.mapData[MapDataManager.Inst.testMapIndex];
+        pathfind = new PathFind(curMapData.minMapSize, curMapData.maxMapSize, 15);
+        pathfind.FindPath(curMapData.minMapSize, curMapData.maxMapSize);
         checkWall = true;
 
     }
@@ -60,7 +45,6 @@ public class TileMoveScript : MonoBehaviour
     public void TileResearch()
     {
         checkWall = false;
-        pathfind.FindPath(bottomLeft, topRight);
         Debug.Log(pathfind.NodeArray.Length);
         int i = 0;
         foreach (Nodee node in pathfind.NodeArray)
@@ -200,7 +184,7 @@ public class TileMoveScript : MonoBehaviour
     #endregion
 
     
-
+*/
 
 
 }

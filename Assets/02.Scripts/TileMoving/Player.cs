@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using VInspector;
 
 public class Player : Character
@@ -14,18 +15,21 @@ public class Player : Character
     [SerializeField] private bool seraInv;  //무적 기능 (테스트용)
     [SerializeField] private int shadowIndex = 3;
 
+    private RePlay replay;
 
-    private void Awake()
+    protected override void Awake()
     {
-        
+        replay = GetComponent<RePlay>();
+        base.Awake();
     }
 
     // Start is called before the first frame update
-    public override void Start()
+    protected override void Start()
     {     
         animator = transform.GetChild(0).GetComponent<Animator>();
-        base.Start();        
+             
         pointInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
+        base.Start();   
     }
 
     // Update is called once per frame
@@ -35,25 +39,10 @@ public class Player : Character
     }
     
 
-    public void EnterReplayMode()
+    public override void EnterReplayMode()
     {
-        StopCoroutine(moveCoroutine);
-        InGameManager.Inst.inRelpayMode = true;
-        InGameManager.Inst.PapaActive(true);
-        InGameManager.Inst.inRelpayMode = true;
-        RePlay.Inst.RePlayMode(gameObject, animator, pointInTime);
-        animator.SetBool("isWalk", false);
-
-        playerInLight();
-
-        InGameManager.Inst.CameraPosReset();
-        InGameUIManager.Inst.SpriteChange(false);
-        if(!InGameManager.Inst.isAnswering)
-            InGameUIManager.Inst.StayBtnActive(true);
-
-        if (InGameManager.Inst.isAnswering)
-            AnswerManager.Inst.ChangeChracter(false);
-        return;
+        ResetCharacter();
+        replay.Init(pointInTime);
     }
 
     public override void InLight()
@@ -77,17 +66,23 @@ public class Player : Character
        
         if (tile.isEndTile)
         {
-            if (isReplay && !InGameManager.Inst.inRelpayMode)
+            if (InGameManager.Inst.papa && !InGameManager.Inst.inRelpayMode)
             {
                 InGameManager.Inst.StopMoving();
                 InGameManager.Inst.EnterReplayMode();
                 seraInv = false;
             }
-            else if (InGameManager.Inst.inRelpayMode || !isReplay)
+            else if (InGameManager.Inst.inRelpayMode || !InGameManager.Inst.papa)
             {
                 InGameManager.Inst.StopMoving();
                 InGameManager.Inst.moveBlock = true;
-                InGameManager.Inst.StartEndCutScene();
+               // tile.endCutScene.StartCutScene();
+               ++MapDataManager.Inst.testMapIndex;
+                DOVirtual.DelayedCall(0.75f, () =>  //임시
+                {
+                    FadeInFadeOut.Inst.FadeIn();
+                    MapDataManager.Inst.NextMap();
+                });
             }
            
         }
