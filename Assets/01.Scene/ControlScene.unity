@@ -2517,6 +2517,11 @@ MonoBehaviour:
   Data:
     mapData: []
   testMapIndex: 2
+  testaddress:
+    m_AssetGUID: 7ec6c312a3aa11b49a5d04c61d117fb3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1672041426
 GameObject:
   m_ObjectHideFlags: 0

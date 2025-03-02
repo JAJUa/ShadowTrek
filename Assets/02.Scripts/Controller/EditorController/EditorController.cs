@@ -93,21 +93,28 @@ public class EditorController : MonoBehaviour
                 pathList.RemoveAt(pathList.Count-1);
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.N)&&commandState == CommandState.SeraPath)
+        {
+            MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath = pathList;
+            commandState = CommandState.Nothing;
+            pathList.Clear();
+        }
     }
 
     public void SetCharacterPos(CharacterRole role,Vector3Int _targetPos)
     {
-        /*
-        var mapdata = MapDataManager.Inst.mapData[MapDataManager.Inst.testMapIndex];
-        for (int i = 0; i < mapdata.SpawnCharacters.Count; i++)
+        
+        var mapdata = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex];
+        for (int i = 0; i < mapdata.spawnCharacters.Count; i++)
         {
-            if (mapdata.SpawnCharacters[i].characterRole == role)
+            if (mapdata.spawnCharacters[i].characterRole == role)
             { 
-                MapDataManager.Inst.mapData[MapDataManager.Inst.testMapIndex].SpawnCharacters[i].spawnPos = _targetPos;
+                MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].spawnCharacters[i].spawnPos = _targetPos;
             }
         }
 
-        commandState = CommandState.Nothing;*/
+        commandState = CommandState.Nothing;
 
     }
 

@@ -20,7 +20,7 @@ public class MapDataManager : Singleton<MapDataManager>
     {
         public int id = 0;
         public List<SpawnCharacter> spawnCharacters = new List<SpawnCharacter>();
-        public string mapPrefab;
+        public string mapName;
         public Vector3Int minMapSize, maxMapSize;
         public List<Vector3Int> seraPath;
 
@@ -28,7 +28,7 @@ public class MapDataManager : Singleton<MapDataManager>
         public MapData( MapDataSheet.Data _data)
         {
             id = _data.id;
-            mapPrefab = _data.prefabName;
+            mapName = _data.prefabName;
             minMapSize = Vector3Int.RoundToInt(_data.minMapSize);
             maxMapSize = Vector3Int.RoundToInt(_data.maxMapSize);
 
@@ -75,6 +75,8 @@ public class MapDataManager : Singleton<MapDataManager>
     
     public LevelData Data = new LevelData();
     public int testMapIndex;
+    [SerializeField] private AssetReference testaddress;
+    private AsyncOperationHandle handle;
     
     private string _DataFilePath;
 
@@ -88,14 +90,6 @@ public class MapDataManager : Singleton<MapDataManager>
         {
             var levelDataJson = File.ReadAllText(_DataFilePath);
             var levelData = JsonConvert.DeserializeObject<LevelData>(levelDataJson);
-            if (levelData == null)
-            {
-                Debug.LogError("Json 변환 실패! levelData가 NULL입니다.");
-            }
-            else
-            {
-                Debug.Log($"Json 변환 성공! mapData 개수: {levelData.mapData.Count}");
-            }
             Data = levelData;
             
 
@@ -106,10 +100,19 @@ public class MapDataManager : Singleton<MapDataManager>
             Data = levelData;
 
         }
-
+       LoadMap();
      
     }
 
+    private void LoadMap()
+    {
+        var mapName = Data.mapData[testMapIndex].mapName;
+        Addressables.LoadAssetAsync<GameObject>("Prefab/Map/Stage4").Completed += (AsyncOperationHandle<GameObject> map) =>
+        {
+            handle = map;
+            InstantiateAsync(map.Result,Vector3.zero,Quaternion.identity);
+        };
+    }
     private void Start()
     {
         var sheetDataList = MapDataSheet.Data.DataList;
@@ -125,6 +128,7 @@ public class MapDataManager : Singleton<MapDataManager>
             }
             Save();
         }
+        
            
     }
 
