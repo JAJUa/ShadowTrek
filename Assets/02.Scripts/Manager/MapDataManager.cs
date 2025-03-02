@@ -100,14 +100,14 @@ public class MapDataManager : Singleton<MapDataManager>
             Data = levelData;
 
         }
-       LoadMap();
+      
      
     }
 
     private void LoadMap()
     {
         var mapName = Data.mapData[testMapIndex].mapName;
-        Addressables.LoadAssetAsync<GameObject>("Prefab/Map/Stage4").Completed += (AsyncOperationHandle<GameObject> map) =>
+        Addressables.LoadAssetAsync<GameObject>("Prefab/Map/"+mapName).Completed += (AsyncOperationHandle<GameObject> map) =>
         {
             handle = map;
             InstantiateAsync(map.Result,Vector3.zero,Quaternion.identity);
@@ -129,7 +129,7 @@ public class MapDataManager : Singleton<MapDataManager>
             Save();
         }
         
-           
+        LoadMap();
     }
 
 

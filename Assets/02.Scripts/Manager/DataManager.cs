@@ -35,6 +35,8 @@ public class DataManager : SingletonDontDestroyOnLoad<DataManager>
             var playerDataJson = File.ReadAllText(_DataFilePath);
             var playerData = JsonConvert.DeserializeObject<PlayerData>(playerDataJson);
             Data = playerData;
+            Data.relicsMaxCount= new List<int> { 14, 12, 8, 4 };
+            Data.relicsCurCount = new List<int> { 0,0,0,0};
             if(Data.relicsBool.Count ==0)
                 ResetRelicsBool();
         }
@@ -42,8 +44,11 @@ public class DataManager : SingletonDontDestroyOnLoad<DataManager>
         {
             var playerData = new PlayerData();
             Data = playerData;
+            Data.relicsMaxCount= new List<int> { 14, 12, 8, 4 };
+            Data.relicsCurCount = new List<int> { 0,0,0,0};
             ResetRelicsBool();
         }
+       
     }
 
     private void ResetRelicsBool()

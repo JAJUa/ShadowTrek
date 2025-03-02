@@ -46,6 +46,7 @@ public class PathFind : Singleton<PathFind>
         NodeSetting();
     }
 
+    [Button]
     private void NodeSetting()
     {
         #region 처음 세팅
