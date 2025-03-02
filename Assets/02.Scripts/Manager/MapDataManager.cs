@@ -101,20 +101,7 @@ public class MapDataManager : Singleton<MapDataManager>
 
         }
       
-     
-    }
-
-    private void LoadMap()
-    {
-        var mapName = Data.mapData[testMapIndex].mapName;
-        Addressables.LoadAssetAsync<GameObject>("Prefab/Map/"+mapName).Completed += (AsyncOperationHandle<GameObject> map) =>
-        {
-            handle = map;
-            InstantiateAsync(map.Result,Vector3.zero,Quaternion.identity);
-        };
-    }
-    private void Start()
-    {
+        
         var sheetDataList = MapDataSheet.Data.DataList;
         Debug.Log(Data.mapData.Count+" , "+sheetDataList.Count);
         if (Data.mapData.Count < sheetDataList.Count)
@@ -130,6 +117,27 @@ public class MapDataManager : Singleton<MapDataManager>
         }
         
         LoadMap();
+     
+    }
+
+    private void LoadMap()
+    {
+        var mapName = Data.mapData[testMapIndex].mapName;
+        Addressables.LoadAssetAsync<GameObject>("Prefab/Map/"+mapName).Completed += (AsyncOperationHandle<GameObject> map) =>
+        {
+            handle = map;
+            InstantiateAsync(map.Result,Vector3.zero,Quaternion.identity);
+        }; 
+        
+        
+    }
+
+    public void UnLoadMap()
+    {
+        
+    }
+    private void Start()
+    {
     }
 
 

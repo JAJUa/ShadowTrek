@@ -14,8 +14,8 @@ public enum CharacterRole
 public class Character : MonoBehaviour
 {
     public CharacterRole role; 
-    public PathFind pathFind;
-    [SerializeField]private PathFindAI pathFindAI;
+    protected PathFind pathFind;
+    protected PathFindAI pathFindAI;
     public List<PointInTime> pointInTime;
     public Animator animator;
     public float moveSpeed;

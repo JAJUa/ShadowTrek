@@ -15,6 +15,8 @@ public class Player : Character
     [SerializeField] private bool seraInv;  //무적 기능 (테스트용)
     [SerializeField] private int shadowIndex = 3;
 
+    [SerializeField] private List<Vector3Int> path;
+
     private RePlay replay;
 
     protected override void Awake()
@@ -29,15 +31,27 @@ public class Player : Character
         animator = transform.GetChild(0).GetComponent<Animator>();
              
         pointInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
-        base.Start();   
+        base.Start();
+      
+
     }
 
-    // Update is called once per frame
-    void Update()
+    [Button]
+    public void move()
     {
-        CharacterMove();
+        path = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath;
+        if(path.Count>0)
+            CharacterMove();
+        var _path = pathFind.ReturnNodePath(path);
+        moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(_path)); 
     }
-    
+
+  
+    public override void CharacterMove()
+    {
+      
+    }
+
 
     public override void EnterReplayMode()
     {
@@ -49,6 +63,8 @@ public class Player : Character
     {
     
         Tile tile = TileFinding.GetOneTile(transform.position);
+        if(tile==null)
+            Debug.LogError("타일이 없음");
         tile.character = this;
         Debug.Log("판정");
         if (!tile.isLight && !seraInv)

@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using VHierarchy.Libs;
 using VInspector;
 using VInspector.Libs;
 
@@ -41,13 +43,13 @@ public class PathFind : Singleton<PathFind>
     {
     }
 
-    private void Start()
+    private void  Start()
     {
         NodeSetting();
     }
 
     [Button]
-    private void NodeSetting()
+    public void NodeSetting()
     {
         #region 처음 세팅
         sizeX = Mathf.RoundToInt((topRight.x - bottomLeft.x) / NodeIntervalSize) + 1;
@@ -71,9 +73,26 @@ public class PathFind : Singleton<PathFind>
         #endregion
     }
 
-      public int IntervalInt(float n)
+    public int IntervalInt(float n)
     {
         return Mathf.RoundToInt(n / NodeIntervalSize);
+    }
+
+    public List<Node> ReturnNodePath(List<Vector3Int> _path)
+    {
+        List<Node> nodePath = new List<Node>();
+
+        foreach (var p in _path)
+        { 
+            
+            var _x = IntervalInt(p.x - bottomLeft.x);
+            var _z = IntervalInt(p.z - bottomLeft.z);
+            Debug.Log(_x + "/" + _z);
+            Node node = NodeArray[_x, _z];
+            nodePath.Add(node);
+        }
+        
+        return nodePath;
     }
 
     [Button]
