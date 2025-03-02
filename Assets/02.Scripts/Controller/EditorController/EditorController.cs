@@ -94,9 +94,13 @@ public class EditorController : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.N)&&commandState == CommandState.SeraPath)
+        if (Input.GetKeyDown(KeyCode.H)&&commandState == CommandState.SeraPath)
         {
-            MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath = pathList;
+            MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath.Clear();
+            foreach (var v in pathList)
+            {
+                MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath.Add(v);
+            }
             commandState = CommandState.Nothing;
             pathList.Clear();
         }

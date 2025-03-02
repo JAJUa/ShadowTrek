@@ -143,9 +143,9 @@ public class MapDataManager : Singleton<MapDataManager>
 
         File.WriteAllText(_DataFilePath, json);
     }
-
+    
     [Button]
-    public void ResetData()
+    public void ResetData() //전체 리셋
     {
         Data = new LevelData();
         Save();
