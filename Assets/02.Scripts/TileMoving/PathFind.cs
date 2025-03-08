@@ -39,9 +39,6 @@ public class PathFind : Singleton<PathFind>
     [SerializeField] private bool floor; //나중에 enumState 전환으로
     public Node[,] NodeArray;//타일맵의 판의 크기 (이차원 배열이라는 뜻) 
 
-    private void Awake()
-    {
-    }
 
     private void  Start()
     {

@@ -127,10 +127,10 @@ public class InGameManager : MonoBehaviour
             player.pointInTime.Insert(0, new PointInTime(player.transform.position, player.transform.rotation)); answerManager.SeraTile(); });
     }
 
+    
     public void EnterReplayMode()
     {
-        
-        Debug.Log("리플레이 모드 진입");
+        //리플레이 모드 진입
         StopMoving();
         moveBlock = true;
         TileManager.Inst.LightOffAllTiles();
@@ -145,6 +145,9 @@ public class InGameManager : MonoBehaviour
             InGameUIManager.Inst.StayBtnActive(!isAnswering);
             AnswerManager.Inst.ChangeChracter(!isAnswering);
         }
+        
+        //임시 Path소환
+        PathFind.Inst.NodeSetting();
       
         LightManager.Inst.ResetLights();
         inRelpayMode = true;
@@ -154,7 +157,7 @@ public class InGameManager : MonoBehaviour
 
     public void ReplayModeRestart()
     {
-        Debug.Log("ReplayRestart");
+        //리플레이 모드에서 죽을때 혹은 리스타트
         LightManager.Inst.ResetLights();
         moveBlock = true;
         FadeInFadeOut.Inst.FadeIn();
@@ -164,6 +167,7 @@ public class InGameManager : MonoBehaviour
             player.EnterReplayMode();
             papa.EnterReplayMode();
         });
+        TileManager.Inst.LightOffAllTiles();
     
         DOVirtual.DelayedCall(1.75f, () => { FadeInFadeOut.Inst.FadeOut(); moveBlock = false; LightManager.Inst.NonDetectActionFinish(); }) ;
         
@@ -218,8 +222,6 @@ public class InGameManager : MonoBehaviour
     {
         if(!moveBlock)
             OnlyPlayerReplay(true,false);
-
-        
     }
 
     public void OnlyPlayerReplay(bool isPapaStay = false,bool lightFinished = false)
@@ -228,13 +230,11 @@ public class InGameManager : MonoBehaviour
         {
             if (isAnswering) AnswerManager.Inst.PapaTile();
             isInteractionDetect = true;
-           // if(!lightFinished)TileMoveScript.Inst.TurnAction();
             RePlay.Inst.ReMove(isPapaStay);
-          
         }
     }
 
-    public void CameraPosReset()
+    private void CameraPosReset()
     {
         cam.transform.DOMove(camPos,1f);
         cam.transform.DORotate(new Vector3(camRot.x, camRot.y, camRot.z), 1f);

@@ -72,6 +72,7 @@ public class Dialouge : MonoBehaviour
     {
         defaultColor = interBox.color;
         interTransform = interBox.GetComponent<RectTransform>();
+        interTransform.sizeDelta = new Vector2(4, 4);
         interTransform.anchoredPosition = new Vector2(interTransform.anchoredPosition.x, interTransform.anchoredPosition.y - 1);
         interBox.color = new Color(interBox.color.r, interBox.color.g, interBox.color.b, 0f);
         interBox.transform.rotation = Camera.main.transform.rotation;

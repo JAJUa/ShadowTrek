@@ -32,7 +32,7 @@ public class Player : Character
              
         pointInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
         base.Start();
-      
+        move();
 
     }
 
@@ -78,32 +78,40 @@ public class Player : Character
             playerInLight();
             
         }
-
+        if (InGameManager.Inst.inRelpayMode)
+            ReplayMode(tile);
+        else 
+            UnReplayMode(tile);
        
-        if (tile.isEndTile)
+     
+    }
+
+    protected override void ReplayMode(Tile _tile)
+    {
+        if (_tile.isEndTile)
         {
-            if (InGameManager.Inst.papa && !InGameManager.Inst.inRelpayMode)
+            InGameManager.Inst.StopMoving();
+            InGameManager.Inst.moveBlock = true;
+            // tile.endCutScene.StartCutScene();
+            ++MapDataManager.Inst.testMapIndex;
+            DOVirtual.DelayedCall(0.75f, () =>  //임시
             {
-                InGameManager.Inst.StopMoving();
-                InGameManager.Inst.EnterReplayMode();
-                seraInv = false;
-            }
-            else if (InGameManager.Inst.inRelpayMode || !InGameManager.Inst.papa)
-            {
-                InGameManager.Inst.StopMoving();
-                InGameManager.Inst.moveBlock = true;
-               // tile.endCutScene.StartCutScene();
-               ++MapDataManager.Inst.testMapIndex;
-                DOVirtual.DelayedCall(0.75f, () =>  //임시
-                {
-                    FadeInFadeOut.Inst.FadeIn();
-                    MapDataManager.Inst.NextMap();
-                });
-            }
-           
+                FadeInFadeOut.Inst.FadeIn();
+                MapDataManager.Inst.NextMap();
+            });
         }
     }
-    
+
+    protected override void UnReplayMode(Tile _tile)
+    {
+        if (_tile.isEndTile)
+        {
+            InGameManager.Inst.StopMoving();
+            InGameManager.Inst.EnterReplayMode();
+            seraInv = false;
+        }
+    }
+
     private void SetShadowIndex(int _shadowIndex)
     {
         shadowIndex = _shadowIndex;

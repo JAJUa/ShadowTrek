@@ -30,8 +30,7 @@ public class LightManager : MonoBehaviour
         CollectComponents(interactionLights,illuminants);
         CollectComponents(interactionBoth,illuminants);
         yield return new WaitUntil(()=>TileManager.Inst.mapTiles.Count>0);
-        Debug.Log("빠른 액션");
-        ActionFinish();
+        //ActionFinish();
     }
     
     void CollectComponents<T>(Transform parent, List<T> components) where T : Component

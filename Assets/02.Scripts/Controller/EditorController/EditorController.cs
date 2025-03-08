@@ -12,7 +12,6 @@ public class EditorController : MonoBehaviour
     }
     
     [SerializeField] private bool setEditor;
-    [SerializeField]private bool SettingSerapath;
     [SerializeField] private List<Vector3Int> pathList;
 
     [SerializeField] private CommandState commandState;
@@ -96,10 +95,11 @@ public class EditorController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.H)&&commandState == CommandState.SeraPath)
         {
-            MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath.Clear();
+            var _seraPath = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath;
+           _seraPath.Clear();
             foreach (var v in pathList)
             {
-                MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath.Add(v);
+                _seraPath.Add(v);
             }
             commandState = CommandState.Nothing;
             pathList.Clear();

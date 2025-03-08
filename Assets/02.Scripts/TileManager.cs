@@ -13,7 +13,6 @@ public  class TileManager:MonoBehaviour
     {
         GameObject[] tileObj = GameObject.FindGameObjectsWithTag("MoveTile");
         if(tileObj.Length ==0)Debug.Log("타일 감지 못함");
-        Debug.Log(tileObj.Length);
         foreach(var tile in tileObj)
         {
             if (tile.TryGetComponent(out Tile tileCs))
@@ -31,7 +30,13 @@ public  class TileManager:MonoBehaviour
 
     }
 
-
+    public void ResetTileCharacter()
+    {
+        foreach (var tile in mapTiles.Values)
+        {
+            tile.character = null;
+        }
+    }
 
   
 

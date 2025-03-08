@@ -30,7 +30,8 @@ public class LightShooter : illuminant
 
    protected override void Awake()
    {
-       StartCoroutine(AwakeCor());
+       base.Awake();
+       //StartCoroutine(AwakeCor());
    }
 
    IEnumerator AwakeCor()
@@ -106,9 +107,6 @@ public class LightShooter : illuminant
     public void ChangeDir()
     {
         clockWise = !clockWise;
-        
-       // LightManager.Inst.ActionFinish();
-       
     }
 
     [Button]
@@ -134,13 +132,13 @@ public class LightShooter : illuminant
         {
             tile.GetLight(true);
         }
- 
-       // DetectLight();
+        
     }
 
     public override void ResetLight()
     {
         AllTileLightOff();
+        clockWise = true;
         curIndex = beginIndex;
     }
 

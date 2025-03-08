@@ -108,6 +108,15 @@ public class Character : MonoBehaviour
         else InGameManager.Inst.ReplayModeRestart();
     }
 
+    protected virtual void UnReplayMode(Tile _tile)
+    {
+        
+    }
+    protected virtual void ReplayMode(Tile _tile)
+    {
+        
+    }
+
     public virtual void ResetCharacter()
     {
         DOVirtual.DelayedCall(0.1f, () => transform.position = startPos);

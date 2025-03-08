@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.8117647, g: 0.29803917, b: 0.79525983, a: 1}
+  m_FogColor: {r: 0.8792453, g: 0.5491135, b: 0.8492333, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.0015
   m_LinearFogStart: 0
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.20754719, g: 0.13230586, b: 0.118654326, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
   m_HaloStrength: 1
   m_FlareStrength: 1
@@ -480,8 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1a3f4b2c9506a41835c0fa38cbc230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setEditor: 1
-  SettingSerapath: 1
+  setEditor: 0
   pathList: []
   commandState: 0
   btnParent: {fileID: 534246821}
@@ -2598,7 +2597,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30

@@ -78,11 +78,8 @@ public class PathFindAI : MonoBehaviour
        
         pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
         
-        LightManager.Inst.ActionFinish();
-
-
-
-        
+        if(InGameManager.Inst.inRelpayMode)
+             LightManager.Inst.ActionFinish();
 
     }
     

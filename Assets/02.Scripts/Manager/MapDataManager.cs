@@ -103,7 +103,7 @@ public class MapDataManager : Singleton<MapDataManager>
       
         
         var sheetDataList = MapDataSheet.Data.DataList;
-        Debug.Log(Data.mapData.Count+" , "+sheetDataList.Count);
+        Debug.Log("맵 데이터 카운트"+Data.mapData.Count+" , "+sheetDataList.Count);
         if (Data.mapData.Count < sheetDataList.Count)
         {
             foreach (var _mapData in sheetDataList)
@@ -173,12 +173,6 @@ public class MapDataManager : Singleton<MapDataManager>
     }
     
     
-    
-    public void MapSpawn()
-    {
-        //Instantiate(MapDataManager.Inst. mapData[MapDataManager.Inst.testMapIndex].mapPrefab, Vector3.zero, quaternion.identity);
-    }
-
     public void NextMap()
     {
         if (++testMapIndex >= Data.mapData.Count)

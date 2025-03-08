@@ -9,9 +9,10 @@ public class Lanton : illuminant
     void Start()
     {
         illuminantType = IlluminantType.always;
-        GetTargetTileVector(7.5f);
-        TargetTileLighting(true,false);
+        GetTargetTileVector(7.5f); //타일 받기
+        //TargetTileLighting(true,false); //타일 빛 켜기
     }
+    
 
     public override void AllWaysLighting()
     {
