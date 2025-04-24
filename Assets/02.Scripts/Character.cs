@@ -104,7 +104,7 @@ public class Character : MonoBehaviour
     public virtual void CharacterDead()
     {
         if (!InGameManager.Inst.papa)
-            InGameManager.Inst.GameReStart();
+            InGameManager.Inst.AllRestart();
         else InGameManager.Inst.ReplayModeRestart();
     }
 

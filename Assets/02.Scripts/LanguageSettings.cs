@@ -9,8 +9,11 @@ public class LanguageSettings : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(waitLocalization());
+      
         curLanguageNum = DataManager.Inst.Data.localizationNum;
+        int localizedIndex = DataManager.Inst.Data.localizationNum > 0 ? DataManager.Inst.Data.localizationNum - 1 : DataManager.Inst.Data.localizationNum;
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localizedIndex];
     }
 
     public void ChangeLanguage(bool right)
@@ -37,12 +40,5 @@ public class LanguageSettings : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[curLanguageNum - 1];
         DataManager.Inst.ChangeLocalization(curLanguageNum);
     }
-
-    IEnumerator waitLocalization()
-    {
-        yield return new WaitForSeconds(0.5f);
-        int localizedIndex = DataManager.Inst.Data.localizationNum > 0 ? DataManager.Inst.Data.localizationNum - 1 : DataManager.Inst.Data.localizationNum;
-
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localizedIndex];
-    }
+    
 }

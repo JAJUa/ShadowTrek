@@ -26,8 +26,9 @@ public class DataManager : SingletonDontDestroyOnLoad<DataManager>
     private string _DataFilePath;
     public PlayerData Data = new PlayerData();
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Application.targetFrameRate = 60; // 프레임 정상화 
         _DataFilePath = Path.Combine(Application.persistentDataPath, "unitData.json");
         if (File.Exists(_DataFilePath))

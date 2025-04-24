@@ -117,12 +117,13 @@ public class RePlay : MonoBehaviour
         pointsInTime.RemoveAt(0);
         if(isPapaStay) LightManager.Inst.ActionFinish();
         
+        /*
         if (InGameManager.Inst.isInteractionDetect)
         {
             
             InGameManager.Inst.isInteractionDetect = false;
             InGameManager.Inst.moveBlock = false;
-        }
+        }*/
         
     }
 

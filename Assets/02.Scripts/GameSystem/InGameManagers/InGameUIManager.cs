@@ -114,7 +114,7 @@ public class InGameUIManager : MonoBehaviour
     {
         if (stayBtn != null)
         {
-            stayBtn.GetComponent<Image>().color = InGameManager.Inst.isAnswering ? stayBtnAns_Color : stayBtnDefault_Color;
+            stayBtn.GetComponent<Image>().color =stayBtnDefault_Color;
             stayBtn.interactable = active;
             float alpha = active ? 1 : 0;
             stayBtn.gameObject.GetComponent<Image>().DOFade(alpha, 0.3f).OnComplete(() => stayBtn.gameObject.SetActive(active));
@@ -128,16 +128,15 @@ public class InGameUIManager : MonoBehaviour
         stayBtn.gameObject.GetComponent<Image>().DOFade(0.2f, 0);
         InGameManager.Inst.OnlyPlayerReplay(true, false);
 
-        if (!InGameManager.Inst.isAnswering)
+   
+        DOVirtual.DelayedCall(0.35f, () =>
         {
-            DOVirtual.DelayedCall(0.35f, () =>
+            stayBtn.gameObject.GetComponent<Image>().DOFade(1f, 0.5f).OnComplete(() =>
             {
-                stayBtn.gameObject.GetComponent<Image>().DOFade(1f, 0.5f).OnComplete(() =>
-                {
-                    stayBtn.interactable = true;
-                });
+                stayBtn.interactable = true;
             });
-        }
+        });
+        
 
     }
 
@@ -164,7 +163,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void Hint()
     {
-        InGameManager.Inst.HintReset();
+        //InGameManager.Inst.HintReset();
     }
 
     public void AbleMenuBtn(bool able)

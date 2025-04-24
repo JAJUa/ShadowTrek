@@ -150,7 +150,7 @@ public class CutSceneManager : MonoBehaviour
 
     public void StopCutScene()
     {
-        InGameManager.Inst.isCutsceneIn = false;
+       // InGameManager.Inst.isCutsceneIn = false;
         if (up)
         {
             up.DOAnchorPosY(50, 0.7f);
@@ -167,7 +167,7 @@ public class CutSceneManager : MonoBehaviour
     {
         if(cutSceneIn)
         {
-            InGameManager.Inst.isCutsceneIn= true;
+            //InGameManager.Inst.isCutsceneIn= true;
             MoveBlock(true);
             up.DOAnchorPosY(-50, 0.7f);
             down.DOAnchorPosY(50, 0.7f);
@@ -184,7 +184,7 @@ public class CutSceneManager : MonoBehaviour
                 text.DOFade(0, 0.3f);
             }
 
-            InGameManager.Inst.isCutsceneIn =false;
+            //InGameManager.Inst.isCutsceneIn =false;
             MoveBlock(false);
             up.DOAnchorPosY(50, 0.7f);
             down.DOAnchorPosY(-50, 0.7f);

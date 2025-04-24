@@ -13,18 +13,16 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Japanese (ja)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Japanese (ja)
-  m_Data:
-    m_SerializedData: []
   m_GUID: c08dd79e5cfae30489a95238a2cca782
   m_SerializeEntries:
-  - m_GUID: 3ca385ec253d1f1469dd04ee7f4228ee
-    m_Address: New Table_ja
+  - m_GUID: 089627a03e622b54499d7b5778de6d0d
+    m_Address: SceneTitle_ja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a2ebdafee1a3a494bb36817f9966d390
-    m_Address: CutSceneText_ja
+  - m_GUID: 3ca385ec253d1f1469dd04ee7f4228ee
+    m_Address: New Table_ja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja
@@ -35,8 +33,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ja
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 089627a03e622b54499d7b5778de6d0d
-    m_Address: SceneTitle_ja
+  - m_GUID: a2ebdafee1a3a494bb36817f9966d390
+    m_Address: CutSceneText_ja
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ja

@@ -62,4 +62,29 @@ public class FadeInFadeOut : Singleton<FadeInFadeOut>
             fadeImage.enabled = false;
         });
     }
+
+    public void FadeIn(bool useDotween,float _time = 0.25f)
+    {
+        if(useDotween)
+            fadeImage.DOFade(0, _time);
+        else
+        {
+            Color c = fadeImage.color;
+            c.a = 0;
+            fadeImage.color = c;
+        }
+            
+    }
+    
+    public void FadeOut(bool useDotween,float _time = 0.25f)
+    {
+        if(useDotween)
+            fadeImage.DOFade(1, _time);
+        else
+        {
+            Color c = fadeImage.color;
+            c.a = 1;
+            fadeImage.color = c;
+        }
+    }
 }

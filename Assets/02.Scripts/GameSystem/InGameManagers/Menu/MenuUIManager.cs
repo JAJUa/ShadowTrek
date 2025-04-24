@@ -11,22 +11,21 @@ using UnityEngine.UI;
 using VInspector;
 using UnityEngine.Events;
 
-public class MenuUIManager : MonoBehaviour
+public class MenuUIManager : Singleton<MenuUIManager>
 {
-    public static MenuUIManager Inst;
     [Tab("아이콘")]
-    public float turnTimeRate, range;
+    public float turnTimeRate, range; //range : 오브젝트들의 원점에서의 간격
     private float turnRate;
-    public Ease iconsMoveEase;
-    public float iconUpDownSpeed;
     [SerializeField] GameObject iconExcuteBackButton, clickIcon;
     [SerializeField] private bool[] excuteIconActive;
     public UnityEvent tutorial;
     [Header("아이콘 관련")]
     public TMP_Text iconNameTxt;
     public GameObject[] iconsObj;
-    public List<GameObject> excuteObj = new List<GameObject>();
+    [SerializeField]private  List<GameObject> excuteObj = new List<GameObject>();
+    [SerializeField]private List<string> iconNameList = new List<string>();
     private List<GameObject> instanceIcon = new List<GameObject>();
+    
     [SerializeField] Transform spawnCenter;
     [HideInInspector][SerializeField] int curIconNum;
     private Tween[] iconTween;
@@ -34,8 +33,6 @@ public class MenuUIManager : MonoBehaviour
     [Tab("기타 관련")]
     [SerializeField] GameObject fog;
     public int curLanguageNum;
-
-    public TMP_Text languageName_Text;
     
     [SerializeField] Scrollbar bgmScrollBar, soundEffectScrollBar;
 
@@ -49,24 +46,8 @@ public class MenuUIManager : MonoBehaviour
     Vector2 startTouchPos, endTouchPos,swipeDelta;
     [SerializeField] private float touchInterval;
     public bool isSwiping,ableSwipe;
-
-    [Tab("로컬라이즈")]
-    [SerializeField] LocalizedString[] iconLocalizeName,clothSelectedLocalizeName;
-    [SerializeField] LocalizeStringEvent iconLocalizeStringEvent;
-    [SerializeField] LocalizeStringEvent[] clothSelectedLocalize_SE;
-
-    private void Awake()
-    {
-        if(Inst != null && Inst != this)
-        {
-            Destroy(Inst);
-            Inst = this;
-        }
-        else
-        {
-            Inst = this;
-        }
-    }
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +61,6 @@ public class MenuUIManager : MonoBehaviour
         GetScrollbarImages();
         instanceIcon[curIconNum - 1].transform.DOScale(1.4f, 0.5f);
         AnimationIcon();
-        StartCoroutine(waitLocalization());
         turnRate = 360 / iconsObj.Length;
         foreach (var icon in instanceIcon)
         {
@@ -182,22 +162,18 @@ public class MenuUIManager : MonoBehaviour
         {
             instanceIcon[curIconNum - 1].transform.DOScale(1.4f, 0.5f);
             excuteObj[curIconNum - 1].GetComponent<Animator>().SetBool("ActiveExcute", true);
-            GetSkinData();
             GetRelicInformationFromGameData();
-            //DOTween.KillAll();
             for (int i = 0; i < iconsObj.Length; i++)
             {
                 if (i == curIconNum - 1)
                 {
-                    instanceIcon[i].SetActive(excuteIconActive[i]);
-                    print(i);
-
+                    instanceIcon[i].SetActive(excuteIconActive[i]); // 클릭했을 때 클릭한 아이콘 사라지게
                 }                 
                 else
                 {
                     iconTween[i].Kill();
                     instanceIcon[i].transform.DOMoveY(instanceIcon[i].transform.position.y + 10f, 1f);
-                  //  iconTween[i].Kill();
+              
                 }
             }
             isSelected = true;
@@ -228,7 +204,6 @@ public class MenuUIManager : MonoBehaviour
 
     public void AnimationIcon()
     {
-        Debug.Log(instanceIcon[curIconNum - 1].GetComponentInChildren<Animator>().gameObject.name);
         instanceIcon[curIconNum - 1].GetComponentInChildren<Animator>().SetTrigger("Active");
     }
 
@@ -248,47 +223,17 @@ public class MenuUIManager : MonoBehaviour
     void ChangeIconName()
     {
         iconNameTxt.DOFade(1, 0.3f);
-       // iconNameTxt.text = iconName[curIconNum - 1];
-        iconLocalizeStringEvent.StringReference = iconLocalizeName[curIconNum - 1];
+        iconNameTxt.text = iconNameList[curIconNum - 1];
+      
     }
 
-    public void URLButton(string name)
-    {
 
-        switch (name)
-        {
-            case "Instagram":
-                Application.OpenURL("https://www.instagram.com/shadowtrek/");
-                break;
-            case "YouTube":
-                Application.OpenURL("https://www.youtube.com/channel/UCDJkmsYGagk295RpGPVe0Ng");
-                break;
-
-        }
-
-    }
     #endregion
 
 
     // Update is called once per frame
     void Update()
     {
-
-        
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.CompareTag("SNS"))
-                {
-                    URLButton(hit.collider.gameObject.name);
-                }
-            }
-
-        }
 
         if (isTurning)
         {
@@ -334,18 +279,6 @@ public class MenuUIManager : MonoBehaviour
         
     }
 
-   
-    public void GetSkinData()
-    {
-        for(int i = 1; i < skinScrollbarImage.Count - 1; i++)
-        {
-            Debug.Log(i);
-            if (i == DataManager.Inst.Data.skinNum + 1)
-                clothSelectedLocalize_SE[i].StringReference = clothSelectedLocalizeName[0];     
-            else
-                clothSelectedLocalize_SE[i].StringReference = clothSelectedLocalizeName[1];
-        }
-    }
 
     void GetRelicInformationFromGameData()
     {
@@ -359,27 +292,7 @@ public class MenuUIManager : MonoBehaviour
 
    
     #region SettingCanvas
-
-    public void ChangeLanguage(bool right)
-    {
-        if(right)
-        {
-            if (curLanguageNum == 3)
-                curLanguageNum = 1;
-            else
-                curLanguageNum++;
-        }
-        else
-        {
-            if (curLanguageNum == 1)
-                curLanguageNum = 3;
-            else
-                curLanguageNum--;
-        }
-        UserLcoalization();
-       
-    }
-
+    
     void GetScrollbarImages()
     {
         for (int i = 0; i < relicsContent.transform.childCount; i++)
@@ -393,24 +306,11 @@ public class MenuUIManager : MonoBehaviour
         }
 
     }
-
-    public void UserLcoalization()
-    {
-        //languageName_Text.text = languageText[curLanguageNum-1];
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[curLanguageNum-1];
-        DataManager.Inst.ChangeLocalization(curLanguageNum);
-    }
+    
     #endregion
 
 
-    IEnumerator waitLocalization()
-    {
-        yield return new WaitForSeconds(0.5f);
-        int localizedIndex = DataManager.Inst.Data.localizationNum > 0 ? DataManager.Inst.Data.localizationNum - 1 : DataManager.Inst.Data.localizationNum;
-
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localizedIndex];
-    }
-
+  
    
 
 }

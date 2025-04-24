@@ -157,7 +157,7 @@ public class Dialouge : MonoBehaviour
 
     public void InterFade(bool isFadeIn)
     {
-        interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
+        //interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
         
         if (isFadeIn) interBox.gameObject.SetActive(isFadeIn);
 
@@ -187,9 +187,10 @@ public class Dialouge : MonoBehaviour
             TutorialManager.Inst.FinshTutorial();
         InGameManager.Inst.OnlyPlayerReplay(true);
 
+        /*
         if (!InGameManager.Inst.isAnswering)
             DOVirtual.DelayedCall(0.8f, () => InterFade(true));
-
+    */
     }
 
     public virtual void InteractTutorial()

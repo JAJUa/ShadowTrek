@@ -13,17 +13,15 @@ MonoBehaviour:
   m_Name: Localization-Assets-Shared
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Assets-Shared
-  m_Data:
-    m_SerializedData: []
   m_GUID: f42df1da010277b489b60bab222d98f0
   m_SerializeEntries:
-  - m_GUID: 1455de9d918f0224ba34b2da175b3628
-    m_Address: Assets/Lanaguage/New Table Shared Data.asset
+  - m_GUID: 0cca266a08cac394999816af57425103
+    m_Address: Assets/Lanaguage/SceneTitle Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b9253f26cf35a1645b685e8c4c5177ce
-    m_Address: Assets/Lanaguage/CutSceneText Shared Data.asset
+  - m_GUID: 1455de9d918f0224ba34b2da175b3628
+    m_Address: Assets/Lanaguage/New Table Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,8 +30,8 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0cca266a08cac394999816af57425103
-    m_Address: Assets/Lanaguage/SceneTitle Shared Data.asset
+  - m_GUID: b9253f26cf35a1645b685e8c4c5177ce
+    m_Address: Assets/Lanaguage/CutSceneText Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
