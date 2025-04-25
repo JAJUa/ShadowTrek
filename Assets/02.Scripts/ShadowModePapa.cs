@@ -9,6 +9,7 @@ public class ShadowModePapa : Character
 {
 
     public DissolveChilds dissolve;
+    private bool firstMove = false;
 
     // Start is called before the first frame update
 
@@ -17,12 +18,7 @@ public class ShadowModePapa : Character
         base.Awake();
         startPos = transform.position;
     }
-
-    protected override void Start()
-    {
-        base.Start();
-
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -31,10 +27,63 @@ public class ShadowModePapa : Character
    
     }
 
-   public override void  ResetCharacter()
+    public override void CharacterMove()
     {
+        if (Input.GetMouseButtonDown(0) && !InGameManager.Inst.moveBlock)
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider.CompareTag("MoveTile")) 
+                    {
+                        if (!firstMove)
+                        {
+                            firstMove = true;
+                            InGameManager.Inst.PlayerMove();
+                        }
+                        InGameManager.Inst.moveBlock = true;
+                        Tile tile = TileFinding.GetOneTile( Vector3Int.RoundToInt(transform.position));
+                        tile.character = null;
+                        
+                        Vector3 tilePosition = hit.collider.transform.position;
+                        Vector3Int _startPos = Vector3Int.RoundToInt(transform.position);
+                        Vector3Int _targetPos = Vector3Int.RoundToInt(tilePosition);
+                        
+                        InGameFXManager.Inst.TileClickParticle(tilePosition);
+                        if(AudioManager.Inst != null)
+                            AudioManager.Inst.AudioEffectPlay(2);
+                        
+                        var finalNodeList =  pathFind.PathFinding(_startPos, _targetPos);
+                        moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(finalNodeList)); 
+                    }
+                }
+            }
+            else
+            {
+                PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+                pointerEventData.position = Input.mousePosition;
+
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(pointerEventData, results);
+
+                foreach (RaycastResult result in results)
+                {
+                    Debug.Log("Hit " + result.gameObject.name);
+                }
+            }
+        }
+    }
+
+    public override void  ResetCharacter()
+    {
+        if (moveCoroutine != null) 
+            StopCoroutine(moveCoroutine);
         base.ResetCharacter();
-        Debug.Log("PapaReset");
+        firstMove = false;
         isLight= false;
        
         DOVirtual.DelayedCall(1f, () => dissolve.DIssolvessad(false));
@@ -58,7 +107,6 @@ public class ShadowModePapa : Character
             dissolve.DIssolvessad(true);
             CharacterDead();
             DOVirtual.DelayedCall(0.5f, () => dissolve.DIssolvessad(false));
-            return;
         }
     }
 }

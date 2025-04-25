@@ -40,51 +40,12 @@ public class Character : MonoBehaviour
         pathFind = PathFind.Inst;
         startPos = transform.position;
         startRot = transform.rotation;
-        pathFindAI.Init(moveSpeed,this,pointInTime);
+        pathFindAI.Init(moveSpeed,this,pointInTime,role);
     }
 
     public virtual void CharacterMove()
     {
-        if (Input.GetMouseButtonDown(0) && IsCharacterTurn() && !InGameManager.Inst.moveBlock)
-        {
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.collider.CompareTag("MoveTile")) 
-                    {
-                        InGameManager.Inst.moveBlock = true;
-                        Tile tile = TileFinding.GetOneTile( Vector3Int.RoundToInt(transform.position));
-                        tile.character = null;
-                        Vector3 tilePosition = hit.collider.transform.position;
-                        Vector3Int _startPos = Vector3Int.RoundToInt(transform.position);
-                        Vector3Int _targetPos = Vector3Int.RoundToInt(tilePosition);
-                        InGameFXManager.Inst.TileClickParticle(tilePosition);
-                        if(AudioManager.Inst != null)
-                             AudioManager.Inst.AudioEffectPlay(2);
-                        var finalNodeList =  pathFind.PathFinding(_startPos, _targetPos);
-                        Debug.Log(finalNodeList.Count);
-                        moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(finalNodeList)); 
-                    }
-                }
-            }
-            else
-            {
-                PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-                pointerEventData.position = Input.mousePosition;
-
-                List<RaycastResult> results = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerEventData, results);
-
-                foreach (RaycastResult result in results)
-                {
-                    Debug.Log("Hit " + result.gameObject.name);
-                }
-            }
-        }
+        
     }
 
 
@@ -122,6 +83,8 @@ public class Character : MonoBehaviour
         DOVirtual.DelayedCall(0.1f, () => transform.position = startPos);
         DOVirtual.DelayedCall(0.1f, () => transform.rotation = startRot);
         Tile tile = TileFinding.GetOneTile(startPos);
+        
+        pathFindAI.StopMoveCor();
         tile.character = this;
     }
 

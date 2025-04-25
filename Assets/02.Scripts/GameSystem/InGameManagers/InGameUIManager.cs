@@ -10,9 +10,8 @@ using VInspector;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 
-public class InGameUIManager : MonoBehaviour
+public class InGameUIManager : Singleton<InGameUIManager>
 {
-    public static InGameUIManager Inst;
 
     [Tab("Setting")]
     public GameObject seraSprite, papaSprite;
@@ -40,16 +39,7 @@ public class InGameUIManager : MonoBehaviour
 
     private void Awake()
     {
-        //Dont Create 2 GameManager
-        if (Inst != null && Inst != this)
-        {
-            Destroy(InGameUIManager.Inst);
-            return;
-        }
-        else
-        {
-            Inst = this;
-        }
+    
         ableMenuBtn = true;
         if (stayBtn != null)
             stayBtnDefault_Color = stayBtn.GetComponent<Image>().color;
@@ -59,10 +49,6 @@ public class InGameUIManager : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitUntil(()=>InGameManager.Inst);
-        if (startTitleAnim)
-        {
-            ShowTitleText(0.2f);
-        }
         stayBtn.onClick.AddListener(OnStayBtn);
     }
 
@@ -227,7 +213,7 @@ public class InGameUIManager : MonoBehaviour
                 }
                 else if (OptionChoiceNum == 2)
                 {
-                    FadeInFadeOut.Inst.NextScene(1);
+                    FadeInFadeOut.Inst.FadeOut(true,1,1);
                 }
                 break;
             default:

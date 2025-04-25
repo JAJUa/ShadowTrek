@@ -36,7 +36,7 @@ public class TitleSceneFade : MonoBehaviour
 
         startBtn.GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
         {
-            FadeInFadeOut.Inst.NextScene(1);
+            FadeInFadeOut.Inst.FadeOut(true,1,1);
         });
     }
 

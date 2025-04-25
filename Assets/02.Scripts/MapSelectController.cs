@@ -82,7 +82,8 @@ public class MapSelectController : MonoBehaviour
 
     public void EnterScene()
     {
-        FadeInFadeOut.Inst.NextScene(2);//controlScene
+        Debug.Log("Enter Scene ");
+        FadeInFadeOut.Inst.FadeOut(true,1,2);
     }
 
     public void HideText(bool isNext)

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,29 +11,34 @@ public enum CurCharacter
 {
     Player, Papa,Enemy,Pet
 }
+public enum GameState
+{
+    SeraTurn,ShadowTurn,IdleTurn
+}
 
 public class InGameManager : Singleton<InGameManager>
 {
-    public static InGameManager Inst;
-
     [Tab("InGame")]
+    public GameState gameState
+    {
+        get;
+        private set;
+    }
     public bool moveBlock = false;
-    public bool inRelpayMode;
     public CurCharacter curCharacter;
     public Player player; //중앙제어
     public ShadowModePapa papa; //중앙제어
     
-    public Transform cam;
-    private Vector3 camPos, camRot;
     
 
-   
+    private void Awake()
+    {
+        gameState = GameState.IdleTurn;
+    }
 
     private IEnumerator Start()
     {
         yield return new WaitUntil(()=>MapDataManager.Inst);
-        
-        
         foreach (var spawnCharacter in MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].spawnCharacters)
         {
             switch (spawnCharacter.characterRole)
@@ -53,15 +59,30 @@ public class InGameManager : Singleton<InGameManager>
         if (papa)
             papa.gameObject.SetActive(false);
         
-        SetCamera();
     }
 
-    private void SetCamera()
+    public GameState CurState() => gameState;
+    
+
+    public void ChangeState(GameState newState)
     {
-        cam = Camera.main.transform;
-        camPos = new Vector3(cam.transform.position.x,cam.transform.position.y, cam.transform.position.z);
-        camRot = cam.transform.eulerAngles;
+        StopMoving();
+        gameState = newState;
+        switch (gameState)
+        {
+            case GameState.IdleTurn:
+                break;
+            case GameState.ShadowTurn:
+                EnterReplayMode();
+                break;
+            case GameState.SeraTurn:
+                PlayerMove();
+                break;
+        }
     }
+
+    public void PlayerMove()=> player.CharacterMove();
+
     
     
 
@@ -79,7 +100,8 @@ public class InGameManager : Singleton<InGameManager>
     public void EnterReplayMode() //리플레이 모드 진입 시 한 번만 실행
     {
         //리플레이 모드 진입
-        inRelpayMode = true;
+        gameState = GameState.ShadowTurn;
+        LightManager.Inst.LightsOn();
         InGameUIManager.Inst.SpriteChange(false);
         //리플레이 진입시 패스 소환
         PathFind.Inst.NodeSetting();
@@ -137,7 +159,7 @@ public class InGameManager : Singleton<InGameManager>
 
     public void OnlyPlayerReplay(bool isPapaStay = false,bool lightFinished = false)
     {
-        if (inRelpayMode)
+        if (gameState == GameState.ShadowTurn)
         {
             RePlay.Inst.ReMove(isPapaStay);
         }

@@ -5,14 +5,14 @@ using UnityEngine;
 public class Lanton : illuminant
 {
 
-    // Start is called before the first frame update
-    void Start()
+
+    public override void LightOn()
     {
         illuminantType = IlluminantType.always;
-        GetTargetTileVector(7.5f); //타일 받기
-        //TargetTileLighting(true,false); //타일 빛 켜기
+        GetTargetTileVector(7.5f);
+        TargetTileLighting(true,false);
     }
-    
+
 
     public override void AllWaysLighting()
     {

@@ -7,15 +7,24 @@ public class PathFindAI : MonoBehaviour
     [SerializeField] private List<Node> finalNodeList;
     [SerializeField] private float speed;
     private Character character;
+    private CharacterRole role;
     private List<PointInTime> pointsInTime;
     private Animator animator;
+    public Coroutine corutine;
 
-    public void Init(float _speed,Character _character,List<PointInTime> _pointInTime)
+    public void Init(float _speed,Character _character,List<PointInTime> _pointInTime,CharacterRole _characterRole)
     {
         speed = _speed;
         character = _character;
         pointsInTime = _pointInTime;
+        role = _characterRole;
         animator = character.animator;
+    }
+
+    public void StopMoveCor()
+    {
+        if(corutine != null)
+            StopCoroutine(corutine);
     }
     
      public IEnumerator MoveAlongPath(List<Node> _finalNodeList )
@@ -23,33 +32,19 @@ public class PathFindAI : MonoBehaviour
          finalNodeList = _finalNodeList;
          animator.SetBool("isWalk", true);
         for (int passtile = 0; passtile < finalNodeList.Count - 1; passtile++)
-        {
-            // RePlay 리플레이 모드면 실행
-            if (InGameManager.Inst.inRelpayMode)
-            {
-                RePlay.Inst.ReMove(false);
-            }
-            
-            Debug.Log("이동 실행");
-            yield return StartCoroutine(MoveToPosition(new Vector3(finalNodeList[passtile + 1].x, character.transform.position.y, finalNodeList[passtile + 1].z), passtile));
-            
+        { 
+            corutine= StartCoroutine(MoveToPosition(new Vector3(finalNodeList[passtile + 1].x, character.transform.position.y, finalNodeList[passtile + 1].z), passtile));
+            yield return corutine;
         }
-
-
-      
+        
         animator.SetBool("isWalk", false);
 
         InGameManager.Inst.moveBlock = false;
-
     }
-
-    
 
 
     private IEnumerator MoveToPosition( Vector3 targetPosition, int passtile)
     {
-        Debug.Log("이동 중");
-        //TurnAction();
         // Position
         Vector3 startPosition = character.transform.position;
         float distance = Vector3.Distance(startPosition, targetPosition);
@@ -78,8 +73,7 @@ public class PathFindAI : MonoBehaviour
        
         pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
         
-        if(InGameManager.Inst.inRelpayMode)
-             LightManager.Inst.ActionFinish();
+        character.InLight();
 
     }
     

@@ -5,11 +5,19 @@ using UnityEngine;
 public class Lamp : illuminant
 {
     [SerializeField]private bool isLight;
-    protected override void Awake()
+    
+
+    void Start()
     {
-        base.Awake();
+        LightOff();
     }
 
+    public override void LightOn()
+    {
+        illuminantType = IlluminantType.onAction;
+        GetTargetTileVector(15f);
+        TargetTileLighting(false,false);
+    }
 
     public override void ResetLight()
     {
@@ -21,14 +29,6 @@ public class Lamp : illuminant
         this.isLight = isLight;
         base.TargetTileLighting(isLight, action);
     
-    }
-
-    void Start()
-    {
-        
-        illuminantType = IlluminantType.onAction;
-        GetTargetTileVector(15f);
-        TargetTileLighting(false,false);
     }
 
     public override void AllWaysLighting()

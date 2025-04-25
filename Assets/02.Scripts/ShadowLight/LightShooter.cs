@@ -28,19 +28,18 @@ public class LightShooter : illuminant
    private int beginIndex;
    private bool clockWise = true;
 
-   protected override void Awake()
-   {
-       base.Awake();
-       //StartCoroutine(AwakeCor());
-   }
 
-   IEnumerator AwakeCor()
+   private void Start()
    {
-       yield return new WaitUntil(() => TileManager.Inst);
-        beginIndex = curIndex;
-        illuminantType = IlluminantType.always;
-        Setting();
-    }
+       LightOff();
+   }
+   
+   public override void LightOn()
+   {
+       beginIndex = curIndex;
+       illuminantType = IlluminantType.always;
+       Setting();
+   }
 
     public void Setting()
     {

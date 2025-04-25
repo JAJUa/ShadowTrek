@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +11,6 @@ using VInspector;
 
 public class Player : Character
 {
-    [SerializeField] private bool isReplay; //목표 지점에 도착하면 다시 돌아갈 것인가
     [SerializeField] private Transform bwShaderSphere;
     [SerializeField] private bool seraInv;  //무적 기능 (테스트용)
     [SerializeField] private int shadowIndex = 3;
@@ -32,24 +32,23 @@ public class Player : Character
              
         pointInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
         base.Start();
-        move();
 
     }
 
     [Button]
-    public void move()
+    public override void CharacterMove()
     {
         path = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath;
-        if(path.Count>0)
-            CharacterMove();
         var _path = pathFind.ReturnNodePath(path);
         moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(_path)); 
     }
 
-  
-    public override void CharacterMove()
+    private void Update()
     {
-      
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            CharacterMove();
+        }
     }
 
 
@@ -67,19 +66,19 @@ public class Player : Character
             Debug.LogError("타일이 없음");
         tile.character = this;
         Debug.Log("판정");
-        if (!tile.isLight && !seraInv)
+        if (InGameManager.Inst.CurState() == GameState.ShadowTurn)
         {
-           
-            SetShadowIndex( --shadowIndex);
-         
-        }
-        else
-        {
-            playerInLight();
+            if (!tile.isLight && !seraInv)
+            {
+                SetShadowIndex(--shadowIndex);
+            }
+            else
+            {
+                playerInLight();
+            }
             
-        }
-        if (InGameManager.Inst.inRelpayMode)
             ReplayMode(tile);
+        }
         else 
             UnReplayMode(tile);
        
@@ -92,7 +91,6 @@ public class Player : Character
         {
             InGameManager.Inst.StopMoving();
             InGameManager.Inst.moveBlock = true;
-            // tile.endCutScene.StartCutScene();
             ++MapDataManager.Inst.testMapIndex;
             DOVirtual.DelayedCall(0.75f, () =>  //임시
             {
@@ -104,10 +102,10 @@ public class Player : Character
 
     protected override void UnReplayMode(Tile _tile)
     {
+        Debug.Log("끝에 도착");
         if (_tile.isEndTile)
         {
-            InGameManager.Inst.StopMoving();
-            InGameManager.Inst.EnterReplayMode();
+            InGameManager.Inst.ChangeState(GameState.ShadowTurn);
             seraInv = false;
         }
     }
@@ -123,7 +121,6 @@ public class Player : Character
         if(shadowIndex == 0)
         {
             CharacterDead();
-            return;
         } 
     }
 
@@ -140,7 +137,6 @@ public class Player : Character
     {
         base.ResetCharacter();
         playerInLight();
-        
     }
 }
 

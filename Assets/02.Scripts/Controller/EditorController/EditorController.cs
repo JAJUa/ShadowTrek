@@ -13,6 +13,7 @@ public class EditorController : MonoBehaviour
     
     [SerializeField] private bool setEditor;
     [SerializeField] private List<Vector3Int> pathList;
+    [SerializeField] private Panel panel;
 
     [SerializeField] private CommandState commandState;
     [SerializeField] private Transform btnParent;
@@ -27,8 +28,16 @@ public class EditorController : MonoBehaviour
 
     private void Start()
     {
-       if(setEditor)
-           InGameManager.Inst.moveBlock = true;
+        if (setEditor)
+        {
+            InGameManager.Inst.moveBlock = true;
+            panel.SetPosition(PanelStates.Show);
+        }
+        else
+        {
+            panel.SetPosition(PanelStates.Hide);
+        }
+       
     }
 
     private void Update()

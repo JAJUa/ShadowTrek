@@ -18,9 +18,19 @@ public class illuminant : MonoBehaviour
 
     protected virtual void Awake()
     {
+       
+    }
+
+    public virtual void LightOn()
+    {
+        
+    }
+    
+    public virtual void LightOff()
+    {
         if(light == null)
             light = GetComponentInChildren<Light>();
-       LightOn(0,0.01f);
+        LightOn(0,0.01f);
     }
 
     protected virtual void LightOn(float _intensity ,float _duration)
@@ -56,8 +66,6 @@ public class illuminant : MonoBehaviour
     public virtual void AllWaysLighting()
     {
         if (illuminantType != IlluminantType.always) return;
-     
-        
     }
     
 }

@@ -199,7 +199,7 @@ public class CutSceneManager : MonoBehaviour
     public void GoTitle()
     {
 
-        FadeInFadeOut.Inst.NextScene(0);
+        FadeInFadeOut.Inst.FadeIn();
     }
 
 }
