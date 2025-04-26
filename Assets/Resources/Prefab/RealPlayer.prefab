@@ -1856,19 +1856,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   role: 0
-  pointInTime: []
   animator: {fileID: 3674648245351250542}
-  moveSpeed: 30
+  moveSpeed: 13.5
   curCharacter: 0
   isLight: 0
   startPos: {x: 0, y: 0, z: 0}
   startRot: {x: 0, y: 0, z: 0, w: 0}
   lineRenderer: {fileID: 0}
-  isReplay: 1
+  pointInTime: []
   bwShaderSphere: {fileID: 3674648246640385569}
   seraInv: 1
   shadowIndex: 3
   path: []
+  replay: {fileID: 0}
 --- !u!114 &3674648245410727885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3227,8 +3227,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 1, g: 0.8789927, b: 0, a: 1}
-  m_Intensity: 20
+  m_Color: {r: 0.9254902, g: 0.62422854, b: 0, a: 1}
+  m_Intensity: 50
   m_Range: 300
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

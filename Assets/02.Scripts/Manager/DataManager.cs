@@ -16,7 +16,7 @@ public class PlayerData
     public List<int> relicsMaxCount = new List<int> { 14, 12, 8, 4 };
     public List<int> relicsCurCount = new List<int> { 0,0,0,0};
     public float bgmVolume, soundEffectVolume;
-    public bool selectionTuto1 = false,selectionTuto2 = false;
+    public bool selectionTuto1 = true,selectionTuto2 = true;
 
 }
 

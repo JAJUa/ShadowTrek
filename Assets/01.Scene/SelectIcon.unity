@@ -1110,8 +1110,8 @@ MonoBehaviour:
     relicsCurCount: 00000000000000000000000000000000
     bgmVolume: 0
     soundEffectVolume: 0
-    selectionTuto1: 0
-    selectionTuto2: 0
+    selectionTuto1: 1
+    selectionTuto2: 1
 --- !u!4 &212487248
 Transform:
   m_ObjectHideFlags: 0

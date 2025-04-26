@@ -10,13 +10,13 @@ Material:
   m_Name: Imsi
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 77c438e3d64810c44b27bcb68f37039b, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 24
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses:
@@ -27,9 +27,16 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Cull: 2
+    - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _GlossyReflections: 0
     - _Parallax: 0.005
+    - _ReceiveShadows: 1
+    - _Smoothness: 0
+    - _SpecularHighlights: 1
     m_Colors:
     - _BaseColor: {r: 0.3291207, g: 0.34565666, b: 0.4056604, a: 1}
     - _Color: {r: 0.32912067, g: 0.34565663, b: 0.40566036, a: 1}
