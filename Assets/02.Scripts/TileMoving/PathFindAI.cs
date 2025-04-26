@@ -59,7 +59,8 @@ public class PathFindAI : MonoBehaviour
         // Walking
         while (elapsedTime < timeToMove)
         {
-            LineRenderer(passtile);
+            if(role == CharacterRole.Papa)
+                LineRenderer(passtile);
             character.transform.position = Vector3.Lerp(startPosition, targetPosition, (elapsedTime / timeToMove));
             character.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, (elapsedTime / (timeToMove / 2.5f)));
             elapsedTime += Time.deltaTime;

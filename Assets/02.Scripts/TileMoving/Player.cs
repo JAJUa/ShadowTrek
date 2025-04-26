@@ -42,14 +42,15 @@ public class Player : Character
         path = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath;
         if (pointInTime.Count == 0)
         {
-            var newPath = path;
+            var newPath = new List<Vector3Int>(path);
             newPath.Reverse();
-            foreach (var pos in path)
+            foreach (var pos in newPath)
             {
                 pointInTime.Add(new PointInTime(pos,Quaternion.identity));
             }
             pointInTime.RemoveAt(0);
         }
+
            
         var _path = pathFind.ReturnNodePath(path);
         moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(_path)); 

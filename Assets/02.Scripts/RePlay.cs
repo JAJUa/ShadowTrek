@@ -45,7 +45,7 @@ public class RePlay : MonoBehaviour
         }
         
         pointsInTime = new List<PointInTime>(_pointsInTime);
-        pointsInTime.RemoveAt(0);
+        //pointsInTime.RemoveAt(0);
        
         pointsInLine = new List<PointInTime>(pointsInTime);
         savedPointsInLine = new List<PointInTime>(pointsInTime);
