@@ -159,10 +159,7 @@ public class InGameManager : Singleton<InGameManager>
 
     public void OnlyPlayerReplay(bool isPapaStay = false,bool lightFinished = false)
     {
-        if (gameState == GameState.ShadowTurn)
-        {
-            RePlay.Inst.ReMove(isPapaStay);
-        }
+        
     }
     
 

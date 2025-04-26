@@ -8,15 +8,13 @@ public class PathFindAI : MonoBehaviour
     [SerializeField] private float speed;
     private Character character;
     private CharacterRole role;
-    private List<PointInTime> pointsInTime;
     private Animator animator;
     public Coroutine corutine;
 
-    public void Init(float _speed,Character _character,List<PointInTime> _pointInTime,CharacterRole _characterRole)
+    public void Init(float _speed,Character _character,CharacterRole _characterRole)
     {
         speed = _speed;
         character = _character;
-        pointsInTime = _pointInTime;
         role = _characterRole;
         animator = character.animator;
     }
@@ -70,10 +68,12 @@ public class PathFindAI : MonoBehaviour
 
         character.transform.position = targetPosition;
         //이동이 끝났을 때
-       
-        pointsInTime.Insert(0, new PointInTime(character.transform.position, character.transform.rotation));
         
         character.InLight();
+        if (InGameManager.Inst.CurState() == GameState.ShadowTurn && role == CharacterRole.Sera)
+        {
+            InGameManager.Inst.player.replay.EraseLine();
+        }
 
     }
     

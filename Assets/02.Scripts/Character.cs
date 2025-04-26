@@ -16,7 +16,6 @@ public class Character : MonoBehaviour
     public CharacterRole role; 
     protected PathFind pathFind;
     protected PathFindAI pathFindAI;
-    public List<PointInTime> pointInTime;
     public Animator animator;
     public float moveSpeed;
     public CurCharacter curCharacter;
@@ -32,7 +31,6 @@ public class Character : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         pathFindAI = GetComponent<PathFindAI>();
         if (animator != null) animator.GetComponent<Animator>();
-        pointInTime = new List<PointInTime>();
     }
     
     protected virtual void Start()
@@ -40,7 +38,7 @@ public class Character : MonoBehaviour
         pathFind = PathFind.Inst;
         startPos = transform.position;
         startRot = transform.rotation;
-        pathFindAI.Init(moveSpeed,this,pointInTime,role);
+        pathFindAI.Init(moveSpeed,this,role);
     }
 
     public virtual void CharacterMove()
@@ -53,14 +51,7 @@ public class Character : MonoBehaviour
     public virtual void InLight() { }
 
     public virtual void EnterReplayMode(){}
-
-    public bool IsCharacterTurn()//현재 캐릭터의 턴인가
-    {
-        if (InGameManager.Inst.curCharacter == curCharacter)
-        { return true; }
-        else
-        { return false; }
-    } 
+    
 
     public virtual void CharacterDead()
     {

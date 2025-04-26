@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 //using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,13 +12,14 @@ using VInspector;
 
 public class Player : Character
 {
+    public List<PointInTime> pointInTime;
     [SerializeField] private Transform bwShaderSphere;
     [SerializeField] private bool seraInv;  //무적 기능 (테스트용)
     [SerializeField] private int shadowIndex = 3;
 
     [SerializeField] private List<Vector3Int> path;
 
-    private RePlay replay;
+    [HideInInspector]public RePlay replay;
 
     protected override void Awake()
     {
@@ -29,8 +31,7 @@ public class Player : Character
     protected override void Start()
     {     
         animator = transform.GetChild(0).GetComponent<Animator>();
-             
-        pointInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
+        
         base.Start();
 
     }
@@ -39,6 +40,17 @@ public class Player : Character
     public override void CharacterMove()
     {
         path = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath;
+        if (pointInTime.Count == 0)
+        {
+            var newPath = path;
+            newPath.Reverse();
+            foreach (var pos in path)
+            {
+                pointInTime.Add(new PointInTime(pos,Quaternion.identity));
+            }
+            pointInTime.RemoveAt(0);
+        }
+           
         var _path = pathFind.ReturnNodePath(path);
         moveCoroutine =  StartCoroutine(pathFindAI.MoveAlongPath(_path)); 
     }
@@ -55,7 +67,7 @@ public class Player : Character
     public override void EnterReplayMode()
     {
         ResetCharacter();
-        replay.Init(pointInTime);
+       
     }
 
     public override void InLight()
@@ -136,6 +148,8 @@ public class Player : Character
     public override void ResetCharacter()
     {
         base.ResetCharacter();
+        replay.ResetReplayLine();
+        replay.Init(pointInTime);
         playerInLight();
     }
 }

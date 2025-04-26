@@ -23,9 +23,6 @@ public class PointInTime
 public class RePlay : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
-
-    public static RePlay Inst;
-    
     Player player;
     private bool isReverse = false;
     public List<PointInTime> pointsInTime;
@@ -36,7 +33,6 @@ public class RePlay : MonoBehaviour
 
     private void Awake()
     {
-        Inst = this;
         player = GetComponent<Player>();
     }
 
@@ -47,8 +43,7 @@ public class RePlay : MonoBehaviour
             _pointsInTime.Reverse();
             isReverse = true;
         }
-           
-      
+        
         pointsInTime = new List<PointInTime>(_pointsInTime);
         pointsInTime.RemoveAt(0);
        
@@ -58,6 +53,12 @@ public class RePlay : MonoBehaviour
         
         transform.position = pointsInTime[0].position;
         transform.rotation = pointsInTime[0].rotation;
+    }
+
+    public void EraseLine()
+    {
+        pointsInLine.RemoveAt(0);
+        pointsInTime.RemoveAt(0);
     }
     
 
@@ -74,14 +75,7 @@ public class RePlay : MonoBehaviour
         lineRenderer.positionCount = 0;
     }
 
-
-
-    public void ReMove(bool isPapaStay)
-    {
-        if (pointsInTime.Count <= 0) return;
-        Debug.Log(pointsInTime[0].position);
-      
-    }
+    
 
 
     
