@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public  class TileManager:MonoBehaviour
+public  class TileManager:Singleton<TileManager>
 {
-    public static TileManager Inst;
     public  Dictionary<Vector2, Tile> mapTiles = new Dictionary<Vector2, Tile>();
     
     private  void Awake()
@@ -23,11 +22,12 @@ public  class TileManager:MonoBehaviour
                 mapTiles.Add(targetVector,tileCs);
             }
         }
-        if(Inst != null && Inst!=this)
-            Debug.Log("타일매니저 있음");
-        
-        Inst = this;
 
+    }
+
+    private void Start()
+    {
+        HideAllTiles();
     }
 
     public void ResetTileCharacter()
@@ -49,6 +49,35 @@ public  class TileManager:MonoBehaviour
             tile.SetLight();
         }
     }
+
+    public void HideAllTiles()
+    {
+        foreach (var tile in mapTiles.Values)
+        {
+            tile.gameObject.SetActive(false);
+        }
+    }
+
+    public void ShowAllTiles()
+    {
+        foreach (var tile in mapTiles.Values)
+        {
+            tile.gameObject.SetActive(true);
+        }
+    }
+    
+    public void ShowTiles(List<Vector3> tiles)
+    {
+        foreach (var pos in tiles)
+        {
+            Vector2 newPos = new Vector2(pos.x, pos.z);
+            if (mapTiles[newPos] != null)
+            {
+                mapTiles[newPos].gameObject.SetActive(true);
+            }
+        }
+    }
+    
 
     public void LightOffAllTiles()
     {

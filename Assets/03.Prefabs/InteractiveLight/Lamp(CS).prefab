@@ -41,9 +41,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175844827252640523}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 0
-  m_Shape: 0
   m_Color: {r: 0.9254902, g: 0.5058824, b: 0, a: 1}
   m_Intensity: 0
   m_Range: 268.9
@@ -93,8 +92,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &4141785044156592566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,18 +216,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8b2929e03a2b48a4c91e986d57143767,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d1ad84cc99434ac47b80c07f716d3c7a, type: 2}
     - target: {fileID: -7511558181221131132, guid: 8b2929e03a2b48a4c91e986d57143767,
         type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: 'm_Materials.Array.data[2]'
       value: 
-      objectReference: {fileID: 2100000, guid: e8ceeb40aee777b4e92f7300ba9c51ea, type: 2}
+      objectReference: {fileID: 2100000, guid: 93c5a8adfb8beb5439341937daf86405, type: 2}
     - target: {fileID: 919132149155446097, guid: 8b2929e03a2b48a4c91e986d57143767,
         type: 3}
       propertyPath: m_Name
-      value: shadow_Lamp (3)
+      value: Lamp(CS)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8b2929e03a2b48a4c91e986d57143767,
         type: 3}
@@ -262,7 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f95591164d59841980802633d1fde1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  light: {fileID: 0}
+  illuminantType: 0
   targetTileVector: []
+  isLight: 0
+  lightMaterial: {fileID: 2100000, guid: 93c5a8adfb8beb5439341937daf86405, type: 2}
+  offMaterial: {fileID: 2100000, guid: 5c411b6377616204ba9f17bf6e68a84f, type: 2}
 --- !u!4 &9076549231782476930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b2929e03a2b48a4c91e986d57143767,

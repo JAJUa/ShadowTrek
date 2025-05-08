@@ -26,7 +26,8 @@ public class Lever : InteractiveObject
 
     public override void ResetObj()
     {
-        TurnLight(false,true);
+        lamp.TargetTileLighting(false);
+        animator.SetTrigger("Left");
     }
     
 
@@ -41,11 +42,7 @@ public class Lever : InteractiveObject
         OnOff(isTurnOn, isResetLight);  
       
     }
-    public void TurnLight(bool turnOn,bool isResetLight = false)
-    {
-        OnOff(turnOn, isResetLight);
 
-    }
 
     public void OnOff(bool turnOn, bool isResetLight = false) //isResetLight 없앨 예정
     {

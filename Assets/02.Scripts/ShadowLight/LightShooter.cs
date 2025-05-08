@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VInspector;
@@ -25,8 +26,10 @@ public class LightShooter : illuminant
    public List<TargetTileStruct> targetTileStruct = new List<TargetTileStruct>();
    
    [SerializeField] private int curIndex;
-   private int beginIndex;
+   [Tooltip("45도로 돌아가는 시간")][SerializeField] private float rotSpeed = 1f;
+   private int beginIndex = 0;
    private bool clockWise = true;
+   private Coroutine turnCor;
 
 
    private void Start()
@@ -38,6 +41,7 @@ public class LightShooter : illuminant
    {
        beginIndex = curIndex;
        illuminantType = IlluminantType.always;
+       base.LightOn();
        Setting();
    }
 
@@ -105,11 +109,27 @@ public class LightShooter : illuminant
     [Button]
     public void ChangeDir()
     {
+        DOTween.Kill(transform);
+        if(turnCor!=null) StopCoroutine(turnCor);
         clockWise = !clockWise;
+        turnCor =  StartCoroutine(Turning());
+    }
+    public override void FirstMoveAction()
+    {
+        turnCor =  StartCoroutine(Turning());
+    }
+
+    public IEnumerator Turning()
+    {
+        while (true)
+        {
+            TargetTileLighting();
+            yield return new WaitForSeconds(rotSpeed + 0.051f);
+        }
     }
 
     [Button]
-    public override void TargetTileLighting()
+    public override void TargetTileLighting() //빛 돌아가게 하는거
     {
         if(clockWise)
             curIndex = ++curIndex >= targetTileStruct.Count ? 0 : curIndex;
@@ -119,18 +139,43 @@ public class LightShooter : illuminant
         if(clockWise) lastIndex =curIndex-1<0 ? targetTileStruct.Count-1:curIndex-1; //최근 인덱스
         else  lastIndex =curIndex+1>=targetTileStruct.Count ? 0:curIndex +1;
         
-        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, targetTileStruct[curIndex].rot, transform.rotation.eulerAngles.z),0.3f).SetEase(Ease.Linear);
-        List<Tile> lastTiles =  targetTileStruct[lastIndex].targetTile;
-        List<Tile> tiles = targetTileStruct[curIndex].targetTile;
-        foreach (var lastTile in lastTiles)
+        // 회전 각도 계산
+        float deltaAngle = Mathf.DeltaAngle(transform.rotation.eulerAngles.y,targetTileStruct[curIndex].rot); // -180 ~ 180 범위
+        float distance = Mathf.Abs(deltaAngle);
+    
+        // 전체 45도 기준 회전 시간 비례 계산
+        float duration = rotSpeed * (distance / 45f);
+       // Debug.Log(duration);
+        transform.DORotate(new Vector3(transform.rotation.eulerAngles.x, targetTileStruct[curIndex].rot, transform.rotation.eulerAngles.z),duration).SetEase(Ease.Linear)
+            .OnComplete(()=>
         {
-            lastTile.GetLight(false);
-        }
+            List<Tile> lastTiles =  targetTileStruct[lastIndex].targetTile;
+            List<Tile> tiles = targetTileStruct[curIndex].targetTile;
+            HashSet<Tile> allTileSet = new HashSet<Tile>(lastTiles);
+            allTileSet.UnionWith(tiles);
+            foreach (var lastTile in lastTiles)
+            {
+                lastTile.GetLight(false);
+            }
 
-        foreach (var tile in tiles)
-        {
-            tile.GetLight(true);
-        }
+            foreach (var tile in tiles)
+            {
+                tile.GetLight(true);
+              
+            }
+
+            DOVirtual.DelayedCall(0.01f, () =>
+            {
+                Debug.Log("딜레이");
+                foreach (var tile in allTileSet)
+                {
+                    tile.SetLight();
+                }
+
+            });
+            
+        });
+       
         
     }
 
@@ -138,7 +183,12 @@ public class LightShooter : illuminant
     {
         AllTileLightOff();
         clockWise = true;
+        if(turnCor!=null)
+            StopCoroutine(turnCor);
+        DOTween.Kill(transform);
         curIndex = beginIndex;
+        transform.eulerAngles = new Vector3(transform.rotation.eulerAngles.x, targetTileStruct[curIndex].rot,
+            transform.rotation.eulerAngles.z);
     }
 
     private void AllTileLightOff()
@@ -155,6 +205,6 @@ public class LightShooter : illuminant
     public override void AllWaysLighting()
     {
         base.AllWaysLighting();
-        TargetTileLighting();
+        //TargetTileLighting();
     }
 }

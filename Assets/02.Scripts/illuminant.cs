@@ -15,15 +15,16 @@ public class illuminant : MonoBehaviour
     public IlluminantType illuminantType;
  
     public List<Vector3> targetTileVector = new List<Vector3>();
-
-    protected virtual void Awake()
-    {
-       
-    }
+    
 
     public virtual void LightOn()
     {
-        
+        LightOn(1000,0.01f);
+    }
+
+    public virtual void FirstMoveAction()
+    {
+        //현재는 돌아가는 빛만 해당
     }
     
     public virtual void LightOff()
@@ -54,7 +55,13 @@ public class illuminant : MonoBehaviour
         Debug.Log("lamp"+ isLight);
         
         float intensity = isLight ? 1000 : 0;
-        foreach (var tile in lightTiles) tile.GetLight(isLight);
+        foreach (var tile in lightTiles) 
+        {
+            tile.GetLight(isLight);
+            tile.alWaysLighting = isLight;
+            tile.SetLight();
+            
+        }
         DOVirtual.DelayedCall(0.3f, () =>
         {
             LightOn(intensity,0.5f);

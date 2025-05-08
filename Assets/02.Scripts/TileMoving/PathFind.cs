@@ -84,7 +84,6 @@ public class PathFind : Singleton<PathFind>
             
             var _x = IntervalInt(p.x - bottomLeft.x);
             var _z = IntervalInt(p.z - bottomLeft.z);
-            Debug.Log(_x + "/" + _z);
             Node node = NodeArray[_x, _z];
             nodePath.Add(node);
         }

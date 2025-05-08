@@ -60,11 +60,14 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -8693172909504858975, guid: 40e212083abe26b40b5001bb785b410a, type: 3}
-  - {fileID: 725804396391725484, guid: 40e212083abe26b40b5001bb785b410a, type: 3}
+  - {fileID: 2100000, guid: 93c5a8adfb8beb5439341937daf86405, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,8 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d6a04515047b44ca5e0561d6dc1d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  light: {fileID: 3033776553248752152}
   illuminantType: 0
   targetTileVector: []
+  lightMaterial: {fileID: 2100000, guid: 93c5a8adfb8beb5439341937daf86405, type: 2}
+  offMaterial: {fileID: 2100000, guid: 5c411b6377616204ba9f17bf6e68a84f, type: 2}
 --- !u!1 &5564772334648727993
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,9 +147,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564772334648727993}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 0
-  m_Shape: 0
   m_Color: {r: 0.9254902, g: 0.5058824, b: 0, a: 1}
   m_Intensity: 1500
   m_Range: 268.9
@@ -193,8 +198,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &4645703199337138831
 MonoBehaviour:
   m_ObjectHideFlags: 0

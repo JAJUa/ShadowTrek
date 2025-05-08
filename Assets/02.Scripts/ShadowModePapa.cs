@@ -43,7 +43,7 @@ public class ShadowModePapa : Character
                         if (!firstMove)
                         {
                             firstMove = true;
-                            InGameManager.Inst.PlayerMove();
+                            InGameManager.Inst.FirstMoveAction();
                         }
                         InGameManager.Inst.moveBlock = true;
                         Tile tile = TileFinding.GetOneTile( Vector3Int.RoundToInt(transform.position));

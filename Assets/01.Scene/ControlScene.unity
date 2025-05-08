@@ -3600,6 +3600,7 @@ MonoBehaviour:
   globalVolume: {fileID: 104942596}
   defaultVolume: {fileID: 11400000, guid: 189c0786450ea5e4e8248931387da96e, type: 2}
   answerVolume: {fileID: 11400000, guid: e0a107fdbb47ee34ab39feec6ad8b0eb, type: 2}
+  darkVolume: {fileID: 11400000, guid: 074e787926a24644b8e09c1a9df5e07c, type: 2}
 --- !u!1 &1799272190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3880,16 +3881,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionList:
-  - state: 1
-    stateName: 
-    offset: {x: 0, y: 0}
-    alpha: 0
-    blockRay: 0
   - state: 0
     stateName: 
     offset: {x: 0, y: 0}
     alpha: 1
     blockRay: 1
+  - state: 1
+    stateName: 
+    offset: {x: 0, y: 0}
+    alpha: 0
+    blockRay: 0
   CurrentPosition:
     state: 0
     stateName: 

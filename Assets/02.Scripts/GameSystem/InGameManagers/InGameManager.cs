@@ -76,12 +76,16 @@ public class InGameManager : Singleton<InGameManager>
                 EnterReplayMode();
                 break;
             case GameState.SeraTurn:
-                PlayerMove();
+                player.CharacterMove();
                 break;
         }
     }
 
-    public void PlayerMove()=> player.CharacterMove();
+    public void FirstMoveAction()
+    {
+        player.CharacterMove();
+        LightManager.Inst.FirstMoveLightAction();
+    } 
 
     
     
@@ -101,6 +105,8 @@ public class InGameManager : Singleton<InGameManager>
     {
         //리플레이 모드 진입
         gameState = GameState.ShadowTurn;
+        TileManager.Inst.ShowAllTiles();
+        VolumeManager.Inst.SetDefaultVolume();
         LightManager.Inst.LightsOn();
         InGameUIManager.Inst.SpriteChange(false);
         //리플레이 진입시 패스 소환
@@ -121,7 +127,6 @@ public class InGameManager : Singleton<InGameManager>
         { 
             FadeInFadeOut.Inst.FadeOut(); 
             moveBlock = false; 
-            LightManager.Inst.NonDetectActionFinish(); 
         });
     }
 

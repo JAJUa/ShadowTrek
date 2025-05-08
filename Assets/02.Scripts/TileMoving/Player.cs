@@ -78,7 +78,6 @@ public class Player : Character
         if(tile==null)
             Debug.LogError("타일이 없음");
         tile.character = this;
-        Debug.Log("판정");
         if (InGameManager.Inst.CurState() == GameState.ShadowTurn)
         {
             if (!tile.isLight && !seraInv)
@@ -115,7 +114,6 @@ public class Player : Character
 
     protected override void UnReplayMode(Tile _tile)
     {
-        Debug.Log("끝에 도착");
         if (_tile.isEndTile)
         {
             InGameManager.Inst.ChangeState(GameState.ShadowTurn);

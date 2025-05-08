@@ -9,6 +9,7 @@ public class Tile : MonoBehaviour
     public bool isLight;
     public Character character;
     public bool isEndTile;
+    public bool alWaysLighting = false;
     public CutSceneManager endCutScene;
 
     [SerializeField] private Material lightMat;
@@ -35,8 +36,22 @@ public class Tile : MonoBehaviour
 
     public void SetLight()
     {
-        isLight = isLightArray.Any(l => l == true) ? true : false;
-        renderer.material = isLight?lightMat:defaultMat;
-        isLightArray.Clear();
+        if (!alWaysLighting)
+        {
+            isLight = isLightArray.Any(l => l == true) ? true : false;
+            renderer.material = isLight?lightMat:defaultMat;
+            isLightArray.Clear();
+        }
+        else
+        {
+            isLight = true;
+            renderer.material = lightMat;
+        }
+       
+    }
+
+    public void Light(bool light) //강제 빛
+    {
+        renderer.material =  light?lightMat:defaultMat;
     }
 }

@@ -54,6 +54,7 @@ MonoBehaviour:
   detectIndex: 010000000300000003000000
   targetTileStruct: []
   curIndex: 0
+  rotSpeed: 1
 --- !u!1 &722604662746989048
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,9 +96,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722604662746989048}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 0
-  m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.7311366, b: 0.45817015, a: 1}
   m_Intensity: 2500
   m_Range: 401
@@ -147,8 +147,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &722604662746989050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,11 +224,9 @@ MonoBehaviour:
   interactPosTiles: []
   isTutorial: 0
   interactRole: 1
-  type: 1
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   answerColor: {r: 1, g: 0.2784314, b: 0.2784314, a: 0}
   interBox: {fileID: 7126991080068428}
-  dialougeBox: {fileID: 0}
   colliderTrans: {x: 0, y: -5, z: 0}
   colliderSize: {x: 20, y: 7, z: 20}
   tileLayerMask:
@@ -232,7 +234,7 @@ MonoBehaviour:
     m_Bits: 65536
   interTransform: {fileID: 8407845939020716969}
   dialoTransform: {fileID: 0}
-  lightShooter: {fileID: 0}
+  lightShooter: {fileID: 186957547746455981}
 --- !u!1 &1045178020113608343
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +341,7 @@ MonoBehaviour:
     m_Bits: 4294967295
 --- !u!95 &5706336726007539679
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -353,6 +355,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -694,15 +697,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -785,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1439730007547781893, guid: 84d8548cad1ff474284aa61b8bed8d73,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b6c0a7a133a74c742aec4511c2676c3d, type: 2}
     - target: {fileID: 919132149155446097, guid: 84d8548cad1ff474284aa61b8bed8d73,
@@ -810,12 +815,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 84d8548cad1ff474284aa61b8bed8d73,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 631d05475f48141439dd296c67ec43de, type: 2}
     - target: {fileID: 7202271454713460447, guid: 84d8548cad1ff474284aa61b8bed8d73,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 631d05475f48141439dd296c67ec43de, type: 2}
     m_RemovedComponents: []

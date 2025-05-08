@@ -17,15 +17,12 @@ public class Dialouge : MonoBehaviour
     private float duration = 0.7f;
     public bool isTutorial;
     public CharacterRole interactRole;
-
-    public enum Type { text, ClickLever, LampRotation };
-    public Type type;
+    
 
     [SerializeField] Color defaultColor, answerColor;
     public Image interBox;
-
-    [ShowIfEnum("type", (int)Type.text)]
-    public Image dialougeBox; 
+    
+    //public Image dialougeBox; 
 
   
 
@@ -37,7 +34,7 @@ public class Dialouge : MonoBehaviour
      [SerializeField]LayerMask tileLayerMask;
 
     [SerializeField] private RectTransform interTransform, dialoTransform;
-    private bool isInterActiveing, isdialoActiveing, isAnimating, onColider;
+    private bool isInterActiveing, isdialoActiveing;
     private Vector2 interAnchor;
     
 
@@ -50,12 +47,11 @@ public class Dialouge : MonoBehaviour
 
     private void Awake()
     {
-       GetInteractPosTile();
        int layer = LayerMask.NameToLayer("MoveTile"); // 레이어 번호 가져오기
        tileLayerMask = 1 << layer; //레이어는 비트마스크 형식
     }
 
-    private void GetInteractPosTile() //감지할 타일 가져옴
+    private void GetInteractPosTile() //감지할 타일 가져옴 한 번만 실행
     {
         Collider[] hit = Physics.OverlapBox(transform.position + colliderTrans, colliderSize, Quaternion.identity, tileLayerMask);
         if (hit.Length > 0)
@@ -70,37 +66,33 @@ public class Dialouge : MonoBehaviour
 
     private void Start()
     {
-        defaultColor = interBox.color;
+        UISetting();
+        GetInteractPosTile();
+    }
+
+    private void UISetting()
+    {
         interTransform = interBox.GetComponent<RectTransform>();
-        interTransform.sizeDelta = new Vector2(4, 4);
-        interTransform.anchoredPosition = new Vector2(interTransform.anchoredPosition.x, interTransform.anchoredPosition.y - 1);
-        interBox.color = new Color(interBox.color.r, interBox.color.g, interBox.color.b, 0f);
-        interBox.transform.rotation = Camera.main.transform.rotation;
+        defaultColor = interBox.color;
+        interTransform.sizeDelta = new Vector2(4f, 4f);
+        Vector2 anchoredPos = interTransform.anchoredPosition;
+        anchoredPos.y -= 1f;
+        interTransform.anchoredPosition = anchoredPos;
+        interAnchor = anchoredPos;
+        Color color = interBox.color;
+        color.a = 0f;
+        interBox.color = color;
         interBox.gameObject.SetActive(false);
-        interAnchor = interTransform.anchoredPosition;
-
-        if (type == Type.text)
-        {
-            dialoTransform = dialougeBox.GetComponent<RectTransform>();
-            dialoTransform.anchoredPosition = new Vector2(dialoTransform.anchoredPosition.x - 8, dialoTransform.anchoredPosition.y - 3);
-
-            dialougeBox.color = new Color(dialougeBox.color.r, dialougeBox.color.g, dialougeBox.color.b, 0f);
-            dialougeBox.transform.localScale = Vector3.zero;
-            dialougeBox.gameObject.SetActive(false);
-        }
-
     }
 
     void Update()
     {
         // 마우스 왼쪽 버튼이 클릭되었을 때
-        if (Input.GetMouseButtonDown(0) && isInterActiveing && !isAnimating)
+        if (Input.GetMouseButtonDown(0) && isInterActiveing)
         {
             if (isdialoActiveing)
             {
                 InterFade(true);
-                if (type == Type.text) DialoFade(false);
-                return;
             }
             else
             {
@@ -112,8 +104,7 @@ public class Dialouge : MonoBehaviour
 
                 if(results.Any(result => result.gameObject == interBox.gameObject))
                 {
-                    InterFade(false);
-                    if (type == Type.text) DialoFade(true);
+                    //InterFade(false);
                     Interact();
                     return;
                 }
@@ -125,15 +116,20 @@ public class Dialouge : MonoBehaviour
                 {
                     if (hit.transform.TryGetComponent(out InteractiveObject interactObj) && hit.transform == transform.parent)
                     {
-                        InterFade(false);
-                        if (type == Type.text) DialoFade(true);
+                        //InterFade(false);
+                        Debug.Log("오브젝트를 클릭함");
                         Interact();
-                        return;
                     }
                 }
 
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        Quaternion camRotation = Camera.main.transform.rotation;
+        interBox.transform.rotation = camRotation;
     }
 
 
@@ -145,77 +141,53 @@ public class Dialouge : MonoBehaviour
         {
             if (tile.character && tile.character.role ==interactRole )
             {
-                Debug.Log(tile.transform.position);
                 InterFade(true); 
-                Debug.Log("캐릭터 있음"); 
                 return;
             }
-            else InterFade(false);
         }
+        InterFade(false);
     }
 
 
     public void InterFade(bool isFadeIn)
     {
-        //interBox.color = InGameManager.Inst.isAnswering ? answerColor: defaultColor;
-        
+        Debug.Log($"실행 : {isFadeIn}");
         if (isFadeIn) interBox.gameObject.SetActive(isFadeIn);
-
-        isAnimating = true;
+        
         isInterActiveing = isFadeIn;
         interBox.DOFade(isFadeIn ? 1f : 0f, duration);
         Vector2 targetAnchor = new Vector2(interAnchor.x,interAnchor.y + (isFadeIn?1:0));
+        
         interTransform.DOAnchorPosY(targetAnchor.y, duration).SetEase(Ease.InOutSine).OnComplete(() =>
         { 
-            isAnimating = false; 
             interBox.gameObject.SetActive(isFadeIn);
             interTransform.anchoredPosition = targetAnchor;
         });
     }
 
-    //이거 수정 필요
-    private void LateUpdate()
-    {
-        interBox.transform.rotation = Camera.main.transform.rotation;
-    }
-
     public virtual void Interact()
     {
-      
-
-        if (isTutorial)
-            TutorialManager.Inst.FinshTutorial();
-        InGameManager.Inst.OnlyPlayerReplay(true);
-
-        /*
-        if (!InGameManager.Inst.isAnswering)
-            DOVirtual.DelayedCall(0.8f, () => InterFade(true));
-    */
+        
     }
 
-    public virtual void InteractTutorial()
-    {
-        isTutorial= true;
-    }
+    #region 다이얼로그
 
-    public void AnswerDialogue()
-    {
-        Debug.Log("인터렉트 하셈!");
-        InterFade(true); 
-    }
+    /*
+   void DialoFade(bool isFadeIn)
+   {
+       int posX = isFadeIn ? 8 : -8;
+       int posY = isFadeIn ? 3 : -3;
+       if(isFadeIn) dialougeBox.gameObject.SetActive(true);
+       isAnimating = true;
+       isdialoActiveing = isFadeIn;
+       dialougeBox.DOFade(isFadeIn? 1f : 0f, duration);
+       dialoTransform.DOAnchorPos(new Vector2(dialoTransform.anchoredPosition.x + posX, dialoTransform.anchoredPosition.y + posY), duration).SetEase(Ease.InOutSine);
+       dialoTransform.DOScale(isFadeIn? Vector3.one:Vector3.zero, duration).SetEase(Ease.InOutSine).OnComplete(() => { isAnimating = false; dialougeBox.gameObject.SetActive(isFadeIn); });
+   }*/
 
-    void DialoFade(bool isFadeIn)
-    {
-        int posX = isFadeIn ? 8 : -8;
-        int posY = isFadeIn ? 3 : -3;
-        if(isFadeIn) dialougeBox.gameObject.SetActive(true);
-        isAnimating = true;
-        isdialoActiveing = isFadeIn;
-        dialougeBox.DOFade(isFadeIn? 1f : 0f, duration);
-        dialoTransform.DOAnchorPos(new Vector2(dialoTransform.anchoredPosition.x + posX, dialoTransform.anchoredPosition.y + posY), duration).SetEase(Ease.InOutSine);
-        dialoTransform.DOScale(isFadeIn? Vector3.one:Vector3.zero, duration).SetEase(Ease.InOutSine).OnComplete(() => { isAnimating = false; dialougeBox.gameObject.SetActive(isFadeIn); });
-    }
 
+    #endregion
+   
 
 
   

@@ -31,6 +31,8 @@ public class PathFindAI : MonoBehaviour
          animator.SetBool("isWalk", true);
         for (int passtile = 0; passtile < finalNodeList.Count - 1; passtile++)
         { 
+            if(InGameManager.Inst.CurState() == GameState.SeraTurn)
+                SeraLightPath(passtile);
             corutine= StartCoroutine(MoveToPosition(new Vector3(finalNodeList[passtile + 1].x, character.transform.position.y, finalNodeList[passtile + 1].z), passtile));
             yield return corutine;
         }
@@ -39,6 +41,43 @@ public class PathFindAI : MonoBehaviour
 
         InGameManager.Inst.moveBlock = false;
     }
+
+     public void SeraLightPath(int index)
+     {
+         TileManager.Inst.LightOffAllTiles();
+         TileManager.Inst.HideAllTiles();
+         var path = MapDataManager.Inst.Data.mapData[MapDataManager.Inst.testMapIndex].seraPath;
+         List<Vector3> _tiles = new List<Vector3>();
+         List<Tile> lightTiles = new List<Tile>();
+         _tiles.Add(path[index]);
+         int k = 2;
+         int l = 1;
+         for (int i = 1; i <= k; i++)
+         {
+             if (index + i < path.Count)
+             {
+                 _tiles.Add(path[index+i]);
+                 if(i<=l)
+                    lightTiles.Add(TileFinding.GetOneTile(path[index+i]));
+             }
+
+             if (index - i >= 0)
+             {
+                 _tiles.Add(path[index - i]);
+                 if(i<=l)
+                     lightTiles.Add(TileFinding.GetOneTile(path[index-i]));
+             }
+         }
+        
+         TileManager.Inst.ShowTiles(_tiles);
+         foreach (var tile in lightTiles)
+         {
+             tile.Light(true);
+         }
+         var curTile =  TileFinding.GetOneTile(path[index]);
+         curTile.Light(true);
+         
+     }
 
 
     private IEnumerator MoveToPosition( Vector3 targetPosition, int passtile)
@@ -71,6 +110,8 @@ public class PathFindAI : MonoBehaviour
         //이동이 끝났을 때
         
         character.InLight();
+        if(InGameManager.Inst.CurState() == GameState.ShadowTurn && role == CharacterRole.Papa)
+            LightManager.Inst.CheckDialougePos();
         if (InGameManager.Inst.CurState() == GameState.ShadowTurn && role == CharacterRole.Sera)
         {
             InGameManager.Inst.player.replay.EraseLine();

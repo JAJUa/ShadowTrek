@@ -4,18 +4,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class LightManager : MonoBehaviour
+public class LightManager : Singleton<LightManager>
 {
-    public static LightManager Inst;
     
     [SerializeField] private Transform interactionGimic, interactionLights,interactionBoth;
 
     [SerializeField]private List<Dialouge> interactionDialogues;
     [SerializeField] private List<illuminant> illuminants;
-    private void Awake()
-    {
-        Inst = this;
-    }
+
 
     private IEnumerator Start()
     {
@@ -29,7 +25,7 @@ public class LightManager : MonoBehaviour
         CollectComponents(interactionBoth,interactionDialogues);
         CollectComponents(interactionLights,illuminants);
         CollectComponents(interactionBoth,illuminants);
-        yield return new WaitUntil(()=>TileManager.Inst.mapTiles.Count>0);
+        LightsOff();
     }
     
     void CollectComponents<T>(Transform parent, List<T> components) where T : Component
@@ -59,21 +55,8 @@ public class LightManager : MonoBehaviour
             illuminant.ResetLight();
         }
     }
-
-    public void ActionFinish() //한 행동이 끝났을 때
-    {
-       if(InGameManager.Inst.CurState() == GameState.ShadowTurn)
-           CheckDialougePos();
-       DetectCharacterLight();
-    }
     
-    public void NonDetectActionFinish() //한 행동이 끝났을 때 하지만 캐릭터들 InLight 안시킴
-    {
-        Debug.Log("ActionFinish");
-        SetLights();
-        CheckDialougePos();
-    }
-
+    
 
     public void CheckDialougePos()
     {
@@ -90,23 +73,22 @@ public class LightManager : MonoBehaviour
             illuminant.LightOn();
         }
     }
-    
-    public void DetectCharacterLight()
+
+    public void LightsOff()
     {
-        if(InGameManager.Inst.CurState() == GameState.ShadowTurn)
-            SetLights();
-        
-        InGameManager.Inst.player.InLight();
-        if ( InGameManager.Inst.papa != null &&  InGameManager.Inst.papa.gameObject.activeSelf)  InGameManager.Inst.papa.InLight();
-    }
-    
-    private void SetLights()
-    {
-        Debug.Log("SetLights");
         foreach (var illuminant in illuminants)
         {
-            illuminant.AllWaysLighting();
+            illuminant.LightOff();
         }
-        TileManager.Inst.SetLightsTile();
     }
+
+    public void FirstMoveLightAction()
+    {
+        foreach (var _illuminant in illuminants)
+        {
+            _illuminant.FirstMoveAction();
+        }
+    }
+    
+    
 }
