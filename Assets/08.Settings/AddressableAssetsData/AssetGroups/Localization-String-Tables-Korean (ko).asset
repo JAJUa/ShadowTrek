@@ -14,31 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Korean (ko)
   m_GUID: c1f1501350cb836428eefa50324fb6d7
-  m_SerializeEntries:
-  - m_GUID: 2364b0752cc96ae4ea80bc2591b4721f
-    m_Address: New Table_ko
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ko
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 27be3f5e6eb8ae942ad6c1de10b00a5e
-    m_Address: CutSceneText_ko
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ko
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 505a94c22aa48b740aa0897378ac4453
-    m_Address: TutorialBook_ko
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ko
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5b07d170e016f2340917482cda17aeb4
-    m_Address: SceneTitle_ko
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ko
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 3fdb66ccb1214154db7c513ac76a3191, type: 2}
   m_SchemaSet:

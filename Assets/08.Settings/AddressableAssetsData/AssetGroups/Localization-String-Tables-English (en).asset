@@ -14,31 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-English (en)
   m_GUID: 5c055197d57634947b59418c50274100
-  m_SerializeEntries:
-  - m_GUID: 0831d555378dd9c49a602c75daa36687
-    m_Address: SceneTitle_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 477db18a3eece5e4798144eceea96779
-    m_Address: New Table_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e347c2ced6d4d514db7ff7aa76dc669a
-    m_Address: CutSceneText_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f0c50027928d97d4b8bdb7c9f85417e1
-    m_Address: TutorialBook_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 3fdb66ccb1214154db7c513ac76a3191, type: 2}
   m_SchemaSet:
